@@ -1,0 +1,133 @@
+.benefits
+  background #EBF6EB
+  padding-bottom 40px
+  border-top 2px solid #6E7C6E
+  margin-top 60px
+  clearfix()
+  min-height 285px
+
+  &__wrap
+    width $layout_width
+    margin 0 auto
+    clearfix()
+
+  &__header
+    float left
+
+  &__list
+    list-style none
+    padding 0 54px
+    margin 0
+    width 705px
+    box-sizing border-box
+    position relative
+    text-align center
+    float left
+    clear both
+    text-align justify
+    line-height 0
+    font-size 1px
+
+    &:before
+      content ''
+      background #6e7c6e
+      position absolute
+      height 8px
+      top 70px
+      left 0
+      right 0
+
+    &:after
+      width 100%
+      height 0
+      visibility hidden
+      overflow hidden
+      content ''
+      display inline-block
+
+  &__hint
+    position absolute
+    z-index 0
+    top 70px
+    width 238px
+    height 295px
+    left -53px
+    font-size 13px
+    line-height 1.4
+    color #0C555D
+    border 1px solid #0C555D
+    border-top 8px solid
+    border-radius 0 0 3px 3px
+    overflow hidden
+    background #EBF6EB
+    box-sizing border-box
+    padding 85px 20px 0
+    text-align left
+    overflow hidden
+    opacity 0
+    transition opacity .3s ease-in-out
+
+  &__item
+    display inline-block
+    position relative
+    text-align center
+    width 130px
+    height 147px
+    top 0
+    transition all .3s ease-in-out
+
+    &:after
+      content ''
+      position absolute
+      icons-sprite($benefit-panel)
+      top 0
+      left 0
+      right 0
+      bottom 0
+      z-index 0
+
+    &:before
+      content ''
+      position absolute
+      icons-sprite($benefit-panel-active)
+      top 0
+      left 0
+      right 0
+      bottom 0
+      z-index 1
+      opacity 0
+      transition opacity .3s ease-in-out
+
+    &:hover
+      top -115px
+
+      .benefits__hint
+        opacity 1
+
+      &:before
+        opacity 1
+
+    &-icon
+      position absolute
+      top 43px
+      z-index 1
+
+      &_type_refund
+        icons-sprite($benefit-refund)
+        left 26px
+
+      &_type_payments
+        icons-sprite($benefit-visa)
+        left 39px
+
+      &_type_delivery
+        icons-sprite($benefit-delivery)
+        left 20px
+
+  &__item-caption
+    color #6e7c6e
+    text-transform uppercase
+    font 18px/1.4 $addition_font
+    text-shadow 0 1px rgba(3, 28, 31, .9)
+    display block
+    margin 165px -30px 0

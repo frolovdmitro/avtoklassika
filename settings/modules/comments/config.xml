@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<comments>
+  <notifications>
+    <enabled>true</enabled>
+    <emails>avtoclassika.com@gmail.com</emails>
+  </notifications>
+  <validate>
+    <add_comment>
+      <name>
+        <empty/>
+      </name>
+
+      <email>
+        <empty/>
+        <parseEmail/>
+      </email>
+
+      <text>
+        <empty/>
+      </text>
+    </add_comment>
+  </validate>
+<spam><stopwords>viagra,cialis,pill,porno,sex,порно,секс,url=,http,retin,ortego,gucci,vuitton,levitra,oakley,test,first site, зароботок,отдых,my first visit,pay,доход,заработок,test,Доступная работа</stopwords></spam></comments>

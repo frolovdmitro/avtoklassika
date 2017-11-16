@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+	<change_password>wenn nötig, geben Sie das neue Kennwort</change_password>
+	<null/>
+	<enter>Eingang</enter>
+	<add_feedback>Bewertung schreiben</add_feedback>
+	<subscription>Abonnement</subscription>
+	<subscribe_success>Abonnement erfolgreich, email:</subscribe_success>
+	<unsubscribe>Abonnement kuendigen</unsubscribe>
+	<remember_me>angemeldet bleiben</remember_me>
+	<lost_password>Passwort vergessen?</lost_password>
+	<repair_password>Passwort wiederherstellen</repair_password>
+	<enter_with>anmeldung mit Hilfe</enter_with>
+	<register>Regestrieren Anmeldung</register>
+	<quick_register>Schnellanmeldung</quick_register>
+	<input_your_email>Geben Sie Ihre E-Mail</input_your_email>
+	<cabinet>Cabinet</cabinet>
+	<logined>Anmelden?</logined>
+	<password_retype>Passwort wiederholen</password_retype>
+	<repair_text>Hier können Sie Ihr altes Passwort zurücksetzen und ein neues anlegen. E-Mail-Adresse eingeben</repair_text>
+	<validate>
+		<auth>
+			<email>
+				<empty>E-Mail adresse fehlt</empty>
+				<parseEmail>E-Mail adresse falsch</parseEmail>
+				<not_found>nicht  gefunden</not_found>
+			</email>
+		</auth>
+		<repair>
+			<email>
+				<not_found>Benutzer unbekannt</not_found>
+			</email>
+			<success><![CDATA[Innerhalb weniger Minuten erhalten Sie ein neues Passwort  per Mail an Ihre E-Mail-Adresse <br>
+          <a href="#enter" class="auth-popup__lost-password-link">
+            mit neuem passwort anmelden
+</a>]]></success>
+	  </repair>
+	  <register>
+		  <name>
+			  <empty>Name fehlt</empty>
+		  </name>
+		  <email>
+			  <empty>E-mail Adresse fehlt</empty>
+			  <parseEmail>E-mail Adresse ist falsch</parseEmail>
+			  <exists>Diese E-Mail ist bereits registriert</exists>
+		  </email>
+		  <password>
+			  <empty>Du hast nicht ein Kennwort angegeben</empty>
+		  </password>
+		  <password_retype>
+			  <retype>Diese Passwörter sind nicht identisch</retype>
+		  </password_retype>
+	  </register>
+	  <subscribe>
+		  <email>
+			  <empty>E-mail Adresse fehlt</empty>
+			  <parseEmail>E-mail Adresse ist falsch</parseEmail>
+		  </email>
+		  <name>
+			  <empty>Name fehlt</empty>
+		  </name>
+	  </subscribe>
+	  <add_review>
+		  <name>
+			  <empty>Name fehlt</empty>
+		  </name>
+		  <email>
+			  <empty>Sie haben es nicht geben Sie Ihre E-Mail</empty>
+			  <parseEmail>E-mail Adresse fehlt</parseEmail>
+		  </email>
+		  <text>
+			  <empty>Bewerung abgeben</empty>
+		  </text>
+	  </add_review>
+	  <info>
+		  <name>
+			  <empty>Feld  Name darf nicht leer bleiben</empty>
+		  </name>
+		  <tel>
+			  <empty>Telefonnummer angeben</empty>
+		  </tel>
+		  <email>
+			  <empty>E-mail Adresse fehlt</empty>
+			  <parseEmail>E-mail Adresse ist falsch</parseEmail>
+		  </email>
+	  </info>
+	  <full>
+		  <name>
+			  <empty>Name darf nicht leer sein</empty>
+		  </name>
+		  <email>
+			  <empty>E-mail Adresse fehlt</empty>
+			  <parseEmail>E-mail Adresse ist falsch</parseEmail>
+		  </email>
+		  <phone>
+			  <empty>Das Telefon muss angegeben werden</empty>
+		  </phone>
+		  <street>
+			  <empty>Straße muss angegeben werden</empty>
+		  </street>
+		  <build>
+			  <empty>Nicht angegeben</empty>
+		  </build>
+		  <flat>
+			  <empty>Nicht angegeben</empty>
+		  </flat>
+		  <city>
+			  <empty>Stadt muss angegeben werden</empty>
+		  </city>
+		  <index>
+			  <empty>Index muss angegeben werden</empty>
+		  </index>
+		  <country>
+			  <empty>Land muss angegeben werden</empty>
+		  </country>
+	  </full>
+	</validate>
+	<subscribe>Abonnieren</subscribe>
+	<review_text>Bewertung</review_text>
+	<send_review>Bewertung senden</send_review>
+	<quality_service>service Leistung</quality_service>
+	<usability_site>Benutzerfreundlichkeit der Seite</usability_site>
+	<quality_goods>Qualitaet der Ware</quality_goods>
+	<shipping>Lieferung</shipping>
+	<excellent>ausgezeichnet</excellent>
+	<well>Gut</well>
+	<normal>Befriedigend</normal>
+	<bad>Schlecht</bad>
+	<awful>Abstoßend</awful>
+	<my_cabinet>Mitgliederbereich</my_cabinet>
+	<cabinet_info>Meine Daten</cabinet_info>
+	<cabinet_history>Meine Einkaeufe</cabinet_history>
+	<cabinet_addresses>lieferungsadressen</cabinet_addresses>
+	<cabinet_waited_orders>Noch nicht bezahlt</cabinet_waited_orders>
+	<exit_from_cabinet>Abmelden</exit_from_cabinet>
+	<edit>Endern</edit>
+	<not_specified>Keine Angabe</not_specified>
+	<save_changes>Aenderungen speichern?</save_changes>
+	<country>Land</country>
+	<city>Stadt</city>
+	<index>Postleitzahl</index>
+	<build>Haus</build>
+	<street>Strasse</street>
+	<statuses>
+		<not_complete>Nicht abgeschlossen</not_complete>
+		<proccess>In Bearbeitung</proccess>
+		<wait_payment>Noch nicht bezahlt</wait_payment>
+		<pending>Anstehend</pending>
+		<paid>Bezahlt</paid>
+		<verify_payment>Zahlung Pruefung</verify_payment>
+		<cancel>Storniert</cancel>
+		<success>Abgeschlossen</success>
+	</statuses>
+	<date>Datum</date>
+	<method_delivery>Lieferungsart</method_delivery>
+	<method_payment>Bezahlungsart</method_payment>
+	<sum>Betrag</sum>
+	<status>Zustand</status>
+	<continue>Besstellung bezahlen</continue>
+	<ended_order>Bestellung abschließen</ended_order>
+	<order_info>Bestellungsinfo</order_info>
+	<flat_abb>кв.</flat_abb>
+	<address_delivery>Lieferungsadressen</address_delivery>
+	<mails>
+		<mail_administration>
+			<subject/>
+			<body/>
+		</mail_administration>
+		<registration>
+			<subject></subject>
+			<body><![CDATA[<div><img src="http://s1.avtoclassika.com/uploads/images/logo.jpg" width="224" height="71" style="outline: none; display: block;"><br><table cellpadding="0" cellspacing="0" border="0" id="backgroundTable" bgcolor="#EBF6EB" width="100%" style="border-collapse: collapse; margin: 0px; padding: 0px; width: 598.888916015625px; line-height: 14px;"><tbody><tr><td style="border-collapse: collapse; padding: 25px; border: 1px solid rgb(12, 85, 93);"><h1 style="margin-top: 0px !important;"><span style="font-size: 14.44444465637207px; line-height: 23.33333396911621px;">Danke für die Registrierung!</span><br></h1><div style="line-height: 23.33333396911621px;"><br></div><div style="line-height: 23.33333396911621px;">Sie haben erfolgreich avtoclassika.com protokolliert und können weiter daran arbeiten, mit allen Funktionen. </div><div style="line-height: 23.33333396911621px;"><br></div><div style="line-height: 23.33333396911621px;">Mit freundlichen Grüßen, </div><div style="line-height: 23.33333396911621px;">Verwaltung Avtoclassika.com</div></td></tr></tbody></table></div>]]></body>
+		</registration>
+		<lost_password>
+			<subject>Passwort Wiederherstellung avtoclassika.com</subject>
+			<body><![CDATA[<table cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" width="600px" style="border-collapse: collapse; font-family: Arial, Arial, Helvetica, sans-serif; margin: 0px auto; padding: 0px; line-height: 14px; width: 600px !important;"><tbody><tr><td align="center" style="border-collapse: collapse;"><br><img src="http://s1.avtoclassika.com/uploads/images/logo.jpg" width="224" height="71" style="outline: none; display: block;"></td></tr><tr><td style="border-collapse: collapse;"><br><table cellpadding="0" cellspacing="0" border="0" id="backgroundTable" bgcolor="#EBF6EB" width="100%" style="border-collapse: collapse; margin: 0px; padding: 0px; width: 598.888916015625px;"><tbody><tr><td style="border-collapse: collapse; padding: 25px; border: 1px solid rgb(12, 85, 93);"><p style="margin-top: 0px !important; margin-right: 0px; margin-bottom: 1em; margin-left: 0px;">Hallo! </p><p style="margin-top: 0px !important; margin-right: 0px; margin-bottom: 1em; margin-left: 0px;"><br></p><p style="margin-top: 0px !important; margin-right: 0px; margin-bottom: 1em; margin-left: 0px;">Sie erhalten das Passwort-Recovery-Funktion auf der Website avtoclassika.com. </p><p style="margin-top: 0px !important; margin-right: 0px; margin-bottom: 1em; margin-left: 0px;"><br></p><p style="margin-top: 0px !important; margin-right: 0px; margin-bottom: 1em; margin-left: 0px;">Ihr neues Passwort ist: {{<span style="font-size: 14px;">Password</span><span style="font-size: 14px;">}}. vergessen. Sie können es in Ihrem Konto jederzeit ändern. </span></p><p style="margin-top: 0px !important; margin-right: 0px; margin-bottom: 1em; margin-left: 0px;"><br></p><p style="margin-top: 0px !important; margin-right: 0px; margin-bottom: 1em; margin-left: 0px;">Mit freundlichen Grüßen, </p><p style="margin-top: 0px !important; margin-right: 0px; margin-bottom: 1em; margin-left: 0px;">Verwaltung Avtoclassika.com</p></td></tr></tbody></table></td></tr></tbody></table>]]></body>
+		</lost_password>
+		<public_offer>
+			<text><![CDATA[<h2 style="margin-top:18.0pt;margin-right:0cm;margin-bottom:4.0pt;margin-left:
+0cm">
+<span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:10.0pt;
+line-height:115%;font-family:" arial","sans-serif";mso-fareast-font-family:arial;="" background:white;mso-highlight:white;mso-ansi-language:en-us;font-weight:normal"="">
+Allgemeine
+Geschäftsbedingungen für Avtoclassika - Privatkunden
+</span><span lang="EN-US"><o:p></o:p></span>
+</h2>
+
+<p class="normal">
+<span lang="EN-US"> </span>
+<span style="font-size: 12pt; line-height: 115%;">
+Bitte lesen Sie diese
+Vereinbarung . bei der Bestellung , um den Vorgang abzuschließen , müssen Sie
+zustimmen, dass Sie diese Vereinbarung gelesen haben. Sie sollten nicht die
+Bestellung formalisieren, wenn Sie nicht mit den Bedingungen dieser Vereinbarung
+zustimmen. Abschluss der Bestellung erklären Sie sich mit den Bedingungen der
+Nutzungsvereinbarung, und von diesem Moment einen Vertrag mit einem Online-Shop
+AVTOCLASSIKA.COM (im Folgenden - die Gesellschaft) geben auf der einen Seite
+und die Sie (im Folgenden - Kunde) auf der anderen. Vertrag tritt in Kraft ab
+dem Moment bekommen wir bis zum Ende der Bestellung ausgegeben.
+</span>
+</p>
+
+<p class="normal">
+<span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:
+10.0pt;line-height:115%;mso-ansi-language:EN-US">
+Übereinkommen über die Rechte
+und Pflichten der Parteien
+</span><span lang="EN-US"><o:p></o:p></span>
+</p>
+
+<p class="normal">
+<span style="font-size:12.0pt;mso-bidi-font-size:10.0pt;
+line-height:115%">1 . Empfangen und Bearbeitung von Bestellungen</span>
+</p>
+
+<p class="normal">
+<span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:
+10.0pt;line-height:115%;mso-ansi-language:EN-US">1.1 Bestellung</span><span lang="EN-US"><o:p></o:p></span>
+</p>
+
+<p class="normal">
+<span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:
+10.0pt;line-height:115%;mso-ansi-language:EN-US">
+Einen Kauf erklären Sie sich
+mit der Kunden Allgemeine Nutzungsbedingungen entsprechen.
+</span><span lang="EN-US"><o:p></o:p></span>
+</p>
+
+<p class="normal">
+<span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:
+10.0pt;line-height:115%;mso-ansi-language:EN-US">
+Kundenregistrierung Daten
+Unternehmen nutzt ausschließlich für qualitative Interaktion mit dem Kunden ,
+und nicht auf Dritte übertragen, außer in den Fällen der Gesetzgebung der Ukraine
+festgelegt.
+</span><span lang="EN-US"><o:p></o:p></span>
+</p>
+
+<p class="normal">
+<span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:
+10.0pt;line-height:115%;mso-ansi-language:EN-US">1.2 Bestellabwicklung</span><span lang="EN-US"><o:p></o:p></span>
+</p>
+
+<span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:
+115%;font-family:" arial","sans-serif";mso-fareast-font-family:arial;mso-ansi-language:="" en-us;mso-fareast-language:ru;mso-bidi-language:ar-sa"="">
+Sobald der Kunde eine
+Bestellung aufgibt, erhält er eine Nachricht per E-Mail , Sie zu
+benachrichtigen , dass die 
+</span>
+<span style="font-size: 12pt; line-height: 115%;">
+Reihenfolge war in
+Basisaufträge Online-Shop.
+</span>
+
+<p class="normal">
+<span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:
+10.0pt;line-height:115%;mso-ansi-language:EN-US">
+Online-Shop -Manager bindet
+(Telefon, E-Mail) , wenn nötig mit dem Kunden, die Bestellung zu korrigieren.
+Manager muss auf die technischen Merkmale der Waren und andere Fragen über das
+Produkt antworten.
+</span><span lang="EN-US"><o:p></o:p></span>
+</p>
+
+<p class="normal">
+<span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:
+10.0pt;line-height:115%;mso-ansi-language:EN-US">
+1.3  Korrektur 
+der Bestellung
+</span><span lang="EN-US"><o:p></o:p></span>
+</p>
+
+<p class="normal">
+<span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:
+10.0pt;line-height:115%;mso-ansi-language:EN-US">
+Versandkosten nicht immer
+korrekt berechnet Internet-Shop-Manager können die Versandkosten ändern. 
+</span><span lang="EN-US"><o:p></o:p></span>
+</p>
+
+<p class="normal">
+<span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:
+10.0pt;line-height:115%;mso-ansi-language:EN-US">
+Bei der Bestellung von
+Online-Shop-Manager Gesellschaft ist nicht 
+berechtigt Änderungen an der Liste der bestellten Produkte und ihre
+Preise ohne Abstimmung mit den Kunden zu machen. 
+</span><span lang="EN-US"><o:p></o:p></span>
+</p>
+
+<p class="normal">
+<span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:
+10.0pt;line-height:115%;mso-ansi-language:EN-US">
+In Ermangelung einer
+bestellten Ware Gesellschaft ist verpflichtet , den Kunden zu informieren und
+bieten einen geeigneten Ersatz . Allerdings die Firma ist nicht verantvortlich
+für die Schäden oder entgangene Gewinne den Kunden.
+</span><span lang="EN-US"><o:p></o:p></span>
+</p>
+
+<p class="normal">
+<span style="font-size:12.0pt;mso-bidi-font-size:10.0pt;
+line-height:115%">2 . Zahlung und Lieferung</span>
+</p>
+
+<p class="normal">
+<span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:
+10.0pt;line-height:115%;mso-ansi-language:EN-US">2.1 Die Lieferung per Kurier</span><span lang="EN-US"><o:p></o:p></span>
+</p>
+
+<span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:
+115%;font-family:" arial","sans-serif";mso-fareast-font-family:arial;mso-ansi-language:="" en-us;mso-fareast-language:ru;mso-bidi-language:ar-sa"="">
+Wenn Sie bar bezahlen
+Kurier liefert das Auftragsformular in zweifacher Ausfertigung mit den
+angegebenen Details des Unternehmens, Verkaufsdatum , den Namen der Produkte,
+Preise , Mengen, zahlen für die Versandkosten , die Gesamtkosten für Ihren
+Einkauf. Die erste Kopie des Bestellscheins mit dem Vermerk über die Zahlung,
+ist die Gesellschaft Siegel und Unterschrift des Bevollmächtigten der
+Gesellschaft , und eine Quittung an den Kunden gesendet. Eine weitere Kopie Auftragsformular
+vom Kunden nach Erhalt der Bestellung unterschrieben und zahlen 
+<span style="font-size: 12pt; line-height: 115%; font-family: Arial, sans-serif;">
+das Geld in dem der Vertreter
+der Gesellschaft erhalten.
+</span>
+
+<p class="normal">
+<span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:
+10.0pt;line-height:115%;mso-ansi-language:EN-US">2.2 Selbstabholung</span><span lang="EN-US"><o:p></o:p></span>
+</p>
+
+<p class="normal">
+<span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:
+10.0pt;line-height:115%;mso-ansi-language:EN-US">
+Wenn der Kunde bevorzugt den
+Artikel selbst abholen , muss es mit dem Manager Online-Shop Datum und Zeit dem
+Ausgabe der Bestellung vereinbart werden. Im Büro des Unternehmens werden  Waren geliefert  und werden alle notwendigen Dokumente
+verfügen .
+</span><span lang="EN-US"><o:p></o:p></span>
+</p>
+
+<p class="normal">
+<span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:
+10.0pt;line-height:115%;mso-ansi-language:EN-US">
+2.3 Weltweiter Versand "
+Ukrpochta "
+</span><span lang="EN-US"><o:p></o:p></span>
+</p>
+
+<p class="normal">
+<span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:
+10.0pt;line-height:115%;mso-ansi-language:EN-US">
+Versand ins Ausland
+erfolgt  per Ukrpochta. Die Lieferzeiten
+sind abhängig von der Entfernung des Landes und der Post . Das Unternehmen ist
+nicht für Lieferfrist verantwortlich. Die Lieferungkosten gemäß den Tarifen
+" Ukrpochty “, wo gibt es Beschränkungen auf das Gewicht und die
+Abmessungen .
+</span><span lang="EN-US"><o:p></o:p></span>
+</p>
+
+<p class="normal">
+<span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:
+10.0pt;line-height:115%;mso-ansi-language:EN-US">2.4 Weltweiter Versand « UPS »</span><span lang="EN-US"><o:p></o:p></span>
+</p>
+
+<p class="normal">
+<span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:
+10.0pt;line-height:115%;mso-ansi-language:EN-US">
+Lieferung per Internationale
+Lieferservice « UPS » durchgeführt weltweit, nach den auf der Website
+angegebenen www.ups.com Tarife. Versandkosten werden separat für jeden Fall
+berechnet und dem Kunden ausgewiesen.
+</span><span lang="EN-US"><o:p></o:p></span>
+</p>
+
+<p class="normal">
+<span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:
+10.0pt;line-height:115%;mso-ansi-language:EN-US">
+2.5 Lieferung in Europa und
+Russland ( Moskau, Berlin und anderen großen Städten )
+</span><span lang="EN-US"><o:p></o:p></span>
+</p>
+
+<p class="normal">
+<span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:
+10.0pt;line-height:115%;mso-ansi-language:EN-US">
+Kann durch den Zugbegleiter
+mit Leiter separat für jeden Fall berechnet und dem Kunden berichtet
+durchgeführt werden.
+</span><span lang="EN-US"><o:p></o:p></span>
+</p>
+
+<p class="normal">
+<span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:
+10.0pt;line-height:115%;mso-ansi-language:EN-US">2.6 Die Zahlung</span><span lang="EN-US"><o:p></o:p></span>
+</p>
+
+<p class="normal">
+<span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:
+10.0pt;line-height:115%;mso-ansi-language:EN-US">
+2.6.1. Direkt über die Website
+mit einer Kreditkarte (Visa, Mastercard) , und Zahlungssysteme ( LiqPay ,
+Portmone , Pay Pal)
+</span>
+</p>
+
+<span style="font-size: 12pt; line-height: 115%; font-family: Arial, sans-serif;">
+2.6.2 . Übersetzungen von
+Western Union ( nach der Übersetzung Code muss mit dem Manager berichtet
+werden. )
+</span></span><div>
+<span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:
+115%;font-family:" arial","sans-serif";mso-fareast-font-family:arial;mso-ansi-language:="" en-us;mso-fareast-language:ru;mso-bidi-language:ar-sa"=""><p class="normal"><span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:
+10.0pt;line-height:115%;mso-ansi-language:EN-US">
+2.6.3 . SWIT Übersetzung auf
+Bankkonto des Unternehmers.
+</span><span lang="EN-US"><o:p></o:p></span>
+</p>
+
+<p class="normal">
+<span style="font-size:12.0pt;mso-bidi-font-size:10.0pt;
+line-height:115%">2.6.4 . Kassenbestand oder im Büro.</span>
+</p>
+
+<p class="normal">
+<span style="font-size:12.0pt;mso-bidi-font-size:10.0pt;
+line-height:115%">3 . Termine</span>
+</p>
+
+<p class="normal">
+<span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:
+10.0pt;line-height:115%;mso-ansi-language:EN-US">
+Das Unternehmen schickt die
+Ware innerhalb von 3 Werktagen nach der Anmeldung oder nach Erhalt der
+Auftragsbestätigung (Bezahlung in bar an den Kurier) ab. Kunden sollten sich
+bewusst sein , dass die Gesellschaft eine Situation, in der die Notwendigkeit für
+den Versand ist mehr als 3 Arbeitstagen(keine Waren auf Lager, usw.) oder der
+Versand vorübergehend nicht verfügbar sein, überhaupt.  Allerdings ist die Gesellschaft keine
+Verpflichtung, für Verluste des Kunden, verspätete Lieferung des Auftrags
+zusammen kompensieren nehmen . Wenn der Kunde nicht mit der Lieferzeit
+zufrieden ist, kann sie den Auftrag abzulehnen .
+</span><span lang="EN-US"><o:p></o:p></span>
+</p>
+
+<p class="normal">
+<span style="font-size:12.0pt;mso-bidi-font-size:10.0pt;
+line-height:115%">4 . Stornierung</span>
+</p>
+
+<p class="normal">
+<span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:
+10.0pt;line-height:115%;mso-ansi-language:EN-US">
+Kunde hat das Recht, Ihre
+Bestellung jederzeit stornieren , auch wenn die Ware geliefert wurde . Kunden
+soll die Gesellschaft warnen über einer Stornierung in kürzester Zeit wie
+möglich.
+</span><span lang="EN-US"><o:p></o:p></span>
+</p>
+
+<p class="normal">
+<span lang="EN-US"> </span>
+</p>
+
+<p class="normal">
+<span style="font-size:12.0pt;mso-bidi-font-size:10.0pt;
+line-height:115%">5 . Austausch/ Warenrücksendung</span>
+</p>
+
+<h3><span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:
+10.0pt;line-height:115%;mso-ansi-language:EN-US"><b>
+Innerhalb von 30 Tagen nach
+Erhalt der Ware durch den Käufer Exchange / Rückgabe der Ware ist möglich , den
+Tag des Kaufs nicht mitgerechnet , wenn der Artikel nicht verwendet wurde, die
+Ware behalt marktfähige Kondition, die Qualität geeignet zu verbrauchen,
+Siegel, Etiketten.
+</b></span></h3>
+
+<p class="normal">
+<span style="font-size:12.0pt;mso-bidi-font-size:10.0pt;
+line-height:115%">6 . Der Rechtsrahmen</span>
+</p>
+
+<span lang="EN-US" style="font-size: 12pt; line-height: 115%;">
+Unternehmen und
+Kundenbeziehungen regeln Rechtsakte :
+</span>
+<span style="font-size: 12pt; line-height: 115%;">
+"Die Reihenfolge der
+Standards und Regeln des Handelsaktivität, Handel Dienstleistungen ", die
+von dem Ministerkabinett der Ukraine vom 08.09.95 № 108 genehmigt ( geändert
+und ergänzt)
+</span><span style="font-size: 12pt; line-height: 115%; font-family: Arial, sans-serif;"><br></span></span>
+</div>
+
+<p class="normal">
+<span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:
+10.0pt;line-height:115%;mso-ansi-language:EN-US">
+Gesetz der Ukraine "
+Verbraucherschutz "
+</span><span lang="EN-US"><o:p></o:p></span>
+</p>
+
+<p class="normal">
+<span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:
+10.0pt;line-height:115%;mso-ansi-language:EN-US">
+"Die Regeln der Verkauf
+von Waren an Bestellung und Hausverkauf " (Ministerium für
+Außenwirtschafts Beziehungen und Handel der Ukraine von 29. März 1999 N 199.
+mit dem Justizministerium der Ukraine am 21. April registriert 1999, N
+249/3542)
+</span><span lang="EN-US"><o:p></o:p></span>
+</p>
+
+<p class="normal">
+<span lang="EN-US"> </span>
+<span style="font-size: 12pt; line-height: 115%;">
+7 . Technischen Eigenschaften
+, Aussehen und Vollständigkeit der Ware
+</span>
+</p>
+
+<p class="normal">
+<span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:
+10.0pt;line-height:115%;mso-ansi-language:EN-US">
+Das Unternehmen ist bestrebt
+,  Echtproduktbilder zu präsentieren,
+detaillierte Informationen über Waren und Vollständigkeit zu liefern. Der Kunde
+bestätigt hiermit, dass es sind Unterschiede der Merkmale von wirklichen und
+auf der Website dargestellte Elementen, da verschiedene Hersteller können
+unterschiedliche technische Merkmale der Ware haben. Auch die ganze Palette von
+Autos von gestern hatten erhebliche Unterschiede je nach Jahr , so dass einige
+Produkte möglicherweise nicht geeignet oder müssen, um direkt vor Ort zu
+verfeinern. Viele Gegenstände, die von Grund auf neu " Remake
+"-Technologie gemacht als die Technologie, die in der Automobilindustrie
+von damals verwendet wurde. Einige Teile ändern sich in dem Prozess der
+Wiederherstellung. Beim Kauf der Käufer sollte unabhängig Einhaltung zu
+überwachen bestellten Waren und Beschreibung, die er in den Webshop bekommen -
+überprüfen auf dem Websites des Herstellers, präzisieren  benötigte Eigenschaften beim Webshop Manager.
+</span><span lang="EN-US"><o:p></o:p></span>
+</p>
+
+<p class="normal">
+<span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:
+10.0pt;line-height:115%;mso-ansi-language:EN-US">8 Gewährleistung</span><span lang="EN-US"><o:p></o:p></span>
+</p>
+
+<span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:
+115%;font-family:" arial","sans-serif";mso-fareast-font-family:arial;mso-ansi-language:="" en-us;mso-fareast-language:ru;mso-bidi-language:ar-sa"="">
+Auf allen Chrom Produkte
+Unternehmen bietet 1 Jahr Garantie ab Kaufdatum , die den Regeln des Betriebs
+der Chromteile . (Siehe "Pflege Chrom-Akzenten " in Fahrzeugen
+"Wolga " V. Borisov ) . Die Gesellschaft strebt an, die
+Produktbeschreibung, die genauen Termine und Garantien zeigen jedoch, um
+Verwirrung zu vermeiden , muss der Kunde die Bedingungen und Zusicherungen von
+Menager Online-Shop angeben.
+</span>]]></text>
+	  </public_offer>
+	<change_discount><subject>Ihnen wurde ein Dauerrabatt !!</subject><body><![CDATA[<table cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" width="600px" style="font-family:Arial, Arial, Helvetica, sans-serif;
+  margin:0 auto; padding:0; width:600px !important;
+  line-height: 100% !important;">
+  <tbody>
+<tr>
+    <td align="center">
+      <br>
+<img src="http://s1.avtoclassika.com/uploads/images/logo.jpg" width="224" height="71" style="outline:none;text-decoration:none;
+        -ms-interpolation-mode: bicubic;display:block;">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <br>
+      <table cellpadding="0" cellspacing="0" border="0" id="backgroundTable" bgcolor="#EBF6EB" width="100%">
+        <tbody><tr><td style="padding: 25px;border:1px solid #0C555D;">
+<p style="margin-top:0!important;"><span style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8000001907349px; line-height: normal; background-color: rgb(255, 255, 255);">Herzlichen Glückwunsch! </span></p><p style="margin-top:0!important;"><span style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8000001907349px; line-height: normal; background-color: rgb(255, 255, 255);">Ihnen wurde ein Dauerrabatt in der Höhe von </span><b style="background-color: rgb(255, 255, 255);">{{discount}}% </b><span style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8000001907349px; line-height: normal; background-color: rgb(255, 255, 255);"> bei  avtoclassika,com  gewährt.</span><br></p>
+        </td>
+</tr>
+      </tbody>
+</table>
+    </td>
+  </tr>
+</tbody>
+</table>]]></body></change_discount></mails>
+</users>

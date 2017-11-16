@@ -1,0 +1,34 @@
+.enter-button,
+.cabinet-button {
+  float: right;
+  display: block;
+  text-align: center;
+  width: 68px;
+  border-left: 1px solid #98a598;
+  height: 100%;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-top: 42px;
+  line-height: 1;
+  text-decoration: none;
+  font-size: 14px;
+  color: #4d574d;
+  text-shadow: 0 1px rgba(248,251,251,0.79);
+  text-transform: lowercase;
+}
+.enter-button:before,
+.cabinet-button:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-image: url("/img/_icons.png");
+  background-position: -10px -1182px;
+  width: 13px;
+  height: 16px;
+  background-repeat: no-repeat;
+  margin-top: -13px;
+  margin-left: -6.5px;
+}

@@ -1,0 +1,173 @@
+.products-list {
+  list-style: none;
+  margin: 0;
+  padding: 14px 0 0;
+  zoom: 1;
+}
+.products-list:before,
+.products-list:after {
+  content: "";
+  display: table;
+}
+.products-list:after {
+  clear: both;
+}
+.products-list__item {
+  text-align: center;
+  border: 1px solid #98a598;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  margin: 0 7px 48px 10px;
+  padding: 18px 9px 29px;
+  position: relative;
+  height: 206px;
+  width: 202px;
+  float: left;
+}
+.products-list__item:nth-child(3n) {
+  margin-right: 0;
+}
+.products-list__caption {
+  text-decoration: none;
+  font: 14px/1.4 'Sensation';
+  display: inline-block;
+  overflow: hidden;
+  height: 40px;
+}
+.products-list__caption:hover {
+  text-decoration: underline;
+}
+.products-list__image {
+  width: 202px;
+  text-align: center;
+  height: 144px;
+  overflow: hidden;
+  display: table;
+  z-index: 9999;
+  -webkit-transition: -webkit-transform 0.4s linear 0.3s, opacity 0.9s linear;
+  -moz-transition: -moz-transform 0.4s linear 0.3s, opacity 0.9s linear;
+  -o-transition: -o-transform 0.4s linear 0.3s, opacity 0.9s linear;
+  -ms-transition: -ms-transform 0.4s linear 0.3s, opacity 0.9s linear;
+  transition: transform 0.4s linear 0.3s, opacity 0.9s linear;
+}
+.products-list__image-inner {
+  display: table-cell;
+  vertical-align: middle;
+}
+.products-list__image.type_fly {
+  -webkit-transform: scale(0, 0);
+  -moz-transform: scale(0, 0);
+  -o-transform: scale(0, 0);
+  -ms-transform: scale(0, 0);
+  transform: scale(0, 0);
+  opacity: 0.2;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+  filter: alpha(opacity=20);
+}
+.products-list__buy {
+  background-image: url("/img/_icons.png");
+  background-position: -10px -2336px;
+  width: 98px;
+  height: 29px;
+  background-repeat: no-repeat;
+  color: #fff !important;
+  display: block;
+  position: absolute;
+  right: 5px;
+  bottom: -14.5px;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font: bold 14px/29px 'Sensation';
+  -webkit-font-smoothing: antialiased;
+}
+.products-list__buy_type_hovered {
+  background-image: url("/img/_icons.png");
+  background-position: -10px -2483px;
+  width: 98px;
+  height: 29px;
+}
+.products-list__buy_type_hovered:hover {
+  background-image: url("/img/_icons.png");
+  background-position: -10px -2336px;
+  width: 98px;
+  height: 29px;
+}
+.products-list__cost {
+  background-image: url("/img/_icons.png");
+  background-position: -10px -2434px;
+  width: 99px;
+  height: 29px;
+  background-repeat: no-repeat;
+  color: #0c555d;
+  display: block;
+  position: absolute;
+  left: 5px;
+  bottom: -16.5px;
+  text-align: center;
+  font: bold 18px/27px 'Sensation';
+  padding-top: 2px;
+  -webkit-font-smoothing: antialiased;
+}
+.products-list__cost .rur {
+  position: relative;
+}
+.products-list__cost .rur:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 3px;
+  height: 2px;
+  background: #0c555d;
+  top: 12px;
+}
+.products-list__old-cost {
+  position: absolute;
+  left: -10px;
+  bottom: 10px;
+  background-image: url("/img/_icons.png");
+  background-position: -10px -2532px;
+  width: 93px;
+  height: 30px;
+  background-repeat: no-repeat;
+  text-align: center;
+  font: bold 14px/20px 'Sensation';
+}
+.products-list__old-cost:before {
+  position: absolute;
+  content: '';
+  background-image: url("/img/_icons.png");
+  background-position: -10px -543px;
+  width: 70px;
+  height: 14px;
+  background-repeat: no-repeat;
+  top: 2px;
+  left: 11px;
+}
+.products-list__article {
+  color: #a1b1a1;
+  position: absolute;
+  bottom: 25px;
+  right: 12px;
+  text-align: right;
+}
+.products-list__state-label {
+  position: absolute;
+  color: #6e7c6e;
+  font: 14px/17px 'Sensation';
+  background: #ebf6eb;
+  border: 1px solid #a1b1a1;
+  top: -10px;
+  right: 14px;
+  padding: 0 5px;
+}
+.products-list__state-label:before {
+  content: '';
+  position: absolute;
+  background-image: url("/img/_icons.png");
+  background-position: -10px -1434px;
+  width: 7px;
+  height: 19px;
+  right: -7px;
+  top: -1px;
+}

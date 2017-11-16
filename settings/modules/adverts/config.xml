@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<adverts>
+  <validate>
+    <add>
+      <name>
+        <empty/>
+      </name>
+
+      <city>
+        <empty/>
+      </city>
+
+      <phone>
+        <empty/>
+      </phone>
+
+      <email>
+        <empty/>
+        <parseEmail/>
+      </email>
+
+      <type>
+        <empty/>
+      </type>
+
+      <category>
+        <empty/>
+      </category>
+
+      <caption>
+        <empty/>
+      </caption>
+
+      <text>
+        <empty/>
+      </text>
+    </add>
+  </validate>
+</adverts>

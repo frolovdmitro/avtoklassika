@@ -1,0 +1,56 @@
+.paging
+  margin 15px 0
+  text-align center
+
+  &__list
+    margin 0
+    padding 0
+    list-style none
+    overflow hidden
+
+  &__item
+    display inline-block
+    margin 0 2px
+
+    &_type_current
+      .paging__link
+        icons-sprite($paging-item-active)
+        color #fff
+
+    &_type_prev
+      border-bottom none
+      margin-right 15px
+
+    &_type_next
+      border-bottom none
+      margin-left 15px
+
+  &__link
+    display block
+    icons-sprite($paging-item)
+    text-align center
+    line-height @height
+    text-decoration none
+    font-size 18px
+    overflow hidden
+    position relative
+
+    &_type_prev
+      text-indent -9999px
+
+      &:before
+        content ''
+        position absolute
+        icons-sprite($paging-arrow-left)
+        top 13px
+        left 18px
+
+    &_type_next
+      text-indent -9999px
+
+      &:before
+        content ''
+        position absolute
+        icons-sprite($paging-arrow-right)
+        top 13px
+        left 18px

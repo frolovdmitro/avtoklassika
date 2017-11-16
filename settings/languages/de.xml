@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<show>show</show>
+	<hide>hide</hide>
+	<tracking>tracking</tracking>
+	<slogan>sowjetische Fahrzeuge und Ersatzteile</slogan>
+	<copyright>© 2009–2014 Avtoclassika, Autorenovierung von Avtoclassika.com</copyright>
+	<design>Design by www.felix-art.com</design>
+	<development>Online-Shop-Entwickler Uwinart Development</development>
+	<contacts>Kontakten</contacts>
+	<buy>Kaufen</buy>
+	<fast_buy>Sofort-Kauf</fast_buy>
+	<reccomend_shop>Käufer empfehlen</reccomend_shop>
+	<name>Vorname</name>
+	<phone>telefon</phone>
+	<all>Alles</all>
+	<password>Passwort</password>
+	<home>Hause</home>
+	<comments>Kommentare</comments>
+	<password_retype>Passwort wiederholen</password_retype>
+	<restaurare>Regeneriert</restaurare>
+	<replica>Nachahmung</replica>
+	<secondhand>gebraucht</secondhand>
+	<new>neu</new>
+	<payment>Zahlung</payment>
+	<delivery>Lieferung</delivery>
+	<share>Teilen Sie die Nachrichten</share>
+	<general>
+		<email>info@avtoclassika.com</email>
+		<address>
+			Ukraine
+			Gebiet Kiew, Vyschgorod
+		Vatutina strasse. 69B
+	  </address>
+	</general>
+</root>

@@ -1,0 +1,111 @@
+.ads-list
+  list-style none
+  margin 0
+  padding 0
+
+  &__item
+    width 100%
+    margin-bottom 40px
+    clearfix()
+
+  &__image
+    border 1px solid #98A598
+    border-radius 3px
+    display block
+
+    &-wrap
+      border-bottom 1px solid #0C555D
+      border-radius 3px
+      float left
+      margin-right 15px
+      position relative
+
+  &__info-wrap
+    padding 0 18px 0 0
+    box-sizing border-box
+
+  &__caption
+    padding 0
+    text-transform uppercase
+    margin-bottom 10px
+    -webkit-font-smoothing antialiased
+
+    &-link
+      font bold 18px/1.2 $addition_font
+      text-decoration underline
+
+      &:hover
+        text-decoration none
+
+  &__description
+    font-size 14px
+    margin-bottom 10px
+
+  &__user
+    &-info
+      list-style none
+      margin 0
+      background #EBF6EB
+      border-radius 3px
+      border 1px solid #0C555D
+      padding 10px 15px
+      font-size 14px
+      color #0C555D
+      overflow hidden
+
+    &-item
+      float left
+      width 50%
+      line-height 25px
+      white-space nowrap
+      overflow hidden
+      position relative
+      padding-left 20px
+      box-sizing border-box
+
+      &:before
+        content ''
+        position absolute
+        top 4px
+        left 0
+        background-repeat no-repeat
+
+      A
+        text-decoration none
+
+      &_type_location:before
+        icons-sprite($location)
+
+      &_type_user:before
+        icons-sprite($user)
+
+      &_type_phone:before
+        icons-sprite($phone-small)
+
+      &_type_email:before
+        icons-sprite($email-small)
+
+  &__cost
+    icons-sprite($ribbon-two-sided)
+    position absolute
+    display block
+    text-transform uppercase
+    font-size 18px
+    text-align center
+    line-height 30px
+    bottom -17px
+    left 50%
+    margin-left -89px
+
+    .rur
+      position relative
+
+      &:before
+        content ''
+        position absolute
+        left 0
+        right 3px
+        height 2px
+        background #0C555D
+        top 12px
+

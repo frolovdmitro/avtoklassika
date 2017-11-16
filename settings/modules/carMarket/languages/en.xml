@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<carMarket>
+	<autoBuy>Vehicles for Sale</autoBuy>
+	<main>Main</main>
+	<carsCatalogue><![CDATA[Car's catalog]]></carsCatalogue>
+	<details>More</details>
+	<benefits>Our advantages</benefits>
+	<benefit_1>Free online consultation on repair and restoration</benefit_1>
+	<benefit_2>large assortment of spare parts and delivery worldwide</benefit_2>
+	<benefit_3>Pre-diagnosis and maintenance</benefit_3>
+	<model>model</model>
+	<seria>edition</seria>
+	<year>year</year>
+	<price>price</price>
+	<connectWithSeller>contact seller</connectWithSeller>
+	<viewAll>View all</viewAll>
+	<photos>photos</photos>
+	<general>Main</general>
+	<features>characteristics</features>
+	<details2>Detailed</details2>
+	<description>description</description>
+	<byu>Buy</byu>
+	<auto>vehicle</auto>
+	<other>More</other>
+	<cars>cars for sale</cars>
+	<whyBenefits>Why profitable to buy</whyBenefits>
+	<inOur>from us</inOur>
+	<yourName>Name</yourName>
+	<message>Message</message>
+	<send>Send</send>
+	<uniqChance>This is a unique opportunity to buy</uniqChance>
+	<sovetCar>a Soviet classic cars!</sovetCar>
+	<gotoCatalogue>View all</gotoCatalogue>
+	<arguments>Main reasonы</arguments>
+	<arg1>Antique cars is considered to be the most profitable investment</arg1>
+	<arg2>During the period from 2002 to 2015 the price of some classic cars increased by 500%</arg2>
+	<arg3>The cost of the best restored classic cars ranges from $ 30.000 up to $ 25 million</arg3>
+	<unsubscribe>Unsubscribe</unsubscribe>
+	<menu_1>ЗАПЧАСТИ</menu_1>
+	<menu_1_link>/</menu_1_link>
+	<menu_2>ИНФОРМАЦИЯ</menu_2>
+	<menu_2_link>/help/</menu_2_link>
+	<menu_3>УСЛУГИ</menu_3>
+	<menu_3_link>/services/</menu_3_link>
+	<menu_4>НАПИСАТЬ НАМ</menu_4>
+	<menu_4_link>/contacts/</menu_4_link>
+	<contacts><![CDATA[
+        Украина,<br>
+        г. Вышгород,<br>
+        ул. Ватутина 69-В<br>
+        avtoclassika.com@gmail.com<br>
+        ©2016. All rights reserved
+]]></contacts>	
+</carMarket>

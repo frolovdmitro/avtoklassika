@@ -1,0 +1,23 @@
+.ad-panel {
+  display: table;
+}
+.ad-panel__link {
+  display: table-cell;
+  vertical-align: middle;
+}
+.ad-panel__image {
+  display: block;
+  max-width: 210px;
+  margin: 0 auto;
+}
+.ad-panel_type_bordered {
+  border: 1px solid #98a598;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  text-align: center;
+  width: 212px;
+  height: 253px;
+}
+.ad-panel_margin_bottom {
+  margin-bottom: 20px;
+}

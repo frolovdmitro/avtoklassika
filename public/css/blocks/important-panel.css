@@ -1,0 +1,22 @@
+.important-panel {
+  margin: 0 auto;
+  width: 940px;
+  zoom: 1;
+}
+.important-panel:before,
+.important-panel:after {
+  content: "";
+  display: table;
+}
+.important-panel:after {
+  clear: both;
+}
+.important-panel__ad {
+  float: right;
+  border: 1px solid #98a598;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  text-align: center;
+  width: 212px;
+  height: 186px;
+}

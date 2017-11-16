@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<adverts>
+	<adverts>ОБЪЯВЛЕНИЯ</adverts>
+	<add_advert>Подать объявление</add_advert>
+	<our_adverts>Обьявления по продаже  ретроавтомобилей и запчастей</our_adverts>
+	<contract_price>договорная</contract_price>
+	<buy>КУПЛЮ</buy>
+	<sell>ПРОДАМ</sell>
+	<cars>автомобили</cars>
+	<autoparts>запчасти</autoparts>
+	<other_adverts>Другие объявления</other_adverts>
+	<i_buy>куплю</i_buy>
+	<i_sell>продам</i_sell>
+	<autopart>запчасть</autopart>
+	<car>Автомобиль</car>
+	<city_country>Город и Страна</city_country>
+	<select_type>Выберите тип</select_type>
+	<select_category>Выберите раздел</select_category>
+	<select_currency>Выберите валюту</select_currency>
+	<input_price>Укажите цену или оставьте поле пустым</input_price>
+	<caption>Заглавие</caption>
+	<advert_text>Текст обьявления</advert_text>
+	<upload_photo>Загрузить фото</upload_photo>
+	<validate>
+		<add>
+			<name>
+				<empty>Вы не указали Ваше имя</empty>
+			</name>
+			<city>
+				<empty>Вы не указали город и страну</empty>
+			</city>
+			<email>
+				<empty>Вы не указали ваш E-mail</empty>
+				<parseEmail>Вы указали неверный E-mail</parseEmail>
+			</email>
+			<phone>
+				<empty>Вы не указали ваш телефон</empty>
+			</phone>
+			<type>
+				<empty>Укажите тип объявления</empty>
+			</type>
+			<category>
+				<empty>Укажите раздел объявления</empty>
+			</category>
+			<caption>
+				<empty>Вы не указали заглавие объявления</empty>
+			</caption>
+			<text>
+				<empty>Вы не указали тект объявления</empty>
+			</text>
+			<files>
+				<maxfilesize>Максимальный размер загружаемых файлов 2Мб</maxfilesize>
+				<maxfiles>Максимально можно загрузить 10 файлов</maxfiles>
+			</files>
+		</add>
+	</validate>
+	<null/>
+	<index>
+		<title>Объявления - продажа и покупка ретро авто и запчастей</title>
+		<keywords></keywords>
+		<description>Объявления от частных лиц на продажу и покупку ретро авто и запчастей к классическим автомобилям</description>
+	</index>
+	<templates>
+		<title>{{IF title}}{{title}}{{else}}{{type}}: {{name}}{{IF cost}}, цена {{cost}}€{{END IF}} ({{city}})
+			{{END IF}}{{IF vars}}
+			{{name}} - название объявления
+			{{cost}} - цена
+			{{type}} - Продам/Куплю
+			{{category}} - Автозапчасть/Автомобиль
+			{{date}} - Дата
+			{{country}} - Страна
+			{{city}} - Город
+			{{title}} - TITLE
+			{{keywords}} - KEYWORDS
+			{{description}} - DESCRIPTION
+			{{END IF}}
+		</title>
+		<keywords>Объявления</keywords>
+		<description>{{type}} {{name}}. Регион: {{city}}. Цена: {{cost}} €</description>
+		<share><![CDATA[			{{name}}
+Цена: {{cost}} {{IF currency_abb == 'P'}}руб.{{ELSE}}{{currency_abb}}{{END IF}}
+------------------------------------
+http://avtoclassika.com/car/{{car_synonym}}/{{autopart_id}}/{{id}}/
+
+{{description}}
+	  ]]></share>
+	</templates>
+</adverts>

@@ -1,0 +1,137 @@
+.products-list
+  list-style none
+  margin 0
+  padding 14px 0 0
+  clearfix()
+
+  &__item
+    text-align center
+    border 1px solid #98A598
+    border-radius 3px
+    margin 0 7px 48px 10px
+    padding 18px 9px 29px
+    position relative
+    height 206px
+    width 202px
+    float left
+
+    &:nth-child(3n)
+      margin-right 0
+
+  &__caption
+    text-decoration none
+    font 14px/1.4 $addition_font
+    display inline-block
+    overflow hidden
+    height 40px
+
+    &:hover
+      text-decoration underline
+
+  &__image
+    width 202px
+    text-align center
+    height 144px
+    overflow hidden
+    display table
+    z-index 9999
+    transition transform .4s linear .3s, opacity .9s linear
+
+    &-inner
+      display table-cell
+      vertical-align middle
+
+    &.type_fly
+      transform scale(0, 0)
+      opacity .2
+
+  &__buy
+    icons-sprite($button-buy)
+    background-repeat no-repeat
+    color #fff!important
+    display block
+    position absolute
+    right 5px
+    $bottom = @height/2 * -1
+    bottom $bottom
+    text-decoration none
+    text-align center
+    text-transform uppercase
+    $height = @height
+    font bold 14px/$height $addition_font
+    -webkit-font-smoothing antialiased
+
+    &_type_hovered
+      icons-sprite($button-buy-inactive)
+
+      &:hover
+        icons-sprite($button-buy)!important
+
+  &__cost
+    icons-sprite($cost-sticker)
+    background-repeat no-repeat
+    color #0c555d
+    display block
+    position absolute
+    left 5px
+    $bottom = (@height/2 * -1) - 2
+    bottom $bottom
+    text-align center
+    $line-height = @height - 2
+    font bold 18px/$line-height $addition_font
+    padding-top 2px
+    -webkit-font-smoothing antialiased
+
+    .rur
+      position relative
+
+      &:before
+        content ''
+        position absolute
+        left 0
+        right 3px
+        height 2px
+        background #0C555D
+        top 12px
+
+  &__old-cost
+    position absolute
+    left -10px
+    bottom 10px
+    icons-sprite($ribbon-old-cost)
+    background-repeat no-repeat
+    text-align center
+    font bold 14px/20px $addition_font
+
+    &:before
+      position absolute
+      content ''
+      icons-sprite($cross-out)
+      background-repeat no-repeat
+      top 2px
+      left 11px
+
+  &__article
+    color #a1b1a1
+    position absolute
+    bottom 25px
+    right 12px
+    text-align right
+
+  &__state-label
+    position absolute
+    color #6E7C6E
+    font 14px/17px $addition_font
+    background #EBF6EB
+    border 1px solid #A1B1A1
+    top -10px
+    right 14px
+    padding 0 5px
+
+    &:before
+      content ''
+      position absolute
+      icons-sprite($product-addition-sticker)
+      $right = @width * -1
+      right $right
+      top -1px

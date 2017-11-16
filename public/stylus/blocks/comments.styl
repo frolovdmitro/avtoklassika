@@ -1,0 +1,125 @@
+.comments
+  margin 0
+  padding 0
+  list-style none
+
+  &__item
+    margin-bottom 20px
+
+    &_level
+      &_1
+        margin-left 30px
+
+      &_2
+        margin-left 60px
+
+      &_3
+        margin-left 90px
+
+      &_4
+        margin-left 120px
+
+      &_5
+        margin-left 150px
+
+      &_6
+        margin-left 180px
+
+      &_7
+        margin-left 210px
+
+  &__username
+    color #0C555D
+    font-weight bold
+    font-size 18px
+    position relative
+    padding-left 20px
+
+    &:before
+      position absolute
+      content ''
+      top 2px
+      left 0
+      icons-sprite($user)
+
+  &__date
+    color #6E7C6E
+    font-size 18px
+    margin-left 10px
+
+  &__text
+    line-height 1.4
+
+  &__actions-list
+    margin 0
+    padding 0
+    list-style none
+
+    &_type_news
+      margin-top 10px
+
+    &_type_ads
+      margin-top 10px
+      text-align right
+
+      LI
+        margin-right 0!important
+
+  &__actions-item
+    display inline-block
+    margin-right 15px
+
+  &__actions-reply
+    display inline-block
+    position relative
+    padding-left 20px
+    text-transform lowercase
+    line-height 16px
+
+    &:before
+      position absolute
+      content ''
+      top 1px
+      left 0
+      icons-sprite($reply)
+
+    &:hover
+      text-decoration none
+
+  &__actions-share
+    display inline-block
+    position relative
+    padding-left 20px
+    text-transform lowercase
+    line-height 16px
+
+    &:before
+      position absolute
+      content ''
+      top 1px
+      left 0
+      icons-sprite($share)
+
+    &:hover
+      text-decoration none
+
+  &__add-from
+    overflow hidden
+
+  &__submit
+    clear both
+    float right
+
+  &__reply-wrap
+    margin-top 10px
+    max-height 0
+    overflow hidden
+    opacity 0
+    transition all .4s ease-in-out
+
+    &_state_show
+      opacity 1
+      max-height 300px
+
+  &__count-comments-link
+    color #6e7c6e

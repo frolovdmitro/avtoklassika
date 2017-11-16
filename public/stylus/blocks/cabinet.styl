@@ -1,0 +1,112 @@
+.cabinet
+  &__logout-link
+    line-height 42px
+    display inline-block
+    float right
+    font-size 16px
+
+  &__edit-link
+    float right
+    color #6E7C6E
+    font-style italic
+    position relative
+    padding-left 28px
+    line-height 24px
+
+    &:before
+      content ''
+      position absolute
+      top 0
+      left 0
+      icons-sprite($edit)
+
+    &:hover
+      text-decoration none
+      color #6E7C6E
+
+  &__info
+    margin 0
+    list-style none
+    padding 0
+    clear both
+
+  &__form-input-wrap
+    width 100%
+    box-sizing border-box
+    padding-left 24px!important
+
+    &:before
+      content ''
+      position absolute
+      top 11px
+      left 0
+
+    &_type_name:before
+      icons-sprite($user)
+
+    &_type_email:before
+      icons-sprite($email-small)
+
+    &_type_tel:before
+      icons-sprite($phone-small)
+
+    &_type_disabled
+      padding-bottom 5px!important
+
+      .selector
+        background transparent
+        padding-left 0
+
+        > SPAN
+          font-size 18px
+          font-weight bold
+          background transparent
+
+        .form__select
+          cursor default
+
+    &_type_enabled
+      .selector > SPAN
+        font-size 18px
+        font-weight bold
+        margin-top 2px
+
+  &__form-input
+    font-size 16px!important
+    font-weight normal
+
+    &[disabled], &[readonly]
+      background transparent
+      border none
+      color #0C555D
+      padding 0
+      text-indent 0
+      cursor default
+      outline none
+      line-height 38px
+
+    &_style_large
+      font-size 18px!important
+      font-weight bold!important
+
+  &__h1
+    float left
+
+  &__label
+    min-width 70px
+    display inline-block
+
+  &__submit
+    float right
+
+    &_state_hidden
+      display none!important
+
+  &__form
+    overflow hidden
+    clear both
+    width 65%
+
+    &_with_label
+      .cabinet__form-input-wrap
+        width 87%

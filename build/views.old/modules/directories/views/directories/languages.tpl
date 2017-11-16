@@ -1,0 +1,1 @@
+{{IF items}} <ul id="languages" class="languages"> {{BEGIN items}} <li><a{{if(current,' class="active" ')}} href="//{{synonym}}.{{host}}">{{synonym}}</a></li> {{END items}} </ul> {{END items}}

@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<orders>
+	<quick_buy_text>Укажите Ваше имя и мобильный телефон. В ближайшее время наш менеджер свяжется с вами</quick_buy_text>
+	<our_order>Ваш заказ</our_order>
+	<quick_buy>
+		<success>Спасибо, Ваш заказ оформлен. Наш менеджер в ближайшее время свяжется с Вами.</success>
+	</quick_buy>
+	<order_num>Номер заказа</order_num>
+	<validate>
+		<quick_buy>
+			<name>
+				<empty>Вы не указали Ваше имя</empty>
+			</name>
+			<phone>
+				<empty>Вы не указали Ваш телефон</empty>
+			</phone>
+			<email>
+				<empty>Вы не указали ваш E-mail</empty>
+				<parseEmail>Вы указали неверный E-mail</parseEmail>
+			</email>
+		</quick_buy>
+		<promocode>
+			<promocode>
+				<empty>Вы не указали промокод</empty>
+				<not>Вы указали неверный промокод</not>
+			</promocode>
+		</promocode>
+		<order_user_info>
+			<name>
+				<empty>Имя не может быть пустым</empty>
+			</name>
+			<phone>
+				<empty>Телефон должен быть указан</empty>
+			</phone>
+			<street>
+				<empty>Улица не указана</empty>
+			</street>
+			<build>
+				<empty>Не указано</empty>
+			</build>
+			<flat>
+				<empty>Не указана</empty>
+			</flat>
+			<city>
+				<empty>Город не указан</empty>
+			</city>
+			<index>
+				<empty>Индекс не указан</empty>
+			</index>
+			<country>
+				<empty>Страна не указана</empty>
+			</country>
+		</order_user_info>
+	</validate>
+	<i_new_client>Я новый клиент</i_new_client>
+	<i_old_client>Я уже покупал</i_old_client>
+	<create_order>Оформление заказа</create_order>
+	<step_1>Что покупаем?</step_1>
+	<step_2>Доставка и оплата</step_2>
+	<step_3>Подтверждение</step_3>
+	<basket>Корзина</basket>
+	<total_cost>Общая сумма</total_cost>
+	<unit>шт.</unit>
+	<fio>ФИО</fio>
+	<next>Далее</next>
+	<register>Регистрация</register>
+	<authenticate>Авторизация</authenticate>
+	<or_login_social>Или регистрация при помощи</or_login_social>
+	<input_promocode>Введите промокод</input_promocode>
+	<promocode_hint>Введите код на скидку</promocode_hint>
+	<apply>Применить</apply>
+	<recipient>Покупатель</recipient>
+	<address>Адрес</address>
+	<add_comment>Добавить комментарий</add_comment>
+	<comment_text>Текст комментария</comment_text>
+	<delivery_cost>Стоимость доставки</delivery_cost>
+	<created_order>Оформить заказ</created_order>
+	<created>создан</created>
+	<has_state>в состоянии</has_state>
+	<state>
+		<not_complete>не завершен</not_complete>
+		<proccess>в работе</proccess>
+		<wait_payment>ожидание оплаты</wait_payment>
+		<paid>оплачен</paid>
+		<verify_payment>проверка оплаты</verify_payment>
+		<cancel>отменён</cancel>
+		<success>выполнен</success>
+		<pending>в процессе</pending>
+	</state>
+	<country>Страна</country>
+	<city>Город</city>
+	<index>Индекс</index>
+	<build>Дом</build>
+	<street>Улица</street>
+	<flat_abb>кв.</flat_abb>
+	<order>Заказ</order>
+	<decorated>оформлен</decorated>
+	<user_data>Ваши данные</user_data>
+	<mrms>Уважаемый(ая)</mrms>
+	<you_order>Ваш заказ</you_order>
+	<order_thanks_text><![CDATA[В ближайшее время наш менеджер свяжется с Вами.<br>
+    <strong>Отследить статус заказа вы можете в личном кабинете.</strong>]]></order_thanks_text>
+	<congratulations>БЛАГОДАРИМ ЗА ПОКУПКУ!</congratulations>
+	<share_friends>Поделитесь с друзьями!</share_friends>
+	<order_description>Оплата заказа #</order_description>
+	<survey>Submit survey</survey>
+	<for2>по</for2>
+	<null/>
+	<users>
+		<user_agreement>
+			<body/>
+		</user_agreement>
+	</users>
+	<mails>
+		<order_created>
+			<subject>Ваш заказ #{{num}} оформлен</subject>
+			<body><![CDATA[<table cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" width="640px" style="font-family:Arial, Arial, Helvetica, sans-serif;
+  margin:0 auto; padding:0; width:640px !important;
+  line-height: 100% !important;"> <tbody>
+<tr> <td align="center"> <br>
+<img src="http://s1.avtoclassika.com/uploads/images/logo.jpg" width="224" height="71" style="outline:none;text-decoration:none;
+        -ms-interpolation-mode: bicubic;display:block;"> </td> </tr> <tr> <td> <br> <table cellpadding="0" cellspacing="0" border="0" id="backgroundTable" bgcolor="#EBF6EB" width="100%" style="padding: 20px;border:1px solid #0C555D;line-height:1.4;"> <tbody><tr><td>
+<h1 style="margin-top:0!important;line-height:1;font-size: 20px;">Здравствуйте, {{user_name}}!</h1>
+<p>Мы рады сообщить, что Ваш заказ <b>#{{num}}</b> от <b>{{date}}</b> был принят! Пожалуйста, <span style="line-height: 100%;">при обращении </span>
+<span style="line-height: 100%;">используйте номер заказа </span>
+<b style="line-height: 100%;">#{{num}}</b>
+<span style="line-height: 100%;">.</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<br>
+<h2 style="line-height:1;font-size: 16px;margin-top:0px!important;">Информация о Вашем заказе:</h2>
+<ul style="list-style: none;padding-left: 0;">
+<li>
+<b>Покупатель</b>: {{user_name}}</li>
+<li>
+<b>Телефон</b>: {{user_phones}}</li>
+<li>
+<b>Email</b>: {{user_email}}</li>
+<li>
+<b>Способ доставки</b>: {{delivery_name}}</li>
+{{IF user_country}} <li>
+<b>Адрес доставки</b>: {{user_country}}, {{user_city}}, {{user_index}}, {{user_street}}, {{user_build}}, {{user_flat}}</li>
+{{END IF}}
+<li>
+<b>Способ оплаты</b>: {{payment_name}}</li>
+{{IF discount}} <li>
+<b>Скидка</b>: {{sum_discount}}{{currency}} ({{discount}}%)</li>
+{{END IF}}
+<li>
+<b>Общая сумма заказа</b>: {{total_sum}} {{currency}}</li>
+{{IF note}} <li>
+<b>Комментарий</b>: {{note}}</li>
+{{END IF}}
+</ul>
+</td>
+</tr>
+<!--{{IF payment_type=='western'}}-->
+<tr bgcolor="#ccdfcc">
+<td style="border: 2px solid #ffffff; padding: 10px;">
+<p style="margin:0;">
+<b>Внимание!</b> При оплате с помощью Western Union используйте следующий ревизиты:<br>
+<b> Получатель
+</b>: Spasyba Oleksiy<br>
+<b> Страна
+</b>: Ukraine<br>
+<b> Город
+</b>: Kiev<br>
+<b style="color:#CD4D47">
+После оплаты, пришлите код!
+</b>
+</p>
+</td>
+</tr>
+<tr>
+<td> </td>
+</tr>
+<!--{{END IF}}-->
+<tr>
+<td>
+<table cellpadding="5" cellspacing="2" border="0" id="backgroundTable" bgcolor="#FFFFFF" width="100%" style="font-size: 14px;">
+<tbody>
+<tr bgcolor="#ccdfcc">
+<th>#детали</th>
+<th>фото</th>
+<th>наименование</th>
+<th>цена</th>
+<th>
+<nobr>кол-во</nobr> </th>
+<th>сумма</th>
+</tr>
+<!--{{BEGIN details}}-->
+<tr bgcolor="#f0faf0">
+<td align="center"><a href="http://{{language_domain}}avtoclassika.com/car/{{car_synonym}}/{{autopart_id}}/{{id}}/" target="_blank">{{num}}</a></td>
+<td align="center">
+<img src="{{IF image}}http:{{url_staticserver}}{{image}}{{ELSE}}http:{{url_staticserver}}/uploads/images/noimage-sm.jpg{{END IF}}" style="outline:none;text-decoration:none;
+        -ms-interpolation-mode: bicubic;display:block;">
+</td>
+<td>
+<b>{{car_name}}</b>
+<br>{{name}}</td>
+<td align="center">
+{{cost}} {{currency}}
+</td>
+<td align="center">{{count}} шт.</td>
+<td align="center">
+{{sum}} {{currency}}
+</td>
+</tr>
+<!--{{END details}}-->
+<!--{{IF discount}}-->
+<tr bgcolor="#ccdfcc">
+<td colspan="5" align="right">Скидка</td>
+<td align="center">
+{{discount}}% </td>
+</tr>
+<!--{{END IF}}-->
+<tr bgcolor="#ccdfcc">
+<td colspan="5" align="right">Всего за товары{{IF discount}}(включая скидку){{END IF}}</td>
+<td align="center">
+{{sum}} {{currency}}
+</td>
+</tr>
+<tr bgcolor="#ccdfcc">
+<td colspan="5" align="right">Стоимость доставки</td>
+<td align="center">
+{{IF sum_delivery}}{{sum_delivery}}{{ELSE}}0{{END IF}} {{currency}}
+</td>
+</tr>
+<tr bgcolor="#ccdfcc">
+<td colspan="5" align="right">
+<b>Сумма к оплате</b>
+</td>
+<td align="center"><b>{{total_sum}} {{currency}}</b></td>
+</tr>
+</tbody> </table>
+</td>
+</tr>
+<tr>
+<td>
+<p>Информацию о состоянии вашего заказа вы всегда можете найти в личном кабинете <a href="http://avtoclassika.com/cabinet/" target="_blank">avtoclassika.com</a>.</p>
+<p>Наша служба клиентской поддержки всегда готова помочь Вам! При возникновении вопросов обращайтесь по телефонам:
+<b>+3<nobr>8 068 361-68-42</nobr></b>
+, <b style="line-height: 19.6px;">+3<nobr>8 095 792-51-81</nobr></b> или пишите на <a href="mailto:info@avtoclassika.com" target="_blank">info@avtoclassika.com</a>
+</p>
+
+<h3 style="margin-bottom:0!important;"><b><u>Каждая купленная у нас запчасть имеет месячную гарантию. Это значит, что в случае, если Вы захотели вернуть приобретенную запчасть в течении 1 месяца после получения, Вам будут возвращены деньги за нее в полном объеме. </u></b></h3>
+
+<p><span style="line-height: 1.4;">Спасибо за то, что выбрали наш <nobr>Интернет-магазин</nobr>, </span><br></p><p style="margin-bottom:0!important;">
+Приятных покупок!
+</p>
+<p>С уважением,<br>Администрация <a href="http://avtoclassika.com/" target="_blank">Avtoclassika.com</a>
+</p> </td>
+</tr> </tbody>
+</table> </td> </tr>
+</tbody>
+</table>
+]]></body>
+	  </order_created>
+	  <order_change_status>
+		  <subject>Ваш заказа #{{num}} изменил статус</subject>
+		  <body><![CDATA[<table cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" width="600px" style="font-family:Arial, Arial, Helvetica, sans-serif;
+  margin:0 auto; padding:0; width:600px !important;
+  line-height: 100% !important;">
+  <tbody>
+<tr>
+    <td align="center">
+      <br>
+<img src="http://s1.avtoclassika.com/uploads/images/logo.jpg" width="224" height="71" style="outline:none;text-decoration:none;
+        -ms-interpolation-mode: bicubic;display:block;">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <br>
+      <table cellpadding="0" cellspacing="0" border="0" id="backgroundTable" bgcolor="#EBF6EB" width="100%">
+        <tbody><tr><td style="padding: 25px;border:1px solid #0C555D;">
+<h1 style="margin-top:0!important;line-height:1;font-size: 20px;">Здравствуйте, {{user_name}}!</h1>
+<p>Ваш заказ <b>#{{num}}</b> изменил статус на <b>{{status}}</b>
+  {{IF ord_status == 'success'}}{{IF tracking_number}} и отправлен {{IF ord_dvm_id_fk == 1}}УкрПочтой{{END IF}}{{IF ord_dvm_id_fk == 2}}НовойПочтой{{END IF}}{{END IF}}{{END IF}}.
+</p>
+{{IF ord_status == 'success'}}{{IF tracking_number}}
+  <p style="text-align:center;">
+    {{IF ord_dvm_id_fk == 1}}
+    <a style="font-size: 14px;" href="https://packageradar.com/courier/ukrposhta/tracking/{{tracking_number}}">Отследить посылку</a>
+    {{END IF}}
+    {{IF ord_dvm_id_fk == 2}}
+    <a style="font-size: 14px;" href="https://novaposhta.ua/tracking/?cargo_number={{tracking_number}}">Отследить посылку</a>
+    {{END IF}}
+  </p>
+{{END IF}}{{END IF}}
+<p>Информацию о состоянии вашего заказа вы можете найти в личном кабинете <a href="http://avtoclassika.com/cabinet/" target="_blank">avtoclassika.com</a>.</p>
+<p style="margin-bottom:0!important;">С уважением,<br>
+Администрация 
+<a href="http://avtoclassika.com/" target="_blank">Avtoclassika.com</a>
+</p>
+        </td>
+</tr>
+      </tbody>
+</table>
+    </td>
+  </tr>
+</tbody>
+</table>]]></body>
+	  </order_change_status>
+	  <quick_order_created>
+		  <subject>Ваш заказ #{{num}} оформлен</subject>
+		  <body><![CDATA[<table cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" width="640px" style="font-family:Arial, Arial, Helvetica, sans-serif;
+  margin:0 auto; padding:0; width:640px !important;
+  line-height: 100% !important;">
+  <tbody>
+<tr>
+    <td align="center">
+      <br>
+<img src="http://s1.avtoclassika.com/uploads/images/logo.jpg" width="224" height="71" style="outline:none;text-decoration:none;
+        -ms-interpolation-mode: bicubic;display:block;">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <br>
+      <table cellpadding="0" cellspacing="0" border="0" id="backgroundTable" bgcolor="#EBF6EB" width="100%" style="padding: 20px;border:1px solid #0C555D;line-height:1.4;">
+        <tbody><tr><td>
+<h1 style="margin-top:0!important;line-height:1;font-size: 20px;">Здравствуйте, {{user_name}}!</h1>
+<p>Мы рады сообщить, что Ваш заказ <b>#{{num}}</b> от <b>{{date}}</b> был принят! Пожалуйста, <span style="line-height: 100%;">при обращении </span>
+<span style="line-height: 100%;">используйте номер заказа </span>
+<b style="line-height: 100%;">#{{num}}</b>
+<span style="line-height: 100%;">.</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<br>
+<h2 style="line-height:1;font-size: 16px;margin-top:0px!important;">Информация о Вашем заказе:</h2>
+<ul style="list-style: none;padding-left: 0;">
+<li>
+<b>Покупатель</b>: {{user_name}}</li>
+<li>
+<b>Телефон</b>: {{user_phones}}</li>
+<li>
+<b>Email</b>: {{user_email}}</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>
+<table cellpadding="5" cellspacing="2" border="0" id="backgroundTable" bgcolor="#FFFFFF" width="100%" style="font-size: 14px;">
+<tbody>
+<tr bgcolor="#ccdfcc">
+<th>#детали</th>
+<th>фото</th>
+<th>наименование</th>
+<th>цена</th>
+<th>
+<nobr>кол-во</nobr>
+</th>
+<th>сумма</th>
+</tr>
+<tr bgcolor="#f0faf0">
+<td align="center"><nobr><a href="http://{{language_domain}}avtoclassika.com/car/{{car_synonym}}/{{autopart_id}}/{{detail_id}}/" target="_blank">{{detail_num}}</a></nobr></td>
+<td align="center">
+<img src="{{IF detail_image}}http:{{url_staticServer}}{{detail_image}}{{ELSE}}http:{{url_staticServer}}/uploads/images/noimage-sm.jpg{{END IF}}" style="outline:none;text-decoration:none;
+        -ms-interpolation-mode: bicubic;display:block;">
+</td>
+<td>
+<b>{{car_name}}</b>
+<br>{{detail_name}}</td>
+<td align="center">
+<nobr>{{detail_cost}} {{currency}}</nobr><nobr></nobr>
+</td>
+<td align="center">{{detail_count}} шт.</td>
+<td align="center">
+<nobr>{{detail_sum}} {{currency}}</nobr>
+</td>
+</tr>
+</tbody>
+     </table>
+</td>
+</tr>
+<tr>
+<td>
+<p>Информацию о состоянии вашего заказа вы всегда можете найти в личном кабинете <a href="http://avtoclassika.com/cabinet/" target="_blank">avtoclassika.com</a>.</p>
+<p>Наша служба клиентской поддержки всегда готова помочь Вам! При возникновении вопросов обращайтесь по телефонам: <nobr>
+<b>+38 068 361-68-42</b>
+</nobr>, <nobr><b style="line-height: 19.6px; white-space: normal;">+3</b></nobr><b style="line-height: 19.6px; white-space: normal;"><nobr>8 095 792-51-81</nobr></b> , или пишите на <a href="mailto:info@avtoclassika.com" target="_blank">info@avtoclassika.com</a>
+</p>
+<h3 style="margin-bottom:0!important;"><b><u>Каждая купленная у нас запчасть имеет месячную гарантию. Это значит, что в случае, если Вы захотели вернуть приобретенную запчасть в течении 1 месяца после получения, Вам будут возвращены деньги за нее в полном объеме. </u></b></h3><p style="margin-bottom:0!important;"><span style="line-height: 1.4;">Спасибо за то, что выбрали наш Интернет-магазин, </span><br></p><p style="margin-bottom:0!important;">
+Приятных покупок!
+</p>
+<p>С уважением,<br>Администрация <a href="http://avtoclassika.com/" target="_blank">Avtoclassika.com</a>
+</p>
+        </td>
+</tr>
+      </tbody>
+</table>
+    </td>
+  </tr>
+</tbody>
+</table>]]></body>
+	  </quick_order_created>
+	</mails>
+</orders>

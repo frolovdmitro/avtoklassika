@@ -1,0 +1,63 @@
+.filter-bar
+  background #ebf6eb
+  margin 10px 15px 0 0
+  color #6e7c6e
+  font-size 14px
+  line-height 1
+  height 16px
+  clearfix()
+  padding 12px 10px 12px
+  position relative
+
+  &:before
+    content ''
+    position absolute
+    top 0
+    icons-sprite($filter-arrow)
+    $width = @width * -1
+    right $width
+
+  &__block
+    list-style none
+    margin 0
+    padding 0
+
+    &_align_left
+      float left
+
+    &_align_right
+      float right
+
+  &__item
+    display inline-block
+    text-transform lowercase
+
+    &_align_left
+      margin-right 14px
+
+    &_align_right
+      margin-left 14px
+
+  &__button
+    background #6d7c6f
+    color #fff
+    padding 6px 8px 8px
+    line-height 1
+    position absolute
+    top 5px
+    right 0
+    border 1px solid #03555c
+    border-radius 2px
+    text-decoration none
+
+    &_state_checked
+      background-color #0c555d!important
+      color #fff!important
+
+    &:hover
+      background-color #0c555d
+      color #fff
+
+    &:visited, &:focus
+      color #fff
+      background-color #6d7c6f

@@ -1,0 +1,122 @@
+.catalog-autoparts
+  background-color #ccdfcc
+  border-top 2px solid #6e7c6e
+  border-bottom 2px solid #6e7c6e
+  margin 57px 0 16px
+  -webkit-font-smoothing antialiased
+
+  &__nav
+    margin 0 auto
+    width $layout_width
+    text-align center
+
+    &-list
+      table-layout fixed
+      width 84%
+      margin -15px 0 0
+      padding 0 8% 15px
+      list-style none
+      word-spacing -.3em
+      display table
+      position relative
+
+      &:before
+        position absolute
+        content ''
+        bottom 0
+        left 0
+        right 0
+        border 1px solid #6e7c6e
+        background-color #e6f3e6
+        height 4px
+        border-radius 2px
+
+    &-item
+      display table-cell
+      position relative
+      width 100%
+      text-align center
+      word-spacing normal
+      text-transform uppercase
+      font bold 14px/1 $addition_font
+
+      &:before
+        content ''
+        position absolute
+        icons-sprite($point)
+        bottom -20px
+        $left = @width/2 * -1
+        left 50%
+        margin-left $left
+        z-index 2
+
+    &-link
+      text-decoration none
+      color #6e7c6e!important
+
+      &.active
+        &:after
+          content ''
+          position absolute
+          top 24px
+          z-index 1
+          background-color #07515d
+          height 4px
+          left 10px
+          right 10px
+
+        &:before
+          content ''
+          position absolute
+          icons-sprite($point-active)
+          $left = @width/2 * -1
+          left 50%
+          margin-left $left
+          z-index 2
+          top 19px
+
+  &__list
+    list-style none
+    margin 18px auto 13px
+    padding 0
+    width $layout_width
+    min-height 167px
+
+  &__item
+    width unit(100/6, '%')
+    display: inline-block
+    text-align center
+    margin-bottom 5px
+
+    &.mix
+      opacity 0
+      display none
+
+  &__link
+    display inline-block
+    panels-sprite($panel)
+    background-repeat no-repeat
+    text-decoration none
+    color #083b40!important
+    padding-top 28px
+    box-sizing border-box
+
+    &:hover
+      panels-sprite($panel-active)
+
+    &_type_current
+      panels-sprite($panel-current)
+
+      IMG
+        opacity 1
+
+      &:hover
+        panels-sprite($panel-current)
+
+      .catalog-autoparts__caption
+        color #ccdfcc!important
+
+  &__caption
+    text-transform uppercase
+    font bold 14px/1 $addition_font
+    display inline-block

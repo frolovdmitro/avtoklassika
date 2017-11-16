@@ -1,0 +1,55 @@
+.table
+  color #0c555d
+  width 100%
+
+  &__head
+    background #ebf6eb
+    text-transform uppercase
+    font normal 14px $addition_font
+
+  &__row
+    background #ebf6eb
+
+    &:nth-child(2n+0)
+      background #ccdfcc
+
+  &__field
+    border 3px solid #fff
+    padding 5px 10px
+
+    &_min_120
+      min-width 120px
+
+  &__buy-link
+    float right
+
+    &:hover
+      text-decoration none
+
+  &__actions
+    list-style none
+    margin 10px 4px
+    padding 0
+    text-align right
+    font 14px $addition_font
+
+  &__actions-item
+    display inline-block
+    margin-left 40px
+
+  &__actions-link
+    text-decoration none
+
+    &:hover
+      text-decoration underline
+
+    &_type_print
+      padding-left 23px
+      position relative
+
+      &:before
+        content ''
+        position absolute
+        icons-sprite($print)
+        left 0
+        top 2px

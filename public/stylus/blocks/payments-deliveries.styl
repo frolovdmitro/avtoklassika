@@ -1,0 +1,151 @@
+.payments-deliveries
+  background #ccdfcc
+  border 1px solid #98a598
+  border-radius 3px
+  padding 25px 17px 10px
+  font-size 18px
+  width 340px
+  box-sizing border-box
+  position relative
+
+  &__radio
+    float left
+    clear both
+    line-height 57px
+    height 57px
+    margin-right 10px
+
+  &_align_left
+    float left
+    z-index 2
+
+  &_align_right
+    float right
+    z-index 1
+
+  &_type_mini
+    width 330px!important
+
+  &:before
+    content ''
+    position absolute
+    top 0px
+    right 0px
+    bottom 0px
+    left 0px
+    border 1px solid #f2f7f2
+    border-radius 3px
+
+  &__wrap
+    clearfix()
+    margin 40px 0 30px
+
+  &__header
+    display block
+    position absolute
+    top -15px
+    right 20px
+    margin 0
+    height 27px
+    background #E6F3E6
+    border 1px solid #6E7C6E
+    padding 0 18px
+    color #0c555d
+    font bold 18px/28px $addition_font
+    text-transform uppercase
+    -webkit-font-smoothing antialiased
+    z-index 1
+
+    &:before
+      content: ''
+      position absolute
+      icons-sprite($button-left-rail-light)
+      left -10px
+      top 0
+
+    &_align_right
+      left 20px
+      right auto
+
+      &:before
+        icons-sprite($button-right-rail-light)
+        right -10px
+        left auto
+
+  &__list
+    list-style none
+    margin 0
+    padding 0
+    z-index 1
+    position relative
+
+  &__item
+    display block
+
+  &__link
+    display block
+    text-decoration none
+    padding 0
+    line-height 57px
+    border-bottom 1px solid #fff
+    position relative
+    color #0C555D
+    cursor pointer
+    white-space nowrap
+
+    &:before
+      content ''
+      position absolute
+      bottom 0
+      left 0
+      right 0
+      height 1px
+      background #98a598
+
+    &_position_last
+      border-bottom none
+
+      &:before
+        background transparent
+
+  &__image
+    float left
+    margin-right 10px
+
+  &__delivery-cost
+    float right
+    font-size 18px
+    color #6e7c6e
+    padding-left 20px
+    position relative
+    margin-top 5px
+
+    &:before
+      content ''
+      position absolute
+      top 7px
+      left 0
+      icons-sprite($bill)
+
+    &-value
+      icons-sprite($cost-sticker)
+      background-repeat no-repeat
+      color #6e7c6e
+      display inline-block
+      text-align center
+      $line-height = @height - 2
+      font bold 18px/$line-height $addition_font
+      padding-top 2px
+      -webkit-font-smoothing antialiased
+
+      .rur
+        position relative
+
+        &:before
+          content ''
+          position absolute
+          left 0
+          right 3px
+          height 2px
+          background #0C555D
+          top 12px

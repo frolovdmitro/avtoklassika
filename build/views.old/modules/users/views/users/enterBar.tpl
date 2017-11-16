@@ -1,0 +1,1 @@
+{{IF authed}} <a class="cabinet-button" href="/cabinet/">{{lng_cabinet}}</a> {{ELSE}} <a class="enter-button" href="#enter">{{lng_enter}}</a> {{END IF}}

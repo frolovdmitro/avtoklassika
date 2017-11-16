@@ -1,0 +1,141 @@
+.basket-user-info
+  background #EBF6EB
+  border 1px solid #0C555D
+  border-radius 3px
+  padding 8px 13px
+  clearfix()
+
+  &__block
+    float left
+    width 260px
+
+  &__caption
+    color #6E7C6E
+    font-size 18px
+    margin 0
+    font-weight bold
+    position relative
+    font-style italic
+
+    &_type_user
+      padding-left 40px
+
+      &:before
+        content ''
+        position absolute
+        top 2px
+        left 0
+        icons-sprite($usercard)
+
+    &_type_address
+      padding-left 30px
+
+      &:before
+        content ''
+        position absolute
+        top 2px
+        left 0
+        icons-sprite($address)
+
+  &__list
+    list-style none
+    margin 6px 0 0 13px
+    padding 0
+    font-size 14px
+
+    &_type_address
+      margin-left 2px
+      margin-top 2px
+
+      STRONG
+        font-weight normal
+        text-transform lowercase
+        display inline-block
+        min-width 65px
+        color #728572
+
+    &_type_finish
+      border-bottom 1px solid #0C555D
+      padding-bottom 10px
+
+  &__item
+    padding-left 26px
+    position relative
+    color #0C555D
+    margin-bottom 5px
+
+    &:before
+      content ''
+      position absolute
+      left 0
+      opacity .7
+
+    &_type_sidebar
+      padding-left 4px
+
+      STRONG
+        min-width 55px
+
+    &_type_user
+      font-size 18px
+      font-weight bold
+      line-height 1
+
+      &:before
+        icons-sprite($user)
+        top 1px
+
+      EM
+        font-weight normal
+        font-size 14px
+        font-style normal
+
+    &_type_userbig
+      font-size 18px
+      font-weight bold
+      line-height 1
+      padding-left 40px
+
+      &:before
+        icons-sprite($usercard)
+        top 1px
+
+      EM
+        font-weight normal
+        font-size 14px
+        font-style normal
+
+    &_type_email
+      font-size 16px
+
+      &:before
+        icons-sprite($email-small)
+        top 6px
+
+    &_type_emailbig
+      font-size 16px
+      padding-left 40px
+      padding-top 3px
+      padding-bottom 3px
+
+      &:before
+        icons-sprite($mail-big)
+        top 6px
+
+    &_type_phone
+      font-size 18px
+
+      &:before
+        top 6px
+        icons-sprite($phone-small)
+
+    &_type_phonebig
+      font-size 18px
+      padding-left 40px
+      padding-top 6px
+      padding-bottom 6px
+
+      &:before
+        top 6px
+        left 3px
+        icons-sprite($phone-big)

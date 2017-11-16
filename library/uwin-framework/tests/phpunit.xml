@@ -1,0 +1,30 @@
+<phpunit bootstrap                   = "bootstrap.php"
+         colors                      = "true"
+         convertErrorsToExceptions   = "true"
+         convertNoticesToExceptions  = "true"
+         convertWarningsToExceptions = "true"
+         stopOnFailure               = "true"
+         syntaxCheck                 = "true">
+
+    <testsuite name="Uwin Framework - TestSuite">
+        <directory>./</directory>
+    </testsuite>
+
+    <filter>
+        <!-- не смотрим на следующие директории -->
+        <blacklist>
+            <directory suffix=".php">../tests</directory>
+        </blacklist>
+    </filter>
+
+    <logging>
+        <log type           = "coverage-html"
+             target         = "./report"
+             charset        = "UTF-8"
+             yui            = "true"
+             highlight      = "true"
+             lowUpperBound  = "35"
+             highLowerBound = "80"/>
+    </logging>
+
+</phpunit>

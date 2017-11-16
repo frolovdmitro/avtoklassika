@@ -1,0 +1,45 @@
+.breadcrumbs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.breadcrumbs_type_path {
+  display: none;
+}
+.breadcrumbs__item {
+  display: inline-block;
+  position: relative;
+  padding-left: 25px;
+  color: #6e7c6e;
+  font-size: 14px;
+  margin-right: 11px;
+}
+.breadcrumbs__item:before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 0;
+  background-image: url("/img/_icons.png");
+  background-position: -10px -966px;
+  width: 13px;
+  height: 16px;
+}
+.breadcrumbs__item_type_home:before {
+  top: 3px;
+  background-image: url("/img/_icons.png");
+  background-position: -10px -681px;
+  width: 13px;
+  height: 15px;
+}
+.breadcrumbs__item_style_italic {
+  font-style: italic;
+}
+.breadcrumbs__link {
+  text-decoration: none;
+}
+.breadcrumbs__link_type_upper {
+  text-transform: uppercase;
+}
+.breadcrumbs__link:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,28 @@
+.enter-button, .cabinet-button
+  float right
+  display block
+  text-align center
+  width 68px
+  border-left 1px solid #98A598
+  height 100%
+  position relative
+  box-sizing border-box
+  padding-top 42px
+  line-height 1
+  text-decoration none
+  font-size 14px
+  color #4D574D
+  text-shadow 0 1px rgba(248, 251, 251, 0.79)
+  text-transform lowercase
+
+  &:before
+    content ''
+    position absolute
+    top 50%
+    left 50%
+    icons-sprite($lock)
+    background-repeat no-repeat
+    $top = @height/2 * -1 - 5
+    $left = @width/2 * -1
+    margin-top unit($top, 'px')
+    margin-left unit($left, 'px')

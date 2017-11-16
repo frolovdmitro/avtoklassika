@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<carMarket type="MODULE" icon="" order="51">
+  <fastActions>
+    <sold />
+  </fastActions>
+
+  <tabs>
+    <sold />
+    <language visible="true" />
+  </tabs>
+
+  <index><!-- {{{ -->
+    <crumbs>
+      <carMarket>/</carMarket>
+    </crumbs>
+
+    <actions>
+      <add />
+    </actions>
+
+    <datasources>
+      <car_market_tbl pk="cmk_id_pk" title_field="cmk_h1" paginationRows="true"
+        style="width: 800px;"
+        tags="carMarket|carMarket-id">
+        <joins>
+          <car name="cars_tbl" type="left" pk="cmk_car_id_fk"
+            fk="car_id_pk" />
+
+          <cmp name="(select cmp_cmk_id_fk, count(cmp_id_pk) count_images from car_market_photos_tbl group by cmp_cmk_id_fk)" type="left" pk="cmk_id_pk"
+            fk="cmp_cmk_id_fk" />
+
+          <cmf name="(select cmf_cmk_id_fk, count(cmf_id_pk) count_features from car_market_features_tbl group by cmf_cmk_id_fk)" type="left" pk="cmk_id_pk"
+            fk="cmf_cmk_id_fk" />
+
+          <cmd name="(select cmd_cmk_id_fk, count(cmd_id_pk) count_descriptions from car_market_descriptions_tbl group by cmd_cmk_id_fk)" type="left" pk="cmk_id_pk"
+            fk="cmd_cmk_id_fk" />
+        </joins>
+
+        <order_by>cmk_date_create desc</order_by>
+
+        <tabs>
+          <main />
+          <meta_tags />
+        </tabs>
+
+        <actions>
+          <edit />
+          <delete newline="true" />
+        </actions>
+
+        <quick_filter>
+          <car_name />
+          <cmk_h1 />
+        </quick_filter>
+
+        <fields>
+          <cmk_enabled type="bool" align="center" ordered="true"
+            tabindex="1" visible="false">
+            <style scope="field">width:30px</style>
+            <inputStyle>width: 20%;</inputStyle>
+          </cmk_enabled>
+
+          <cmk_is_original type="bool" align="center" ordered="true"
+            tabindex="1">
+            <style scope="field">width:30px</style>
+            <inputStyle>clear: none;width: 20%;</inputStyle>
+          </cmk_is_original>
+
+          <cmk_date_create type="datetime" ordered="true" align="center"
+            tabindex="22">
+            <format><![CDATA[null;date;d.m.Y;value]]></format>
+            <style scope="field">width:30px</style>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+            <default>now</default>
+            <default_format>d.m.Y H:i</default_format>
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+              <parseDateTime />
+            </validate>
+          </cmk_date_create>
+
+          <cmk_car_id_fk tabindex="2" type="list" visible="false"
+            focused="true" required="true">
+            <list pk="car_id_pk" name="car_name_ru">
+              <table>(select * from cars_tbl order by car_order) car</table>
+            </list>
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+            </validate>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </cmk_car_id_fk>
+
+          <car_name type="input" noTable="true" noForm="true"
+            languageField="true">
+          </car_name>
+
+          <cmk_year type="input" tabindex="3" align="center" visible="false">
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <parseInt />
+            </validate>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 33%;</inputStyle>
+          </cmk_year>
+
+          <cmk_seria type="input" tabindex="4" align="center" visible="false">
+            <labelStyle>width: 10%;clear:none;margin: 0 0 0 4%;</labelStyle>
+            <inputStyle>width: 33%;</inputStyle>
+          </cmk_seria>
+
+          <cmk_price_eur type="input" tabindex="5" align="center">
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <parseInt />
+            </validate>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+            <style scope="field">width:30px</style>
+          </cmk_price_eur>
+
+          <cmk_image type="file" align="center" required="true" tabindex="6">
+            <style scope="field">width:30px</style>
+            <validate>
+              <empty />
+              <extension>jpg|jpeg|png|gif</extension>
+              <width>380</width>
+              <heignt>380</heignt>
+            </validate>
+            <destination>images/car-market/{{id}}</destination>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 33%;</inputStyle>
+            <resizes>
+              <medium>
+                <destination>images/car-market/{{id}}</destination>
+                <fileName sufix="-md" />
+                <width>260</width>
+                <height>260</height>
+              </medium>
+            </resizes>
+          </cmk_image>
+
+          <cmk_background type="file" align="center" required="true" tabindex="7" visible="false">
+            <style scope="field">width:30px</style>
+            <validate>
+              <empty />
+              <extension>jpg|jpeg|png|gif</extension>
+            </validate>
+            <destination>images/car-market/{{id}}/bg</destination>
+            <labelStyle>width: 10%;clear:none;margin: 0 0 0 4%;</labelStyle>
+            <inputStyle>width: 33%;</inputStyle>
+          </cmk_background>
+
+          <cmk_general_features type="textarea" rows="5" visible="false"
+            tabindex="8" languageField="true" required="true">
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+            </validate>
+          </cmk_general_features>
+
+          <cmk_small_description type="textarea" rows="3" visible="false"
+            tabindex="9" languageField="true" required="true">
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+            </validate>
+          </cmk_small_description>
+
+          <count_images field="coalesce(count_images,0)" type="int"
+            noTable="true" noForm="true" expifnull="false"
+            align="center">
+            <link page="images" />
+            <style scope="field">width:30px</style>
+          </count_images>
+
+          <count_features field="coalesce(count_features,0)" type="int"
+            noTable="true" noForm="true" expifnull="false"
+            align="center">
+            <link page="features" />
+            <style scope="field">width:30px</style>
+          </count_features>
+
+          <count_descriptions field="coalesce(count_descriptions,0)" type="int"
+            noTable="true" noForm="true" expifnull="false"
+            align="center">
+            <link page="descriptions" />
+            <style scope="field">width:30px</style>
+          </count_descriptions>
+
+          <cmk_h1 type="text" visible="false" languageField="true"
+            tab="meta_tags" tabindex="10">
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </cmk_h1>
+
+          <cmk_title type="textarea" visible="false" rows="2"
+            tab="meta_tags" tabindex="11" languageField="true">
+            <expression><![CDATA[<br><span style="color:#FC7905;">{{value}}</span>]]></expression>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </cmk_title>
+
+          <cmk_description type="textarea" visible="false" expifnull="false"
+            format="\Uwin\Linguistics;shortedText;value;300" rows="2"
+            tabindex="12"  tab="meta_tags" languageField="true">
+            <expression><![CDATA[<br>{{value}}]]></expression>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </cmk_description>
+
+          <cmk_keywords type="textarea" visible="false" expifnull="false"
+            tabindex="13"  tab="meta_tags" rows="3" languageField="true">
+            <expression><![CDATA[<br><span style="color:#FC7905;">{{value}}</span>]]></expression>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </cmk_keywords>
+        </fields>
+      </car_market_tbl>
+    </datasources>
+  </index> <!-- }}} -->
+
+  <images> <!-- {{{ -->
+    <crumbs>
+      <carMarket>/carMarket/</carMarket>
+
+      <images type="data" url="/"
+        pk="cmk_id_pk" title_field="car_name_ru">
+        <table>
+          (select cmk_id_pk, car_name_ru from car_market_tbl
+          left join cars_tbl on car_id_pk = cmk_car_id_fk)sq
+        </table>
+        <params>
+          <cmk_id_pk>id</cmk_id_pk>
+        </params>
+      </images>
+    </crumbs>
+
+    <actions>
+      <add />
+    </actions>
+
+    <datasources>
+      <car_market_photos_tbl pk="cmp_id_pk" title_field="cmp_id_pk" search="false"
+        paginationRows="true" tags="advert-images" draggable="cmp_order">
+
+        <params>
+          <cmp_cmk_id_fk type="get">id</cmp_cmk_id_fk>
+        </params>
+
+        <order_by>cmp_order</order_by>
+
+        <actions>
+          <edit />
+          <delete />
+        </actions>
+
+        <fields>
+          <cmp_id_pk type="int" visible="false" noForm="true" noTable="true" />
+
+          <cmp_enabled type="bool" align="center"
+            tabindex="0" default="true">
+            <style scope="field">width:30px</style>
+            <inputStyle>width: 20%;</inputStyle>
+          </cmp_enabled>
+
+          <cmp_name type="text" languageField="true" tabindex="1">
+            <validate>
+              <empty />
+            </validate>
+          </cmp_name>
+
+          <cmp_image type="file" required="true" align="center"
+            tabindex="2" focused="true">
+            <validate>
+              <empty />
+            </validate>
+            <destination>images/car-market/{{id}}/photos</destination>
+          </cmp_image>
+        </fields>
+      </car_market_photos_tbl>
+    </datasources>
+  </images> <!-- }}} -->
+
+  <features> <!-- {{{ -->
+    <crumbs>
+      <carMarket>/carMarket/</carMarket>
+
+      <features type="data" url="/"
+        pk="cmk_id_pk" title_field="car_name_ru">
+        <table>
+          (select cmk_id_pk, car_name_ru from car_market_tbl
+          left join cars_tbl on car_id_pk = cmk_car_id_fk)sq
+        </table>
+        <params>
+          <cmk_id_pk>id</cmk_id_pk>
+        </params>
+      </features>
+    </crumbs>
+
+    <actions>
+      <add />
+    </actions>
+
+    <datasources>
+      <car_market_features_tbl pk="cmf_id_pk" title_field="cmf_id_pk" search="false"
+        paginationRows="true" tags="advert-images" draggable="cmf_order"
+        style="width:750px;">
+
+        <params>
+          <cmf_cmk_id_fk type="get">id</cmf_cmk_id_fk>
+        </params>
+
+        <order_by>cmf_order</order_by>
+
+        <actions>
+          <edit />
+          <delete />
+        </actions>
+
+        <fields>
+          <cmf_id_pk type="int" visible="false" noForm="true" noTable="true" />
+
+          <cmf_enabled type="bool" align="center"
+            tabindex="0" default="true">
+            <style scope="field">width:30px</style>
+            <inputStyle>width: 20%;</inputStyle>
+          </cmf_enabled>
+
+          <cmf_icon type="list" list="static" required="true" languageValue="true"
+            tabindex="0.1" align="center">
+            <style scope="field">width:30px;</style>
+          </cmf_icon>
+
+          <cmf_header type="text" languageField="true" tabindex="1" required="true">
+            <validate>
+              <empty />
+            </validate>
+          </cmf_header>
+
+          <cmf_text type="textarea" rich="true" rows="20"
+            languageField="true">
+            <labelStyle>width: 18%;min-height:30px;</labelStyle>
+            <inputStyle>clear:both;width: 100%;</inputStyle>
+          </cmf_text>
+        </fields>
+      </car_market_features_tbl>
+    </datasources>
+  </features> <!-- }}} -->
+
+  <descriptions> <!-- {{{ -->
+    <crumbs>
+      <carMarket>/carMarket/</carMarket>
+
+      <descriptions type="data" url="/"
+        pk="cmk_id_pk" title_field="car_name_ru">
+        <table>
+          (select cmk_id_pk, car_name_ru from car_market_tbl
+          left join cars_tbl on car_id_pk = cmk_car_id_fk)sq
+        </table>
+        <params>
+          <cmk_id_pk>id</cmk_id_pk>
+        </params>
+      </descriptions>
+    </crumbs>
+
+    <actions>
+      <add />
+    </actions>
+
+    <datasources>
+      <car_market_descriptions_tbl pk="cmd_id_pk" title_field="cmd_id_pk" search="false"
+        paginationRows="true" tags="advert-images" draggable="cmd_order"
+        style="width: 750px;">
+
+        <params>
+          <cmd_cmk_id_fk type="get">id</cmd_cmk_id_fk>
+        </params>
+
+        <order_by>cmd_order</order_by>
+
+        <actions>
+          <edit />
+          <delete />
+        </actions>
+
+        <fields>
+          <cmd_id_pk type="int" visible="false" noForm="true" noTable="true" />
+
+          <cmd_enabled type="bool" align="center"
+            tabindex="0" default="true">
+            <style scope="field">width:30px</style>
+            <inputStyle>width: 20%;</inputStyle>
+          </cmd_enabled>
+
+          <cmd_header type="text" languageField="true" tabindex="1" required="true"
+            focused="true">
+            <validate>
+              <empty />
+            </validate>
+          </cmd_header>
+
+          <cmd_image type="file" align="center"
+            tabindex="2">
+            <destination>images/car-market/{{id}}/photos</destination>
+          </cmd_image>
+
+          <cmd_youtube_id type="text" tabindex="3" visible="false">
+          </cmd_youtube_id>
+
+          <cmd_text type="textarea" rich="true" rows="19"
+            languageField="true">
+            <labelStyle>width: 18%;min-height:30px;</labelStyle>
+            <inputStyle>clear:both;width: 100%;</inputStyle>
+          </cmd_text>
+        </fields>
+      </car_market_descriptions_tbl>
+    </datasources>
+  </descriptions> <!-- }}} -->
+
+  <sold useLanguages="false"> <!-- {{{ -->
+    <reference page="index" />
+
+    <datasources>
+      <car_market_tbl>
+        <where>cmk_enabled = true</where>
+
+        <fields>
+          <cmk_enabled type="bool" align="center" ordered="true"
+            tabindex="1" visible="false" default="true">
+            <style scope="field">width:30px</style>
+            <inputStyle>width: 20%;</inputStyle>
+          </cmk_enabled>
+        </fields>
+      </car_market_tbl>
+    </datasources>
+  </sold>
+
+  <language style="width: 95%;"><!-- {{{ -->
+    <language>
+      <file type="xml" path="modules/carMarket/languages/" />
+    </language>
+  </language><!-- }}} -->
+</carMarket>

@@ -1,0 +1,36 @@
+$paypal = -10px -10px 71px 57px
+$cash = -10px -87px 71px 57px
+$conductor = -10px -164px 71px 57px
+$contact = -10px -241px 71px 57px
+$courier = -10px -318px 71px 57px
+$delivery = -10px -395px 71px 57px
+$novaposhta = -10px -472px 71px 57px
+$cod = -10px -549px 71px 57px
+$pickup = -10px -626px 71px 57px
+$private24 = -10px -703px 71px 57px
+$ukrposhta = -10px -780px 71px 57px
+$ups = -10px -857px 71px 57px
+$visa = -10px -934px 71px 57px
+$western = -10px -1011px 71px 57px
+$yandex = -10px -1088px 71px 57px
+
+sprite-width($sprite)
+  width $sprite[2]
+
+sprite-height($sprite)
+  height $sprite[3]
+
+sprite-position($sprite)
+  background-position $sprite[0]  $sprite[1]
+
+sprite($sprite)
+  sprite-position($sprite)
+  background-repeat no-repeat
+  overflow hidden
+  display block
+  sprite-width($sprite)
+  sprite-height($sprite)
+
+payments-deliveries()
+  background-image url('/img/_payments-deliveries.png')
+

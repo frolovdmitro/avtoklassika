@@ -1,0 +1,55 @@
+.languages-bar {
+  float: right;
+  text-align: center;
+  position: relative;
+  line-height: 27px;
+  padding-top: 5px;
+  min-width: 70px;
+}
+.languages-bar__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: absolute;
+  min-width: 70px;
+  background: #fff;
+  z-index: 1;
+  padding-bottom: 5px;
+  overflow: hidden;
+  top: 100%;
+  left: 0;
+  max-height: 0;
+  -webkit-transition: max-height 0.2s linear;
+  -moz-transition: max-height 0.2s linear;
+  -o-transition: max-height 0.2s linear;
+  -ms-transition: max-height 0.2s linear;
+  transition: max-height 0.2s linear;
+}
+.languages-bar:hover .languages-bar__list {
+  max-height: 150px;
+}
+.languages-bar__link {
+  text-decoration: none;
+  color: #6e7c6e;
+  display: inline-block;
+  width: 100%;
+}
+.languages-bar__link:hover {
+  text-decoration: underline;
+}
+.languages-bar__link_state_current {
+  color: #0c555d;
+  font-style: italic;
+  cursor: pointer;
+  position: relative;
+}
+.languages-bar__link_state_current:hover {
+  text-decoration: none;
+}
+.languages-bar__link_state_current:before {
+  content: '▾';
+  position: absolute;
+  right: 10px;
+  top: 0;
+  bottom: 0;
+}

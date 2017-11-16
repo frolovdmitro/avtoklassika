@@ -1,0 +1,45 @@
+.recommend-bar
+  background #ccdfcc
+  border-radius 2px
+  position relative
+  padding 4px 4px 4px 9px
+  margin-left 9px
+  width 210px
+  box-sizing border-box
+
+  &:before
+    content ''
+    position absolute
+    icons-sprite($thumb-up)
+    left 9px
+    top 5px
+
+  &__wrap
+    text-align center
+    margin-top 26px
+
+  &__stars
+    display inline-block
+    width 95px
+    height 14px
+    icons-sprite($stars)
+
+  &__percent
+    color #0c555d
+    font bold 18px/1 $addition_font
+    position absolute
+    left 8px
+    top 25px
+
+  &__text
+    color #0c555d
+    font 12px/1.4 $addition_font
+    margin 0 0 5px 35px
+
+  &__add-feedback
+    color #fff!important
+    font bold 12px/1.2 $addition_font
+
+    &:hover
+      text-decoration none
+

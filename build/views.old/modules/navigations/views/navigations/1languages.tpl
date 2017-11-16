@@ -1,0 +1,1 @@
+{{IF languages}} <div class="languages-bar"> <span class="languages-bar__link languages-bar__link_state_current"> {{current}} </span> <ul class="languages-bar__list"> {{BEGIN languages}} <li class="languages-bar__item"><a class="languages-bar__link" href="http://{{IF synonym}}{{synonym}}.{{END IF}}{{host}}{{url}}/"> {{name}} </a></li> {{END languages}} </ul> </div> {{END IF}}

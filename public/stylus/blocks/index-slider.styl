@@ -1,0 +1,65 @@
+.index-slider
+  width 700px
+  border 1px solid #98a598
+  border-radius 2px
+  position relative
+  float left
+
+  .flex-direction-nav
+    position absolute
+    top 50%
+    margin -20px 0 0
+    padding 0
+    list-style none
+    width 100%
+
+    .flex-prev, .flex-next
+      display block
+      overflow hidden
+      text-indent -999px
+      position absolute
+
+    .flex-prev
+      icons-sprite($index-slider-arrow-left)
+      background-repeat no-repeat
+      left -11px
+
+    .flex-next
+      icons-sprite($index-slider-arrow-right)
+      background-repeat no-repeat
+      right -11px
+
+  .flex-control-paging
+    position absolute
+    bottom -30px
+    left 3px
+    list-style none
+    margin 0
+    padding 0
+
+    LI
+      display inline-block
+      margin-right 8px
+      cursor pointer
+
+    A
+      icons-sprite($slider-bubble)
+      display block
+      overflow hidden
+      text-indent -100%
+
+    .flex-active
+      icons-sprite($slider-bubble-active)
+
+
+  &__list
+    margin 0
+    padding 0
+    clearfix()
+    width 700px
+    height 186px
+    overflow hidden
+
+  &__item
+    margin 0
+    width 700px

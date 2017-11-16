@@ -1,0 +1,38 @@
+.order-thanks {
+  background: #ebf6eb;
+  border: 1px solid #0c555d;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  padding: 20px;
+  text-align: center;
+}
+.order-thanks__caption {
+  font-size: 18px;
+  padding-bottom: 0;
+}
+.order-thanks__text {
+  font-size: 16px;
+  margin-bottom: 0;
+}
+.order-thanks__text STRONG {
+  display: inline-block;
+  margin-top: 10px;
+}
+.order-thanks__congratulations {
+  text-align: center;
+  font-size: 18px;
+  color: #0c555d;
+}
+.order-thanks__share {
+  position: absolute;
+  bottom: -60px;
+  z-index: 10;
+  left: 0;
+  background: url("/img/thumb-up.png") no-repeat;
+  width: 611px;
+  height: 374px;
+  text-align: center;
+  padding-left: 50px;
+  font-size: 18px;
+  padding-top: 40px;
+}

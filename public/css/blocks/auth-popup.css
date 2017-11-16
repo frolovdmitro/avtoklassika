@@ -1,0 +1,208 @@
+.auth-popup {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 302px;
+  background: #ebf6eb;
+  border: 1px solid #0c555d;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  padding: 25px 25px 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  z-index: 99;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  visibility: hidden;
+  -webkit-transform: translate3d(0, -20px, 0);
+  -moz-transform: translate3d(0, -20px, 0);
+  -o-transform: translate3d(0, -20px, 0);
+  -ms-transform: translate3d(0, -20px, 0);
+  transform: translate3d(0, -20px, 0);
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.auth-popup_state_invisible {
+  display: none;
+}
+.auth-popup_state_visible {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+  visibility: visible;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.auth-popup:before {
+  position: absolute;
+  z-index: 3;
+  content: "";
+  height: 0;
+  width: 0;
+  top: -17px;
+  right: 23px;
+  margin-left: -12px;
+  border: 9px solid rgba(0,0,0,0);
+  border-bottom: 8px solid #ebf6eb;
+}
+.auth-popup:after {
+  position: absolute;
+  z-index: 2;
+  content: "";
+  height: 0;
+  width: 0;
+  top: -19px;
+  right: 22px;
+  border: 10px solid rgba(0,0,0,0);
+  border-bottom: 8px solid #6e7c6e;
+}
+.auth-popup__input {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid #9faf9f;
+  border-top: 2px solid #9faf9f;
+  text-indent: 13px;
+}
+.auth-popup__input-wrap {
+  width: 100%;
+}
+.auth-popup__input-wrap_type_password {
+  padding-bottom: 5px !important;
+}
+.auth-popup__form {
+  border-bottom: 1px solid #6e7c6e;
+  padding-bottom: 10px;
+  position: relative;
+}
+.auth-popup__form:before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  height: 1px;
+  left: 0;
+  right: 0;
+  background: #fff;
+}
+.auth-popup__remember {
+  line-height: 1;
+  font-size: 14px;
+  margin-left: 14px;
+}
+.auth-popup__submit {
+  margin: 20px auto 6px;
+}
+.auth-popup__lost-password {
+  text-align: center;
+}
+.auth-popup__lost-password-link {
+  color: #6e7c6e;
+  font-size: 12px;
+}
+.auth-popup__lost-password-link:hover {
+  color: #6e7c6e;
+  text-decoration: none;
+}
+.auth-popup__lost-password_type_main {
+  position: absolute;
+  bottom: 0;
+  left: 127px;
+}
+.auth-popup__register {
+  text-align: center;
+}
+.auth-popup__register-link {
+  text-transform: lowercase;
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: bold;
+}
+.auth-popup__register-link:hover {
+  text-decoration: none;
+}
+.auth-popup__social {
+  text-align: center;
+  margin: 17px 0 20px;
+}
+.auth-popup__social-caption {
+  margin: 0;
+  text-transform: uppercase;
+  color: #6e7c6e;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1;
+}
+.auth-popup__social-list {
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.auth-popup__social-list_type_wide {
+  float: right;
+  margin: 0 50px 0 0;
+}
+.auth-popup__social-list_type_wide .auth-popup__social-item {
+  margin-left: 20px;
+}
+.auth-popup__social-item {
+  display: inline-block;
+}
+.auth-popup__social-link {
+  display: block;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  text-indent: -999px;
+}
+.auth-popup__gmail-icon {
+  background-image: url("/img/_social.png");
+  background-position: -10px -80px;
+  width: 50px;
+  height: 50px;
+}
+.auth-popup__facebook-icon {
+  background-image: url("/img/_social.png");
+  background-position: -10px -10px;
+  width: 50px;
+  height: 50px;
+}
+.auth-popup__twitter-icon {
+  background-image: url("/img/_social.png");
+  background-position: -10px -220px;
+  width: 50px;
+  height: 50px;
+}
+.auth-popup__vk-icon {
+  background-image: url("/img/_social.png");
+  background-position: -10px -290px;
+  width: 50px;
+  height: 50px;
+}
+.auth-popup__odnoklassniki-icon {
+  background-image: url("/img/_social.png");
+  background-position: -10px -150px;
+  width: 50px;
+  height: 50px;
+}
+.auth-popup__lost-text {
+  display: none;
+  margin-top: -6px;
+  line-height: 1.3;
+}
+.auth-popup__lost-text_state_visible {
+  display: block;
+}
+.auth-popup__lost-text_type_main {
+  height: 67px;
+  margin-left: 128px !important;
+  margin-top: -5px !important;
+}

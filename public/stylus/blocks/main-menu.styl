@@ -1,0 +1,42 @@
+.main-menu
+  float left
+  margin-bottom 4px
+
+  &__list
+    list-style none
+    margin 0
+    padding 0
+
+  &__item
+    display inline-block
+    margin 0 3px
+
+  &__link
+    text-decoration none
+    display block
+    color $text_color!important
+    padding 0 13px
+    line-height 30px
+    border-top 4px solid transparent
+    position relative
+
+    &_state_current
+      border-top-color $important_color!important
+      color $link_color!important
+
+      &:before
+        position absolute
+        z-index 1
+        content ""
+        height: 0
+        width: 0
+        top 0
+        left 50%
+        margin-left -1px
+        border 3px solid transparent
+        border-top 4px solid $important_color
+        transform scaleX(1.6)
+
+
+    &:hover
+      border-top-color $text_color

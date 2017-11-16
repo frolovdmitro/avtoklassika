@@ -1,0 +1,62 @@
+.currencies
+  position absolute
+  top 0
+  right 85px
+  z-index 1
+  background #fff
+  margin 0
+  list-style none
+  padding 6px 0
+  width 100px
+  border 1px solid #ccdfcc
+  border-top none
+  border-radius 0 0 3px 3px
+  overflow hidden
+  max-height 23px
+  transition max-height .2s ease-in-out
+
+  &:before
+    content ''
+    position absolute
+    bottom 3px
+    left 50%
+    margin-left -4px
+    icons-sprite($currency-down)
+
+  &:hover
+    max-height 130px
+
+    &:before
+      icons-sprite($currency-up)
+
+  &__item
+    clear both
+
+  &__short-name
+    float right
+    color #0c555d!important
+    font-weight normal
+
+    .rur
+      position relative
+
+      &:before
+        content ''
+        position absolute
+        left 0
+        right 1px
+        height 1px
+        background #0C555D
+        top 10px
+
+  &__link
+    text-decoration none
+    font-size 13px
+    color #6e7c6e!important
+    line-height 25px
+    display block
+    padding 0 7px
+
+    &:hover
+      color #0c555d!important
+      background #EBF6EB

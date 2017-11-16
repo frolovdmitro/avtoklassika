@@ -1,0 +1,88 @@
+.ribbon
+  background #778a77 embedurl('ribbon-bg.jpg')
+  text-align center
+  text-transform uppercase
+  font bold 18px/40px $addition_font
+  padding 2px 10px 0
+  text-shadow 0 1px rgba(3, 28, 31, .9)
+  color #fff
+  display inline-block
+  position relative
+  -webkit-font-smoothing antialiased
+
+  &__link
+    text-decoration none
+    color #fff!important
+
+  &_type_double
+    padding 3px 0 0
+    top -43px
+
+    &:after, &:before
+      content ''
+      position absolute
+      top 0
+
+    &:before
+      icons-sprite($ribbon-left)
+      $left = @width * -1
+      left unit($left, 'px')
+
+    &:after
+      icons-sprite($ribbon-right)
+      $right = @width * -1
+      right unit($right, 'px')
+
+  &_type_right
+    padding 3px 0 0 15px
+    top -43px
+
+    &:before
+      content ''
+      position absolute
+      top 0
+      icons-sprite($ribbon-right)
+      $right = @width * -1
+      right unit($right, 'px')
+
+  &_type_right-outer
+    padding-right 40px
+
+    &:before
+      content ''
+      position absolute
+      top 0
+      icons-sprite($rail-router)
+      $right = @width * -1
+      right $right
+
+  &_type_right-inner
+    padding-right 20px
+
+    &:before
+      content ''
+      position absolute
+      top 0
+      icons-sprite($rail-rinner)
+      $right = @width * -1
+      right $right
+
+  &_type_inner
+    padding-right 10px
+    padding-left 10px
+
+    &:before
+      content ''
+      position absolute
+      top 0
+      icons-sprite($rail-rinner)
+      $right = @width * -1
+      right $right
+
+    &:after
+      content ''
+      position absolute
+      top 0
+      icons-sprite($rail-linner)
+      $left = @width * -1
+      left $left

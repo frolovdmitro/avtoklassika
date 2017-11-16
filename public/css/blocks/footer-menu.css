@@ -1,0 +1,109 @@
+.footer-menu {
+  width: 215px;
+  margin-right: 30px;
+  float: left;
+}
+.footer-menu_position_last {
+  margin-right: 0;
+}
+.footer-menu__header {
+  font: bold 14px/1.6 'Sensation';
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  text-transform: uppercase;
+  position: relative;
+  margin: 0;
+  padding: 0 0 4px 10px;
+}
+.footer-menu__header:before,
+.footer-menu__header:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  height: 1px;
+  left: 0;
+  width: 155px;
+}
+.footer-menu__header:before {
+  background: #4e624e;
+  bottom: 1px;
+}
+.footer-menu__header:after {
+  background: #ccdfcc;
+}
+.footer-menu__list {
+  list-style: none;
+  margin: 10px 0 0 10px;
+  padding: 0;
+}
+.footer-menu__item {
+  padding: 0 0 8px 15px;
+  position: relative;
+  color: #fdfdfc;
+}
+.footer-menu__item:before {
+  content: '';
+  position: absolute;
+  background-image: url("/img/_icons.png");
+  background-position: -10px -1254px;
+  width: 16px;
+  height: 16px;
+  top: 4px;
+  left: -5px;
+}
+.footer-menu__link {
+  color: #fdfdfc !important;
+  font: 14px/1.6 'Sensation';
+}
+.footer-menu__link:hover {
+  text-decoration: none;
+}
+.footer-menu__contacts {
+  list-style: none;
+  margin: 10px 0 0 10px;
+  padding: 0;
+  font: 14px/1.6 'Sensation';
+}
+.footer-menu__contacts-item {
+  padding: 0 0 8px 15px;
+  position: relative;
+  color: #fdfdfc;
+}
+.footer-menu__contacts-item A {
+  color: #fff;
+  text-decoration: none;
+}
+.footer-menu__contacts-item:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.footer-menu__contacts-item_type_address-link {
+  color: #fff !important;
+  text-decoration: none;
+}
+.footer-menu__contacts-item_type_address-link:hover {
+  text-decoration: underline;
+}
+.footer-menu__contacts-item_type_address:before {
+  background-image: url("/img/_icons.png");
+  background-position: -10px -2582px;
+  width: 23px;
+  height: 30px;
+  left: -20px;
+}
+.footer-menu__contacts-item_type_phones:before {
+  background-image: url("/img/_icons.png");
+  background-position: -10px -2787px;
+  width: 26px;
+  height: 32px;
+  left: -21px;
+}
+.footer-menu__contacts-item_type_mail:before {
+  background-image: url("/img/_icons.png");
+  background-position: -10px -1908px;
+  width: 35px;
+  height: 27px;
+  left: -23px;
+}

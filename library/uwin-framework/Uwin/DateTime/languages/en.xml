@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <namesMonthWithoutEnd>
+        <m1>January</m1>
+        <m2>February</m2>
+        <m3>March</m3>
+        <m4>April</m4>
+        <m5>May</m5>
+        <m6>June</m6>
+        <m7>July</m7>
+        <m8>August</m8>
+        <m9>September</m9>
+        <m10>October</m10>
+        <m11>November</m11>
+        <m12>December</m12>
+   	</namesMonthWithoutEnd>
+	<namesMonth>
+		<m1>January</m1>
+		<m2>February</m2>
+		<m3>March</m3>
+		<m4>April</m4>
+		<m5>May</m5>
+		<m6>June</m6>
+		<m7>July</m7>
+		<m8>August</m8>
+		<m9>September</m9>
+		<m10>October</m10>
+		<m11>November</m11>
+		<m12>December</m12>
+	</namesMonth>
+
+  <shortNamesMonth>
+    <m1>Jan.</m1>
+    <m2>Feb.</m2>
+    <m3>Mar</m3>
+    <m4>Apr.</m4>
+    <m5>May</m5>
+    <m6>Jun</m6>
+    <m7>Jul</m7>
+    <m8>Aug.</m8>
+    <m9>Sep.</m9>
+    <m10>Oct.</m10>
+    <m11>Nov.</m11>
+    <m12>Dec.</m12>
+  </shortNamesMonth>
+
+	<namesDays>
+		<today>today</today>
+		<before_yesterday>Before yesterday</before_yesterday>
+		<yesterday>Yesterday</yesterday>
+		<tomorrow>Tomorrow</tomorrow>
+		<after_tomorrow>After tomorrow</after_tomorrow>
+		<day1>Monday</day1>
+		<day2>Tuesday</day2>
+		<day3>Wednesday</day3>
+		<day4>Thursday</day4>
+		<day5>Friday</day5>
+		<day6>Saturday</day6>
+		<day7>Sunday</day7>
+	</namesDays>
+	<shortNamesDays>
+		<day1>Mn</day1>
+		<day2>Tu</day2>
+		<day3>We</day3>
+		<day4>Th</day4>
+		<day5>Fr</day5>
+		<day6>Sa</day6>
+		<day7>Su</day7>
+	</shortNamesDays>
+</root>

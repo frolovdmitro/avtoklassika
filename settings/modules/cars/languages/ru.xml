@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cars>
+  <search_placeholder>Поиск запчастей</search_placeholder>
+  <autoparts_catalogue>Каталог запчастей</autoparts_catalogue>
+  <hot_deals>ГОРЯЧИЕ ПРЕДЛОЖЕНИЯ</hot_deals>
+  <docs>документация</docs>
+  <download_price>скачать прайслист</download_price>
+  <header_text>ЗАПЧАСТИ НА</header_text>
+  <autoparts>АВТОЗАПЧАСТИ</autoparts>
+  <pricelist>Прайслист</pricelist>
+  <print>распечатать</print>
+  <send>переслать</send>
+  <download>скачать</download>
+  <num>№</num>
+  <category>КАТЕГОРИЯ</category>
+  <num_by_catalogue>№ ПО КАТАЛОГУ</num_by_catalogue>
+  <price>ЦЕНА</price>
+  <to_basket><![CDATA[в&nbsp;корзину]]></to_basket>
+  <documentation>Документация</documentation>
+  <tiles>плитка</tiles>
+  <select_size>Выберите размер</select_size>
+  <select_color>Выберите цвет</select_color>
+  <description>Описание</description>
+  <related_products>СОПУТСТВУЮЩИЕ ТОВАРЫ</related_products>
+  <not_in_store>Нет на складе</not_in_store>
+  <sections>Разделы</sections>
+  <not_found>По вашему запросу автозапчастей не найдено</not_found>
+  <new_details>Новые поступления</new_details>
+  <all_autoparts>показать все запчасти</all_autoparts>
+  <restaurare>реставрация</restaurare>
+  <replica>новодел</replica>
+  <secondhand>б/у</secondhand>
+  <new>новое</new>
+  <payment>Оплата</payment>
+  <delivery>Доставка</delivery>
+  <null/>
+  <select_car>Автомобиль</select_car>
+  <detail_name>Название запчасти</detail_name>
+  <model>Модель</model>
+  <year>Год выпуска</year>
+  <volume>Объем двигателя</volume>
+  <upload_photo_detail>Загурзить фото детали</upload_photo_detail>
+  <body_type>Тип кузова</body_type>
+  <fuel_type>Тип топлива</fuel_type>  
+  <state>Состояние</state>
+  <approximet_cost>Допустимая стоимость</approximet_cost>
+  <send_request>Отправить запрос</send_request>
+  <validate>
+    <add_request>
+      <name>
+        <empty>Поле обязательно к заполнению</empty>
+      </name>
+      <email>
+        <empty>Поле обязательно к заполнению</empty>
+        <parseEmail>Неверный email</parseEmail>
+      </email>
+      <car>
+        <empty>Поле обязательно к заполнению</empty>
+      </car>
+      <model>
+        <empty>Поле обязательно к заполнению</empty>
+      </model>
+      <year>
+        <parseInt>Неверный год</parseInt>
+      </year>
+      <detail_name>
+        <empty>Поле обязательно к заполнению</empty>
+      </detail_name>
+      <detail_num>
+        <empty>Поле обязательно к заполнению</empty>
+      </detail_num>
+    </add_request>
+  </validate>
+  <requests>
+    <subject/>
+    <body/>
+  </requests>
+  <templates>
+    <title>      {{IF title}}
+      {{title}}
+    {{else}}
+    {{name}} на {{car}} купить в Украине | Доставка в Россию
+    {{END IF}}
+    
+    {{IF vars}}
+    {{name}} - название детали
+    {{num}}  - каталожный номер
+    {{car}} - Авто
+    {{status}} - Статус
+    {{autopart}} - Группа автозапчастей
+    {{info}} - описание
+    {{title}} - TITLE
+    {{keywords}} - KEYWORDS
+    {{description}} - DESCRIPTION
+    
+    дополнительно о шаблонизаторе alexeyrybak.com/blitz/blitz_en.html
+    {{END IF}}
+    </title>
+    <keywords>{{name}}, {{car}}, {{autopart}}</keywords>
+    <description>{{IF description}}{{description}}{{else}}{{name}} на ретро-автомобиль {{car}} ({{autopart}}) купить с доставкой по Украине, России, Европе и Сша{{END IF}}</description>
+    <share><![CDATA[      #{{detail_num}} - {{name}}
+Цена: {{cost}} {{IF currency_abb == 'P'}}руб.{{ELSE}}{{currency_abb}}{{END IF}}
+------------------------------------
+http://avtoclassika.com/car/{{car_synonym}}/{{autopart_id}}/{{id}}/
+
+{{info}}
+    ]]></share>
+  </templates>
+  <mails>
+    <mailer>
+      <subject>Рассылка новых автозапчастей на avtoclassika.com</subject>
+      <body><![CDATA[<table cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" width="600px" style="font-family:Arial, Arial, Helvetica, sans-serif;
+  margin:0 auto; padding:0; width:600px !important;
+  line-height: 100% !important;">
+  <tbody>
+<tr>
+    <td align="center">
+      <br>
+<img src="http://s1.avtoclassika.com/uploads/images/logo.jpg" width="224" height="71" style="outline:none;text-decoration:none;
+        -ms-interpolation-mode: bicubic;display:block;">
+    </td>
+  </tr>
+</tbody>
+</table>
+<br>
+<h1 style="margin-top:0!important;line-height:1;font-size: 20px;">Здравствуйте{{IF user_name}}, {{user_name}}{{END IF}}!</h1>
+<p>У нас появились следующие запчасти:</p>
+<table cellpadding="5" cellspacing="2" border="0" bgcolor="#FFFFFF" width="640px" style="font-family:Arial, Arial, Helvetica, sans-serif;
+  margin:0 auto; padding:0; width:100% !important;font-size:13px;
+  line-height: 100% !important;">
+  <tbody>
+<tr>
+    <td bgcolor="#CDDAD0" height="35">фото / photo</td>
+    <td bgcolor="#CDDAD0" height="35">наименование / name</td>
+    <td bgcolor="#CDDAD0" height="35">стоимость / cost (EUR)</td>
+  </tr>
+  <!--{{BEGIN details}}-->
+  <tr>
+<td align="center">
+      <!--{{IF image}}-->
+        <a target="_blank" href="http://avtoclassika.com/car/{{car_synonym}}/{{autopart_id}}/{{detail_id}}/?mailer={{ mailerId }}&amp;user={{ user_md5 }}">
+          <img src="http:{{url_staticserver}}{{image}}">
+        </a>
+      <!--{{ELSE}}-->
+        <a target="_blank" href="http://avtoclassika.com/car/{{car_synonym}}/{{autopart_id}}/{{detail_id}}/?mailer={{ mailerId }}&amp;user={{ user_md5 }}">
+          <img src="http:{{url_staticserver}}/uploads/images/noimage-sm.jpg">
+        </a>
+      <!--{{END IF}}-->
+    </td>
+    <td>
+      <!--{{IF detail_num}}-->
+        <font color="#6E7A71" style="font-size:18px;padding-bottom:5px;">
+          {{detail_num}}
+        </font>
+      <!--{{END IF}}-->
+      <!--{{IF detail_name_ru}}-->
+        <br>
+        <a target="_blank" style="font-size:14px;padding-bottom:5px;" href="http://avtoclassika.com/car/{{car_synonym}}/{{autopart_id}}/{{detail_id}}/?mailer={{ mailerId }}&amp;user={{ user_md5 }}">
+          <font color="#134936">{{detail_name_ru}}</font>
+        </a>
+      <!--{{END IF}}-->
+      <!--{{IF detail_description_ru}}-->
+        <p style="margin:4px 0;color:#898989;font-size:14px;">{{detail_description_ru}}</p>
+      <!--{{END IF}}-->
+      <!--{{IF status}}-->
+        <div style="border:1px solid #ffffff;padding:3px 10px;
+          background-color:#DADED9;text-transform:uppercase;color:#134936;
+          text-align:center;width:200px;margin:5px 0;">
+          {{IF status == 'secondhand'}}Б/У{{END IF}}
+{{IF status == 'replica'}}Новодел{{END IF}}
+{{IF status == 'new'}}Новое{{END IF}}
+{{IF status == 'restaurare'}}Реставрация{{END IF}}
+        </div>
+      <!--{{END IF}}-->
+    </td>
+    <td style="font-size:18px" align="center">
+      <font color="#1B543D">
+<strong>{{cost}}</strong>
+</font>
+    </td>
+  </tr>
+  <!--{{END IF}}-->
+</tbody>
+</table>
+<table cellpadding="0" cellspacing="0" border="0"><tbody><tr><td><br><br>Что бы отписаться от рассылки, перейдите по <a href="http://avtoclassika.com/users/unsubscribe?email={{user_email}}">ссылке</a>.</td></tr></tbody>
+</table>
+<table cellpadding="0" cellspacing="0" border="0" background="http://avtoclassika.com/s/{{ mailerId }}/{{ user_md5 }}/logo.jpeg" style="width:0;height:0;"><tbody><tr><td></td></tr></tbody>
+</table>]]></body>
+    </mailer>
+    <sale_mailer>
+      <subject>Цены снижены</subject>
+      <body><![CDATA[<table cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" width="600px" style="font-family:Arial, Arial, Helvetica, sans-serif;
+  margin:0 auto; padding:0; width:600px !important;
+  line-height: 100% !important;">
+  <tbody>
+<tr>
+    <td align="center">
+      <br>
+<img src="http://s1.avtoclassika.com/uploads/images/logo.jpg" width="224" height="71" style="outline:none;text-decoration:none;
+        -ms-interpolation-mode: bicubic;display:block;">
+    </td>
+  </tr>
+</tbody>
+</table>
+<br>
+<h1 style="margin-top:0!important;line-height:1;font-size: 20px;">Здравствуйте{{IF user_name}}, {{user_name}}{{END IF}}!</h1>
+<p>Мы рады Вам сообщить о снижении цен:</p>
+<table cellpadding="5" cellspacing="2" border="0" bgcolor="#FFFFFF" width="640px" style="font-family:Arial, Arial, Helvetica, sans-serif;
+  margin:0 auto; padding:0; width:100% !important;font-size:13px;
+  line-height: 100% !important;">
+  <tbody>
+<tr>
+    <td bgcolor="#CDDAD0" height="35">фото / photo</td>
+    <td bgcolor="#CDDAD0" height="35">наименование / name</td>
+    <td bgcolor="#CDDAD0" height="35">стоимость / cost (EUR)</td>
+  </tr>
+  <!--{{BEGIN details}}-->
+  <tr>
+<td align="center">
+      <!--{{IF image}}-->
+        <a target="_blank" href="http://avtoclassika.com/car/{{car_synonym}}/{{autopart_id}}/{{detail_id}}/?mailer={{ mailerId }}&amp;user={{ user_md5 }}">
+          <img src="http:{{url_staticserver}}{{image}}">
+        </a>
+      <!--{{ELSE}}-->
+        <a target="_blank" href="http://avtoclassika.com/car/{{car_synonym}}/{{autopart_id}}/{{detail_id}}/?mailer={{ mailerId }}&amp;user={{ user_md5 }}">
+          <img src="http:{{url_staticserver}}/uploads/images/noimage-sm.jpg">
+        </a>
+      <!--{{END IF}}-->
+    </td>
+    <td>
+      <!--{{IF detail_num}}-->
+        <font color="#6E7A71" style="font-size:18px;padding-bottom:5px;">
+          {{detail_num}}
+        </font>
+      <!--{{END IF}}-->
+      <!--{{IF detail_name_ru}}-->
+        <br>
+        <a target="_blank" style="font-size:14px;padding-bottom:5px;" href="http://avtoclassika.com/car/{{car_synonym}}/{{autopart_id}}/{{detail_id}}/?mailer={{ mailerId }}&amp;user={{ user_md5 }}">
+          <font color="#134936">{{detail_name_ru}}</font>
+        </a>
+      <!--{{END IF}}-->
+      <!--{{IF detail_description_ru}}-->
+        <p style="margin:4px 0;color:#898989;font-size:14px;">{{detail_description_ru}}</p>
+      <!--{{END IF}}-->
+      <!--{{IF status}}-->
+        <div style="border:1px solid #ffffff;padding:3px 10px;
+          background-color:#DADED9;text-transform:uppercase;color:#134936;
+          text-align:center;width:200px;margin:5px 0;">
+          {{IF status == 'secondhand'}}Б/У{{END IF}}
+{{IF status == 'replica'}}Новодел{{END IF}}
+{{IF status == 'new'}}Новое{{END IF}}
+{{IF status == 'restaurare'}}Реставрация{{END IF}}
+        </div>
+      <!--{{END IF}}-->
+    </td>
+    <td style="font-size:18px" align="center">
+      <font color="#1B543D">
+<strong>{{cost}}<br><br><strike style="color:grey;">{{old_cost}}</strike>
+</strong>
+</font>
+    </td>
+  </tr>
+  <!--{{END IF}}-->
+</tbody>
+</table>
+<table cellpadding="0" cellspacing="0" border="0"><tbody><tr><td><br><br>Что бы отписаться от рассылки, перейдите по <a href="http://avtoclassika.com/users/unsubscribe?email={{user_email}}">ссылке</a>.</td></tr></tbody>
+</table>
+<table cellpadding="0" cellspacing="0" border="0" background="http://avtoclassika.com/s/{{ mailerId }}/{{ user_md5 }}/logo.jpeg" style="width:0;height:0;"><tbody><tr><td></td></tr></tbody>
+</table>]]></body>
+    </sale_mailer>
+  </mails>
+  <templates_car>
+    <title>      {{title}}
+      {{IF vars}}
+    {{name}} - название детали
+    {{synonym}} - синоним авто
+    {{title}} - TITLE
+    {{keywords}} - KEYWORDS
+    {{description}} - DESCRIPTION
+    {{END IF}}
+    </title>
+    <keywords>{{keywords}}</keywords>
+    <description>      {{IF description}}{{description}}{{else}}
+      {{END IF}}
+    </description>
+  </templates_car>
+  <templates_category>
+    <title>      {{IF title}}{{title}}{{else}}
+      {{name}} на {{car_name}} купить в Украине и России
+    {{END IF}}
+    {{IF vars}}
+    {{car_name}} - название авто
+    {{car_synonym}} - синоним авто
+    {{name}} - название детали
+    {{title}} - TITLE
+    {{keywords}} - KEYWORDS
+    {{description}} - DESCRIPTION
+    {{END IF}}
+    </title>
+    <keywords>{{name}}, {{car_name}}</keywords>
+    <description>{{IF description}}{{description}}{{else}}{{name}} на {{car_name}} купить недорого с доставкой по Украине, России (Москва и др.) и СНГ{{END IF}}</description>
+  </templates_category>
+  <templates_last_category>
+    <title>      {{IF title}}{{title}}{{else}}
+      {{name}} на {{car_name}} купить в Украине и России{{END IF}}
+    {{IF vars}}
+    {{car_name}} - название авто
+    {{car_synonym}} - синоним авто
+    {{name}} - название детали
+    {{title}} - TITLE
+    {{keywords}} - KEYWORDS
+    {{description}} - DESCRIPTION
+    {{END IF}}
+    </title>
+    <keywords>{{name}}</keywords>
+    <description>{{IF description}}{{description}}{{else}}{{name}} на {{car_name}} купить недорого с доставкой по Украине, России (Москва и др.) и СНГ{{END IF}}</description>
+  </templates_last_category>
+</cars>

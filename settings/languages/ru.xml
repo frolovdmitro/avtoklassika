@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<show>показать</show>
+	<hide>скрыть</hide>
+	<tracking>отследить</tracking>
+	<slogan>классические автомобили и запчасти</slogan>
+	<copyright>© 2009–2014 Автоклассика, реставрация автомобилей от Avtoclassika.com.</copyright>
+	<design>Design by www.felix-art.com</design>
+	<development>Разработка интернет-магазина Uwinart Development</development>
+	<contacts>Контакты</contacts>
+	<buy>Купить</buy>
+	<fast_buy>быстрая покупка</fast_buy>
+	<reccomend_shop>Покупателей рекомендуют</reccomend_shop>
+	<name>Имя</name>
+	<phone>Телефон</phone>
+	<all>Все</all>
+	<password>Пароль</password>
+	<home>Домой</home>
+	<comments>Комментарии</comments>
+	<password_retype>Пароль еще раз</password_retype>
+	<restaurare>реставрация</restaurare>
+	<replica>новодел</replica>
+	<secondhand>б/у</secondhand>
+	<new>новое</new>
+	<payment>Оплата</payment>
+	<delivery>Доставка</delivery>
+	<share>Поделиться</share>
+	<general>
+		<email>avtoclassika.com@gmail.com</email>
+		<address>
+			Украина, г. Вышгород,
+			ул. Ватутина 69-В
+	  </address>
+	  <organization>Avtoclassika</organization>
+	</general>
+</root>

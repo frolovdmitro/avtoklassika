@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<orders>
+	<survey>Submit survey</survey>
+	<confirm_address>Confirm address</confirm_address>
+	<null/>
+	<quick_buy_text>Bitte, teilen Sie Ihre Name und Ihre Telefonnummer mit. Wir werden uns in Kürze mit Ihnen in Verbindung setzen</quick_buy_text>
+	<our_order>Ihre Bestellung</our_order>
+	<quick_buy>
+		<success>Bitte, teilen Sie Ihre Name und Ihre Telefonnummer mit. Wir werden uns in Kürze mit Ihnen in Verbindung setzen.</success>
+	</quick_buy>
+	<order_num>Bestellnummer</order_num>
+	<validate>
+		<quick_buy>
+			<name>
+				<empty>Sie haben nicht Ihren Namen</empty>
+			</name>
+			<phone>
+				<empty>Sie haben angedeutet Ihr Telefon</empty>
+			</phone>
+			<email>
+				<empty>Sie haben nicht angeben Inseln E-mail</empty>
+				<parseEmail>Sie haben eine ungültige E-Mail</parseEmail>
+			</email>
+		</quick_buy>
+		<promocode>
+			<promocode>
+				<empty>Sie haben einen Promo Code nicht eingeben</empty>
+				<not>Sie haben eine ungültige Promo Code eingegeben</not>
+			</promocode>
+		</promocode>
+	</validate>
+	<i_new_client>Ich bin neue Kunde</i_new_client>
+	<i_old_client>Ich habe schon eingekauft</i_old_client>
+	<create_order>Bestellung aufgeben</create_order>
+	<step_1>Was wird gekauft?</step_1>
+	<step_2>Lieferung und Bezahlung</step_2>
+	<step_3>Bestätigung</step_3>
+	<basket>Warenkorb</basket>
+	<total_cost>Gesamt Betrag</total_cost>
+	<products_cost>Ware Betrag</products_cost>
+	<unit>pcs.</unit>
+	<fio>Name</fio>
+	<next>weiter</next>
+	<register>Anmeldung</register>
+	<authenticate>Genehmigung</authenticate>
+	<or_login_social>Oder Anmeldung mit Hilfe</or_login_social>
+	<input_promocode>Promo-Code angeben</input_promocode>
+	<promocode_hint>Geben Sie den Discount-Code</promocode_hint>
+	<apply>Anwenden</apply>
+	<recipient>Emfenger</recipient>
+	<address>Adresse</address>
+	<add_comment>Einen Kommentar hinzufügen</add_comment>
+	<comment_text>Der Kommentartext</comment_text>
+	<delivery_cost>Einen Kommentar hinzufügen</delivery_cost>
+	<created_order>Zur Kasse</created_order>
+	<created>erstellt</created>
+	<has_state>im Staat</has_state>
+	<state>
+		<not_complete>nicht abgeschlossen</not_complete>
+		<proccess>um zu arbeiten</proccess>
+		<wait_payment>Erwartung der Zahlung</wait_payment>
+		<pending>в процессе</pending>
+		<paid>bezahlt</paid>
+		<verify_payment>Scheckzahlung</verify_payment>
+		<cancel>storniert</cancel>
+		<success>gemacht</success>
+	</state>
+	<country>Land</country>
+	<city>Stadt</city>
+	<index>Index</index>
+	<build>Haus Nummer</build>
+	<street>Strasse</street>
+	<flat_abb>W-Nr.</flat_abb>
+	<order>Bestellung</order>
+	<decorated>ausgestellt</decorated>
+	<user_data>Ihre Daten</user_data>
+	<mrms>Sehr geehrte(r) Herr/Frau</mrms>
+	<you_order>Ihre Bestellung</you_order>
+	<order_thanks_text><![CDATA[Wir werden uns in Kürze mit Ihnen in Verbindung setzen.<br>
+    <strong>Status Ihrer Sendung können Sie online in Ihrem Account verfolgen.</strong>]]></order_thanks_text>
+	<congratulations>Vielen Dank für Ihren Einkauf!</congratulations>
+	<share_friends>Mit freunden Teilen!</share_friends>
+	<order_description>Bezahlung Bestellung #</order_description>
+	<users>
+		<user_agreement>
+			<body/>
+		</user_agreement>
+	</users>
+	<mails>
+		<order_created>
+			<subject>Bestellung #{{num}} ist Angenommen.</subject>
+			<body><![CDATA[<table cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" width="640px" style="font-family:Arial, Arial, Helvetica, sans-serif;
+  margin:0 auto; padding:0; width:640px !important;
+  line-height: 100% !important;">
+  <tbody>
+<tr>
+    <td align="center">
+      <br>
+<img src="http://s1.avtoclassika.com/uploads/images/logo.jpg" width="224" height="71" style="outline:none;text-decoration:none;
+        -ms-interpolation-mode: bicubic;display:block;">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <br>
+      <table cellpadding="0" cellspacing="0" border="0" id="backgroundTable" bgcolor="#EBF6EB" width="100%" style="padding: 20px;border:1px solid #0C555D;line-height:1.4;">
+        <tbody><tr><td>
+<h1 style="margin-top:0!important;line-height:1;font-size: 20px;">Hallo, {{user_name}}!</h1>
+<p>Wir freuen uns darüber informieren, dass Ihre Bestellung <b>#{{num}}</b> von <b>{{date}}</b>angenommen wurde! Bitte <span style="line-height: 100%;">verwenden Sie beim Umgang </span>
+<span style="line-height: 100%;">mit der Auftragsnummer  </span>
+<b style="line-height: 100%;">#{{num}}</b>
+<span style="line-height: 100%;">.</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<br>
+<h2 style="line-height:1;font-size: 16px;margin-top:0px!important;">Information zu Ihrer Bestellung:</h2>
+<ul style="list-style: none;padding-left: 0;">
+<li>
+<b>Käufer</b>: {{user_name}}</li>
+<li>
+<b>Telefon</b>: {{user_phones}}</li>
+<li>
+<b>Email</b>: {{user_email}}</li>
+<li>
+<b>Versandart</b>: {{delivery_name}}</li>
+{{IF user_country}}
+<li>
+<b>Lieferadresse</b>: {{user_country}}, {{user_city}}, {{user_index}}, {{user_street}}, {{user_build}}, {{user_flat}}</li>
+{{END IF}}
+<li>
+<b>Zahlungsart:</b>: {{payment_name}}</li>
+{{IF discount}}
+<li>
+<b>Rabatt</b>: {{sum_discount}}{{currency}} ({{discount}}%)</li>
+{{END IF}}
+<li>
+<b>Gesamtauftrags</b>: {{total_sum}} {{currency}}</li>
+{{IF note}}
+<li>
+<b>Kommentar</b>: {{note}}</li>
+{{END IF}}
+</ul>
+</td>
+</tr>
+<!--{{IF payment_type=='western'}}-->
+<tr bgcolor="#ccdfcc">
+<td style="border: 2px solid #ffffff; padding: 10px;">
+<p style="margin:0;">
+<b>Achtung!</b>Bei Zahlung per Western Union verwenden Sie Folgendes Angaben:<br>
+<b>
+   Empfänger
+</b>:Spivak Dmytro<br>
+<b>
+   Land
+</b>: Ukraine<br>
+<b>
+   Stadt
+</b>: Kiev<br>
+<b style="color:#CD4D47">
+Nach der Bezahlung , senden Sie bitte den Kennzahl!
+</b>
+</p>
+</td>
+</tr>
+<tr>
+<td> </td>
+</tr>
+<!--{{END IF}}-->
+<tr>
+<td>
+<table cellpadding="5" cellspacing="2" border="0" id="backgroundTable" bgcolor="#FFFFFF" width="100%" style="font-size: 14px;">
+<tbody>
+<tr bgcolor="#ccdfcc">
+<th>#Detail</th>
+<th>Foto</th>
+<th>Name</th>
+<th>Preis</th>
+<th>
+<nobr>Teil Menge</nobr>
+</th>
+<th>Summe</th>
+</tr>
+<!--{{BEGIN details}}-->
+<tr bgcolor="#f0faf0">
+<td align="center"><nobr><a href="http://{{language_domain}}avtoclassika.com/car/{{car_synonym}}/{{autopart_id}}/{{id}}/" target="_blank">{{num}}</a></nobr></td>
+<td align="center">
+<img src="{{IF image}}http:{{url_staticserver}}{{image}}{{ELSE}}http:{{url_staticserver}}/uploads/images/noimage-sm.jpg{{END IF}}" style="outline:none;text-decoration:none;
+        -ms-interpolation-mode: bicubic;display:block;">
+</td>
+<td>
+<b>{{car_name}}</b>
+<br>{{name}}</td>
+<td align="center">
+<nobr>{{cost}} {{currency}}</nobr><nobr></nobr>
+</td>
+<td align="center">{{count}} шт.</td>
+<td align="center">
+<nobr>{{sum}} {{currency}}</nobr>
+</td>
+</tr>
+<!--{{END details}}-->
+<!--{{IF discount}}-->
+<tr bgcolor="#ccdfcc">
+<td colspan="5" align="right">Rabatt</td>
+<td align="center">
+<nobr>{{discount}}%</nobr>
+</td>
+</tr>
+<!--{{END IF}}-->
+<tr bgcolor="#ccdfcc">
+<td colspan="5" align="right">Summe für Waren{{IF discount}}(einschließlich Rabatt){{END IF}}</td>
+<td align="center">
+<nobr>{{sum}} {{currency}}</nobr>
+</td>
+</tr>
+<tr bgcolor="#ccdfcc">
+<td colspan="5" align="right">Lieferkosten</td>
+<td align="center">
+<nobr>{{IF sum_delivery}}{{sum_delivery}}{{ELSE}}0{{END IF}} {{currency}}</nobr>
+</td>
+</tr>
+<tr bgcolor="#ccdfcc">
+<td colspan="5" align="right">
+<b>Gesamtauftrags</b>
+</td>
+<td align="center"><nobr><b>{{total_sum}} {{currency}}</b></nobr></td>
+</tr>
+
+</tbody>
+     </table>
+</td>
+</tr>
+<tr>
+<td>
+<p>Informationen über den Status Ihrer Bestellung können Sie in Ihrem Konto finden<a href="http://avtoclassika.com/cabinet/" target="_blank">avtoclassika.com</a>.</p>
+<p>Unser Support-Team ist immer bereit, Ihnen zu helfen! Wenn Sie Fragen haben , rufen Sie bitte an: <nobr>
+<b>+38 068 361-68-42</b>
+</nobr>, <nobr>
+<b style="line-height: 19.6px; white-space: normal;">+3</b></nobr><b style="line-height: 19.6px; white-space: normal;">
+<nobr>8 095 792-51-81</nobr></b><nobr> </nobr>, oder schreiben Sie an<a href="mailto:info@avtoclassika.com" target="_blank">info@avtoclassika.com</a>
+</p>
+
+<h3>
+<b>Alle Ersatzteile, die Sie von uns gekauft haben haben Monate Garantie. Wir bieten eine 30-Tage-Rückgabe für die Rückerstattung.</b>
+</h3>
+
+<p style="margin-bottom:0!important;">
+Vielen Dank, dass Sie sich für unser Online-Shop entschieden haben,
+<br>
+Genießen Sie Ihr Einkaufen !
+</p>
+<p>Mit freundlichen Grüßen,<br>Verwaltung<a href="http://avtoclassika.com/" target="_blank">Avtoclassika.com</a>
+</p>
+        </td>
+</tr>
+      </tbody>
+</table>
+    </td>
+  </tr>
+</tbody>
+</table>]]></body>
+	  </order_created>
+	  <order_change_status>
+		  <subject>Ihre Bestellung #{{num}}Status geändert</subject>
+		  <body><![CDATA[<table cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" width="600px" style="font-family:Arial, Arial, Helvetica, sans-serif;
+  margin:0 auto; padding:0; width:600px !important;
+  line-height: 100% !important;">
+  <tbody>
+<tr>
+    <td align="center">
+      <br>
+<img src="http://s1.avtoclassika.com/uploads/images/logo.jpg" width="224" height="71" style="outline:none;text-decoration:none;
+        -ms-interpolation-mode: bicubic;display:block;">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <br>
+      <table cellpadding="0" cellspacing="0" border="0" id="backgroundTable" bgcolor="#EBF6EB" width="100%">
+        <tbody><tr><td style="padding: 25px;border:1px solid #0C555D;">
+<h1 style="margin-top:0!important;line-height:1;font-size: 20px;">Здравствуйте, {{user_name}}!</h1>
+<p>Ihre Bestellung # {{Nummer}} Status geändert zu {{status}}.<br>
+</p>
+<p>Informationen über den Status Ihrer Bestellung können Sie in Ihrem Konto finden <a href="http://avtoclassika.com/cabinet/" target="_blank">avtoclassika.com</a>.</p>
+<p>Unser Support-Team ist immer bereit, Ihnen zu helfen! Wenn Sie Fragen haben , rufen Sie bitte an: <nobr>
+<b>+38 068 361-68-42</b>
+</nobr>, <nobr>
+<b style="line-height: 19.6px; white-space: normal;">+3</b></nobr><b style="line-height: 19.6px; white-space: normal;">
+<nobr>8 095 792-51-81</nobr></b><nobr> </nobr>, oder schreiben Sie an <a href="mailto:info@avtoclassika.com" target="_blank">info@avtoclassika.com</a>
+</p>
+<p style="margin-bottom:0!important;">
+Vielen Dank, dass Sie sich für unser Online-Shop entschieden haben,
+<br>
+Genießen Sie Ihr Einkaufen !
+</p>
+<p>Mit freundlichen Grüßen,<br>Verwaltung  <a href="http://avtoclassika.com/" target="_blank">Avtoclassika.com</a>
+</p>
+        </td>
+</tr>
+      </tbody>
+</table>
+    </td>
+  </tr>
+</tbody>
+</table>]]></body>
+	  </order_change_status>
+	  <quick_order_created>
+		  <subject>Ihre Bestellung #{{num}} ist Angenommen.</subject>
+		  <body><![CDATA[<table cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" width="640px" style="font-family:Arial, Arial, Helvetica, sans-serif;
+  margin:0 auto; padding:0; width:640px !important;
+  line-height: 100% !important;">
+  <tbody>
+<tr>
+    <td align="center">
+      <br>
+<img src="http://s1.avtoclassika.com/uploads/images/logo.jpg" width="224" height="71" style="outline:none;text-decoration:none;
+        -ms-interpolation-mode: bicubic;display:block;">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <br>
+      <table cellpadding="0" cellspacing="0" border="0" id="backgroundTable" bgcolor="#EBF6EB" width="100%" style="padding: 20px;border:1px solid #0C555D;line-height:1.4;">
+        <tbody><tr><td>
+<h1 style="margin-top:0!important;line-height:1;font-size: 20px;">Hallo, {{user_name}}!</h1>
+<p>Wir freuen uns darüber informieren, dass Ihre Bestellung<b>#{{num}}</b> von <b>{{date}}</b>angenommen wurde! Bitte, <span style="line-height: 100%;">verwenden Sie beim Umgang </span>
+<span style="line-height: 100%;">mit der Auftragsnummer</span>
+<b style="line-height: 100%;">#{{num}}</b>
+<span style="line-height: 100%;">.</span>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<br>
+<h2 style="line-height:1;font-size: 16px;margin-top:0px!important;">Informationen über den Ihrer Bestellung:</h2>
+<ul style="list-style: none;padding-left: 0;">
+<li>
+<b>Käufer</b>: {{user_name}}</li>
+<li>
+<b>Telefon</b>: {{user_phones}}</li>
+<li>
+<b>Email</b>: {{user_email}}</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>
+<table cellpadding="5" cellspacing="2" border="0" id="backgroundTable" bgcolor="#FFFFFF" width="100%" style="font-size: 14px;">
+<tbody>
+<tr bgcolor="#ccdfcc">
+<th>#Detail</th>
+<th>Foto</th>
+<th>Name</th>
+<th>Preis</th>
+<th>
+<nobr>Teil Menge</nobr>
+</th>
+<th>Summe</th>
+<th>
+<nobr>Teil Menge</nobr>
+</th>
+<th>Summe</th>
+</tr>
+<tr bgcolor="#f0faf0">
+<td align="center"><nobr><a href="http://{{language_domain}}avtoclassika.com/car/{{car_synonym}}/{{autopart_id}}/{{detail_id}}/" target="_blank">{{detail_num}}</a></nobr></td>
+<td align="center">
+<img src="{{IF detail_image}}http:{{url_staticServer}}{{detail_image}}{{ELSE}}http:{{url_staticServer}}/uploads/images/noimage-sm.jpg{{END IF}}" style="outline:none;text-decoration:none;
+        -ms-interpolation-mode: bicubic;display:block;">
+</td>
+<td>
+<b>{{car_name}}</b>
+<br>{{detail_name}}</td>
+<td align="center">
+<nobr>{{detail_cost}} {{currency}}</nobr><nobr></nobr>
+</td>
+<td align="center">{{detail_count}} шт.</td>
+<td align="center">
+<nobr>{{detail_sum}} {{currency}}</nobr>
+</td>
+</tr>
+</tbody>
+     </table>
+</td>
+</tr>
+<tr>
+<td>
+<p>Informationen über den Status Ihrer Bestellung können Sie in Ihrem Konto finden<a href="http://avtoclassika.com/cabinet/" target="_blank">avtoclassika.com</a>.</p>
+<p>Unser Support-Team ist immer bereit, Ihnen zu helfen! Wenn Sie Fragen haben , rufen Sie bitte an: <nobr>
+<b>+38 068 361-68-42</b>
+</nobr>, <nobr>
+<b style="line-height: 19.6px; white-space: normal;">+3</b></nobr><b style="line-height: 19.6px; white-space: normal;">
+<nobr>8 095 792-51-81</nobr></b><nobr> </nobr>, oder schreiben Sie an<a href="mailto:info@avtoclassika.com" target="_blank">info@avtoclassika.com</a>
+</p><h3><b>Alle Ersatzteile, die Sie von uns gekauft haben haben Monate Garantie. Wir bieten eine 30-Tage-Rückgabe für die Rückerstattung.</b>
+</h3>
+<p style="margin-bottom:0!important;">
+Vielen Dank, dass Sie sich für unser Online-Shop entschieden haben,
+<br>
+Genießen Sie Ihr Einkaufen !
+</p>
+<p>Mit freundlichen Grüßen,<br>Verwaltung<a href="http://avtoclassika.com/" target="_blank">Avtoclassika.com</a>
+</p>
+        </td>
+</tr>
+      </tbody>
+</table>
+    </td>
+  </tr>
+</tbody>
+</table>]]></body>
+	  </quick_order_created>
+	</mails>
+</orders>

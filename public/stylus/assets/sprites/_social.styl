@@ -1,0 +1,26 @@
+$facebook = -10px -10px 50px 50px
+$gmail = -10px -80px 50px 50px
+$odnoklassniki = -10px -150px 50px 50px
+$twitter = -10px -220px 50px 50px
+$vk = -10px -290px 50px 50px
+
+sprite-width($sprite)
+  width $sprite[2]
+
+sprite-height($sprite)
+  height $sprite[3]
+
+sprite-position($sprite)
+  background-position $sprite[0]  $sprite[1]
+
+sprite($sprite)
+  sprite-position($sprite)
+  background-repeat no-repeat
+  overflow hidden
+  display block
+  sprite-width($sprite)
+  sprite-height($sprite)
+
+social()
+  background-image url('/img/_social.png')
+

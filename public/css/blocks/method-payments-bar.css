@@ -1,0 +1,9 @@
+.method-payments-bar {
+  background-image: url("/img/_icons.png");
+  background-position: -10px -1727px;
+  width: 166px;
+  height: 24px;
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+}

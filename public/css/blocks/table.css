@@ -1,0 +1,59 @@
+.table {
+  color: #0c555d;
+  width: 100%;
+}
+.table__head {
+  background: #ebf6eb;
+  text-transform: uppercase;
+  font: normal 14px 'Sensation';
+}
+.table__row {
+  background: #ebf6eb;
+}
+.table__row:nth-child(2n+0) {
+  background: #ccdfcc;
+}
+.table__field {
+  border: 3px solid #fff;
+  padding: 5px 10px;
+}
+.table__field_min_120 {
+  min-width: 120px;
+}
+.table__buy-link {
+  float: right;
+}
+.table__buy-link:hover {
+  text-decoration: none;
+}
+.table__actions {
+  list-style: none;
+  margin: 10px 4px;
+  padding: 0;
+  text-align: right;
+  font: 14px 'Sensation';
+}
+.table__actions-item {
+  display: inline-block;
+  margin-left: 40px;
+}
+.table__actions-link {
+  text-decoration: none;
+}
+.table__actions-link:hover {
+  text-decoration: underline;
+}
+.table__actions-link_type_print {
+  padding-left: 23px;
+  position: relative;
+}
+.table__actions-link_type_print:before {
+  content: '';
+  position: absolute;
+  background-image: url("/img/_icons.png");
+  background-position: -10px -277px;
+  width: 16px;
+  height: 13px;
+  left: 0;
+  top: 2px;
+}

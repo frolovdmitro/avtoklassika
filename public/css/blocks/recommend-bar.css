@@ -1,0 +1,54 @@
+.recommend-bar {
+  background: #ccdfcc;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  position: relative;
+  padding: 4px 4px 4px 9px;
+  margin-left: 9px;
+  width: 210px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.recommend-bar:before {
+  content: '';
+  position: absolute;
+  background-image: url("/img/_icons.png");
+  background-position: -10px -310px;
+  width: 15px;
+  height: 13px;
+  left: 9px;
+  top: 5px;
+}
+.recommend-bar__wrap {
+  text-align: center;
+  margin-top: 26px;
+}
+.recommend-bar__stars {
+  display: inline-block;
+  width: 95px;
+  height: 14px;
+  background-image: url("/img/_icons.png");
+  background-position: -10px -475px;
+  width: 95px;
+  height: 14px;
+}
+.recommend-bar__percent {
+  color: #0c555d;
+  font: bold 18px/1 'Sensation';
+  position: absolute;
+  left: 8px;
+  top: 25px;
+}
+.recommend-bar__text {
+  color: #0c555d;
+  font: 12px/1.4 'Sensation';
+  margin: 0 0 5px 35px;
+}
+.recommend-bar__add-feedback {
+  color: #fff !important;
+  font: bold 12px/1.2 'Sensation';
+}
+.recommend-bar__add-feedback:hover {
+  text-decoration: none;
+}

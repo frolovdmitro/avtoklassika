@@ -1,0 +1,8 @@
+.icons__help {
+  display: inline-block;
+  background-image: url("/img/_icons.png");
+  background-position: -10px -1218px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}

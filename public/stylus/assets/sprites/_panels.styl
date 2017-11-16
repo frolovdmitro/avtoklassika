@@ -1,0 +1,24 @@
+$panel-active = -10px -10px 144px 162px
+$panel-current = -10px -192px 144px 162px
+$panel = -10px -374px 144px 162px
+
+sprite-width($sprite)
+  width $sprite[2]
+
+sprite-height($sprite)
+  height $sprite[3]
+
+sprite-position($sprite)
+  background-position $sprite[0]  $sprite[1]
+
+sprite($sprite)
+  sprite-position($sprite)
+  background-repeat no-repeat
+  overflow hidden
+  display block
+  sprite-width($sprite)
+  sprite-height($sprite)
+
+panels()
+  background-image url('/img/_panels.png')
+

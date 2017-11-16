@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<carMarket>
+	<autoBuy>Auto zu verkaufen</autoBuy>
+	<main>Startseite</main>
+	<carsCatalogue>Liste der Autos</carsCatalogue>
+	<details>Mehr</details>
+	<benefits>Unsere Vorteile</benefits>
+	<benefit_1>Kostenlose Online-Beratung</benefit_1>
+	<benefit_2>Eine große Auswahl an Autoteilen mit Weltweitlieferung</benefit_2>
+	<benefit_3>Gebrauchtwagen-Check und Wartung</benefit_3>
+	<model>Modell</model>
+	<seria>Baureihe</seria>
+	<year>Baujahr</year>
+	<price>Preis</price>
+	<connectWithSeller>Verkäufer kontaktieren</connectWithSeller>
+	<viewAll>Alle anzeigen</viewAll>
+	<photos>Bilder</photos>
+	<general>Weitere</general>
+	<features>Details</features>
+	<details2>Fahrzeugbeschreibung</details2>
+	<description/>
+	<byu>Das Auto</byu>
+	<auto>kaufen</auto>
+	<other>Andere unsere Fahrzeuge</other>
+	<cars/>
+	<whyBenefits>Gründe warum sie bei uns kaufen sollten</whyBenefits>
+	<inOur/>
+	<yourName>Ihre Vorname</yourName>
+	<message>Nachricht</message>
+	<send>Senden</send>
+	<uniqChance>Das ist eine einzigartige Gelegenheit einen sowjetischen Oldtimer zu kaufen!</uniqChance>
+	<sovetCar/>
+	<gotoCatalogue>Zur Liste</gotoCatalogue>
+	<arguments>Einige von vielen Gründen</arguments>
+	<arg1>Oldtimer Kauf als gewinnbringende Geldanlage.</arg1>
+	<arg2>Für den Zeitraum 2002-2015 hat sich der Preis für einigen Autos um 500% erhöht.</arg2>
+	<arg3>Die Preise für die besten restaurierten Autos liegenzwischen von $30 Tsn. bis $25 Mio.</arg3>
+	<unsubscribe>Aus dem Verteiler löschen</unsubscribe>
+	<menu_1>ЗАПЧАСТИ</menu_1>
+	<menu_1_link>/</menu_1_link>
+	<menu_2>ИНФОРМАЦИЯ</menu_2>
+	<menu_2_link>/help/</menu_2_link>
+	<menu_3>УСЛУГИ</menu_3>
+	<menu_3_link>/services/</menu_3_link>
+	<menu_4>НАПИСАТЬ НАМ</menu_4>
+	<menu_4_link>/contacts/</menu_4_link>
+	<contacts><![CDATA[
+        Украина,<br>
+        г. Вышгород,<br>
+        ул. Ватутина 69-В<br>
+        avtoclassika.com@gmail.com<br>
+        ©2016. All rights reserved
+]]></contacts>	
+</carMarket>

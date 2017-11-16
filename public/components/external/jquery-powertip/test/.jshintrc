@@ -1,0 +1,60 @@
+{
+	"camelcase": true,
+	"curly": true,
+	"eqeqeq": true,
+	"forin": true,
+	"immed": true,
+	"indent": 4,
+	"latedef": true,
+	"newcap": true,
+	"noarg": true,
+	"noempty": true,
+	"nonew": true,
+	"quotmark": "single",
+	"regexp": true,
+	"undef": true,
+	"unused": true,
+	"strict": true,
+	"trailing": true,
+
+	"browser": true,
+	"jquery": true,
+
+	"onevar": true,
+
+	"globals": {
+		"module": false,
+		"expect": false,
+		"test": false,
+		"asyncTest": false,
+		"ok": false,
+		"equal": false,
+		"notEqual": false,
+		"deepEqual": false,
+		"notDeepEqual": false,
+		"strictEqual": false,
+		"notStrictEqual": false,
+		"start": false,
+
+		"DATA_DISPLAYCONTROLLER": false,
+		"DATA_HASACTIVEHOVER": false,
+		"DATA_POWERTIP": false,
+		"DATA_POWERTIPJQ": false,
+		"DATA_POWERTIPTARGET": false,
+		"session": true,
+		"Collision": false,
+
+		"CSSCoordinates": false,
+		"DisplayController": false,
+		"PlacementCalculator": false,
+		"TooltipController": false,
+
+		"isSvgElement": false,
+		"initTracking": false,
+		"trackMouse": false,
+		"isMouseOver": false,
+		"getTooltipContent": false,
+		"getViewportCollisions": false,
+		"countFlags": false
+	}
+}

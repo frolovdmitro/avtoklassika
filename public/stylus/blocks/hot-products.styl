@@ -1,0 +1,215 @@
+.hot-products
+  margin 0 auto 20px
+  width $layout_width
+  position relative
+  overflow hidden
+
+  &__header
+    float left
+
+  &__slider
+    width 699px
+    margin 6px 0 0
+    overflow hidden
+
+    &_type_wide
+      width 940px!important
+
+  &__list
+    list-style none
+    margin 0
+    padding 14px 0 0
+    list-style none
+    width 8000%
+
+  &__item
+    margin 0 9px 14px 0
+    position relative
+    height 255px
+    width 227px
+    float left
+    display block
+
+    &-inner
+      border 1px solid #98a598
+      border-radius 3px
+      padding 18px 19px 29px
+      position relative
+      height 206px
+      width 177px
+      margin-left 10px
+
+      &_type_advert
+        padding 18px 10px 29px
+        width 195px
+
+  &__image
+    display block
+    width 182px!important
+
+  &__nav
+    float right
+    margin-right 241px
+
+    .flex-direction-nav
+      list-style none
+      margin 0
+      padding 0
+
+    LI
+      display inline-block
+
+    .flex-prev, .flex-next
+      text-indent -999px
+      overflow hidden
+      display block
+
+    .flex-prev
+      icons-sprite($slider-arrow-left)
+
+    .flex-next
+      icons-sprite($slider-arrow-right)
+
+  &__top-sticker
+    icons-sprite($top-sticker)
+    position absolute
+    top -14px
+    left -11px
+    overflow hidden
+    text-indent - 100%
+
+  &__percent-sticker
+    icons-sprite($percent-sticker)
+    position absolute
+    top -14px
+    left -11px
+    overflow hidden
+    line-height 31px
+    color #fff
+    font bold 14px/28px $addition_font
+    text-shadow 0 1px rgba(0, 0, 0, 0.75)
+
+  &__new-sticker
+    icons-sprite($new-sticker)
+    position absolute
+    top -14px
+    left -11px
+    overflow hidden
+    text-indent - 100%
+
+  &__caption
+    text-align left
+    color #0c555d
+    text-decoration none
+    font 14px/1.4 $addition_font
+    display inline-block
+    overflow hidden
+    height 40px
+
+    &:hover
+      text-decoration underline
+
+    &_type_advert
+      text-align center
+      margin-bottom 8px
+
+  &__buy
+    icons-sprite($button-buy)
+    background-repeat no-repeat
+    color #fff!important
+    display block
+    position absolute
+    right 5px
+    $bottom = @height/2 * -1
+    bottom $bottom
+    text-decoration none
+    text-align center
+    text-transform uppercase
+    $height = @height
+    font bold 14px/$height $addition_font
+    -webkit-font-smoothing antialiased
+
+    &_type_cost
+      font-size 18px
+
+  &__cost
+    icons-sprite($cost-sticker)
+    background-repeat no-repeat
+    color #0c555d
+    display block
+    position absolute
+    left 5px
+    $bottom = (@height/2 * -1) - 2
+    bottom $bottom
+    text-align center
+    $line-height = @height - 2
+    font bold 18px/$line-height $addition_font
+    padding-top 2px
+    -webkit-font-smoothing antialiased
+
+    .rur
+      position relative
+
+      &:before
+        content ''
+        position absolute
+        left 0
+        right 3px
+        height 2px
+        background #0C555D
+        top 12px
+
+  &__old-cost
+    position absolute
+    left -10px
+    bottom 10px
+    icons-sprite($ribbon-old-cost)
+    background-repeat no-repeat
+    text-align center
+    font bold 14px/20px $addition_font
+
+    &:before
+      position absolute
+      content ''
+      icons-sprite($cross-out)
+      background-repeat no-repeat
+      top 2px
+      left 11px
+
+  &__article
+    color #a1b1a1
+    position absolute
+    bottom 25px
+    right 12px
+    text-align right
+
+  &__ad
+    position absolute
+    top 62px
+    right 0
+    border 1px solid #98a598
+    border-radius 3px
+    text-align center
+    width 212px
+    height 253px
+
+  // Модификаторы для акционных предложения на странице авто
+  &_type_car-deals
+    margin-bottom 45px
+
+  &__item_type_car-deals
+    text-align center
+
+  &__cost
+    &_level_2
+      bottom 16px
+
+    &_level_3
+      bottom 49px
+
+  &__buy
+    &_level_2
+      bottom 18px
+
+    &_level_3
+      bottom 51px

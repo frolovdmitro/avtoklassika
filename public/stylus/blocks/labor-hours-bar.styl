@@ -1,0 +1,13 @@
+.labor-hours-bar
+  font-size 12px
+  line-height 28px
+  display inline-block
+  padding-left 23px
+  icons-sprite($clock, false)
+  background-repeat no-repeat
+  $pos_left = @background-position[0]
+  $pos_top = @background-position[1] + 5
+  background-position unit($pos_left, 'px') unit($pos_top, 'px')
+
+  &__hours
+    color $important_color

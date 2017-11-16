@@ -1,0 +1,125 @@
+.basket-products
+  &__list
+    padding 0
+    margin 0 0 25px
+    list-style none
+
+  &__item
+    border 1px solid #98A598
+    border-radius 3px
+    position relative
+    box-sizing border-box
+    padding 7px 33px
+    overflow hidden
+    margin-bottom 15px
+
+    &:before
+      content ''
+      position absolute
+      bottom 0
+      left 0
+      right 0
+      height 8px
+      border-radius 2px
+      border-bottom 1px solid #0c555d
+
+  &__image
+    float left
+    margin-right 35px
+
+  &__info
+    float left
+    width 380px
+
+  &__actions
+    float right
+    width 280px
+    margin-top 40px
+
+  &__state-label
+    position relative
+    color #6E7C6E
+    font 14px/17px 'Sensation'
+    background #EBF6EB
+    border 1px solid #A1B1A1
+    padding 0 5px
+    height 17px
+    display inline-block
+
+    &:before
+      content ''
+      position absolute
+      icons-sprite($product-addition-sticker)
+      $right = @width * -1
+      right $right
+      top -1px
+
+  &__name
+    font-size 18px
+
+  &__count-wrap
+    display inline-block
+    text-align center
+    margin-right 20px
+
+  &__detail-cost
+    display inline-block!important
+    top 2px!important
+    position relative!important
+    margin-right 20px
+
+  &__delete
+    display inline-block
+    icons-sprite($delete)
+    position relative
+    top 8px
+    margin-left 5px
+
+  &__footer
+    clearfix()
+    margin-bottom 10px
+
+  &__promocode
+    &-label
+      color #0C555D
+      font-size 18px
+      margin-right 25px
+
+    &-wrap
+      float left
+      margin-top 4px
+
+    &-hint
+      position relative
+      top 2px
+      margin-left 5px
+
+    &-value
+      font-size 22px
+      color #0C555D
+      position absolute
+      top 0
+      left 0
+      z-index 0
+      line-height 1.4
+
+  &__total-cost
+    float right
+    icons-sprite($cost-ribbon-big)
+    line-height @height
+    text-align center
+    font-size 30px
+    color #0C555D
+    text-shadow 0px 1px 0px rgba(255, 255, 255, .7)
+
+    .rur
+      position relative
+
+      &:before
+        content ''
+        position absolute
+        left 0
+        right 3px
+        height 3px
+        background #0C555D
+        top 20px

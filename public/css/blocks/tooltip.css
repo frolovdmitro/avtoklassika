@@ -1,0 +1,27 @@
+.tooltip__wrap {
+  line-height: 1.4 !important;
+  position: relative;
+  display: none;
+}
+.tooltip__image {
+  float: left;
+  margin-right: 5px;
+}
+.tooltip__info {
+  font-size: 14px !important;
+  float: left;
+  max-width: 210px;
+  line-height: 1.2 !important;
+}
+.tooltip__info STRONG {
+  color: #0c555d;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+.tooltip__cost {
+  position: absolute;
+  background: #fff;
+  top: 5px;
+  right: 5px;
+  padding: 5px;
+}

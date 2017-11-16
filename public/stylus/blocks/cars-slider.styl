@@ -1,0 +1,61 @@
+.cars-slider
+  &__wrap
+    background #ccdfcc
+    border-top 2px solid #6E7C6E
+    border-bottom 2px solid #6E7C6E
+    text-align center
+    margin-top 70px
+    height 224px
+
+  &__slider
+    margin 0 auto 20px
+    width 860px
+    height 167px
+    margin-top -10px
+    position relative
+    overflow hidden
+    padding 0 35px
+    opacity 0
+    transition opacity .3s ease-in-out
+
+    .flex-direction-nav
+      list-style none
+      margin 0
+      padding 0
+      top 67px
+      position absolute
+      left -0
+      right -0
+
+      .flex-prev, .flex-next
+        text-indent -999px
+        overflow hidden
+        display block
+
+      .flex-prev
+        icons-sprite($slider-small-arrow-left)
+        float left
+
+      .flex-next
+        icons-sprite($slider-small-arrow-right)
+        float right
+
+  &__list
+    width 1000%
+    margin 0
+    padding 0
+    position relative
+    z-index 1
+
+  &__item
+    margin 0 35px 0 0
+    width 144px!important
+    display block!important
+    float left!important
+    padding 0
+
+    IMG
+      opacity .5
+
+    .catalog-autoparts__caption
+      color #6e7c6e

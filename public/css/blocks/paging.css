@@ -1,0 +1,68 @@
+.paging {
+  margin: 15px 0;
+  text-align: center;
+}
+.paging__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+}
+.paging__item {
+  display: inline-block;
+  margin: 0 2px;
+}
+.paging__item_type_current .paging__link {
+  background-image: url("/img/_icons.png");
+  background-position: -10px -3768px;
+  width: 46px;
+  height: 40px;
+  color: #fff;
+}
+.paging__item_type_prev {
+  border-bottom: none;
+  margin-right: 15px;
+}
+.paging__item_type_next {
+  border-bottom: none;
+  margin-left: 15px;
+}
+.paging__link {
+  display: block;
+  background-image: url("/img/_icons.png");
+  background-position: -10px -3588px;
+  width: 46px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  text-decoration: none;
+  font-size: 18px;
+  overflow: hidden;
+  position: relative;
+}
+.paging__link_type_prev {
+  text-indent: -9999px;
+}
+.paging__link_type_prev:before {
+  content: '';
+  position: absolute;
+  background-image: url("/img/_icons.png");
+  background-position: -10px -343px;
+  width: 13px;
+  height: 13px;
+  top: 13px;
+  left: 18px;
+}
+.paging__link_type_next {
+  text-indent: -9999px;
+}
+.paging__link_type_next:before {
+  content: '';
+  position: absolute;
+  background-image: url("/img/_icons.png");
+  background-position: -10px -244px;
+  width: 13px;
+  height: 13px;
+  top: 13px;
+  left: 18px;
+}

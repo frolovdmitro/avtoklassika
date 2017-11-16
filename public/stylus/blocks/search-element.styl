@@ -1,0 +1,50 @@
+.search-element
+  position relative
+  padding-right 31px
+
+  &:before
+    content ''
+    position absolute
+    top 0
+    left 0
+    bottom 0
+    width 33px
+    background-color #edf3ed
+    border 1px solid #9faf9f
+    border-radius 2px
+    icons-sprite($button-list, false)
+    $pos_left = @background-position[0] + 9
+    $pos_top = @background-position[1] + 9
+    background-position unit($pos_left, 'px') unit($pos_top, 'px')
+    background-repeat no-repeat
+    z-index 1
+
+  &__input
+    width 225px
+    text-indent 38px
+
+    &:focus
+      outline 0
+
+  &__placeholder
+    position absolute
+    top 0
+    left 40px
+    right 0
+    z-index 1
+    line-height 35px
+    cursor text
+    color #98a598
+
+  &__button
+    position absolute
+    z-index 2
+    background-color #085664
+    top 0
+    right 0
+    bottom 0
+    width 33px
+    border 1px solid #094950
+    border-radius 2px
+    icons-sprite($search-button, false)
+    background-repeat no-repeat

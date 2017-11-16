@@ -1,0 +1,29 @@
+.sticker {
+  position: absolute;
+  top: -14px;
+  left: -11px;
+  overflow: hidden;
+  color: #fff;
+  line-height: 31px;
+  font: bold 14px/28px 'Sensation';
+  text-shadow: 0 1px rgba(0,0,0,0.75);
+  background-image: url("/img/_icons.png");
+  background-position: -10px -3171px;
+  width: 62px;
+  height: 37px;
+  text-align: center;
+}
+.sticker_type_top {
+  text-indent: -100%;
+  background-image: url("/img/_icons.png");
+  background-position: -10px -3057px;
+  width: 62px;
+  height: 37px;
+}
+.sticker_type_new {
+  text-indent: -100%;
+  background-image: url("/img/_icons.png");
+  background-position: -10px -3114px;
+  width: 62px;
+  height: 37px;
+}

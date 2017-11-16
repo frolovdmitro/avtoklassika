@@ -1,0 +1,50 @@
+.autoparts
+  margin-top 17px!important
+
+  &__h1
+    margin-bottom 10px
+    white-space nowrap
+    max-width 667px
+
+  &__schema
+    border 1px solid #98a598
+    border-radius 3px
+    box-sizing border-box
+    position relative
+    margin 20px 0px 0 11px
+    overflow hidden
+    max-height 0
+    opacity 0
+    transition all .4s ease-in-out
+
+    &_state_visible
+      max-height 450px
+      opacity 1
+
+    &-wrap
+      margin 0 auto
+      position relative
+      overflow hidden
+
+    &-image
+      cursor move
+      position absolute
+
+    &-coord
+      position absolute
+      display block
+      color #fff!important
+      text-decoration none
+      line-height 26px
+      text-align center
+      z-index 10
+      font-size 14px
+      cursor pointer
+      icons-sprite($schema-point-yes)
+
+      &_state_current
+        icons-sprite($schema-point-active)
+
+      &_state_no
+        icons-sprite($schema-point)
+        color #666!important

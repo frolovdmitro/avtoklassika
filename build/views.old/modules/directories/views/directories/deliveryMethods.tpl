@@ -1,0 +1,1 @@
+<div class="payments-deliveries {{IF basket}}payments-deliveries_type_mini{{END IF}} payments-deliveries_align_right"> <h4 class="payments-deliveries__header payments-deliveries__header_align_right"> {{lng_delivery}} </h4> <ul class="payments-deliveries__list"> {{BEGIN methods}} {{includeBlock('directories', 'directories', 'deliveryItem')}} {{END methods}} </ul> </div>

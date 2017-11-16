@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<comments>
+	<comment>comment</comment>
+	<add_comment>add comment</add_comment>
+	<reply>reply</reply>
+	<validate>
+		<add_comment>
+			<name>
+				<empty>Invalid name</empty>
+			</name>
+			<email>
+				<empty>Invalid E-mail</empty>
+				<parseEmail>Invalid E-mail</parseEmail>
+			</email>
+			<text>
+				<empty>You did not enter a comment text</empty>
+        <spam>You are using forbidden words or links</spam>				
+			</text>
+		</add_comment>
+	</validate>
+</comments>

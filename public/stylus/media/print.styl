@@ -1,0 +1,74 @@
+@media print
+  *
+    background: transparent !important
+    color: #000 !important
+    box-shadow: none !important
+    text-shadow: none !important
+
+  A, A:visited
+    text-decoration: underline
+
+  ABBR[title]:after
+    content: " (" attr(title) ")"
+
+  /* Don't show links for images, or javascript/internal links */
+  .ir A:after, A[href^="javascript:"]:after, A[href^="#"]:after
+    content: ""
+
+  PRE, BLOCKQUOTE
+    border: 1px solid #999
+    page-break-inside: avoid
+
+  THEAD
+    display: table-header-group
+
+  TR, IMG
+    page-break-inside: avoid
+
+  IMG
+    max-width: 100% !important
+
+  @page
+    margin: 0.5cm
+
+  P, H2, H3
+    orphans: 3
+    widows: 3
+
+  H2, H3
+    page-break-after: avoid
+
+  #wrap
+    overflow: initial
+
+  .cars-slider__wrap, .search-form, .enter-button, .basket-bar, .main-menu
+    display none
+
+  .layout__sidebar, .layout__footer-menu-wrap, .table__actions, .table__buy-link
+    display none
+
+  // .payments-deliveries__wrap, .detail-info__schema-actions-item
+  //   display none
+
+  .detail-info__schema-link, .detail-info__schema-image
+    display block
+    visibility visible
+    opacity 1!important
+    position relative
+
+  .detail-info__schema-image
+    top 0!important
+    left 0!important
+    position initial!important
+
+  .layout__sidebar_type_detail
+    display block
+
+  .layout__content-with-sidebar
+    width 100%
+
+  .layout__content-with-sidebar_type_detail
+    width 710px!important
+
+  .table__field_min_100
+    width auto

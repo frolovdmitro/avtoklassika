@@ -1,0 +1,87 @@
+.index-slider {
+  width: 700px;
+  border: 1px solid #98a598;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  position: relative;
+  float: left;
+}
+.index-slider .flex-direction-nav {
+  position: absolute;
+  top: 50%;
+  margin: -20px 0 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+}
+.index-slider .flex-direction-nav .flex-prev,
+.index-slider .flex-direction-nav .flex-next {
+  display: block;
+  overflow: hidden;
+  text-indent: -999px;
+  position: absolute;
+}
+.index-slider .flex-direction-nav .flex-prev {
+  background-image: url("/img/_icons.png");
+  background-position: -10px -4449px;
+  width: 44px;
+  height: 51px;
+  background-repeat: no-repeat;
+  left: -11px;
+}
+.index-slider .flex-direction-nav .flex-next {
+  background-image: url("/img/_icons.png");
+  background-position: -10px -4378px;
+  width: 44px;
+  height: 51px;
+  background-repeat: no-repeat;
+  right: -11px;
+}
+.index-slider .flex-control-paging {
+  position: absolute;
+  bottom: -30px;
+  left: 3px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.index-slider .flex-control-paging LI {
+  display: inline-block;
+  margin-right: 8px;
+  cursor: pointer;
+}
+.index-slider .flex-control-paging A {
+  background-image: url("/img/_icons.png");
+  background-position: -10px -147px;
+  width: 10px;
+  height: 12px;
+  display: block;
+  overflow: hidden;
+  text-indent: -100%;
+}
+.index-slider .flex-control-paging .flex-active {
+  background-image: url("/img/_icons.png");
+  background-position: -10px -179px;
+  width: 10px;
+  height: 12px;
+}
+.index-slider__list {
+  margin: 0;
+  padding: 0;
+  zoom: 1;
+  width: 700px;
+  height: 186px;
+  overflow: hidden;
+}
+.index-slider__list:before,
+.index-slider__list:after {
+  content: "";
+  display: table;
+}
+.index-slider__list:after {
+  clear: both;
+}
+.index-slider__item {
+  margin: 0;
+  width: 700px;
+}

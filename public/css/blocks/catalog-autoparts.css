@@ -1,0 +1,145 @@
+.catalog-autoparts {
+  background-color: #ccdfcc;
+  border-top: 2px solid #6e7c6e;
+  border-bottom: 2px solid #6e7c6e;
+  margin: 57px 0 16px;
+  -webkit-font-smoothing: antialiased;
+}
+.catalog-autoparts__nav {
+  margin: 0 auto;
+  width: 940px;
+  text-align: center;
+}
+.catalog-autoparts__nav-list {
+  table-layout: fixed;
+  width: 84%;
+  margin: -15px 0 0;
+  padding: 0 8% 15px;
+  list-style: none;
+  word-spacing: -0.3em;
+  display: table;
+  position: relative;
+}
+.catalog-autoparts__nav-list:before {
+  position: absolute;
+  content: '';
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: 1px solid #6e7c6e;
+  background-color: #e6f3e6;
+  height: 4px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+}
+.catalog-autoparts__nav-item {
+  display: table-cell;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  word-spacing: normal;
+  text-transform: uppercase;
+  font: bold 14px/1 'Sensation';
+}
+.catalog-autoparts__nav-item:before {
+  content: '';
+  position: absolute;
+  background-image: url("/img/_icons.png");
+  background-position: -10px -716px;
+  width: 12px;
+  height: 15px;
+  bottom: -20px;
+  left: 50%;
+  margin-left: -6px;
+  z-index: 2;
+}
+.catalog-autoparts__nav-link {
+  text-decoration: none;
+  color: #6e7c6e !important;
+}
+.catalog-autoparts__nav-link.active:after {
+  content: '';
+  position: absolute;
+  top: 24px;
+  z-index: 1;
+  background-color: #07515d;
+  height: 4px;
+  left: 10px;
+  right: 10px;
+}
+.catalog-autoparts__nav-link.active:before {
+  content: '';
+  position: absolute;
+  background-image: url("/img/_icons.png");
+  background-position: -10px -1640px;
+  width: 12px;
+  height: 23px;
+  left: 50%;
+  margin-left: -6px;
+  z-index: 2;
+  top: 19px;
+}
+.catalog-autoparts__list {
+  list-style: none;
+  margin: 18px auto 13px;
+  padding: 0;
+  width: 940px;
+  min-height: 167px;
+}
+.catalog-autoparts__item {
+  width: 16.666666666666668%;
+  display: inline-block;
+  text-align: center;
+  margin-bottom: 5px;
+}
+.catalog-autoparts__item.mix {
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  display: none;
+}
+.catalog-autoparts__link {
+  display: inline-block;
+  background-image: url("/img/_panels.png");
+  background-position: -10px -374px;
+  width: 144px;
+  height: 162px;
+  background-repeat: no-repeat;
+  text-decoration: none;
+  color: #083b40 !important;
+  padding-top: 28px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.catalog-autoparts__link:hover {
+  background-image: url("/img/_panels.png");
+  background-position: -10px -10px;
+  width: 144px;
+  height: 162px;
+}
+.catalog-autoparts__link_type_current {
+  background-image: url("/img/_panels.png");
+  background-position: -10px -192px;
+  width: 144px;
+  height: 162px;
+}
+.catalog-autoparts__link_type_current IMG {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+.catalog-autoparts__link_type_current:hover {
+  background-image: url("/img/_panels.png");
+  background-position: -10px -192px;
+  width: 144px;
+  height: 162px;
+}
+.catalog-autoparts__link_type_current .catalog-autoparts__caption {
+  color: #ccdfcc !important;
+}
+.catalog-autoparts__caption {
+  text-transform: uppercase;
+  font: bold 14px/1 'Sensation';
+  display: inline-block;
+}

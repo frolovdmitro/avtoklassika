@@ -1,0 +1,11 @@
+.car-categories__list {
+  width: 640px !important;
+  float: left;
+}
+.car-categories__item {
+  width: 25% !important;
+}
+.car-categories__caption {
+  font-size: 12px !important;
+  margin-top: -5px;
+}

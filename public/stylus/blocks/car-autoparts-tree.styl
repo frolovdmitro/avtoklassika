@@ -1,0 +1,147 @@
+.car-autoparts-tree
+  width 213px
+  border 1px solid #0C555D
+  border-radius 3px
+  background #EBF6EB
+  padding 25px 5px 10px 10px
+  box-sizing border-box
+  position relative
+  margin-bottom: 20px
+
+  &_align_right
+    float right
+
+  &_type_detail
+    float right
+
+  &_type_autoparts
+    float right
+    margin-top  -54px
+
+  &_type_news
+    margin-top 20px
+
+  &__header
+    position absolute !important
+    left -10px
+    top -21px
+    padding-left 25px!important
+
+    &:after
+      content ''
+      position absolute
+      icons-sprite($ribbon-corner)
+      bottom -8px
+      left 2px
+
+  &__list
+    list-style none
+    margin 0
+    padding 0
+
+  &__item-link
+    text-decoration none
+
+    &:hover
+      text-decoration underline
+
+  &__item
+    color #0C555D
+    font bold 14px/1.2 $addition_font
+    overflow hidden
+    position relative
+    padding 4px 0 4px 20px
+
+    > SPAN
+      cursor pointer
+
+    > UL
+      display none
+
+    &-plus-minus
+      cursor pointer
+      position absolute
+      icons-sprite($plus)
+      top 5px
+      left 0
+
+    &_state_expand
+      height auto
+
+      .car-autoparts-tree__item-plus-minus
+        cursor pointer
+        icons-sprite($minus)
+
+      > UL
+        display block
+
+  &__sublist
+    list-style none
+    margin 0 0 0 -10px
+    padding 0
+
+  &__subitem-link
+    color #6E7C6E!important
+    text-decoration none
+
+    &:hover
+      text-decoration underline
+
+  &__subitem
+    color #6e7c6e
+    font bold 14px/1.2 $addition_font
+    overflow hidden
+    position relative
+    padding 6px 0 6px 20px
+    margin-left 7px
+
+    > SPAN
+      cursor pointer
+
+    > UL
+      display none
+
+    &-plus-minus
+      cursor pointer
+      position absolute
+      icons-sprite($plus-disabled)
+      top 5px
+      left 0
+
+    &_state_expand
+      height auto
+
+      SPAN
+        text-decoration underline
+
+      .car-autoparts-tree__subitem-plus-minus
+        cursor pointer
+        icons-sprite($minus-disabled)
+
+      > UL
+        display block
+
+  &__subsublist
+    list-style none
+    margin 0
+    padding 0
+    text-decoration none
+
+  &__subsubitem
+    color #6e7c6e
+    font normal 14px/1.2 $addition_font
+    overflow hidden
+    position relative
+    padding 0 0 6px 0
+    text-decoration none
+    margin-left 28px
+
+    &_state_current
+      font-style italic
+
+  &__subsubitem-link
+    color #6e7c6e!important
+    text-decoration none
+
+    &:hover
+      text-decoration underline

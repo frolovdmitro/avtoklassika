@@ -1,0 +1,60 @@
+.car-info-block
+  border 1px solid #98a598
+  border-radius 3px
+  padding 25px 12px 30px
+  box-sizing border-box
+  margin 25px 0 45px 10px
+  position relative
+  clearfix()
+
+  &__price-button
+    text-transform none!important
+    right 20px!important
+    left auto!important
+
+  &__doc-button
+    display block
+    height 27px
+    background #E6F3E6
+    position absolute
+    bottom 0
+    line-height 27px
+    border 1px solid #6E7C6E
+    padding 0 14px
+    font-weight bold
+    text-decoration none
+    font-size 14px
+    bottom -14px
+    right 180px
+
+    &:before
+      content: ''
+      position absolute
+      icons-sprite($button-left-rail-light)
+      left -10px
+      top 0
+
+
+  &__header
+    position absolute!important
+    left -10px
+    top -21px
+
+    &:after
+      content ''
+      position absolute
+      icons-sprite($ribbon-corner)
+      bottom -8px
+      left 2px
+
+  &__image
+    float left
+
+  &__text
+    color #0c555d
+    font-size 14px
+    margin 0
+
+    &_type_with-image
+      float left
+      width 290px

@@ -1,0 +1,6 @@
+.news-tree__link {
+  text-decoration: none;
+}
+.news-tree__link:hover {
+  text-decoration: underline;
+}

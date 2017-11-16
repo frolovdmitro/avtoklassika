@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<adverts>
+	<null/>
+	<adverts>Ads</adverts>
+	<add_advert>Anzeige aufgeben</add_advert>
+	<our_adverts>Anzeigen Verkauf von Oldtimer Autos und Autoteilen</our_adverts>
+	<contract_price>Verhandlungssache</contract_price>
+	<buy>KAUFEN</buy>
+	<sell>VERKAUFEN</sell>
+	<cars>autos</cars>
+	<autoparts>Autoteile</autoparts>
+	<other_adverts>Andere Anzeigen</other_adverts>
+	<i_buy>KAUFEN</i_buy>
+	<i_sell>VERKAUFEN</i_sell>
+	<autopart>Autoteile</autopart>
+	<car>auto</car>
+	<city_country>stadt und land</city_country>
+	<select_type>Wählen Sie den Typ</select_type>
+	<select_category>Wählen Sie den Bereich</select_category>
+	<select_currency>Wählen Sie die Währung</select_currency>
+	<input_price>Geben Sie den Preis oder leer lassen</input_price>
+	<caption>Überschrift</caption>
+	<advert_text>Anzeigentext</advert_text>
+	<upload_photo>Bild hinzufügen</upload_photo>
+	<validate>
+		<add>
+			<name>
+				<empty>Ungültige name</empty>
+			</name>
+			<city>
+				<empty>Ungültige Stadt, Land</empty>
+			</city>
+			<email>
+				<empty>Sie haben nicht die angegebene E-mail</empty>
+				<parseEmail>Ungültige E-mail</parseEmail>
+			</email>
+			<phone>
+				<empty>Sie haben nicht die angegebene Telefon</empty>
+			</phone>
+			<type>
+				<empty>Wählen  Sie die Art der Anzeige</empty>
+			</type>
+			<category>
+				<empty>Wählen Sie die Rubrik</empty>
+			</category>
+			<caption>
+				<empty>Sie haben keinen Überschrift eingefügt</empty>
+			</caption>
+			<text>
+				<empty>Sie haben keine Anzeigentext eingefügt</empty>
+			</text>
+			<files>
+				<maxfilesize>Maximum File Upload Size 2MB</maxfilesize>
+				<maxfiles>Maximal 10 Dateien können geladen werden</maxfiles>
+			</files>
+		</add>
+	</validate>
+	<index>
+		<title></title>
+		<keywords></keywords>
+		<description></description>
+	</index>
+	<templates>
+		<title>{{IF title}}{{title}}{{else}}{{type}}: {{name}}{{IF cost}}, цена {{cost}}€{{END IF}} ({{city}})
+			{{END IF}}{{IF vars}}
+			{{name}} - название объявления
+			{{cost}} - цена
+			{{type}} - Продам/Куплю
+			{{category}} - Автозапчасть/Автомобиль
+			{{date}} - Дата
+			{{country}} - Страна
+			{{city}} - Город
+			{{title}} - TITLE
+			{{keywords}} - KEYWORDS
+			{{description}} - DESCRIPTION
+			{{END IF}}
+		</title>
+	  <keywords>{{name}}</keywords>
+	  <description>{{name}}</description>
+	  <share><![CDATA[		  {{name}}
+preis: {{cost}} {{IF currency_abb == 'P'}}Euro.{{ELSE}}{{currency_abb}}{{END IF}}
+------------------------------------
+http://avtoclassika.com/car/{{car_synonym}}/{{autopart_id}}/{{id}}/
+
+{{description}}
+	  ]]></share>
+	</templates>
+</adverts>

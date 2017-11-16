@@ -1,0 +1,65 @@
+font-face($addition_font, 'sansation_regular', 'sansation')
+font-face($addition_font, 'sansation_bold', 'sansation', true)
+font-face($addition_font, 'sansation_italic', 'sansation', null, true)
+font-face($pfdin_font, 'pfdindisplaypro_regular')
+
+HTML
+  min-height 100%
+
+BODY
+  color $text_color
+  font $base_font_size unquote("/") $base_line_height $base_font
+
+.body-wrap
+  padding 0 0 $footer_height
+  position relative
+  min-height 100%
+
+A
+  color $link_color
+
+  &:hover
+    color $link_hover_color
+    text-decoration none
+
+  &:active
+    color $link_active_color
+
+  &:visited
+    color $link_visited_color
+
+  &:focus
+    color $link_focus_color
+
+H1
+  font normal $h1_size $h_font
+  color $h_color
+  padding $h1_padding
+  margin 0
+
+H2
+  font normal $h2_size $h_font
+  color $h_color
+  padding $h2_padding
+  margin: 0
+
+H3, H4, H5
+  font-family $h_font
+  font-weight: normal
+
+::-moz-selection
+  background: $selection_bg_color
+  color: $selection_color
+  text-shadow: none
+
+::selection
+  background: $selection_bg_color
+  color: $selection_color
+  text-shadow: none
+
+.__hidden
+  display none
+
+.__disabled
+  pointer-events none
+  cursor default

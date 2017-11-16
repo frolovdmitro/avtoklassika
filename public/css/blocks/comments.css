@@ -1,0 +1,142 @@
+.comments {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.comments__item {
+  margin-bottom: 20px;
+}
+.comments__item_level_1 {
+  margin-left: 30px;
+}
+.comments__item_level_2 {
+  margin-left: 60px;
+}
+.comments__item_level_3 {
+  margin-left: 90px;
+}
+.comments__item_level_4 {
+  margin-left: 120px;
+}
+.comments__item_level_5 {
+  margin-left: 150px;
+}
+.comments__item_level_6 {
+  margin-left: 180px;
+}
+.comments__item_level_7 {
+  margin-left: 210px;
+}
+.comments__username {
+  color: #0c555d;
+  font-weight: bold;
+  font-size: 18px;
+  position: relative;
+  padding-left: 20px;
+}
+.comments__username:before {
+  position: absolute;
+  content: '';
+  top: 2px;
+  left: 0;
+  background-image: url("/img/_icons.png");
+  background-position: -10px -1398px;
+  width: 16px;
+  height: 16px;
+}
+.comments__date {
+  color: #6e7c6e;
+  font-size: 18px;
+  margin-left: 10px;
+}
+.comments__text {
+  line-height: 1.4;
+}
+.comments__actions-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.comments__actions-list_type_news {
+  margin-top: 10px;
+}
+.comments__actions-list_type_ads {
+  margin-top: 10px;
+  text-align: right;
+}
+.comments__actions-list_type_ads LI {
+  margin-right: 0 !important;
+}
+.comments__actions-item {
+  display: inline-block;
+  margin-right: 15px;
+}
+.comments__actions-reply {
+  display: inline-block;
+  position: relative;
+  padding-left: 20px;
+  text-transform: lowercase;
+  line-height: 16px;
+}
+.comments__actions-reply:before {
+  position: absolute;
+  content: '';
+  top: 1px;
+  left: 0;
+  background-image: url("/img/_icons.png");
+  background-position: -10px -1326px;
+  width: 16px;
+  height: 16px;
+}
+.comments__actions-reply:hover {
+  text-decoration: none;
+}
+.comments__actions-share {
+  display: inline-block;
+  position: relative;
+  padding-left: 20px;
+  text-transform: lowercase;
+  line-height: 16px;
+}
+.comments__actions-share:before {
+  position: absolute;
+  content: '';
+  top: 1px;
+  left: 0;
+  background-image: url("/img/_icons.png");
+  background-position: -10px -1074px;
+  width: 16px;
+  height: 16px;
+}
+.comments__actions-share:hover {
+  text-decoration: none;
+}
+.comments__add-from {
+  overflow: hidden;
+}
+.comments__submit {
+  clear: both;
+  float: right;
+}
+.comments__reply-wrap {
+  margin-top: 10px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+.comments__reply-wrap_state_show {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+  max-height: 300px;
+}
+.comments__count-comments-link {
+  color: #6e7c6e;
+}

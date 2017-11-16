@@ -1,0 +1,50 @@
+.languages-bar
+  float right
+  text-align center
+  position relative
+  line-height 27px
+  padding-top 5px
+  min-width 70px
+
+  &__list
+    margin 0
+    padding 0
+    list-style none
+    position absolute
+    min-width 70px
+    background #FFF
+    z-index 1
+    padding-bottom 5px
+    overflow hidden
+    top 100%
+    left 0
+    max-height 0
+    transition max-height .2s linear
+
+  &:hover .languages-bar__list
+    max-height 150px
+
+  &__link
+    text-decoration none
+    color #6E7C6E
+    display inline-block
+    width 100%
+
+    &:hover
+      text-decoration underline
+
+    &_state_current
+      color #0C555D
+      font-style italic
+      cursor pointer
+      position relative
+
+      &:hover
+        text-decoration none
+
+      &:before
+        content '▾'
+        position absolute
+        right 10px
+        top 0
+        bottom 0

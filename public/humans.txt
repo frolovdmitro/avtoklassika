@@ -1,0 +1,21 @@
+/* TEAM */
+    Company: Uwinart Development
+    CEO: Yurii Khmelevskii
+    Site: http://uwinart.com
+    Contact: hello [at] uwinart.com
+    Twitter: @uwinart
+    Location: Ukraine, Kiev
+
+    Developer: Yurii Khmelevskii
+    Contact: y [at] uwinart.com
+    Twitter: @khmelevskiy
+    Location: Ukraine, Kiev
+
+
+/* THANKS */
+
+
+/* SITE */
+    Language:Russian, English
+    Standards: HTML5, CSS3
+    IDE: VIM

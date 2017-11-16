@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cars>
+	<autoparts_catalogue>Parts catalog</autoparts_catalogue>
+	<not_found>At your request, auto parts no results found</not_found>
+	<new_details>New arrivals</new_details>
+	<search_placeholder>Search spare parts</search_placeholder>
+	<hot_deals>HOT DEALS</hot_deals>
+	<all_autoparts>show all autoparts</all_autoparts>
+	<docs>Documentation</docs>
+	<download_price>Download_price</download_price>
+	<header_text>PARTS FOR</header_text>
+	<autoparts>AUTOPARTS</autoparts>
+	<pricelist>Pricelist</pricelist>
+	<print>Print</print>
+	<send>Send</send>
+	<download>Download</download>
+	<num>№</num>
+	<category>CATEGORY</category>
+	<num_by_catalogue>№ by catalogue</num_by_catalogue>
+	<price>PRICE</price>
+	<to_basket><![CDATA[To cart>]]></to_basket>
+	<documentation>documentation</documentation>
+	<restaurare>refurbished</restaurare>
+	<replica>new</replica>
+	<secondhand>used</secondhand>
+	<new>new old stock</new>
+	<tiles>tiles</tiles>
+	<select_size>Select size</select_size>
+	<select_color>Select color</select_color>
+	<description>description</description>
+	<payment>payment</payment>
+	<delivery>delivery</delivery>
+	<related_products>RELATED PRODUCTS</related_products>
+	<not_in_store>Not available</not_in_store>
+	<sections>CATEGORY</sections>
+	<select_car>select car</select_car>
+	<detail_name>detail name</detail_name>
+	<model>model</model>
+	<year>year</year>
+	<volume>engine volume</volume>
+	<upload_photo_detail>upload photo detail</upload_photo_detail>
+	<body_type>body type</body_type>
+	<fuel_type>fuel type</fuel_type>
+	<state>condition</state>
+	<approximet_cost>approximet cost</approximet_cost>
+	<send_request>send request</send_request>
+	<validate>
+		<add_request>
+			<name>
+				<empty>empty</empty>
+			</name>
+			<email>
+				<empty>empty</empty>
+				<parseEmail>Invalid email</parseEmail>
+			</email>
+			<car>
+				<empty>empty</empty>
+			</car>
+			<model>
+				<empty>empty</empty>
+			</model>
+			<year>
+				<parseInt>Invalid year</parseInt>
+			</year>
+			<detail_name>
+				<empty>empty</empty>
+			</detail_name>
+			<detail_num>
+				<empty>empty</empty>
+			</detail_num>
+		</add_request>
+	</validate>
+	<requests>
+		<subject/>
+		<body/>
+	</requests>
+	<templates>
+		<title>
+			{{IF title}}
+			{{title}}
+		{{else}}
+		{{name}} to car {{car}} buy US delivery
+		{{END IF}}
+	  </title>
+	  <keywords>{{name}}, {{car}}, {{autopart}}</keywords>
+	  <description>Buy {{name}} to car {{car}} with US delivery. Cheap spare parts to {{car}} {{autopart}} in US, UK, Europe</description>
+	  <share/>
+	</templates>
+	<mails>
+		<mailer>
+			<subject>New parts on Sale!</subject>
+			<body><![CDATA[<table cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" width="600px" style="font-family:Arial, Arial, Helvetica, sans-serif;
+  margin:0 auto; padding:0; width:600px !important;
+  line-height: 100% !important;">
+  <tbody>
+<tr>
+    <td align="center">
+      <br>
+<img src="http://s1.avtoclassika.com/uploads/images/logo.jpg" width="224" height="71" style="outline:none;text-decoration:none;
+        -ms-interpolation-mode: bicubic;display:block;">
+    </td>
+  </tr>
+</tbody>
+</table>
+<br>
+<h1 style="margin-top:0!important;line-height:1;font-size: 20px;">Здравствуйте{{IF user_name}}, {{user_name}}{{END IF}}!</h1>
+<p>
+<b>New parts are available :</b>
+</p>
+<table cellpadding="5" cellspacing="2" border="0" bgcolor="#FFFFFF" width="640px" style="font-family:Arial, Arial, Helvetica, sans-serif;
+  margin:0 auto; padding:0; width:100% !important;font-size:13px;
+  line-height: 100% !important;">
+  <tbody>
+<tr>
+    <td bgcolor="#CDDAD0" height="35">фото / photo</td>
+    <td bgcolor="#CDDAD0" height="35">наименование / name</td>
+    <td bgcolor="#CDDAD0" height="35">стоимость / cost (EUR)</td>
+  </tr>
+  <!--{{BEGIN details}}-->
+  <tr>
+<td align="center">
+      <!--{{IF image}}-->
+        <a target="_blank" href="http://avtoclassika.com/car/{{car_synonym}}/{{autopart_id}}/{{detail_id}}/?mailer={{ mailerId }}&user={{ user_md5 }}">
+          <img src="http:{{url_staticserver}}{{image}}">
+        </a>
+      <!--{{ELSE}}-->
+        <a target="_blank" href="http://avtoclassika.com/car/{{car_synonym}}/{{autopart_id}}/{{detail_id}}/?mailer={{ mailerId }}&user={{ user_md5 }}">
+          <img src="http:{{url_staticserver}}/uploads/images/noimage-sm.jpg">
+        </a>
+      <!--{{END IF}}-->
+    </td>
+    <td>
+      <!--{{IF detail_num}}-->
+        <font color="#6E7A71" style="font-size:18px;padding-bottom:5px;">
+          {{detail_num}}
+        </font>
+      <!--{{END IF}}-->
+      <!--{{IF detail_name_ru}}-->
+        <br>
+        <a target="_blank" style="font-size:14px;padding-bottom:5px;" href="http://avtoclassika.com/car/{{car_synonym}}/{{autopart_id}}/{{detail_id}}/?mailer={{ mailerId }}&user={{ user_md5 }}">
+          <font color="#134936">{{detail_name_ru}}</font>
+        </a>
+      <!--{{END IF}}-->
+      <!--{{IF detail_description_ru}}-->
+        <p style="margin:4px 0;color:#898989;font-size:14px;">{{detail_description_ru}}</p>
+      <!--{{END IF}}-->
+      <!--{{IF status}}-->
+        <div style="border:1px solid #ffffff;padding:3px 10px;
+          background-color:#DADED9;text-transform:uppercase;color:#134936;
+          text-align:center;width:200px;margin:5px 0;">
+          {{IF status == 'secondhand'}}Б/У{{END IF}}
+{{IF status == 'replica'}}Новодел{{END IF}}
+{{IF status == 'new'}}Новое{{END IF}}
+{{IF status == 'restaurare'}}Реставрация{{END IF}}
+        </div>
+      <!--{{END IF}}-->
+    </td>
+    <td style="font-size:18px" align="center">
+      <font color="#1B543D">
+<strong>{{cost}}</strong>
+</font>
+    </td>
+  </tr>
+  <!--{{END IF}}-->
+</tbody>
+</table>
+<table cellpadding="0" cellspacing="0" border="0" background="http://av.uwinart.com/s/{{ mailerId }}/{{ user_md5 }}/logo.jpeg" style="width:0;height:0;"><tbody><tr><td></td></tr></tbody>
+</table>]]></body>
+	  </mailer>
+	  <sale_mailer>
+		  <subject><![CDATA[Great deal & Best offer!]]></subject>
+		  <body><![CDATA[<table cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" width="600px" style="font-family:Arial, Arial, Helvetica, sans-serif;
+  margin:0 auto; padding:0; width:600px !important;
+  line-height: 100% !important;">
+  <tbody>
+<tr>
+    <td align="center">
+      <br>
+<img src="http://s1.avtoclassika.com/uploads/images/logo.jpg" width="224" height="71" style="outline:none;text-decoration:none;
+        -ms-interpolation-mode: bicubic;display:block;">
+    </td>
+  </tr>
+</tbody>
+</table>
+<br>
+<h1 style="margin-top:0!important;line-height:1;font-size: 20px;">Здравствуйте{{IF user_name}}, {{user_name}}{{END IF}}!</h1>
+<p><span style="line-height: 1.5;"><b>The best price now</b>
+</span>:</p>
+<table cellpadding="5" cellspacing="2" border="0" bgcolor="#FFFFFF" width="640px" style="font-family:Arial, Arial, Helvetica, sans-serif;
+  margin:0 auto; padding:0; width:100% !important;font-size:13px;
+  line-height: 100% !important;">
+  <tbody>
+<tr>
+    <td bgcolor="#CDDAD0" height="35">фото / photo</td>
+    <td bgcolor="#CDDAD0" height="35">наименование / name</td>
+    <td bgcolor="#CDDAD0" height="35">стоимость / cost (EUR)</td>
+  </tr>
+  <!--{{BEGIN details}}-->
+  <tr>
+<td align="center">
+      <!--{{IF image}}-->
+        <a target="_blank" href="http://avtoclassika.com/car/{{car_synonym}}/{{autopart_id}}/{{detail_id}}/?mailer={{ mailerId }}&user={{ user_md5 }}">
+          <img src="http:{{url_staticserver}}{{image}}">
+        </a>
+      <!--{{ELSE}}-->
+        <a target="_blank" href="http://avtoclassika.com/car/{{car_synonym}}/{{autopart_id}}/{{detail_id}}/?mailer={{ mailerId }}&user={{ user_md5 }}">
+          <img src="http:{{url_staticserver}}/uploads/images/noimage-sm.jpg">
+        </a>
+      <!--{{END IF}}-->
+    </td>
+    <td>
+      <!--{{IF detail_num}}-->
+        <font color="#6E7A71" style="font-size:18px;padding-bottom:5px;">
+          {{detail_num}}
+        </font>
+      <!--{{END IF}}-->
+      <!--{{IF detail_name_ru}}-->
+        <br>
+        <a target="_blank" style="font-size:14px;padding-bottom:5px;" href="http://avtoclassika.com/car/{{car_synonym}}/{{autopart_id}}/{{detail_id}}/?mailer={{ mailerId }}&user={{ user_md5 }}">
+          <font color="#134936">{{detail_name_ru}}</font>
+        </a>
+      <!--{{END IF}}-->
+      <!--{{IF detail_description_ru}}-->
+        <p style="margin:4px 0;color:#898989;font-size:14px;">{{detail_description_ru}}</p>
+      <!--{{END IF}}-->
+      <!--{{IF status}}-->
+        <div style="border:1px solid #ffffff;padding:3px 10px;
+          background-color:#DADED9;text-transform:uppercase;color:#134936;
+          text-align:center;width:200px;margin:5px 0;">
+          {{IF status == 'secondhand'}}Б/У{{END IF}}
+{{IF status == 'replica'}}Новодел{{END IF}}
+{{IF status == 'new'}}Новое{{END IF}}
+{{IF status == 'restaurare'}}Реставрация{{END IF}}
+        </div>
+      <!--{{END IF}}-->
+    </td>
+    <td style="font-size:18px" align="center">
+      <font color="#1B543D">
+<strong>{{cost}}<br><br><strike style="color:grey;">{{old_cost}}</strike>
+</strong>
+</font>
+    </td>
+  </tr>
+  <!--{{END IF}}-->
+</tbody>
+</table>
+<table cellpadding="0" cellspacing="0" border="0" background="http://av.uwinart.com/s/{{ mailerId }}/{{ user_md5 }}/logo.jpeg" style="width:0;height:0;"><tbody><tr><td></td></tr></tbody>
+</table>]]></body>
+	  </sale_mailer>
+	</mails>
+	<templates_car>
+		<title>
+			{{name}} spare parts - Repair parts on car {{name}} in USA, UK, Europe
+			{{IF vars}}
+		{{name}} - название детали
+		{{synonym}} - синоним авто
+		{{title}} - TITLE
+		{{keywords}} - KEYWORDS
+		{{description}} - DESCRIPTION
+		{{END IF}}
+	  </title>
+	  <keywords>{{name}}, spare parts, spare parts, spares, repair parts, duplicates</keywords>
+	  <description>Buy repair parts on {{name}} in USA, UK, Europe (shipping). Car {{name}}: spare parts and duplicates (restoration, replica, used, new)</description>
+	</templates_car>
+	<templates_category>
+		<title>{{name}} {{car_name}}: duplicates and spare parts to {{name}} {{car_name}}</title>
+		<keywords>{{name}}</keywords>
+		<description>Buy repair parts on {{car_name}} {{name}} in USA, UK, Europe (shipping). {{car_name}} spare parts and duplicates (restoration, replica, used, new)</description>
+	</templates_category>
+	<templates_last_category>
+		<title>{{name}} {{car_name}}: duplicates and spare parts to {{name}} {{car_name}}</title>
+		<keywords>{{name}}</keywords>
+		<description>Buy repair parts on {{car_name}} {{name}} in USA, UK, Europe (shipping). {{car_name}} spare parts and duplicates (restoration, replica, used, new)</description>
+	</templates_last_category>
+</cars>

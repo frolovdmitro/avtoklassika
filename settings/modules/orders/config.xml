@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<orders>
+  <validate>
+    <quick_buy>
+      <name>
+        <empty/>
+      </name>
+
+      <phone>
+        <empty/>
+      </phone>
+
+      <email>
+        <empty/>
+        <parseEmail/>
+      </email>
+    </quick_buy>
+
+    <promocode>
+      <promocode>
+        <empty/>
+      </promocode>
+    </promocode>
+
+    <order_user_info>
+      <name>
+        <empty/>
+      </name>
+
+      <phone>
+        <empty/>
+      </phone>
+
+      <street>
+        <empty/>
+      </street>
+
+      <build>
+        <empty/>
+      </build>
+
+      <flat>
+        <empty/>
+      </flat>
+
+      <city>
+        <empty/>
+      </city>
+
+      <index>
+        <empty/>
+      </index>
+
+      <country>
+        <empty/>
+      </country>
+    </order_user_info>
+  </validate>
+<general><administrator_email>avtoclassika.com@gmail.com</administrator_email></general><liqpay><phone/><id>i24349046233</id><password>XoMlTAYFjMNibRfuQyBF6q28qXpbdZeUpfA1mvcO</password></liqpay><paypal><username>AULrAW_kkdZXRswhOFTtOIgpevAjfax_Exv4RZhb8uBQlaFtp6bm6IGEmWipIM1xTsnxTEZdapHzjhwo</username><password>EJVfqbckfpxXtIUD--PXa_Gao0bg8-f1jdCfQm7K7yLa9ZuHCXplSx_00y4n1meqA8BHD17SbbvyuBm9</password></paypal><portmone><payee_id>6182</payee_id><login>shp_avtoclassika1</login><password>aaa111</password></portmone><private24><id>102393</id><password>xg33K7MAN304Oxx3w5MRDunGdC7um90H</password></private24><platon><url>https://secure.platononline.com/payment/auth</url><id>UVMMRUH8H5</id><password>0BaqqWfQM8t9EjPsq4bUc7F2bGFywXrG</password></platon></orders>

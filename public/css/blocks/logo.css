@@ -1,0 +1,15 @@
+.logo {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  line-height: 1;
+}
+.logo:hover {
+  text-decoration: none;
+}
+.logo__organization {
+  display: none;
+}
+.logo__caption {
+  font: bold 12px 'Sensation';
+}

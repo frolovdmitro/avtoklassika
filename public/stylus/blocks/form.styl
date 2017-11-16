@@ -1,0 +1,256 @@
+.form
+  &__virtual-checkbox
+    display inline-block
+    text-decoration none
+    color #6e7c6e!important
+    cursor pointer
+    padding-left 16px
+    position relative
+
+    &:before
+      content ''
+      position absolute
+      top 2px
+      left 0
+      icons-sprite($checkbox)
+
+    &_state_ckecked
+      &:before
+        icons-sprite($checkbox-checked)
+
+  &__icons
+    display block
+    text-indent -9999px
+    overflow hidden
+
+    &_type_tiles
+      position relative
+      top 2px
+      icons-sprite($tiles)
+
+  &__virtual-combobox
+    border 1px solid #A8BBA8
+    background #FFF
+    text-decoration none
+    padding 0 24px 0 5px
+    border-radius 2px
+    position relative
+    cursor pointer
+    font-size 13px
+
+    &:before
+      content ''
+      position absolute
+      top 1px
+      right 1px
+      icons-sprite($combobox-arrow)
+
+  &__input
+    font-size 14px
+
+    &_type_contrast
+      border 1px solid #9FAF9F
+      border-top 2px solid #9FAF9F
+      text-indent 13px
+      border-radius 3px
+      box-sizing border-box
+      width 100%
+
+    &_type_withbutton
+      width 50%
+      line-height 30px
+      position relative
+      z-index 1
+
+    &-wrap
+      padding 0 0 20px
+      position relative
+      display inline-block
+
+      &_size_divide
+        width 46%
+        margin-right 8%
+
+      &_size_100
+        width 100%
+
+      &_pos_last
+        margin-right 0
+
+
+    &-error
+      position absolute
+      bottom 3px
+      left 0
+      font-size 12px
+      color #E25851
+      opacity 0
+      transition opacity .3s ease-in-out
+
+    &_type_count
+      width 30px
+      text-align center
+      line-height 30px
+      color #0c555d
+      font-weight bold
+      font-size 18px
+      border 1px solid #98a598
+
+    &-count
+      &-wrap
+        width 106px
+
+      &-btn
+        background-repeat no-repeat
+        text-indent -100%
+        overflow hidden
+        text-align left
+
+        &_type_plus
+          icons-sprite($plus-big)
+          float right
+
+        &_type_minus
+          icons-sprite($minus-big)
+          float left
+
+  &__submit
+    transition opacity .3s ease-in-out
+
+    &[disabled]
+      opacity .1
+
+    &_type_main
+      border none
+      background-color transparent
+      display block
+      icons-sprite($ribbon-red)
+      color #fff!important
+      text-decoration none
+      line-height @height
+      text-shadow 0 1px rgba(12, 85, 93, .7)
+      font-size 14px
+      font-weight bold
+      text-align center
+      text-transform uppercase
+
+      &:hover
+        color #fff
+
+    &_type_big
+      border none
+      background-color transparent
+      display block
+      icons-sprite($ribbon-red)
+      color #fff!important
+      text-decoration none
+      line-height @height
+      text-shadow 0 1px rgba(12, 85, 93, .7)
+      font-size 18px
+      font-weight bold
+      text-align center
+      text-transform uppercase
+      float right
+      margin 4px 0
+
+      &:hover
+        color #fff
+
+  &__selector_size_big
+    line-height 36px!important
+    height 36px!important
+    background-position 0 -463px!important
+
+    SPAN
+      background-position right -272px!important
+      line-height 36px!important
+      height 36px!important
+
+    .form__select
+      height 32px
+
+  &__fileinput
+    position absolute
+    top 0
+    right 0
+    margin 0
+    padding 0
+    font-size 18px
+    line-height 34px
+    cursor pointer
+    opacity 0
+
+    &-wrap
+      text-align center
+      position relative
+      overflow hidden
+      icons-sprite($btn-bg)
+      height 34px
+      width 220px
+      font-size 18px
+      line-height 34px
+      -webkit-font-smoothing antialiased
+
+    &-caption
+      color #fff
+      text-shadow 0 1px 1px rgba(0, 0, 0, .75)
+
+    &-files
+      line-height 1.2
+
+      &_type_ads
+        float left
+        margin 0 0 10px 20px
+        width 400px
+
+    &-error
+      position absolute
+      top 40px
+      left 0
+      font-size 12px
+      line-height 1
+      color #E25851
+      opacity 0
+      transition opacity .3s ease-in-out
+
+    &-input-error-wrap
+      position relative
+
+      &_type_ads
+        float left
+
+  &__progress
+    width 0
+    height 2px
+    position relative
+    background #FF6860
+
+  &__offer-text
+    height 250px
+    overflow auto
+    background #FFF
+    padding 15px 20px 20px
+    box-sizing border-box
+    border-radius 3px
+    border 1px solid #9FAF9F
+
+    H1
+      padding-top 0
+
+  &__button
+    &_type_withinput
+      text-align center
+      position relative
+      overflow hidden
+      icons-sprite($btn-bg)
+      height 35px
+      font-size 18px
+      -webkit-font-smoothing antialiased
+      border none
+      color #FFF
+      text-shadow 0 1px 1px rgba(0, 0, 0, 0.75)
+      left -6px
+      border-radius 0 3px 3px 0
+      line-height 30px
+      width 45%
+      z-index 2

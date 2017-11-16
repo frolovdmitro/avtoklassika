@@ -1,0 +1,28 @@
+font-face(family, filename, svg-id = null, bold-style = null, italic-style = null) {
+  @font-face {
+    font-family: family;
+    src: url(/fonts/filename.eot);
+    if (svg-id) {
+      src: url(/fonts/filename.eot?#iefix) format('embedded-opentype'),
+           url(/fonts/filename.svg#svg-id) format('svg'),
+           url(/fonts/filename.woff) format('woff'),
+           url(/fonts/filename.ttf) format('truetype');
+    } else {
+      src: url(/fonts/filename.eot?#iefix) format('embedded-opentype'),
+           url(/fonts/filename.woff) format('woff'),
+           url(/fonts/filename.ttf) format('truetype');
+    }
+
+    if (bold-style) {
+      font-weight: bold;
+    } else {
+      font-weight: normal;
+    }
+
+    if (italic-style) {
+      font-style: italic;
+    } else {
+      font-style: normal;
+    }
+  }
+}

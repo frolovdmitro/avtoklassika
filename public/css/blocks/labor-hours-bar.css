@@ -1,0 +1,13 @@
+.labor-hours-bar {
+  font-size: 12px;
+  line-height: 28px;
+  display: inline-block;
+  padding-left: 23px;
+  background-image: url("/img/_icons.png");
+  background-position: -10px -509px;
+  background-repeat: no-repeat;
+  background-position: -10px -504px;
+}
+.labor-hours-bar__hours {
+  color: #0c555d;
+}

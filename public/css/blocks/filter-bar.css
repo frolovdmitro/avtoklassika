@@ -1,0 +1,76 @@
+.filter-bar {
+  background: #ebf6eb;
+  margin: 10px 15px 0 0;
+  color: #6e7c6e;
+  font-size: 14px;
+  line-height: 1;
+  height: 16px;
+  zoom: 1;
+  padding: 12px 10px 12px;
+  position: relative;
+}
+.filter-bar:before,
+.filter-bar:after {
+  content: "";
+  display: table;
+}
+.filter-bar:after {
+  clear: both;
+}
+.filter-bar:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  background-image: url("/img/_icons.png");
+  background-position: -10px -3348px;
+  width: 15px;
+  height: 40px;
+  right: -15px;
+}
+.filter-bar__block {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.filter-bar__block_align_left {
+  float: left;
+}
+.filter-bar__block_align_right {
+  float: right;
+}
+.filter-bar__item {
+  display: inline-block;
+  text-transform: lowercase;
+}
+.filter-bar__item_align_left {
+  margin-right: 14px;
+}
+.filter-bar__item_align_right {
+  margin-left: 14px;
+}
+.filter-bar__button {
+  background: #6d7c6f;
+  color: #fff;
+  padding: 6px 8px 8px;
+  line-height: 1;
+  position: absolute;
+  top: 5px;
+  right: 0;
+  border: 1px solid #03555c;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  text-decoration: none;
+}
+.filter-bar__button_state_checked {
+  background-color: #0c555d !important;
+  color: #fff !important;
+}
+.filter-bar__button:hover {
+  background-color: #0c555d;
+  color: #fff;
+}
+.filter-bar__button:visited,
+.filter-bar__button:focus {
+  color: #fff;
+  background-color: #6d7c6f;
+}

@@ -1,0 +1,71 @@
+.tabs
+  clear both
+  margin-bottom 12px
+
+  &__nav
+    list-style none
+    margin 0
+    padding 0
+
+    &-item
+      text-transform uppercase
+      border 1px solid #0C555D
+      display inline-block
+      padding 3px 12px 0 22px
+      position relative
+      bottom -1px
+      border-bottom none
+      border-radius 3px 0 0 0
+      border-right none
+      height 19px
+      z-index 0
+      background #FFF
+      left -4px
+      font-weight normal
+
+      &:before
+        content ''
+        position absolute
+        icons-sprite($tab-corner-active)
+        top 0
+        $right = (@width * -1) + 1
+        right $right
+
+      &:nth-child(3)
+        left -8px!important
+
+      &:nth-child(4)
+        left -12px!important
+
+      &_pos_first
+        left 0!important
+
+      &_state_current
+        z-index 1
+        font-weight bold
+        background #EBF6EB
+        height auto
+
+        &:before
+          icons-sprite($tab-corner)
+
+    &-link
+      text-decoration none
+
+  &__content
+    padding 18px 21px 13px
+    background #EBF6EB
+    border 1px solid #0c555d
+    border-radius 0 3px 3px
+    color #0c555d
+    font-size 14px
+    display none
+
+    &_state_current
+      display block
+
+    P
+      margin 0 0 10px
+
+  &_type_news
+    padding-top 60px

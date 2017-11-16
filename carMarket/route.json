@@ -1,0 +1,13 @@
+{
+  "car-market": {
+    "description": "",
+    "controller": "carMarket",
+    "action": "list"
+  },
+
+  "car-market/:id": {
+    "description": "",
+    "controller": "carMarket",
+    "action": "index"
+  }
+}

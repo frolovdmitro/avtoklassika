@@ -1,0 +1,64 @@
+.typeahead__item {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  padding: 3px 15px;
+  overflow: hidden;
+}
+.typeahead__item:hover {
+  background: #ebf6eb;
+}
+.typeahead__image {
+  float: left;
+  margin-right: 15px;
+  min-height: 65px;
+  min-width: 89px;
+  position: relative;
+}
+.typeahead__image IMG {
+  display: block;
+  margin: 0 auto;
+}
+.typeahead__caption {
+  width: 55%;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 4px 0 0;
+}
+.typeahead__text {
+  margin: 0;
+  line-height: 1.3;
+}
+.typeahead__car {
+  position: absolute;
+  top: 7px;
+  right: 15px;
+  font-weight: bold;
+  color: #6e7c6e;
+  line-height: 1;
+}
+.typeahead__not-presence {
+  font-size: 12px;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: #999;
+  font-weight: bold;
+}
+.tt-dropdown-menu {
+  top: 100% !important;
+  background: #fff;
+  width: 160%;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #98a598;
+}
+.tt-hint {
+  color: #999;
+}
+.tt-suggestion.tt-cursor {
+  background: #ebf6eb;
+}

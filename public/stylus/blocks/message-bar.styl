@@ -1,0 +1,119 @@
+.message-bar
+  float right
+  width 224px
+  text-align center
+  background-color #EBF6EB
+  border 1px solid #0C555D
+  border-radius 3px
+  box-sizing border-box
+  padding 20px 20px 70px
+  position relative
+  z-index 2
+
+  &__caption
+    margin 0
+    top -42px
+
+  &__slider
+    margin-top -40px
+    text-align left
+    position relative
+
+    .flex-direction-nav
+      list-style none
+      margin 0
+      padding 0
+      top 97px
+      position absolute
+      left -15px
+      right -15px
+
+      .flex-prev, .flex-next
+        text-indent -999px
+        overflow hidden
+        display block
+
+      .flex-prev
+        icons-sprite($slider-small-arrow-left)
+        float left
+
+      .flex-next
+        icons-sprite($slider-small-arrow-right)
+        float right
+
+  &__list
+    list-style none
+    margin 0
+    padding 0
+    position relative
+    z-index 2
+    width 2000%
+
+  &__item
+    display block
+    width 182px
+
+  &__item-caption
+    margin 7px 0 5px
+    color #0c555d
+    font bold 14px/1 $addition_font
+    overflow hidden
+    height 42px
+
+  &__link
+    width 180px
+    height 100px
+    overflow hidden
+    text-align center
+    display block
+    border 1px solid #0c555d
+    border-radius 3px
+
+    &-table
+      display table
+      width 180px
+      height 100px
+
+    &-table-cell
+      display table-cell
+      vertical-align middle
+
+  &__desc
+    color #0c555d
+    font 14px/1.3 $addition_font
+    margin 0
+
+  &__cost
+    position absolute
+    left -10px
+    bottom -14px
+    icons-sprite($ad-bar-cost)
+    background-repeat no-repeat
+    text-align center
+    font 18px/31px $addition_font
+    color #0c555d
+
+  &__button
+    background embedurl('small-button-bg.jpg')
+    background-repeat repeat-x
+    text-transform uppercase
+    color #fff!important
+    text-decoration none
+    font bold 14px/30px $addition_font
+    display block
+    height 29px
+    position absolute
+    bottom -14px
+    left 25px
+    padding 0 5px 0 10px
+    border-left 1px solid #094950
+    -webkit-font-smoothing antialiased
+
+    &:before
+      content ''
+      position absolute
+      top 0
+      background embedurl('small-button-arrow.png')
+      width 11px
+      height 29px
+      right @width * -1

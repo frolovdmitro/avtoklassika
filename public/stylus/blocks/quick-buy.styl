@@ -1,0 +1,184 @@
+.quick-buy
+  background #EBF6EB
+  border 1px solid #6E7C6E
+  width 530px
+  position absolute
+  top 255px
+  right 40px
+  z-index 9998
+  padding 20px 0
+  border-radius 3px
+  transform translate3d(0, 20px, 0)
+  opacity 0
+  transition all .3s ease-in-out
+  visibility hidden
+
+  &_state_visible
+    visibility visible
+    opacity 1
+    transform translate3d(0, 0, 0)
+
+  &:before
+    position absolute
+    z-index 3
+    content ""
+    height 0
+    width 0
+    top -22px
+    right 50px
+    margin-left -12px
+    border 9px solid rgba(0, 0, 0, 0)
+    border-bottom 13px solid #EBF6EB
+
+  &:after
+    position absolute
+    z-index 2
+    content ""
+    height 0
+    width 0
+    top -24px
+    right 49px
+    border 10px solid rgba(0, 0, 0, 0)
+    border-bottom 13px solid #6E7C6E
+
+  &__form
+    text-align center
+
+  &__text
+    text-align left
+    margin 0 30px
+    line-height 1.4
+    font-size 14px
+
+  &__inputs-success-wrap
+    position relative
+
+  &__success-text
+    position absolute
+    top 0
+    bottom 0
+    left 35px
+    right 35px
+    font-size 18px
+    visibility hidden
+
+  &__success-order-num
+    color #0C555D
+
+  &__inputs-wrap
+    margin 20px 0 5px
+    text-align center
+
+  &__input
+    width 340px
+    border 1px solid #9FAF9F
+    border-top 2px solid #9FAF9F
+    text-indent 13px
+
+  &__total-caption
+    text-align left
+    margin 0 0 10px 35px
+    font-style italic
+    color #0C555D
+    font-size 18px
+    line-height 1
+    display block
+
+  &__image
+    &-wrap
+      float left
+      margin 3px 0
+
+    &-table
+      display table
+
+    &-table-cell
+      display table-cell
+      height 90px
+      vertical-align middle
+
+  &__detail-name
+    color #0C555D
+    font-size 18px
+    line-height 1.2
+    margin 0 0 5px
+
+  &__state-label
+    position relative
+    top auto
+    right auto
+    padding-bottom 1px
+
+  &__detail-info
+    float left
+    width 230px
+    margin 0 0 0 25px
+    text-align left
+
+    &-wrap
+      clearfix()
+      background #FFF
+      border-top 1px solid #98A598
+      border-bottom 2px solid #0B5256
+      padding 10px 20px
+
+  &__num-detail
+    display block
+    margin 15px 0 0
+    font-size 18px
+    line-height 1
+    white-space nowrap
+    overflow hidden
+
+  &__count-cost-info
+    float right
+
+  &__detail-cost
+    position initial
+    margin-top 10px
+
+  &__total-info
+    text-align right
+    margin 30px 30px 10px
+    clearfix()
+
+  &__total-cost
+    float right
+    icons-sprite($cost-ribbon-big)
+    line-height @height
+    text-align center
+    font-size 30px
+    color #0C555D
+    text-shadow 0px 1px 0px rgba(255, 255, 255, .7)
+
+    .rur
+      position relative
+
+      &:before
+        content ''
+        position absolute
+        left 0
+        right 3px
+        height 3px
+        background #0C555D
+        top 20px
+
+  &__submit
+    border none
+    float right
+    background-color transparent
+    icons-sprite($basket-ribbon-big)
+    line-height @height
+    padding 0
+    margin-left 15px
+    text-transform uppercase
+    color #fff
+    font-size 18px
+    font-weight bold
+    text-shadow 0px 1px rgba(12, 85, 93, .75)
+    text-indent 35px
+
+    &_type_a
+      text-indent 70px!important
+      color #fff!important
+      text-decoration none

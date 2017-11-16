@@ -1,0 +1,129 @@
+.layout
+  &__header
+    width $layout_width
+    height $header_height
+    margin 0 auto 30px
+    clearfix()
+
+  &__logo-wrap
+    width 230px
+    float left
+    text-align center
+
+  &__header-info-wrap
+    position relative
+    width 700px
+    float right
+
+  &__header-info-bar
+    width 700px
+    height 69px
+    clear both
+    background-color $base_bg_color
+    border-bottom 1px solid $text_color
+    border-radius 2px
+    position relative
+    clearfix()
+
+    &_state_invisible
+      display none
+
+    &_type_sticky
+      width 940px
+      position fixed
+      top 0
+      left 50%
+      margin-left -470px
+      z-index 9999
+      height 57px
+      border 1px solid #DFEBDF
+      border-bottom 2px solid #6E7C6E
+      transform translate3d(0, -100%, 0)
+      transition -webkit-transform .3s ease-in-out
+
+      .light-logo
+        float left
+        margin 8px 21px 0 37px
+
+      .search-form
+        margin-top 10px
+
+      .enter-button
+        padding-top 36px
+
+      .basket-bar
+        line-height 52px
+
+        &__notifier
+          top 35px
+
+      .search-element__input
+        width 365px
+
+    &_type_sticky-show
+      transform translate3d(0, 0, 0)
+
+  &__content
+    width $layout_width
+    margin 8px auto 0
+    position relative
+    clearfix()
+
+    &_type_nomargin
+      margin-bottom 10px!important
+
+    &_type_basket
+      width 680px!important
+
+  &__separator
+    background #6e7c6e
+    height 2px
+
+    &_type_margin-bottom
+      margin-bottom 20px
+
+  &__clearfix
+    clearfix()
+
+    &_align_center
+      margin 10px auto 0
+      width $layout_width
+
+  &__content-with-sidebar
+    float left
+    width 710px
+    margin-bottom 40px
+    clearfix()
+
+    &_margin_top
+      margin-top 25px
+
+  &__sidebar
+    float right
+
+    &_type_car
+      margin-top 62px
+
+    &_type_doc
+      margin-top 10px
+
+    &_type_basket
+      width 240px!important
+
+  &__footer
+    background embedurl('footer.jpg')
+    padding 35px 0 3px
+    position absolute
+    left 0
+    bottom 0
+    height $footer_height
+    width 100%
+    box-sizing border-box
+
+  &__footer-wrap
+    margin 0 auto
+    width $layout_width
+    position relative
+
+  &__footer-menu-wrap
+    clearfix()

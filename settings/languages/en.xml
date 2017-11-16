@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<show>show</show>
+	<hide>hide</hide>
+	<tracking>tracking</tracking>
+	<slogan>classic cars and spare parts</slogan>
+	<copyright>© 2009-2014 Autoclassic, restoration cars from Avtoclassika.com</copyright>
+	<design>Design by www.felix-art.com</design>
+	<development>Development of an online store Uwinart Development</development>
+	<contacts>Contacts</contacts>
+	<buy>To Buy</buy>
+	<fast_buy>Buy it now</fast_buy>
+	<reccomend_shop>Buyers Recommend</reccomend_shop>
+	<name>Name</name>
+	<phone>Phone</phone>
+	<all>All</all>
+	<password>Password</password>
+	<home>Home</home>
+	<comments>Comments</comments>
+	<password_retype>Confirm Password:</password_retype>
+	<restaurare>refurbished</restaurare>
+	<replica>replica</replica>
+	<secondhand>used</secondhand>
+	<new>new</new>
+	<payment>Payment</payment>
+	<delivery>Shipping</delivery>
+	<share>Share</share>
+	<general>
+		<email>info@avtoclassika.com</email>
+		<address>
+			Ukraine
+			Kiev region, Vyshgorod
+		Str. Vatutina 69B
+	  </address>
+	</general>
+</root>

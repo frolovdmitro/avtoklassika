@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<carMarket>
+	<autoBuy>Продается автомобиль</autoBuy>
+	<main>Главная</main>
+	<carsCatalogue>Каталог автомобилей</carsCatalogue>
+	<details>Подробнее</details>
+	<benefits>Наши преимущества</benefits>
+	<benefit_1>Бесплатная online консультация по ремонту и реставрации</benefit_1>
+	<benefit_2>Большой авссортимент запчастей с доставкой по всему миру</benefit_2>
+	<benefit_3>Предпродажная диагностика и техническое обслуживание</benefit_3>
+	<model>модель</model>
+	<seria>серия</seria>
+	<year>год выпуска</year>
+	<price>цена</price>
+	<connectWithSeller>связаться с продавцом</connectWithSeller>
+	<viewAll>Посмотреть все</viewAll>
+	<photos>фотограции</photos>
+	<general>Основные</general>
+	<features>характеристики</features>
+	<details2>Детальное</details2>
+	<description>описание</description>
+	<byu>Купит</byu>
+	<auto>автомобиль</auto>
+	<other>Другие наши</other>
+	<cars>автомобили</cars>
+	<whyBenefits>Почему выгодно покупать</whyBenefits>
+	<inOur>у нас</inOur>
+	<yourName>Ваше имя</yourName>
+	<message>Сообщение</message>
+	<send>Отправить</send>
+	<uniqChance>Это Уникальный Шанс Приобрести</uniqChance>
+	<sovetCar>Советский Классический Автомобиль!</sovetCar>
+	<gotoCatalogue>Перейти в каталог</gotoCatalogue>
+	<arguments>Несколько аргументов</arguments>
+	<arg1>Антикварные автомобили принято считать наиболее выгодным вложением средств</arg1>
+	<arg2>За период с 2002 по 2015 гг. стоимость некоторых произведений выросла на 500%</arg2>
+	<arg3>Стоимость лучших отреставрированных образцов колеблется от $30 тыс. до $25 млн.</arg3>
+	<unsubscribe>Отписаться от рассылки</unsubscribe>
+	<menu_1>ЗАПЧАСТИ</menu_1>
+	<menu_1_link>/</menu_1_link>
+	<menu_2>ИНФОРМАЦИЯ</menu_2>
+	<menu_2_link>/help/</menu_2_link>
+	<menu_3>УСЛУГИ</menu_3>
+	<menu_3_link>/services/</menu_3_link>
+	<menu_4>НАПИСАТЬ НАМ</menu_4>
+	<menu_4_link>/contacts/</menu_4_link>
+	<contacts><![CDATA[
+        Украина,<br>
+        г. Вышгород,<br>
+        ул. Ватутина 69-В<br>
+        avtoclassika.com@gmail.com<br>
+        ©2016. All rights reserved
+]]></contacts>
+</carMarket>

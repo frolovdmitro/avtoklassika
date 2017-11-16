@@ -1,0 +1,41 @@
+#powerTip {
+  border: 2px solid #0c555d;
+  color: #6e7c6e;
+  font-size: 14px;
+  line-height: 1.4;
+  min-width: 300px;
+  background: #fff;
+  white-space: normal;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+}
+#powerTip.n:before {
+  border-top-color: #0c555d;
+}
+#powerTip.e:before {
+  border-right-color: #0c555d;
+}
+#powerTip.s:before {
+  border-bottom-color: #0c555d;
+}
+#powerTip.w:before {
+  border-left-color: #0c555d;
+}
+#powerTip.ne:before,
+#powerTip.nw:before {
+  border-top-color: #0c555d;
+}
+#powerTip.se:before,
+#powerTip.sw:before {
+  border-bottom-color: #0c555d;
+}
+#powerTip.nw-alt:before,
+#powerTip.ne-alt:before,
+#powerTip.sw-alt:before,
+#powerTip.se-alt:before {
+  border-top-color: #0c555d;
+}
+#powerTip.sw-alt:before,
+#powerTip.se-alt:before {
+  border-bottom-color: #0c555d;
+}

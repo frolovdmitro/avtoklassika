@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<adverts>
+	<null/>
+	<adverts>Ads</adverts>
+	<add_advert>Post ads</add_advert>
+	<our_adverts>Advertisements for the sale of vintage cars and spare parts</our_adverts>
+	<contract_price>Сontract price</contract_price>
+	<buy>Buy</buy>
+	<sell>Sell</sell>
+	<cars>Cars</cars>
+	<autoparts>Spare parts</autoparts>
+	<other_adverts>Other</other_adverts>
+	<i_buy>Buy</i_buy>
+	<i_sell>Sell</i_sell>
+	<autopart>Spare part</autopart>
+	<car>Car</car>
+	<city_country>City and Country</city_country>
+	<select_type>Select type</select_type>
+	<select_category>Select category</select_category>
+	<select_currency>Select currency</select_currency>
+	<input_price>Enter price</input_price>
+	<caption>Title</caption>
+	<advert_text>Text</advert_text>
+	<upload_photo>Downloud</upload_photo>
+	<validate>
+		<add>
+			<name>
+				<empty>Invalid Name</empty>
+			</name>
+			<city>
+				<empty>Invalid City,Country</empty>
+			</city>
+			<email>
+				<empty>Invalid E-mail</empty>
+				<parseEmail>Invalid E-mail</parseEmail>
+			</email>
+			<phone>
+				<empty>Invalid phone</empty>
+			</phone>
+			<type>
+				<empty>Enter type</empty>
+			</type>
+			<category>
+				<empty>Enter category</empty>
+			</category>
+			<caption>
+				<empty>Invalid title</empty>
+			</caption>
+			<text>
+				<empty>You did enter text</empty>
+			</text>
+			<files>
+				<maxfilesize>Max. 2Мб</maxfilesize>
+				<maxfiles>You can downloud 10 pix</maxfiles>
+			</files>
+		</add>
+	</validate>
+	<index>
+		<title></title>
+		<keywords></keywords>
+		<description></description>
+	</index>
+	<templates>
+		<title>{{IF title}}{{title}}{{else}}{{type}}: {{name}}{{IF cost}}, цена {{cost}}€{{END IF}} ({{city}})
+			{{END IF}}{{IF vars}}
+			{{name}} - название объявления
+			{{cost}} - цена
+			{{type}} - Продам/Куплю
+			{{category}} - Автозапчасть/Автомобиль
+			{{date}} - Дата
+			{{country}} - Страна
+			{{city}} - Город
+			{{title}} - TITLE
+			{{keywords}} - KEYWORDS
+			{{description}} - DESCRIPTION
+			{{END IF}}
+		</title>
+	  <keywords>{{name}}</keywords>
+	  <description>{{name}}</description>
+	  <share><![CDATA[		  {{name}}
+Цена: {{cost}} {{IF currency_abb == 'P'}}руб.{{ELSE}}{{currency_abb}}{{END IF}}
+------------------------------------
+http://avtoclassika.com/car/{{car_synonym}}/{{autopart_id}}/{{id}}/
+
+{{description}}
+	  ]]></share>
+	</templates>
+</adverts>

@@ -1,0 +1,31 @@
+.phones-bar
+  background #768976 embedurl('phones-bg.jpg')
+  margin 0
+  padding 7px 0 0 60px
+  box-sizing border-box
+  list-style none
+  color $inverse_text_color
+  font bold 13px $addition_font
+  float left
+  width 185px
+  height 100%
+  position relative
+
+  &:before
+    position absolute
+    content ''
+    top 50%
+    left 15px
+    icons-sprite($phone)
+    $top =  @height/2 * -1
+    margin-top unit($top, 'px')
+    background-repeat no-repeat
+
+  &__item
+    display block
+    text-shadow 0 1px rgba(12, 85, 93, .55)
+    line-height 19px
+
+    A
+      color #fff
+      text-decoration none

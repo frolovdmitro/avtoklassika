@@ -1,0 +1,98 @@
+.subscription-bar
+  float right
+  width 222px
+
+  &__header
+    font bold 14px/1.6 $addition_font
+    color #fff
+    -webkit-font-smoothing antialiased
+    text-transform uppercase
+    position relative
+    margin 0
+    padding 0 0 4px 10px
+
+    &:before, &:after
+      content ''
+      position absolute
+      bottom 0
+      height 1px
+      left 0
+      width 155px
+
+    &:before
+      background #4e624e
+      bottom 1px
+
+    &:after
+      background #ccdfcc
+
+  &__form
+    margin 16px 0 0 9px
+    z-index 1
+    position relative
+    transition opacity .3s ease-in-out
+    opacity 1
+
+    &-wrap
+      position relative
+      height 140px
+
+  &__form-input-wrap
+    width 210px
+    padding-bottom 18px
+    position relative
+
+    &_type_email:before
+        position absolute
+        content ''
+        left 9px
+        top 12px
+        icons-sprite($input-email)
+
+    &_type_name:before
+        position absolute
+        content ''
+        left 12px
+        top 11px
+        icons-sprite($input-people)
+
+    INPUT
+      border 1px solid #4f5c4f
+      border-radius 3px
+      width 100%
+      box-sizing border-box
+      text-indent 32px
+
+  &__submit
+    border 1px solid #032f37
+    border-radius 2px
+    height 32px
+    font bold 17px/32px $addition_font
+    padding 0
+    width 210px
+    box-sizing border-box
+    text-shadow 0 1px rgba(3, 28, 31, .9)
+    text-transform uppercase
+    color #fff
+    -webkit-font-smoothing antialiased
+    background embedurl('button-bg.jpg')
+
+  &__error
+    color #fff!important
+    bottom 2px
+
+  &__success
+    margin 0
+    position absolute
+    top 40px
+    left 20px
+    right 20px
+    z-index 0
+    text-align center
+    line-height 1.4
+    color #FFF
+    opacity 0
+    transition opacity .3s ease-in-out
+
+    A:hover
+      text-decoration none

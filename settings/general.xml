@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <null/>
+  <general>
+    <rating>98</rating>
+  </general>
+  <google_analytics>
+    <enabled>false</enabled>
+    <code/>
+  </google_analytics>
+  <seo>
+    <robots/>
+    <redirects>/cars/gaz-21y69 /car/gaz-21/
+/cars/gaz-14/ /car/gaz-14/
+/cars/m20/ /car/m20/
+/cars/gaz-12/ /car/gaz-12/
+/cars/gaz13/ /car/gaz13/
+/cars/moskvich-400-420/ /car/moskvich-400-420/
+/cars/moskvich-407/ /car/moskvich-407/
+/cars/zaz-965/ /car/zaz-965/
+/cars/gaz-24/ /car/gaz-24/
+/cars/willys/ /car/willys/
+/cars/gaz-67/ /car/gaz-67/
+/cars/gaz-69/ /car/gaz-69/
+/cars/GAZ-M1/ /car/gaz-m1/
+/cars/zis-101/ /car/zis-101/
+/cars/zis-110/ /car/zis-110/
+/cars/Motorcycles/ /car/Motorcycles/
+/cars/UAZ-469/ /car/gaz-69/
+/cars/Motorcycles/100005/ /car/Motorcycles/100005/
+/encyclopedia/388/ /innocenti/
+/eng/ http://en.avtoclassika.com/
+/encyclopedia/370/ /ginetta-cars/
+/cars/gaz-21y69/347/ /car/gaz-21/347/6014/
+/cars/gaz-21y69/487/ /car/gaz-21/487/8032/
+/cars/gaz-21y69/485/ /car/gaz-21/485/20342/
+/cars/gaz-21y69/477/ /car/gaz-21/477/7768/
+/cars/gaz-21y69/432/ /car/gaz-21/432/18507/
+/cars/gaz-21y69/429/ /car/gaz-21/429/19391/
+/cars/gaz-21y69/384/ /car/gaz-21/384/
+/cars/gaz-21y69/411/ /car/gaz-21/411/
+/cars/gaz-21y69/375/ /car/gaz-21/375/6380/
+/encyclopedia/321/ /daimler/
+/parts/gaz_12_zim/kuzov/ /car/gaz-12/125/
+/encyclopedia/129/ /renault/
+/parts/zaz_965/ /car/zaz-965/
+/eng/encyclopedia/122/ /peugeot/
+/parts/moskvich_407/?p=2 /car/moskvich-407/
+/parts/moskvich_403/ /car/moskvich-407/
+/cars/gaz-21y69/467/ /car/gaz-21/467/
+/cars/gaz-24/679/ /car/gaz-24/679/
+/cars/m20/21/ /car/m20/21/</redirects>
+  </seo>
+<status><minify_enabled>true</minify_enabled><mode>index</mode></status><mail><name>Avtoclassika.com</name><email>info@avtoclassika.com</email></mail><security><block_ip></block_ip></security><code><head><![CDATA[<meta name='yandex-verification' content='649920ff6ddec0eb' />
+<meta name="google-site-verification" content="zhckt6Z2P3JOtyf8sV_TT8SgH5swTFEXBsKWHTeDuFk" />
+ <style type="text/css">
+.hideShowPassword-toggle {
+border: 1px solid #9faf9f;
+line-height: 1;
+background-color: #edf3ed;
+margin-right: 5px;
+}
+</style>
+
+
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-33237360-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
+
+
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P2NMHF');</script>]]></head><js><![CDATA[<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2NMHF"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->]]></js></code><discount><enabled>false</enabled><code>2017</code><value>10</value><start_date>21.12.2016</start_date><stop_date>08.01.2017</stop_date></discount></root>

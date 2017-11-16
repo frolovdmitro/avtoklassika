@@ -1,0 +1,166 @@
+.car-autoparts-tree {
+  width: 213px;
+  border: 1px solid #0c555d;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background: #ebf6eb;
+  padding: 25px 5px 10px 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  margin-bottom: 20px;
+}
+.car-autoparts-tree_align_right {
+  float: right;
+}
+.car-autoparts-tree_type_detail {
+  float: right;
+}
+.car-autoparts-tree_type_autoparts {
+  float: right;
+  margin-top: -54px;
+}
+.car-autoparts-tree_type_news {
+  margin-top: 20px;
+}
+.car-autoparts-tree__header {
+  position: absolute !important;
+  left: -10px;
+  top: -21px;
+  padding-left: 25px !important;
+}
+.car-autoparts-tree__header:after {
+  content: '';
+  position: absolute;
+  background-image: url("/img/_icons.png");
+  background-position: -10px -58px;
+  width: 8px;
+  height: 8px;
+  bottom: -8px;
+  left: 2px;
+}
+.car-autoparts-tree__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.car-autoparts-tree__item-link {
+  text-decoration: none;
+}
+.car-autoparts-tree__item-link:hover {
+  text-decoration: underline;
+}
+.car-autoparts-tree__item {
+  color: #0c555d;
+  font: bold 14px/1.2 'Sensation';
+  overflow: hidden;
+  position: relative;
+  padding: 4px 0 4px 20px;
+}
+.car-autoparts-tree__item > SPAN {
+  cursor: pointer;
+}
+.car-autoparts-tree__item > UL {
+  display: none;
+}
+.car-autoparts-tree__item-plus-minus {
+  cursor: pointer;
+  position: absolute;
+  background-image: url("/img/_icons.png");
+  background-position: -10px -646px;
+  width: 13px;
+  height: 15px;
+  top: 5px;
+  left: 0;
+}
+.car-autoparts-tree__item_state_expand {
+  height: auto;
+}
+.car-autoparts-tree__item_state_expand .car-autoparts-tree__item-plus-minus {
+  cursor: pointer;
+  background-image: url("/img/_icons.png");
+  background-position: -10px -611px;
+  width: 13px;
+  height: 15px;
+}
+.car-autoparts-tree__item_state_expand > UL {
+  display: block;
+}
+.car-autoparts-tree__sublist {
+  list-style: none;
+  margin: 0 0 0 -10px;
+  padding: 0;
+}
+.car-autoparts-tree__subitem-link {
+  color: #6e7c6e !important;
+  text-decoration: none;
+}
+.car-autoparts-tree__subitem-link:hover {
+  text-decoration: underline;
+}
+.car-autoparts-tree__subitem {
+  color: #6e7c6e;
+  font: bold 14px/1.2 'Sensation';
+  overflow: hidden;
+  position: relative;
+  padding: 6px 0 6px 20px;
+  margin-left: 7px;
+}
+.car-autoparts-tree__subitem > SPAN {
+  cursor: pointer;
+}
+.car-autoparts-tree__subitem > UL {
+  display: none;
+}
+.car-autoparts-tree__subitem-plus-minus {
+  cursor: pointer;
+  position: absolute;
+  background-image: url("/img/_icons.png");
+  background-position: -10px -894px;
+  width: 13px;
+  height: 16px;
+  top: 5px;
+  left: 0;
+}
+.car-autoparts-tree__subitem_state_expand {
+  height: auto;
+}
+.car-autoparts-tree__subitem_state_expand SPAN {
+  text-decoration: underline;
+}
+.car-autoparts-tree__subitem_state_expand .car-autoparts-tree__subitem-plus-minus {
+  cursor: pointer;
+  background-image: url("/img/_icons.png");
+  background-position: -10px -1110px;
+  width: 13px;
+  height: 16px;
+}
+.car-autoparts-tree__subitem_state_expand > UL {
+  display: block;
+}
+.car-autoparts-tree__subsublist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+.car-autoparts-tree__subsubitem {
+  color: #6e7c6e;
+  font: normal 14px/1.2 'Sensation';
+  overflow: hidden;
+  position: relative;
+  padding: 0 0 6px 0;
+  text-decoration: none;
+  margin-left: 28px;
+}
+.car-autoparts-tree__subsubitem_state_current {
+  font-style: italic;
+}
+.car-autoparts-tree__subsubitem-link {
+  color: #6e7c6e !important;
+  text-decoration: none;
+}
+.car-autoparts-tree__subsubitem-link:hover {
+  text-decoration: underline;
+}

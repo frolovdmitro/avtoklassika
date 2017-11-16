@@ -1,0 +1,71 @@
+.autoparts {
+  margin-top: 17px !important;
+}
+.autoparts__h1 {
+  margin-bottom: 10px;
+  white-space: nowrap;
+  max-width: 667px;
+}
+.autoparts__schema {
+  border: 1px solid #98a598;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  margin: 20px 0px 0 11px;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+.autoparts__schema_state_visible {
+  max-height: 450px;
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+.autoparts__schema-wrap {
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+.autoparts__schema-image {
+  cursor: move;
+  position: absolute;
+}
+.autoparts__schema-coord {
+  position: absolute;
+  display: block;
+  color: #fff !important;
+  text-decoration: none;
+  line-height: 26px;
+  text-align: center;
+  z-index: 10;
+  font-size: 14px;
+  cursor: pointer;
+  background-image: url("/img/_icons.png");
+  background-position: -10px -2096px;
+  width: 29px;
+  height: 27px;
+}
+.autoparts__schema-coord_state_current {
+  background-image: url("/img/_icons.png");
+  background-position: -10px -1955px;
+  width: 29px;
+  height: 27px;
+}
+.autoparts__schema-coord_state_no {
+  background-image: url("/img/_icons.png");
+  background-position: -10px -2002px;
+  width: 29px;
+  height: 27px;
+  color: #666 !important;
+}

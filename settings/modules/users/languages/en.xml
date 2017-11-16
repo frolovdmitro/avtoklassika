@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+	<change_password>if needed, enter a new password</change_password>
+	<null/>
+	<enter>LogIn</enter>
+	<add_feedback>Add feedback</add_feedback>
+	<subscription>subscription</subscription>
+	<subscribe_success>You are subscribed to our news,email:</subscribe_success>
+	<unsubscribe>Unsubscribe</unsubscribe>
+	<remember_me>Keep my logIn information</remember_me>
+	<lost_password>Forgot your password?</lost_password>
+	<repair_password>Reset Password</repair_password>
+	<enter_with>LogIn with</enter_with>
+	<register>logIn</register>
+	<quick_register>,Quick logIn</quick_register>
+	<input_your_email>Enter your Email</input_your_email>
+	<cabinet>Account</cabinet>
+	<logined>Enter?</logined>
+	<password_retype>Confirm Password</password_retype>
+	<repair_text><![CDATA[Enter your email, and we'll send you instructions to reset your password.]]></repair_text>
+	<validate>
+		<auth>
+			<email>
+				<empty><![CDATA[You haven't entered Email]]></empty>
+				<parseEmail>Invalid Email</parseEmail>
+				<not_found>Invalid Email or password</not_found>
+			</email>
+		</auth>
+		<repair>
+			<email>
+				<not_found>This customer is not registered</not_found>
+			</email>
+			<success><![CDATA[Within a few minutes you will get a new password.<br>
+          <a href="#enter" class="auth-popup__lost-password-link">
+            Enter new password
+</a>]]></success>
+	  </repair>
+	  <register>
+		  <name>
+			  <empty><![CDATA[You didn't enter your name]]></empty>
+		  </name>
+		  <email>
+			  <empty><![CDATA[You didn't enter E-mail]]></empty>
+			  <parseEmail>Invalid E-mail</parseEmail>
+			  <exists>This email is already registered</exists>
+		  </email>
+		  <password>
+			  <empty><![CDATA[You didn't enter password]]></empty>
+		  </password>
+		  <password_retype>
+			  <retype><![CDATA[Passwords don't match.]]></retype>
+		  </password_retype>
+	  </register>
+	  <subscribe>
+		  <email>
+			  <empty><![CDATA[You didn't enter E-mail]]></empty>
+			  <parseEmail>Invalid E-mail</parseEmail>
+		  </email>
+		  <name>
+			  <empty><![CDATA[You didn't enter your name]]></empty>
+		  </name>
+	  </subscribe>
+	  <add_review>
+		  <name>
+			  <empty><![CDATA[You didn't enter your name]]></empty>
+		  </name>
+		  <email>
+			  <empty><![CDATA[You didn't enter E-mail]]></empty>
+			  <parseEmail>Invalid E-mail</parseEmail>
+		  </email>
+		  <text>
+			  <empty><![CDATA[You didn't enter review]]></empty>
+		  </text>
+	  </add_review>
+	  <info>
+		  <name>
+			  <empty>You must enter Name</empty>
+		  </name>
+		  <tel>
+			  <empty>You must enter phone</empty>
+		  </tel>
+		  <email>
+			  <empty><![CDATA[You didn't enter E-mail]]></empty>
+			  <parseEmail>Invalid E-mail</parseEmail>
+		  </email>
+	  </info>
+	  <full>
+		  <name>
+			  <empty>Invalid Name</empty>
+		  </name>
+		  <email>
+			  <empty>Invalid E-mail</empty>
+			  <parseEmail>Invalid E-mail</parseEmail>
+		  </email>
+		  <phone>
+			  <empty>Invalid Phone</empty>
+		  </phone>
+		  <street>
+			  <empty>Invalid street</empty>
+		  </street>
+		  <build>
+			  <empty>Invalid</empty>
+		  </build>
+		  <flat>
+			  <empty>Invalid</empty>
+		  </flat>
+		  <city>
+			  <empty>Invalid City</empty>
+		  </city>
+		  <index>
+			  <empty>Invalid postal code</empty>
+		  </index>
+		  <country>
+			  <empty>Invalid  Country</empty>
+		  </country>
+	  </full>
+	</validate>
+	<subscribe>subscribe</subscribe>
+	<review_text>Feedback</review_text>
+	<send_review>Write a review</send_review>
+	<quality_service>Quality of service</quality_service>
+	<usability_site>Website usability</usability_site>
+	<quality_goods>Quality of goods</quality_goods>
+	<shipping>Shipping</shipping>
+	<excellent>Excellent</excellent>
+	<well>Well</well>
+	<normal>Normally</normal>
+	<bad>Bad</bad>
+	<awful>Awfully</awful>
+	<my_cabinet>My account</my_cabinet>
+	<cabinet_info>Account information</cabinet_info>
+	<cabinet_history>Orders history</cabinet_history>
+	<cabinet_addresses>Shipping adress</cabinet_addresses>
+	<cabinet_waited_orders>Expected payment</cabinet_waited_orders>
+	<exit_from_cabinet>Log Out</exit_from_cabinet>
+	<edit>edit</edit>
+	<not_specified>Not specified</not_specified>
+	<save_changes>Save changes</save_changes>
+	<country>Country</country>
+	<city>City</city>
+	<index>Postal code</index>
+	<build>Bld</build>
+	<street>Street</street>
+	<statuses>
+		<not_complete>Not complete</not_complete>
+		<proccess>In hand</proccess>
+		<wait_payment>Waiting for payment</wait_payment>
+		<pending>В процессе</pending>
+		<paid>Paid</paid>
+		<verify_payment>Verify of payment</verify_payment>
+		<cancel>Canceled</cancel>
+		<success>Order is completed</success>
+	</statuses>
+	<date>Date</date>
+	<method_delivery>Shipping method</method_delivery>
+	<method_payment>Payment method</method_payment>
+	<sum>Total</sum>
+	<status>Status</status>
+	<continue>Pay now</continue>
+	<ended_order>Complete</ended_order>
+	<order_info>order info</order_info>
+	<flat_abb>app.</flat_abb>
+	<address_delivery>Shipping adress</address_delivery>
+	<mails>
+		<mail_administration>
+			<subject/>
+			<body/>
+		</mail_administration>
+		<registration>
+			<subject>Congratulations, you are registered on the site Avtoclassika.com</subject>
+			<body><![CDATA[<table cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" width="600px" style="font-family:Arial, Arial, Helvetica, sans-serif;
+  margin:0 auto; padding:0; width:600px !important;
+  line-height: 100% !important;">
+  <tbody>
+<tr>
+    <td align="center">
+      <br>
+<img src="http://s1.avtoclassika.com/uploads/images/logo.jpg" width="224" height="71" style="outline:none;text-decoration:none;
+        -ms-interpolation-mode: bicubic;display:block;">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <br>
+      <table cellpadding="0" cellspacing="0" border="0" id="backgroundTable" bgcolor="#EBF6EB" width="100%">
+        <tbody><tr><td style="padding: 25px;border:1px solid #0C555D;">
+<h1 style="margin-top: 0px !important;"><span style="font-size: 20px; line-height: 20px; font-weight: normal;">Thank you!</span></h1><h1 style="margin-top: 0px !important;"><span style="font-size: 20px; line-height: 20px; font-weight: normal;"><br></span></h1><h1 style="margin-top: 0px !important;"><span style="font-size: 20px; line-height: 20px; font-weight: normal;">You have successfully registered on the site avtoclassika.com and you can continue to work using full advantage.</span></h1><h1 style="margin-top: 0px !important;"><span style="font-size: 20px; line-height: 20px; font-weight: normal;"><br></span></h1><h1 style="margin-top: 0px !important;"><span style="font-size: 20px; line-height: 20px; font-weight: normal;">Kind regards, administration Avtoclassika.com</span></h1><div><br></div>
+        </td>
+</tr>
+      </tbody>
+</table>
+    </td>
+  </tr>
+</tbody>
+</table>]]></body>
+	  </registration>
+	  <lost_password>
+		  <subject>Password recovery on Avtoclassika.com</subject>
+		  <body><![CDATA[<table cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" width="600px" style="font-family:Arial, Arial, Helvetica, sans-serif;
+  margin:0 auto; padding:0; width:600px !important;
+  line-height: 100% !important;">
+  <tbody>
+<tr>
+    <td align="center">
+      <br>
+<img src="http://s1.avtoclassika.com/uploads/images/logo.jpg" width="224" height="71" style="outline:none;text-decoration:none;
+        -ms-interpolation-mode: bicubic;display:block;">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <br>
+      <table cellpadding="0" cellspacing="0" border="0" id="backgroundTable" bgcolor="#EBF6EB" width="100%">
+        <tbody><tr><td style="padding: 25px;border:1px solid #0C555D;">
+<p style="margin-top:0!important;">Hello!</p><p style="margin-top:0!important;">You use the password recovery on the site avtoclassika.com.</p><p style="margin-top:0!important;">Your new password: {{password}}. You can always change it in your account.</p><p style="margin-top:0!important;"><span style="line-height: 100%;"><br></span></p><p style="margin-top:0!important;"><span style="line-height: 100%;">Kind regards,</span><br></p><p style="margin-top:0!important;">administration<span style="line-height: 100%;">  of </span><a href="http://avtoclassika.com/" target="_blank" style="line-height: 100%;">Avtoclassika.com</a></p>
+        </td>
+</tr>
+      </tbody>
+</table>
+    </td>
+  </tr>
+</tbody>
+</table>]]></body>
+	  </lost_password>
+	  <public_offer>
+		  <text><![CDATA[<p>User agreement.</p>
+<p>Please read the following user agreement. While placing the order You need to confirm that You have read the following user agreement in order to complete the purchase. You do not need to draw the order in case You do not agree with the conditions of the current agreement. Accomplishing the order You agree with the conditions of the user agreement and since that moment You conclude the contract with the <nobr>internet-store</nobr> www.avtoclassika.com (hereinafter referred to as Company) on the one hand and You (hereinafter referred to as Customer) on the other hand. The contract comes to force since the moment we receive it till the accomplishment of Your order. The following user agreement includes very important information on the user’s law defense with which You may become acquainted before You sign this user agreement. When the order is placed the consumer should print this user agreement and keep it as a document. The contract consists of the registered order, order confirmation by the <nobr>internet-storeavtoclassika</nobr>.com and printed copy of the user agreement.</p>
+<p>Agreement on the rights and obligations of the parties.</p>
+<p>1. The order intake and processing. 1.1. Order placement.</p>
+<p>The orders are accepted only from the registered users through the <nobr>internet-store</nobr> of the Company. Registration means the concordance of the Customer to follow the conditions of the following Agreement. Company uses the Customer’s registration data exclusively for the mutual qualitative cooperation with the Customer, does not have a right to hand these data to the third persons with the exception of cases foreseen by the legislation of Ukraine.</p>
+<p>1.2. Order processing. After the order placement the Customer receives the <nobr>e-mail</nobr> message informing that the order has got to the order base of the Company. If necessary the manager of the <nobr>internet-store</nobr> contacts the Customer via <nobr>e-mail</nobr> or telephone for the order readjustment. The manager is obliged to perform the consulting service on the technical features of the goods and other questions about the goods.</p>
+<p>1.3. Order readjustment. As the cost of the order is not always estimated correctly, the manager of the <nobr>internet-store</nobr> may change the cost of delivery. While the order accomplishment the manager of the <nobr>internet-store</nobr> does not have a right to make any changes in the list of the ordered goods and their prices without the coordination with the Customer. In case of the goods absence at the stock the Company is obliged to warn the Customer and to offer the relevant substitution. Therewith the Company does not bear the responsibility for the loss or the possibly omitted profit of the Customer.</p>
+<p>2. Payment and delivery. 2.1. Courier delivery.</p>
+<p>With encashment the courier delivers two copies of <nobr>order-form</nobr> with indicated requisites of the Company, date of the sale, names of the goods, prices, quantity, payment for the transportation expenditures, total cost of the purchase. The first copy of the <nobr>order-form</nobr> with the payment tick, Company’s seal, the signature of the authorized person and the receipt is handed to the Customer. The second copy of the <nobr>order-form</nobr> with the signature of the Customer on the order receiving and payment remains at the representative of the Company.</p>
+<p>2.2. Local pickup. If the Customer prefers to make the local pickup by himself, he should coordinate the address of the measuring out with the manager. The delivery of goods and drawing up of the documents is performed at our office.</p>
+<p>2.3. Delivery around Ukraine via dispatch service «Novaya Pochta». Delivery around Ukraine is performed via dispatch service «Novaya Pochta». If «Novaya Pochta» is chosen, the manager would contact the customer and inform the <nobr>way-bill</nobr> number and the address of the goods delivery. The delivery payment is performed at the customer’s expense. Here the payment via cash on delivery is possible, the customer pays for the delivery directly at «Novaya Pochta» as received.</p>
+<p>2.4. Delivery around the world via «Ukrpochta». Delivery abroad is performed via «Ukrpochta» herewith the terms of delivery depend on the distance and work of the postal service. The company does not bear the responsibility for the terms of delivery. The cost is according to the rates of «Ukrpochta». Also there are the restrictions on the weight and overall dimensions.</p>
+<p>2.5. Delivery around the world via UPS. Delivery by the international delivery service UPS is performed around the world according to the rates shown at the site of the company www.ups.com. The delivery cost is estimated separately in each case and is conveyed to the Customer.</p>
+<p>2.6. Delivery to the Russian Federation (Moscow and other big cities).</p>
+<p>Such delivery may be performed via the train conductor herewith the delivery cost is estimated separately in each case and is conveyed to the Customer.</p>
+<p>2.7. Payment. </p><p>2.7.1. Directly through the site via payment cards (Mastercard, Visa) and payment systems (Liqpay, Pay Pal). </p><p>2.7.2. Money transfer — Western Union (You need to inform the code to the manager after the transaction). </p><p>2.7.3. Swift — the transaction to the indicated requisites. </p><p>2.7.4. Cash on delivery via dispatch of goods via dispatch service «Novaya Pochta». </p><p>2.7.5. Encashment to the courier or at the office.</p>
+<p>3. Terms. Usually the Company ships the goods within three working days after the credit of funds or the order confirmation (with the encashment to the courier). If the Company has an opportunity and with the concordance with the Customer the goods may be delivered earlier in time. The Customer should realize that there may be the situation that the Company might need more than three days for the shipment of goods (the absence of available cars performing the delivery of goods of the <nobr>internet-store</nobr> etc.) or the shipment is temporarily unavailable. Herewith the Company does not bear the responsibility to pay the refund for any loss of the Customer, concerned with the untimely goods delivery. If the Customer is not satisfied with the terms of delivery he is able to cancel the order. In return the Customer is obliged to accept the goods at the indicated address at the required time or to relegate the acceptance of the goods to the authorized representative. If the goods were not accepted at the required address due to the absence of the Customer or his authorized representative, the transportation expenditures of such a blank order would be included in the estimation of the current or the following order. In any case the manager of the <nobr>internet-store</nobr> and the Customer are obliged to coordinate the terms of delivery and tend to perform the order in the estimated time.</p>
+<p>4. Order cancellation. The Customer has a right to cancel the order at any moment, even when the order is already delivered. The Customer tends to warn the Company about the cancellation in short terms if possible. The Customer who has performed the prepayment for the goods but did not receive them at the estimated time due to his fault or groundlessly refused from the order at its delivery home or to the office, the money is returned only in the amount of the cost of the goods (without transportation expenditures). The Customer realizes and agrees that recurring cases of the order cancellation at the moment of the delivery, the order contents changes at the moment of the delivery or at the moment of purchase may lead to the refusal in service by the Company in future.</p>
+<h3><b>5. Exchange/return of the goods. Exchange/return of the goods is possible within 30 working days since the moment of the goods received by the Customer, excluding the purchase day, if the goods were not in use, preserved their vendibility, consumer appeal, identification seals and labels. The delivery of the goods to the central office is performed at the Customer’s expense.</b></h3>
+<p>6. Legislative framework. The behavior between the Company and the Customer is regulated by the legislative acts.</p>
+<p>— «The order of commercial activities and the rules of the commercial service of citizens» sanctioned by the Cabinet of Ministers of Ukraine from September, 08, 1995, # 108 (with changes and amendments).</p>
+<p>— The law of Ukraine «On defense of the consumer’s rights».</p>
+<p>— «Rules of the goods sale on the order and at the consumers’ homes» Decree of the Ministry of external economic affairs and trade of Ukraine from March, 29, 1999 #199. Registered by the Ministry of justice on April, 21, 1999 #249/3542).</p>
+<p>7. Technical specifications, physical configurations and goods completeness.</p>
+<p>The Company aspires to present at its site the real images of the goods, the full information about goods and their completeness. Herewith the Customer realizes that there may be the discrepancies between the real features and the ones depicted at the site as different producers may give different specifications of the goods. Also the whole model range of the vehicles has had essential distinction depending on the year of manufacture, that is why some spare parts may not fit or they need to be updated directly in situ. Many details are manufactured anew on the technology which differs from the technology applied in the automotive industry of the past years. Some spare parts evolve the changes during the process of restoration. The Customer should control the correspondence of the ordered goods with the description found at the site on his own, to check at the <nobr>web-sites</nobr> of the manufacturers, to rectify the features of interest at the manager of the <nobr>internet-store</nobr>. The Customer has a right to refuse from the ordered goods in the case if such discrepancies are found.</p>
+<p>8. Guarantees. The Company provides a guarantee for 1 year at all chrome plated parts since the moment of the purchase when the operating rules are obeyed. (refer to «Clearing through the chrome plated parts» automobile «Volga» <nobr>v. Borisov</nobr>). While describing the goods at the site the Company tends to point the accurate terms and the guarantees, however, for the avoidance of doubt, the Customer should rectify the terms and the guarantee at the manager of the <nobr>internet-store</nobr>.</p>
+<p>9. The conditions of the current agreement. The Company has a right to change the conditions of the current agreement, herewith the Company is obliged to inform the Customer about all changes via <nobr>e-mail</nobr>, the Customer agrees to receive the messages of this kind from the Company. The Company is obliged to place the conditions of the agreement at its <nobr>web-site</nobr>.</p>]]></text>
+	  </public_offer>
+	<change_discount><subject>Personaly discount from Avtoclassika.</subject><body><![CDATA[<table cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" width="600px" style="font-family:Arial, Arial, Helvetica, sans-serif;
+  margin:0 auto; padding:0; width:600px !important;
+  line-height: 100% !important;">
+  <tbody>
+<tr>
+    <td align="center">
+      <br>
+<img src="http://s1.avtoclassika.com/uploads/images/logo.jpg" width="224" height="71" style="outline:none;text-decoration:none;
+        -ms-interpolation-mode: bicubic;display:block;">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <br>
+      <table cellpadding="0" cellspacing="0" border="0" id="backgroundTable" bgcolor="#EBF6EB" width="100%">
+        <tbody><tr><td style="padding: 25px;border:1px solid #0C555D;">
+<p style="margin-top:0!important;">We are pleased to inform you!</p><p style="margin-top:0!important;">Administration of  avtoclassika.com presents you a personaly discount of {{discount}}%.</p><p style="margin-top:0!important;"><span style="line-height: 100%;">Enjoy your shopping, </span><span style="line-height: 100%;">Avtoclassika.com </span></p>
+        </td>
+</tr>
+      </tbody>
+</table>
+    </td>
+  </tr>
+</tbody>
+</table>]]></body></change_discount></mails>
+</users>

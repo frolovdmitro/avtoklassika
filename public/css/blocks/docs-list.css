@@ -1,0 +1,16 @@
+.docs-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.docs-list__item {
+  font: bold 18px/2 'Sensation';
+}
+.docs-list__link {
+  color: #6e7c6e !important;
+  text-transform: uppercase;
+}
+.docs-list__link:hover {
+  color: #0c555d;
+  text-decoration: none;
+}

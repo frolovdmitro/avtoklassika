@@ -1,0 +1,74 @@
+.currencies {
+  position: absolute;
+  top: 0;
+  right: 85px;
+  z-index: 1;
+  background: #fff;
+  margin: 0;
+  list-style: none;
+  padding: 6px 0;
+  width: 100px;
+  border: 1px solid #ccdfcc;
+  border-top: none;
+  -webkit-border-radius: 0 0 3px 3px;
+  border-radius: 0 0 3px 3px;
+  overflow: hidden;
+  max-height: 23px;
+  -webkit-transition: max-height 0.2s ease-in-out;
+  -moz-transition: max-height 0.2s ease-in-out;
+  -o-transition: max-height 0.2s ease-in-out;
+  -ms-transition: max-height 0.2s ease-in-out;
+  transition: max-height 0.2s ease-in-out;
+}
+.currencies:before {
+  content: '';
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  margin-left: -4px;
+  background-image: url("/img/_icons.png");
+  background-position: -10px -10px;
+  width: 7px;
+  height: 4px;
+}
+.currencies:hover {
+  max-height: 130px;
+}
+.currencies:hover:before {
+  background-image: url("/img/_icons.png");
+  background-position: -10px -34px;
+  width: 7px;
+  height: 4px;
+}
+.currencies__item {
+  clear: both;
+}
+.currencies__short-name {
+  float: right;
+  color: #0c555d !important;
+  font-weight: normal;
+}
+.currencies__short-name .rur {
+  position: relative;
+}
+.currencies__short-name .rur:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 1px;
+  height: 1px;
+  background: #0c555d;
+  top: 10px;
+}
+.currencies__link {
+  text-decoration: none;
+  font-size: 13px;
+  color: #6e7c6e !important;
+  line-height: 25px;
+  display: block;
+  padding: 0 7px;
+}
+.currencies__link:hover {
+  color: #0c555d !important;
+  background: #ebf6eb;
+}
