@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<access>
+    <caption>Доступ</caption>
+    <title>Управление администраторами</title>
+    <description>Управление администраторами ресурса</description>
+
+    <tabs>
+        <filter_help>Справка по формированию фильтров</filter_help>
+    </tabs>
+
+    <index>
+        <crumbs>
+            <access>Доступ</access>
+        </crumbs>
+
+        <actions>
+            <add>Добавить администратора</add>
+        </actions>
+
+        <datasources>
+            <administrators_tbl>
+                <actions>
+                    <add>
+                        <caption>Добавить администратора</caption>
+                    </add>
+                    <edit>
+                        <caption>Редактировать данные администратора</caption>
+                    </edit>
+                    <delete>
+                        <caption>Удалить администратора</caption>
+                        <text><![CDATA[Вы действительно хотите удалить администратора <b>«{{name}}»</b>?]]></text>
+                        <error><![CDATA[Администратора <b>«{{name}}»</b> удалить нельзя, так как он связан с записями в таблицах]]></error>
+                    </delete>
+                </actions>
+
+                <fields>
+                    <adm_enabled>
+                        <caption>Активен</caption>
+                        <hint>Включен администратор или нет</hint>
+                    </adm_enabled>
+
+                    <adm_date_registration>
+                        <caption>Дата регистрации</caption>
+                        <hint>Дата регистрации администратора</hint>
+                    </adm_date_registration>
+
+                    <adm_image>
+                        <caption>Аватар</caption>
+                        <hint>Аватар администратора</hint>
+                    </adm_image>
+
+                    <adm_username>
+                        <caption>Email</caption>
+                        <hint>Email администратора</hint>
+                        <validate>
+                            <empty>Email администратора обязателен к заполнению</empty>
+                            <email>Указан неверный email</email>
+                        </validate>
+                    </adm_username>
+
+                    <adm_password>
+                        <caption>Пароль</caption>
+                        <hint>Пароль администратора</hint>
+                        <validate>
+                            <empty>Пароль администратора обязателен к заполнению</empty>
+                        </validate>
+                    </adm_password>
+
+                    <adm_name>
+                        <caption>Имя, Фамилия</caption>
+                        <hint>Имя, Фамилия администратора</hint>
+                        <validate>
+                            <empty>Имя и фамилия администратора обязательна к заполнению</empty>
+                        </validate>
+                    </adm_name>
+
+                    <adm_sex>
+                        <caption>Пол</caption>
+                        <hint>Пол администратора</hint>
+
+                        <values>
+                            <MAIL>Мужской</MAIL>
+                            <FEMAIL>Женский</FEMAIL>
+                        </values>
+                    </adm_sex>
+
+                    <adm_jobtitle>
+                        <caption>Должность</caption>
+                        <hint>Должность администратора</hint>
+                    </adm_jobtitle>
+
+                    <adm_department>
+                        <caption>Отдел</caption>
+                        <hint>Отдел администратора</hint>
+                    </adm_department>
+
+                    <adm_redmine_login>
+                        <caption>Пользователь Redmine</caption>
+                        <hint>Пользователь, который используется для входа в Redmine</hint>
+                    </adm_redmine_login>
+
+                    <adm_redmine_password>
+                        <caption>Пароль Redmine</caption>
+                        <hint>Пароль, который используется для входа в Redmine</hint>
+                    </adm_redmine_password>
+                </fields>
+            </administrators_tbl>
+        </datasources>
+    </index>
+
+    <rules>
+        <caption>Доступ к модулям</caption>
+        <crumbs>
+            <access>Доступ</access>
+            <rules>Правила администратора «{{caption}}»</rules>
+        </crumbs>
+
+        <actions>
+            <add>Добавить правило</add>
+        </actions>
+
+        <datasources>
+            <access_rules_administrators_tbl>
+                <actions>
+                    <add>
+                        <caption>Добавить правило</caption>
+                    </add>
+                    <edit>
+                        <caption>Редактировать правило</caption>
+                    </edit>
+                    <delete>
+                        <caption>Удалить правило</caption>
+                        <text><![CDATA[Вы действительно хотите удалить правило <b>«{{name}}»</b>?]]></text>
+                        <error><![CDATA[Правило <b>«{{name}}»</b> удалить нельзя, так как он связан с записями в таблицах]]></error>
+                    </delete>
+                </actions>
+
+                <fields>
+                    <ara_enabled>
+                        <caption>Активен</caption>
+                        <hint>Акивно правило или нет</hint>
+                    </ara_enabled>
+
+                    <ara_hide_module>
+                        <caption>Скрывать модуль</caption>
+                        <hint>Полностью скрывать модуль или нет</hint>
+                    </ara_hide_module>
+
+                    <ara_module_name>
+                        <caption>Модуль</caption>
+                        <hint>Имя модуля</hint>
+                    </ara_module_name>
+
+                    <ara_module_caption>
+                        <caption>Модуль</caption>
+                        <hint>Имя модуля</hint>
+                    </ara_module_caption>
+
+                    <ara_add_records>
+                        <caption>Добавление записей</caption>
+                        <hint>Добавление записей</hint>
+                        <values>
+                            <ALL>Разрешено</ALL>
+                            <!--<ONLY_YOUR>Только свои</ONLY_YOUR>-->
+                            <NOT>Запрещено</NOT>
+                        </values>
+                    </ara_add_records>
+
+                    <ara_edit_records>
+                        <caption>Редактирование записей</caption>
+                        <hint>Редактирование записей</hint>
+                        <values>
+                            <ALL>Разрешено</ALL>
+                            <!--<ONLY_YOUR>Только свои</ONLY_YOUR>-->
+                            <NOT>Запрещено</NOT>
+                        </values>
+                    </ara_edit_records>
+
+                    <ara_delete_records>
+                        <caption>Удаление записей</caption>
+                        <hint>Удаление записей</hint>
+                        <values>
+                            <ALL>Разрешено</ALL>
+                            <!--<ONLY_YOUR>Только свои</ONLY_YOUR>-->
+                            <NOT>Запрещено</NOT>
+                        </values>
+                    </ara_delete_records>
+
+                    <ara_submodules>
+                        <caption>Подмодули</caption>
+                        <hint>Подмодули</hint>
+                    </ara_submodules>
+
+                    <ara_filter>
+                        <caption>Фильтр</caption>
+                        <hint>Фильтр</hint>
+                    </ara_filter>
+                </fields>
+            </access_rules_administrators_tbl>
+        </datasources>
+    </rules>
+
+    <subrules>
+        <caption>Доступ к подмодулям</caption>
+        <crumbs>
+            <access>Доступ</access>
+            <rules>Правила администратора «{{caption}}»</rules>
+            <subrules>Правила для подмодулей модуля «{{caption}}»</subrules>
+        </crumbs>
+
+        <actions>
+            <add>Добавить правило</add>
+        </actions>
+
+        <datasources>
+            <access_rules_administrators_tbl>
+                <actions>
+                    <add>
+                        <caption>Добавить правило</caption>
+                    </add>
+                    <edit>
+                        <caption>Редактировать правило</caption>
+                    </edit>
+                    <delete>
+                        <caption>Удалить правило</caption>
+                        <text><![CDATA[Вы действительно хотите удалить правило <b>«{{name}}»</b>?]]></text>
+                        <error><![CDATA[Правило <b>«{{name}}»</b> удалить нельзя, так как он связан с записями в таблицах]]></error>
+                    </delete>
+                </actions>
+
+                <fields>
+                    <ara_enabled>
+                        <caption>Активен</caption>
+                        <hint>Акивно правило или нет</hint>
+                    </ara_enabled>
+
+                    <ara_hide_module>
+                        <caption>Скрывать модуль</caption>
+                        <hint>Полностью скрывать модуль или нет</hint>
+                    </ara_hide_module>
+
+                    <ara_module_name>
+                        <caption>Модуль</caption>
+                        <hint>Имя модуля</hint>
+                    </ara_module_name>
+
+                    <ara_module_caption>
+                        <caption>Модуль</caption>
+                        <hint>Имя модуля</hint>
+                    </ara_module_caption>
+
+                    <ara_add_records>
+                        <caption>Добавление записей</caption>
+                        <hint>Добавление записей</hint>
+                        <values>
+                            <ALL>Разрешено</ALL>
+                            <!--<ONLY_YOUR>Только свои</ONLY_YOUR>-->
+                            <NOT>Запрещено</NOT>
+                        </values>
+                    </ara_add_records>
+
+                    <ara_edit_records>
+                        <caption>Редактирование записей</caption>
+                        <hint>Редактирование записей</hint>
+                        <values>
+                            <ALL>Разрешено</ALL>
+                            <!--<ONLY_YOUR>Только свои</ONLY_YOUR>-->
+                            <NOT>Запрещено</NOT>
+                        </values>
+                    </ara_edit_records>
+
+                    <ara_delete_records>
+                        <caption>Удаление записей</caption>
+                        <hint>Удаление записей</hint>
+                        <values>
+                            <ALL>Разрешено</ALL>
+                            <!--<ONLY_YOUR>Только свои</ONLY_YOUR>-->
+                            <NOT>Запрещено</NOT>
+                        </values>
+                    </ara_delete_records>
+
+                    <ara_filter>
+                        <caption>Фильтр</caption>
+                        <hint>Фильтр</hint>
+                    </ara_filter>
+                </fields>
+            </access_rules_administrators_tbl>
+        </datasources>
+    </subrules>
+
+    <filter_help>
+        <crumbs>
+            <filter_help>Справка по формированию фильтров</filter_help>
+        </crumbs>
+    </filter_help>
+</access>

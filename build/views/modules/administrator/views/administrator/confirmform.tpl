@@ -1,0 +1,1 @@
+<p>{{ confirm_text }}</p><br>

@@ -1,0 +1,19 @@
+{
+  "404": {
+    "description": "Страница не найдена",
+    "controller": "index",
+    "action": "notFoundPage"
+  },
+
+  "robots.txt": {
+    "description": "robots.txt",
+    "controller": "index",
+    "action": "robotsTxt"
+  },
+
+  "sitemap-generator": {
+    "description": "Генерация sitemap.xml",
+    "controller": "index",
+    "action": "sitemapXml"
+  }
+}

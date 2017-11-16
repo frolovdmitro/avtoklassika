@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<navigations type="MODULE" icon="" order="1">
+  <fastActions>
+    <navigations type="data" table="navigations_tbl"
+      pk="nvg_id_pk" title_field="nvg_name_ru" addition_fields="nvg_type">
+      <link page="items">
+        <params>
+          <nvg_id_pk getFieldNotNull="nvg_id_pk">menu_id</nvg_id_pk>
+          <null>parent_id</null>
+          <nvg_type getFieldNotNull="nvg_type">type</nvg_type>
+        </params>
+      </link>
+      <order_by>nvg_name_ru desc</order_by>
+    </navigations>
+  </fastActions>
+
+  <index>
+    <crumbs>
+      <navigations>/navigations/</navigations>
+    </crumbs>
+
+    <actions>
+      <add />
+    </actions>
+
+    <datasources>
+      <navigations_tbl pk="nvg_id_pk" title_field="nvg_name"  paginationRows="true"
+        useLanguages="true" tags="navigations">
+
+        <order_by>nvg_name desc</order_by>
+
+        <quick_filter>
+          <nvg_name />
+          <nvg_css_class />
+          <nvg_description />
+        </quick_filter>
+
+        <actions>
+          <edit />
+          <delete>
+            <relatives_tables>
+              <navitems_tbl pk="nvi_id_pk" fk="nvi_nvg_id_fk">
+                <navitems_tbl pk="nvi_id_pk" fk="nvi_nvg_id_fk">
+                  <navitems_tbl fk="nvi_nvg_id_fk"/>
+                </navitems_tbl>
+                <navitems_tbl fk="nvi_nvg_id_fk"/>
+              </navitems_tbl>
+            </relatives_tables>
+          </delete>
+        </actions>
+
+        <fields>
+          <nvg_enabled type="bool" align="center" ordered="true" tabindex="1">
+            <style scope="field">width:30px</style>
+            <default>true</default>
+          </nvg_enabled>
+
+          <nvg_type type="list" list="static" focused="true" visible="false" required="true"
+            tabindex="2">
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+            </validate>
+          </nvg_type>
+
+          <nvg_name type="input" ordered="true" required="true" tabindex="2.5"
+            languageField="true">
+            <link page="items" noId="true">
+              <params>
+                <nvg_id_pk getFieldNotNull="nvg_id_pk">menu_id</nvg_id_pk>
+                <null nullValue="true">parent_id</null>
+                <nvg_type getFieldNotNull="nvg_type">type</nvg_type>
+              </params>
+            </link>
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+            </validate>
+          </nvg_name>
+
+          <nvg_description type="input"  tabindex="5" />
+
+          <nvg_css_class type="input" ordered="true"  tabindex="4"/>
+        </fields>
+      </navigations_tbl>
+    </datasources>
+  </index>
+
+  <items>
+    <crumbs>
+      <navigations>/navigations/</navigations>
+
+      <menu type="data" table="navigations_tbl"
+        pk="nvg_id_pk" title_field="nvg_name_ru">
+        <url><![CDATA[/administrator/navigations/items/?menu_id={{value}}&parent_id=]]></url>
+        <params>
+          <nvg_id_pk>menu_id</nvg_id_pk>
+        </params>
+      </menu>
+
+      <items type="recursive" table="navitems_tbl"
+        pk="nvi_id_pk" title_field="nvi_name" parent_field="nvi_parent_id_fk">
+        <url><![CDATA[/administrator/navigations/items/?menu_id={{nvi_nvg_id_fk}}&parent_id={{value}}]]></url>
+        <params>
+          <nvi_nvg_id_fk>menu_id</nvi_nvg_id_fk>
+          <nvi_id_pk>parent_id</nvi_id_pk>
+        </params>
+      </items>
+    </crumbs>
+
+    <actions>
+      <add />
+    </actions>
+
+    <datasources>
+      <navitems_tbl pk="nvi_id_pk" title_field="nvi_name" paginationRows="false" draggable="nvi_order"
+        tags="menu_{{type}}">
+        <params>
+          <nvi_nvg_id_fk type="get">menu_id</nvi_nvg_id_fk>
+          <nvi_parent_id_fk type="get">parent_id</nvi_parent_id_fk>
+        </params>
+
+        <languageFilter>lng_synonym='#lang#'</languageFilter>
+
+        <joins>
+          <nvg name="navigations_tbl" type="left" pk="nvi_nvg_id_fk"
+            fk="nvg_id_pk" />
+
+          <lng name="languages_tbl" type="left" pk="nvi_lng_id_fk"
+            fk="lng_id_pk" />
+        </joins>
+
+        <order_by>nvi_order asc</order_by>
+
+        <quick_filter>
+          <nvi_name />
+          <nvi_address />
+          <nvi_css_class />
+        </quick_filter>
+
+        <actions>
+          <edit />
+          <delete />
+        </actions>
+
+        <fields>
+          <nvi_nvg_id_fk noTable="true" noForm="true" type="int" visible="false" />
+
+          <nvi_parent_id_fk type="int" noTable="true" noForm="true" visible="false" />
+
+          <nvg_type type="input" noTable="true" noForm="true" visible="false" />
+
+          <nvi_visible type="bool" tabindex="1" align="center">
+            <style scope="field">width:30px</style>
+            <inputStyle>width: 25.3%;</inputStyle>
+            <default>true</default>
+          </nvi_visible>
+
+          <nvi_target_blank type="bool" tabindex="2" visible="false">
+            <style scope="field">width:30px</style>
+            <inputStyle>width: 50%;clear:none;</inputStyle>
+          </nvi_target_blank>
+
+          <nvi_name type="input" tabindex="3" focused="true" required="true">
+            <link page="items" noId="true">
+              <params>
+                <nvi_nvg_id_fk getFieldNotNull="nvi_nvg_id_fk">menu_id</nvi_nvg_id_fk>
+                <nvi_id_pk getFieldNotNull="nvi_id_pk">parent_id</nvi_id_pk>
+                <nvg_type getFieldNotNull="nvg_type">type</nvg_type>
+              </params>
+            </link>
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+            </validate>
+          </nvi_name>
+
+          <nvi_lng_id_fk tabindex="3" type="list" visible="false" required="true">
+            <list table="languages_tbl" pk="lng_id_pk"
+              name="lng_name" order="lng_order">
+              <where>lng_enabled = true</where>
+            </list>
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+            </validate>
+          </nvi_lng_id_fk>
+
+          <nvi_address type="input" tabindex="4" required="true" expifnull="false">
+            <expression><![CDATA[<a target="_blank" href="{{value}}">{{value}}</a>]]></expression>
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+            </validate>
+          </nvi_address>
+
+          <nvi_css_class type="input" tabindex="5" />
+
+          <nvi_rel type="input" tabindex="6"/>
+        </fields>
+      </navitems_tbl>
+    </datasources>
+  </items>
+</navigations>

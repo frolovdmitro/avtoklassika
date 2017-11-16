@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+  <validate>
+    <auth>
+      <email>
+        <empty/>
+        <parseEmail/>
+      </email>
+    </auth>
+
+    <register>
+      <name>
+        <empty/>
+      </name>
+
+      <email>
+        <empty/>
+        <parseEmail/>
+      </email>
+
+      <password>
+        <empty/>
+      </password>
+    </register>
+
+    <subscribe>
+      <email>
+        <empty/>
+        <parseEmail/>
+      </email>
+
+      <name>
+        <empty/>
+      </name>
+    </subscribe>
+
+    <add_review>
+      <name>
+        <empty/>
+      </name>
+
+      <email>
+        <empty/>
+        <parseEmail/>
+      </email>
+
+      <text>
+        <empty/>
+      </text>
+    </add_review>
+
+    <info>
+      <name>
+        <empty/>
+      </name>
+
+      <tel>
+        <empty/>
+      </tel>
+
+      <email>
+        <empty/>
+        <parseEmail/>
+      </email>
+    </info>
+
+    <full>
+      <name>
+        <empty/>
+      </name>
+
+      <email>
+        <empty/>
+        <parseEmail/>
+      </email>
+
+      <phone>
+        <empty/>
+      </phone>
+
+      <street>
+        <empty/>
+      </street>
+
+      <build>
+        <empty/>
+      </build>
+
+      <flat>
+        <empty/>
+      </flat>
+
+      <city>
+        <empty/>
+      </city>
+
+      <index>
+        <empty/>
+      </index>
+
+      <country>
+        <empty/>
+      </country>
+    </full>
+  </validate>
+
+<auth_api><google><client_id>532747344601.apps.googleusercontent.com</client_id><email>532747344601@developer.gserviceaccount.com</email><secret>vBmPGFbl5yCJvHlnREjOZxbn</secret></google><facebook><app_id>238782599651822</app_id><secret>3b270a26d8313e6e67a23b5ade6ef9a2</secret></facebook><twitter><key>FmiBqmpLfhCZQcn5lkE2pw</key><secret>ybzGDaYTbADnXkRRgIGnm3UUDPBYuE5WqBuM13dyk</secret><token>18762162-6Lcb4tz9alpV2i9fjY78aoZ1BPOUfWyOWG1JxlV3C</token><tokensecret>5KlL6q4UpMCEwdpu1W3K8Cpfi1aeckmdK0MQ4GnQZD3Fg</tokensecret></twitter><vk><app_id>4241621</app_id><secret>LbypERiwB3RgjIhZsAyY</secret><token></token></vk><odnoklassniki><app_id>422663168</app_id><secret>CBAFFCDKBBABABABA</secret><token>C634AF807FF038D587D988FA</token></odnoklassniki></auth_api></users>

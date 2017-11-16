@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<slider type="MODULE" icon="" order="50">
+
+  <tabs>
+    <settings/>
+    <language/>
+  </tabs>
+
+  <fastActions>
+    <settings/>
+  </fastActions>
+
+  <index>
+    <actions>
+      <add/>
+    </actions>
+
+    <crumbs>
+      <index>index</index>
+    </crumbs>
+
+    <datasources>
+      <slider_tbl pk="sld_id_pk" title_field="sld_name"
+        paginationRows="true"
+        style="width:800px"
+        useLanguages="true" listLanguagesField="sld_languages"
+        tags="slider" draggable="sld_order">
+
+        <languageFilter>sld_languages like '%|#lang#|%'</languageFilter>
+
+        <order_by>sld_order</order_by>
+
+        <actions>
+          <edit/>
+          <delete/>
+        </actions>
+
+        <quick_filter>
+          <sld_name/>
+        </quick_filter>
+
+
+        <fields>
+          <sld_enabled type="bool" align="center" ordered="true"
+            tabindex="1" default="true">
+            <style scope="field">width:30px</style>
+            <inputStyle>width: 20%;</inputStyle>
+          </sld_enabled>
+
+          <sld_image type="file" align="center" required="true"
+            tabindex="5" languageField="true">
+            <style scope="field">width:30px</style>
+            <validate>
+              <empty/>
+              <extension>jpg|jpeg|png|gif</extension>
+              <maxSize>250</maxSize>
+              <width>700</width>
+              <height>186</height>
+            </validate>
+            <destination>images/slider/</destination>
+            <fileName function="web-translit" sufix="-bg">sld_name_ru</fileName>
+          </sld_image>
+
+          <sld_name type="input" ordered="true" required="true" focused="true"
+            tabindex="3"  languageField="true">
+            <preprocessing>
+              <trim/>
+            </preprocessing>
+            <validate>
+              <empty/>
+            </validate>
+            <expression><![CDATA[
+              <a class="direct-link" target="_blank"
+                href="{{sld_link}}">{{value}}</a>
+            ]]></expression>
+          </sld_name>
+
+          <sld_link type="input" ordered="true" required="true"
+            tabindex="4" visible="false">
+            <preprocessing>
+              <trim/>
+            </preprocessing>
+            <validate>
+              <empty/>
+            </validate>
+          </sld_link>
+        </fields>
+      </slider_tbl>
+    </datasources>
+  </index>
+
+  <settings style="width: 90%">
+    <configs>
+      <slider>
+        <index>
+          <use_autoslide type="bool"/>
+
+          <delay type="input">
+            <preprocessing>
+              <trim/>
+            </preprocessing>
+            <validate>
+              <parseInt/>
+            </validate>
+          </delay>
+        </index>
+      </slider>
+    </configs>
+  </settings>
+
+  <language style="width: 95%;">
+    <language>
+      <file type="xml" path="modules/slider/languages/"/>
+    </language>
+  </language>
+</slider>

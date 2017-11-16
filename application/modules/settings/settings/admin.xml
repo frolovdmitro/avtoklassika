@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings type="MAIN" icon="" order="20">
+  <tabs>
+    <system visible="true" />
+    <texts visible="true" />
+    <language_index visible="true"/>
+    <language visible="true" />
+  </tabs>
+
+  <index style="width: 800px" useLanguages="false">
+    <configs>
+      <root>
+        <general>
+          <organization type="input" language="true">
+          </organization>
+
+          <rating type="input">
+            <validate>
+              <parseInt />
+            </validate>
+          </rating>
+        </general>
+
+        <discount>
+          <enabled type="bool">
+          </enabled>
+
+          <code type="input">
+          </code>
+
+          <value type="input">
+            <validate>
+              <parseInt />
+            </validate>
+          </value>
+
+          <start_date type="input">
+            <format><![CDATA[null;date;d.m.Y;value]]></format>
+            <default_format>d.m.Y</default_format>
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <parseDate />
+            </validate>
+          </start_date>
+
+          <stop_date type="input">
+            <format><![CDATA[null;date;d.m.Y;value]]></format>
+            <default_format>d.m.Y</default_format>
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <parseDate />
+            </validate>
+          </stop_date>
+        </discount>
+
+        <google_analytics>
+          <enabled type="bool">
+          </enabled>
+
+          <code type="input">
+          </code>
+        </google_analytics>
+
+        <seo>
+          <robots type="textarea" rows="6">
+          </robots>
+
+          <redirects type="textarea" rows="16">
+          </redirects>
+        </seo>
+      </root>
+    </configs>
+  </index>
+
+  <system useLanguages="false">
+    <configs>
+      <root>
+        <status>
+          <minify_enabled type="bool">
+          </minify_enabled>
+
+          <mode type="list" list="static" languageValue="true" focused="true">
+          </mode>
+        </status>
+
+        <mail>
+          <name type="input" required="true">
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+            </validate>
+          </name>
+
+          <email type="input">
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <email />
+            </validate>
+          </email>
+        </mail>
+
+        <security>
+          <block_ip type="textarea" rows="6">
+          </block_ip>
+        </security>
+
+        <code>
+          <head type="textarea" rows="10">
+          </head>
+
+          <js type="textarea" rows="10">
+          </js>
+        </code>
+      </root>
+    </configs>
+  </system>
+
+  <texts style="width: 700px">
+    <configs>
+      <root>
+        <general>
+          <email type="input" language="true">
+          </email>
+
+          <address type="textarea" rows="3" language="true">
+          </address>
+        </general>
+      </root>
+
+      <default>
+        <index>
+          <title type="input" focused="true" language="true">
+          </title>
+
+          <keywords type="textarea" rows="5" language="true">
+          </keywords>
+
+          <description type="textarea" rows="5" language="true">
+          </description>
+        </index>
+
+        <benefits>
+          <one_type type="list" list="static" />
+          <one_name type="input" language="true" />
+          <one_description type="textarea" language="true" />
+
+          <two_type type="list" list="static" />
+          <two_name type="input" language="true" />
+          <two_description type="textarea" language="true" />
+
+          <three_type type="list" list="static" />
+          <three_name type="input" language="true" />
+          <three_description type="textarea" language="true" />
+        </benefits>
+
+        <index_seo>
+          <header type="input" language="true"/>
+
+          <text type="textarea" rich="true" rows="20" language="true">
+            <labelStyle>width: 18%;min-height:30px;</labelStyle>
+            <inputStyle>clear:both;width: 100%;</inputStyle>
+          </text>
+        </index_seo>
+      </default>
+    </configs>
+  </texts>
+
+  <language_index style="width: 95%;">
+    <language height="500">
+      <file type="xml" path="modules/default/languages/" />
+    </language>
+  </language_index>
+
+  <language style="width: 95%;">
+    <language height="500">
+      <file type="xml" path="languages/" />
+    </language>
+  </language>
+</settings>

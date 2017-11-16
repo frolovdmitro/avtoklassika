@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mailer>
+    <caption>Рассылки</caption>
+    <title>Управление рассылками</title>
+    <description>Управление рассылками</description>
+
+    <tabs>
+        <mails>Письма системы</mails>
+        <language />
+    </tabs>
+
+    <index>
+        <crumbs>
+            <mailer>Рассылки</mailer>
+        </crumbs>
+
+        <datasources>
+            <mailers_tbl>
+                <actions>
+                    <info>
+                        <caption>Данные рассылки</caption>
+                    </info>
+                    <delete>
+                        <caption>Удалить рассылку</caption>
+                        <text><![CDATA[Вы действительно хотите удалить рассылку <b>«{{name}}»</b>?]]></text>
+                        <error><![CDATA[Рассылку <b>«{{name}}»</b> удалить нельзя, так как она связана с записями в таблицах]]></error>
+                        <relative><![CDATA[Внимание! С рассылкой <b>«{{name}}»</b> связаны записи, которые будут удалены]]></relative>
+                    </delete>
+                </actions>
+
+                <fields>
+                    <mlr_datetime>
+                        <caption>Дата рассылки</caption>
+                        <hint>Дата/время рассылки писем</hint>
+                    </mlr_datetime>
+
+                    <mlr_type>
+                        <caption>Тип рассылки</caption>
+                        <hint>Тип рассылки</hint>
+                        <values>
+                            <users>Рассылка пользователям письма администрацией</users>
+                            <!--<business>Рассылка партнерам письма администрацией</business>-->
+                            <!--<agents>Рассылка агентам письма администрацией</agents>-->
+                        </values>
+                    </mlr_type>
+
+                    <mlr_subject>
+                        <caption>Тема письма</caption>
+                        <hint>Тема рассылаемого письма</hint>
+                    </mlr_subject>
+
+                    <count_mails>
+                        <caption>Кол-во писем</caption>
+                    </count_mails>
+
+                    <count_open_mails>
+                        <caption>Кол-во открытых</caption>
+                    </count_open_mails>
+
+                    <count_visited_mails>
+                        <caption>Кол-во посещен.</caption>
+                    </count_visited_mails>
+
+                    <count_unsubscribed_mails>
+                        <caption>Кол-во отписав.</caption>
+                    </count_unsubscribed_mails>
+
+                    <mlr_note>
+                        <caption>Комментарии</caption>
+                        <hint>Ваши комментарии о рассылке</hint>
+                    </mlr_note>
+                </fields>
+            </mailers_tbl>
+        </datasources>
+    </index>
+
+    <mails>
+        <caption>Письма системы</caption>
+        <crumbs>
+            <mailer>Письма системы</mailer>
+        </crumbs>
+
+        <datasources>
+            <mails_tbl>
+                <actions>
+                    <info>
+                        <caption>Просмотреть письмо</caption>
+                    </info>
+                    <delete>
+                        <caption>Удалить письмо</caption>
+                        <text><![CDATA[Вы действительно хотите удалить письмо <b>«{{name}}»</b>?]]></text>
+                        <error><![CDATA[Письмо <b>«{{name}}»</b> удалить нельзя, так как оно связано с записями в таблицах]]></error>
+                    </delete>
+                </actions>
+
+                <fields>
+                    <mls_datetime>
+                        <caption>Дата отправки</caption>
+                        <hint>Дата/время оправки письма</hint>
+                    </mls_datetime>
+
+                    <mlr_type>
+                        <caption>Тип рассылки</caption>
+                        <hint>Тип рассылки</hint>
+                        <values>
+                            <users>Рассылка пользователям письма администрацией</users>
+                            <!--<business>Рассылка партнерам письма администрацией</business>-->
+                            <!--<agents>Рассылка агентам письма администрацией</agents>-->
+                        </values>
+                    </mlr_type>
+
+                    <mls_type>
+                        <caption>Тип письма</caption>
+                        <hint>Письма, которые были отправлены системой</hint>
+                        <values>
+                            <subscribe>Подпись на рассылку</subscribe>
+                            <mail_administration>Письмо администрации</mail_administration>
+                            <order_create>Оформление резервации</order_create>
+                            <order_change_status>Изменение статуса резевации</order_change_status>
+                            <limousine_create>Оформление заказа Limousine</limousine_create>
+                            <limousine_change_status>Изменение статуса заказа Limousine</limousine_change_status>
+                            <holidays_cars_create>Оформление заказа Holidays Cars</holidays_cars_create>
+                            <holidays_change_status>Изменение статуса заказа Holidays Cars</holidays_change_status>
+                        </values>
+                    </mls_type>
+
+                    <mls_parent>
+                        <caption>Пользователь</caption>
+                        <hint>Пользователь которому отправлено письмо</hint>
+                    </mls_parent>
+
+                    <mls_email>
+                        <caption>Email</caption>
+                        <hint>Email, на который было отправлено письмо</hint>
+                    </mls_email>
+
+                    <mls_status>
+                        <caption>Статус</caption>
+                    </mls_status>
+
+                    <mls_subject>
+                        <caption>Тема письма</caption>
+                        <hint>Тема письма</hint>
+                    </mls_subject>
+
+                    <mls_body>
+                        <caption>Текст письма</caption>
+                        <hint>Текст письма</hint>
+                    </mls_body>
+                </fields>
+            </mails_tbl>
+        </datasources>
+    </mails>
+
+    <mailer_mails>
+        <caption>Письма рассылки</caption>
+        <crumbs>
+            <mails>Письма рассылки «{{caption}}»</mails>
+        </crumbs>
+    </mailer_mails>
+
+    <mailer_open_mails>
+        <caption>Открытые письма рассылки</caption>
+        <crumbs>
+            <mails>Открытые письма рассылки «{{caption}}»</mails>
+        </crumbs>
+    </mailer_open_mails>
+
+    <mailer_visited_mails>
+        <caption>Посещенные письма рассылки</caption>
+        <crumbs>
+            <mails>Посещенные письма рассылки «{{caption}}»</mails>
+        </crumbs>
+    </mailer_visited_mails>
+
+    <mailer_unsubscribed_mails>
+        <caption>Отписавшиеся письма</caption>
+        <crumbs>
+            <mails>Отписавшиеся письма рассылки «{{caption}}»</mails>
+        </crumbs>
+    </mailer_unsubscribed_mails>
+</mailer>

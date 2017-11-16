@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+  <mails>
+    <mail_administration>
+      <subject/>
+      <body/>
+    </mail_administration>
+  </mails>
+  <save_changes2>Confirm address</save_changes2>
+</users>

@@ -1,0 +1,31 @@
+{
+  "news": {
+    "description": "",
+    "controller": "news",
+    "action": "list"
+  },
+
+  "news/category/:category/:car": {
+    "description": "",
+    "controller": "news",
+    "action": "list"
+  },
+
+  "news/category/:category": {
+    "description": "",
+    "controller": "news",
+    "action": "list"
+  },
+
+  "news/:synonym": {
+    "description": "",
+    "controller": "news",
+    "action": "index"
+  },
+
+  "json/news/:category/:car/page.html": {
+    "description": "",
+    "controller": "news",
+    "action": "pageAjax"
+  }
+}

@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<comments type="MODULE" icon="" order="64">
+  <fastActions>
+    <news />
+    <adverts />
+    <details />
+    <settings />
+  </fastActions>
+
+  <tabs>
+    <news visible="true" />
+    <adverts visible="true" />
+    <details visible="true" />
+    <settings visible="true" />
+    <language visible="true" />
+  </tabs>
+
+  <index>
+    <crumbs>
+      <comments>/comments/</comments>
+    </crumbs>
+
+    <!-- <actions> -->
+    <!--   <add /> -->
+    <!-- </actions> -->
+
+    <datasources>
+      <comments_tbl pk="cmt_id_pk" title_field="cmt_datetime" paginationRows="true"
+        style="width:640px" userOrder="false">
+
+        <joins>
+          <usr name="users_tbl" type="left" pk="cmt_usr_id_fk"
+            fk="usr_id_pk" />
+
+          <nw name="news_tbl" type="left" pk="cmt_subject_id_fk"
+            fk="nw_id_pk" />
+
+          <adv name="adverts_tbl" type="left" pk="cmt_subject_id_fk"
+            fk="adv_id_pk" />
+
+          <dpt name="details_autoparts_tbl" type="left" pk="cmt_subject_id_fk"
+            fk="dpt_id_pk" />
+
+          <apt name="autoparts_tbl" type="left" pk="dpt_apt_id_fk"
+            fk="apt_id_pk" />
+
+          <car name="cars_tbl" type="left" pk="apt_car_id_fk"
+            fk="car_id_pk" />
+        </joins>
+
+        <order_by>cmt_left_id_fk, cmt_datetime desc</order_by>
+
+        <quick_filter>
+          <cmt_text />
+          <nw_name />
+          <adv_name />
+          <dpt_name />
+        </quick_filter>
+
+        <actions>
+          <edit />
+          <delete newline="true"/>
+        </actions>
+
+        <actions_function>
+          <add module="comments" model="Comments" function="addComment" />
+          <edit module="comments" model="Comments" function="editComment" />
+        </actions_function>
+
+        <fields>
+          <cmt_left_id_fk type="int" visible="false"
+            noForm="true" noTable="true">
+          </cmt_left_id_fk>
+
+          <cmt_visible type="bool" align="center"
+            tabindex="1">
+            <style scope="field">width:30px</style>
+            <default>true</default>
+          </cmt_visible>
+
+          <cmt_datetime type="datetime" align="center" ordered="true"
+            readonly="true" tabindex="1.5" noTable="true" noForm="true" visible="false">
+            <format><![CDATA[null;date;d.m.Y H:i;value]]></format>
+          </cmt_datetime>
+
+          <cmt_usr_id_fk type="list" visible="false" tabindex="2" focused="true"
+            noedit="true" noTable="true" noForm="true">
+            <list table="users_tbl" pk="usr_id_pk"
+              calculate_name="coalesce(usr_email,'') || ' ' || coalesce(usr_name, '', '('||usr_name||')')" name="usr_email" order="usr_email">
+              <where>usr_spokesman=true</where>
+            </list>
+          </cmt_usr_id_fk>
+
+          <level_width type="int" visible="false" noTable="true" noForm="true">
+            <field>cmt_level * 30</field>
+          </level_width>
+
+          <cmt_email type="email" visible="false" noTable="true" noForm="true">
+          </cmt_email>
+
+          <cmt_name type="input" ordered="true"  noTable="true" noForm="true"
+            visible="false">
+            <style scope="field">min-width:80px</style>
+            <expression><![CDATA[
+              <a href="mailto:{{cmt_email}}">{{value}}</a>
+            ]]></expression>
+          </cmt_name>
+
+          <subject_link type="input" visible="false" noTable="true" noForm="true">
+            <field>
+              case
+              when cmt_type = 'detail' then concat('/car/', car_synonym, '/', apt_id_pk, '/', dpt_id_pk, '/')
+                when cmt_type = 'news' then concat('/news/', nw_synonym, '/')
+                when cmt_type = 'advert' then concat('/ads/', adv_type, '/', adv_id_pk, '/')
+              end
+            </field>
+          </subject_link>
+
+          <subject type="input" visible="false" noTable="true" noForm="true">
+            <field>
+              case
+                when cmt_type = 'detail' then dpt_name_ru
+                when cmt_type = 'news' then nw_name_ru
+                when cmt_type = 'advert' then adv_name
+              end
+            </field>
+            <expression><![CDATA[
+              <a class="direct-link" target="_blank" href="{{subject_link}}">{{value}}</a>
+            ]]></expression>
+          </subject>
+
+          <cmt_type type="list" list="static" languageValue="true"
+            visible="false" noTable="true" noForm="true">
+            <style scope="field">color:green;fonr-weight: bold;</style>
+          </cmt_type>
+
+          <!-- <dsc_image type="file" align="center" -->
+          <!--   noTable="true" noForm="true" visible="false"> -->
+          <!--   <style scope="field">width:30px</style> -->
+          <!-- </dsc_image> -->
+          <!--  -->
+          <!-- <dsc_start_datetime type="datetime" visible="false" -->
+          <!--   expifnull="false" noTable="true" noForm="true"> -->
+          <!--   <format><![CDATA[null;date;d.m.Y H:i;value]]></format> -->
+          <!--   <expression><![CDATA[{{value}}{{dsc_stop_datetime}}]]></expression> -->
+          <!--   <style scope="field">color:green;</style> -->
+          <!-- </dsc_start_datetime> -->
+          <!--  -->
+          <!-- <dsc_stop_datetime type="datetime" visible="false" -->
+          <!--   expifnull="false" noTable="true" noForm="true"> -->
+          <!--   <format><![CDATA[null;date;d.m.Y H:i;value]]></format> -->
+          <!--   <expression><![CDATA[<br><span style="color:gray">&#45;</span><br>{{value}}]]></expression> -->
+          <!--   <style scope="field">color:brown;</style> -->
+          <!-- </dsc_stop_datetime> -->
+          <!--  -->
+          <!-- <dsc_name type="input" ordered="true" required="true" visible="false" -->
+          <!--   noTable="true" noForm="true" expifnull="false" -->
+          <!--   format="\Uwin\Linguistics;shortedText;value;60"> -->
+          <!--   <expression><![CDATA[<b>{{dsc_start_datetime}}</b><br>{{value}}]]></expression> -->
+          <!--   <field>case cmt_type when 'discount' then dsc_name else null end</field> -->
+          <!-- </dsc_name> -->
+          <!--  -->
+          <!-- <bsn_email type="input" visible="false" -->
+          <!--   noTable="true" noForm="true"> -->
+          <!-- </bsn_email> -->
+          <!--  -->
+          <!-- <bsn_company type="input" visible="false" -->
+          <!--   noTable="true" noForm="true" expifnull="false"> -->
+          <!--   <expression><![CDATA[<a href="mailto:{{bsn_email}}">{{value}}</a>]]></expression> -->
+          <!--   <field>case cmt_type when 'partner' then bsn_company else null end</field> -->
+          <!-- </bsn_company> -->
+          <!--  -->
+          <!-- <subject field="null" type="input" noTable="true" noForm="true"> -->
+          <!--   <expression><![CDATA[{{dsc_name}}{{bsn_company}}]]></expression> -->
+          <!--   <style scope="field">width:180px</style> -->
+          <!-- </subject> -->
+
+          <cmt_nw_id_fk type="list" visible="false" tabindex="3"
+            noedit="true" noTable="true" noForm="true">
+            <field>
+              case cmt_type when 'news' then cmt_subject_id_fk else null end
+            </field>
+            <list table="news_tbl" pk="nw_id_pk" with_null="true"
+              name="nw_name_ru" order="nw_datetime">
+            </list>
+          </cmt_nw_id_fk>
+
+          <cmt_adv_id_fk field="null" type="list" visible="false" tabindex="4"
+            noedit="true" noTable="true" noForm="true">
+            <field>
+              case cmt_type when 'adverts' then cmt_subject_id_fk else null end
+            </field>
+            <list table="adverts_tbl" pk="adv_id_pk" with_null="true"
+              name="adv_name" order="adv_name">
+            </list>
+          </cmt_adv_id_fk>
+
+          <cmt_text type="textarea" rows="10" required="true" noTable="true"
+            noForm="true" format="\Uwin\Linguistics;shortedText;value;400">
+            <expression><![CDATA[<b>{{cmt_type}}</b><br>{{subject}}<br><b>{{cmt_datetime}}</b> &mdash; {{cmt_name}} &mdash; {{value}}]]></expression>
+            <!-- <style scope="field">padding&#45;left:{{level_width}}px</style> -->
+          </cmt_text>
+        </fields>
+      </comments_tbl>
+    </datasources>
+  </index>
+
+  <news>
+    <reference page="index" />
+
+    <datasources>
+      <comments_tbl>
+        <where>cmt_type='news'</where>
+      </comments_tbl>
+    </datasources>
+  </news>
+
+  <adverts>
+    <reference page="index" />
+
+    <datasources>
+      <comments_tbl>
+        <where>cmt_type='advert'</where>
+      </comments_tbl>
+    </datasources>
+  </adverts>
+
+  <details>
+    <reference page="index" />
+
+    <datasources>
+      <comments_tbl>
+        <where>cmt_type='detail'</where>
+      </comments_tbl>
+    </datasources>
+  </details>
+
+  <settings>
+    <configs>
+      <comments>
+        <notifications>
+          <enabled type="bool">
+            <inputStyle>width: 100%;</inputStyle>
+            <default>true</default>
+          </enabled>
+
+          <emails type="textarea" rows="3" focused="true">
+          </emails>
+        </notifications>
+
+        <spam>
+          <stopwords type="textarea" rows="5" />
+        </spam>
+      </comments>
+    </configs>
+  </settings>
+
+  <language style="width: 95%;">
+    <language>
+      <file type="xml" path="modules/comments/languages/" />
+    </language>
+  </language>
+</comments>

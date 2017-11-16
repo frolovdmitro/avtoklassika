@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<orders>
+    <caption>Заказы</caption>
+    <title>Управление заказами</title>
+    <description>Управление заказами</description>
+
+    <hide>Скрыть</hide>
+    <show>Показать</show>
+
+    <tabs>
+      <orders_not_complete>Не завершонные</orders_not_complete>
+      <orders_pay_adverts>Платные объявления</orders_pay_adverts>
+      <settings />
+      <language />
+    </tabs>
+
+    <fastActions>
+      <orders_not_complete>Не завершонные</orders_not_complete>
+      <orders_pay_adverts>Платные объявления</orders_pay_adverts>
+      <settings>Настройки</settings>
+    </fastActions>
+
+    <index>
+      <crumbs>
+        <orders>Заказы</orders>
+      </crumbs>
+
+      <datasources>
+        <orders_tbl>
+          <actions>
+              <info>
+                  <caption>Счет-фактура</caption>
+              </info>
+              <edit>
+                  <caption>Редактировать заказ</caption>
+              </edit>
+              <delete>
+                  <caption>Удалить заказ</caption>
+                  <text><![CDATA[Вы действительно хотите удалить заказ <b>«{{name}}»</b>?]]></text>
+                  <error><![CDATA[Заказ <b>«{{name}}»</b> удалить нельзя, так как она связана с записями в таблицах]]></error>
+              </delete>
+          </actions>
+
+          <footer>
+            <fields>
+              <ord_sum>
+                <caption>Общая сумма заказов</caption>
+              </ord_sum>
+
+              <sum_discount>
+                <caption>Общая сумма стоимости доставки</caption>
+              </sum_discount>
+
+              <ord_delivery>
+                <caption>Общая сумма стоимсти доставки</caption>
+              </ord_delivery>
+            </fields>
+          </footer>
+
+          <tabs>
+            <main>Основные данные</main>
+            <address>Адрес</address>
+          </tabs>
+
+          <fields>
+              <ord_num>
+                  <caption>Номер заказа</caption>
+              </ord_num>
+
+              <ord_datetime>
+                  <caption>Дата создания</caption>
+              </ord_datetime>
+
+              <ord_status>
+                  <caption>Статус</caption>
+
+                  <values>
+                    <not_complete>Не завершон</not_complete>
+                    <proccess>В работе</proccess>
+                    <wait_payment>Ожидание оплаты</wait_payment>
+                    <pending>В процессе</pending>
+                    <paid>Оплачено</paid>
+                    <verify_payment>Проверка оплаты</verify_payment>
+                    <cancel>Отменен</cancel>
+                    <success>Выполнен</success>
+                  </values>
+              </ord_status>
+
+              <dvm_name_ru>
+                  <caption>Метод доставки</caption>
+              </dvm_name_ru>
+
+              <pym_name_ru>
+                  <caption>Метод оплаты</caption>
+              </pym_name_ru>
+
+              <ord_pym_id_fk>
+                  <caption>Метод оплаты</caption>
+              </ord_pym_id_fk>
+
+              <ord_dvm_id_fk>
+                  <caption>Метод доставки</caption>
+              </ord_dvm_id_fk>
+
+              <ord_method_delivery>
+                  <caption>Метод доставки</caption>
+
+                  <values>
+                    <pickup>Самовывоз</pickup>
+                    <post>Почта</post>
+                    <newpost>Новая почта</newpost>
+                    <courier>Курьер</courier>
+                    <ups>UPS</ups>
+                    <conductor>Кондуктором</conductor>
+                  </values>
+              </ord_method_delivery>
+
+              <ord_tracking_number>
+                  <caption>Tracking number</caption>
+                  <hint>Tracking number для способа доставки</hint>
+              </ord_tracking_number>
+
+              <ord_discount>
+                  <caption>Скидка</caption>
+                  <hint>Процент скидки</hint>
+
+                  <validate>
+                    <parseInt>Скидка может быть только целым числом</parseInt>
+                  </validate>
+              </ord_discount>
+
+              <ord_note>
+                  <caption>Дополнительная информация</caption>
+                  <hint>Дополнительная информация о заказе</hint>
+              </ord_note>
+
+              <ord_user_name>
+                  <caption>Пользователь</caption>
+              </ord_user_name>
+
+              <ord_sum_discount>
+                  <caption>Сумма скидки</caption>
+              </ord_sum_discount>
+
+              <ord_sum>
+                  <caption>Сумма заказа</caption>
+                  <link>Общая сумма заказа со скидкой и доп начислениями</link>
+              </ord_sum>
+
+              <ord_sum_currency>
+                  <caption>Сумма заказа в выбранной пользователем валюте</caption>
+              </ord_sum_currency>
+
+              <ord_sum_delivery>
+                <caption>Стоимость доставки</caption>
+              </ord_sum_delivery>
+
+              <ord_user_street>
+                <caption>Улица</caption>
+                <hint>Улица</hint>
+              </ord_user_street>
+
+              <ord_user_build>
+                <caption>Дом</caption>
+                <hint>Дом</hint>
+              </ord_user_build>
+
+              <ord_user_flat>
+                <caption>Квартира</caption>
+                <hint>Квартира</hint>
+              </ord_user_flat>
+
+              <ord_user_city>
+                <caption>Город</caption>
+                <hint>Город</hint>
+              </ord_user_city>
+
+              <ord_user_index>
+                <caption>Индекс</caption>
+                <hint>Индекс</hint>
+              </ord_user_index>
+
+              <ord_user_cnt_id_fk>
+                <caption>Страна</caption>
+              </ord_user_cnt_id_fk>
+          </fields>
+        </orders_tbl>
+      </datasources>
+    </index>
+
+  <details>
+    <crumbs>
+      <orders>Заказы</orders>
+      <details>Позиции заказа {{caption}}</details>
+    </crumbs>
+
+    <datasources>
+     <orders_details_tbl>
+        <actions>
+          <delete>
+              <caption>Удалить позицию</caption>
+              <text><![CDATA[Вы действительно хотите удалить позицию в заказе <b>«{{name}}»</b>?]]></text>
+          </delete>
+        </actions>
+
+        <footer>
+          <fields>
+            <odd_sum>
+              <caption>Общая сумма заказаных деталей</caption>
+            </odd_sum>
+          </fields>
+        </footer>
+
+        <fields>
+          <car_name>
+            <caption>Авто</caption>
+          </car_name>
+
+          <apt_name>
+            <caption>Группа запчастей</caption>
+          </apt_name>
+
+          <dpt_image>
+            <caption>Фото</caption>
+            <hint>Фото запчасти</hint>
+          </dpt_image>
+
+          <dpt_name>
+            <caption>Название</caption>
+            <hint>Название запчасти</hint>
+          </dpt_name>
+
+          <dpt_num_detail>
+            <caption>Номер запчасти</caption>
+            <hint>Номер запчасти</hint>
+          </dpt_num_detail>
+
+          <das_name_ru>
+            <caption>Размер</caption>
+          </das_name_ru>
+
+          <dac_name_ru>
+            <caption>Цвет</caption>
+          </dac_name_ru>
+
+          <dpt_status>
+            <caption>Статус</caption>
+            <values>
+              <secondhand>Б/У</secondhand>
+              <replica>Новодел</replica>
+              <new>Новое</new>
+              <restaurare>Реставрация</restaurare>
+            </values>
+          </dpt_status>
+
+          <odd_cost>
+            <caption><![CDATA[Стоим&shy;ость]]></caption>
+            <hint>Стоимость автозапчасти, USD</hint>
+          </odd_cost>
+
+          <odd_count>
+            <caption>Кол-во</caption>
+          </odd_count>
+
+          <odd_sum>
+            <caption>Сумма</caption>
+          </odd_sum>
+        </fields>
+      </orders_details_tbl>
+    </datasources>
+  </details>
+
+  <settings>
+    <caption>Настройки</caption>
+    <configs>
+        <orders>
+          <general>
+            <caption>Общие настройки</caption>
+            <administrator_email>
+                <caption>Email уведомлений о заказе</caption>
+                <hint>Email уведомлений о новом заказе</hint>
+
+                <validate>
+                  <email>Вы указали неверный email</email>
+                </validate>
+            </administrator_email>
+          </general>
+
+          <platon>
+            <caption>Platon</caption>
+            <url>
+              <caption>URL</caption>
+              <hint>URL куда будет отправляться запрос</hint>
+            </url>
+
+            <id>
+              <caption>ID мерчанта</caption>
+              <hint>ID мерчанта</hint>
+            </id>
+
+            <password>
+              <caption>Пароль мерчанта</caption>
+              <hint>Пароль мерчанта</hint>
+            </password>
+          </platon>
+
+          <liqpay>
+            <caption>LiqPay</caption>
+            <phone>
+                <caption>Телефон мерчанта</caption>
+                <hint>Теелефон мерчанта</hint>
+            </phone>
+
+            <id>
+                <caption>ID мерчанта</caption>
+                <hint>ID мерчанта</hint>
+            </id>
+
+            <password>
+                <caption>Пароль мерчанта</caption>
+                <hint>Пароль мерчанта</hint>
+            </password>
+          </liqpay>
+
+          <portmone>
+            <caption>Portmone</caption>
+            <payee_id>
+                <caption>ID магазина</caption>
+                <hint>ID магазина</hint>
+            </payee_id>
+
+            <login>
+                <caption>Логин магазина</caption>
+                <hint>Логин интернет магазина</hint>
+            </login>
+
+            <password>
+                <caption>Пароль магазина</caption>
+                <hint>Пароль интернет-магазина</hint>
+            </password>
+          </portmone>
+
+          <paypal>
+            <caption>PayPay</caption>
+
+            <username>
+                <caption>Имя пользователя</caption>
+                <hint>API Username</hint>
+            </username>
+
+            <password>
+                <caption>Пароль</caption>
+                <hint>API Password</hint>
+            </password>
+          </paypal>
+
+          <private24>
+            <caption>Приват24</caption>
+
+            <id>
+                <caption>ID мерчанта</caption>
+                <hint>ID мерчанта</hint>
+            </id>
+
+            <password>
+                <caption>Пароль мерчанта</caption>
+                <hint>Пароль мерчанта</hint>
+            </password>
+          </private24>
+
+          <notifications>
+                <caption>Уведомления</caption>
+
+                <enabled>
+                    <caption>Отправлять уведомления о новых подписавшихся пользователях </caption>
+                    <hint>Отправлять уведомления о новых подписавшихся пользователях администраторам</hint>
+                </enabled>
+
+                <emails>
+                    <caption>Email`ы, на которые отправлять уведомления</caption>
+                    <hint>Email`ы, на которые отправлять уведомления, указанные через запятую</hint>
+                </emails>
+            </notifications>
+
+            <users>
+                <caption>Пользовательское соглашение</caption>
+                <user_agreement>
+                    <caption></caption>
+
+                    <body>
+                        <caption>Текст письма</caption>
+                        <hint>Текст письма</hint>
+                    </body>
+                </user_agreement>
+            </users>
+
+            <mails>
+                <caption>Шаблоны отправляемых системой писем</caption>
+
+                <quick_order_created>
+                    <caption>Шаблон письма при быстром заказе</caption>
+
+                    <subject>
+                        <caption>Тема письма</caption>
+                        <hint>Тема письма</hint>
+                    </subject>
+
+                    <body>
+                        <caption>Текст письма</caption>
+                        <hint>Текст письма</hint>
+                    </body>
+                </quick_order_created>
+
+                <order_created>
+                    <caption>Шаблон письма при создании заказа</caption>
+
+                    <subject>
+                        <caption>Тема письма</caption>
+                        <hint>Тема письма</hint>
+                    </subject>
+
+                    <body>
+                        <caption>Текст письма</caption>
+                        <hint>Текст письма</hint>
+                    </body>
+                </order_created>
+
+                <order_change_status>
+                    <caption>Шаблон письма при смене статуса заказа</caption>
+
+                    <subject>
+                        <caption>Тема письма</caption>
+                        <hint>Тема письма</hint>
+                    </subject>
+
+                    <body>
+                        <caption>Текст письма</caption>
+                        <hint>Текст письма</hint>
+                    </body>
+                </order_change_status>
+            </mails>
+        </orders>
+    </configs>
+  </settings>
+</orders>

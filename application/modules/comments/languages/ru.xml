@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<comments>
+	<comment>Комментарий</comment>
+	<add_comment>Оставить комментарий</add_comment>
+	<reply>ответить</reply>
+	<validate>
+		<add_comment>
+			<name>
+				<empty>Вы не указали Ваше имя</empty>
+			</name>
+			<email>
+				<empty>Вы не указали ваш E-mail</empty>
+				<parseEmail>Вы указали неверный E-mail</parseEmail>
+			</email>
+			<text>
+				<empty>Вы не указали текст комментария</empty>
+        <spam>Вы используете запрещенные слова или ссылки</spam>				
+			</text>
+		</add_comment>
+	</validate>
+</comments>

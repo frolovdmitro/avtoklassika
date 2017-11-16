@@ -1,0 +1,60 @@
+{
+  "administrator/login": {
+    "module": "administrator",
+    "action": "login"
+  },
+  "administrator/logout": {
+    "module": "administrator",
+    "action": "logout"
+  },
+  "administrator/authenticate": {
+    "module": "administrator",
+    "action": "authenticate"
+  },
+  "administrator/content/:moduleRoute/:type": {
+    "module": "administrator",
+    "action": "content"
+  },
+  "administrator/tabledata/:moduleRoute/:type": {
+    "module": "administrator",
+    "action": "tabledata"
+  },
+  "administrator/moverow/:moduleRoute/:type": {
+    "module": "administrator",
+    "action": "moverow"
+  },
+  "administrator/subpage/:moduleRoute/:type": {
+    "module": "administrator",
+    "action": "subpage"
+  },
+  "administrator/modalform/:moduleRoute/:type/:operation/:id": {
+    "module": "administrator",
+    "action": "modalform"
+  },
+  "administrator/modalform/:moduleRoute/:type/:operation/:id": {
+    "module": "administrator",
+    "action": "modalform"
+  },
+  "administrator/modalform-action/:moduleRoute/:type/:operation/:id": {
+    "module": "administrator",
+    "action": "operation"
+  },
+  "administrator/typografy": {
+    "module": "administrator",
+    "action": "typografy"
+  },
+  "administrator/login-redmine": {
+    "module": "administrator",
+    "action": "loginRedmine"
+  },
+  "administrator/:moduleRoute/:type": {
+    "module": "administrator",
+    "action": "index"
+  },
+  "action/:module/:controller/:action": {},
+  "errors-texts/:moduleName/:controllerName/:form": {
+    "module": "default",
+    "controller": "index",
+    "action": "errorsTexts"
+  }
+}

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<smm type="MAIN" icon="" order="-20">
+    <index>
+        <crumbs>
+            <smm>/smm/</smm>
+        </crumbs>
+
+        <actions>
+            <add />
+        </actions>
+
+        <datasources>
+            <smm_tbl pk="smm_id_pk" title_field="smm_name" paginationRows="false" draggable="smm_order"
+              searche="false" useLanguages="true" listLanguagesField="smm_languages"
+              tags="smm">
+
+                <languageFilter>smm_languages like '%|#lang#|%'</languageFilter>
+
+                <order_by>smm_order</order_by>
+
+                <actions>
+                    <edit />
+                    <delete />
+                </actions>
+
+                <fields>
+                    <smm_enabled type="bool" align="center">
+                        <style scope="field">width:30px</style>
+                        <default>true</default>
+                        <inputStyle>width: 25%;</inputStyle>
+                    </smm_enabled>
+
+                    <smm_show_like_button type="bool" align="center">
+                        <style scope="field">width:30px</style>
+                        <default>true</default>
+                        <inputStyle>clear:none; width: 34%;</inputStyle>
+                    </smm_show_like_button>
+
+                    <smm_show_like_box type="bool" align="center">
+                        <style scope="field">width:30px</style>
+                        <default>true</default>
+                        <inputStyle>clear:none; width: 34%;</inputStyle>
+                    </smm_show_like_box>
+
+                    <smm_type type="list" list="static" align="center"
+                            languageValue="true">
+                    </smm_type>
+
+                    <smm_name type="input" required="true" focused="true" languageField="true">
+                        <preprocessing>
+                            <trim />
+                        </preprocessing>
+                        <validate>
+                            <empty />
+                        </validate>
+                    </smm_name>
+
+                    <smm_url type="input" required="true" expifnull="false" >
+                        <preprocessing>
+                            <trim />
+                        </preprocessing>
+                        <validate>
+                            <empty />
+                            <parseUrl />
+                        </validate>
+                        <expression><![CDATA[<a class="direct-link" target="_blank" href="{{value}}">{{value}}</a>]]></expression>
+                    </smm_url>
+
+                    <smm_id type="input" visible="false">
+                    </smm_id>
+
+                    <smm_page_id type="input" visible="false">
+                    </smm_page_id>
+
+                    <smm_css_class type="input" align="center">
+                        <style scope="field">width:90px</style>
+                    </smm_css_class>
+                </fields>
+            </smm_tbl>
+        </datasources>
+    </index>
+</smm>

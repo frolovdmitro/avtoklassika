@@ -1,0 +1,45 @@
+#!/usr/local/bin/php
+
+<?php
+// Объявление псевдонимов для всех используемых классов в данном файле
+use \Uwin\Profiler,
+    \Uwin\Registry,
+    \Uwin\Auth;
+
+// Объявляем глобальные константы
+const PROJECT_NAME = null,
+  STATIC_SERVER_ID = null;
+
+define('SERVER_NAME', null);
+define('COOKIE_HOST', null);
+define('DIR_SEP', DIRECTORY_SEPARATOR);
+define('PATH_SEP', PATH_SEPARATOR);
+
+// Установка локали по-умолчанию
+setlocale(LC_ALL, 'ru_RU.Utf-8');
+// Установка временной зоны по-умолчанию
+date_default_timezone_set("Europe/Kiev");
+
+mb_internal_encoding('UTF-8');
+
+/**
+ * Инициализация и первоначальная настройка профайлера
+ */
+include dirname( dirname(__DIR__) ) . DIR_SEP . 'library' .  DIR_SEP
+  . 'uwin-framework' . DIR_SEP . 'Uwin' . DIR_SEP .'Profiler.php';
+
+/**
+ * Подключение файла, инициализирующего переменные окружения
+ * @var $config
+ */
+require dirname( dirname(__DIR__) ) . DIR_SEP . 'application' .  DIR_SEP
+  . 'system' . DIR_SEP . 'init.php';
+
+/**
+ * Подключение и создание главного системного класса, выполняющего настройку
+ * и запуск приложения
+ */
+require 'Bootstrap.php';
+
+$bootstrap = new Bootstrap();
+$bootstrap->runCli($config, $argv);

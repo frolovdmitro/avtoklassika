@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<navigations>
+  <caption>Навигация</caption>
+  <title>Управление меню</title>
+  <description>Управление различными меню сайта</description>
+
+  <hide>Скрыть</hide>
+  <show>Показать</show>
+
+  <fastActions />
+
+  <index>
+    <crumbs>
+      <navigations>Меню на сайте</navigations>
+    </crumbs>
+
+    <actions>
+      <add>Добавить меню сайта</add>
+    </actions>
+
+    <datasources>
+      <navigations_tbl>
+        <actions>
+          <add>
+            <caption>Добавить меню сайта</caption>
+          </add>
+          <edit>
+            <caption>Редактировать меню сайта</caption>
+          </edit>
+          <delete>
+            <caption>Удалить меню сайта</caption>
+            <text><![CDATA[Вы действительно хотите удалить меню сайта <b>«{{name}}»</b>?]]></text>
+            <error><![CDATA[Меню сайта <b>«{{name}}»</b> удалить нельзя, так как оно связано с записями в таблицах]]></error>
+            <relative><![CDATA[Внимание! С меню <b>«{{name}}»</b> связаны записи, которые будут удалены]]></relative>
+          </delete>
+        </actions>
+
+        <fields>
+          <nvg_enabled>
+            <caption>Видимость</caption>
+            <hint>Видимо меню на сайте или нет</hint>
+          </nvg_enabled>
+
+          <lng_name>
+            <caption>Язык меню</caption>
+            <hint>Язык на котором будет отображено данное меню</hint>
+          </lng_name>
+
+          <nvg_type>
+            <caption>Тип меню</caption>
+            <hint>Тип навигационного меню</hint>
+            <values>
+              <main>Главное меню</main>
+              <info>Информация</info>
+              <services>Услуги</services>
+            </values>
+            <validate>
+              <empty>Тип меню обязателен к заполнению</empty>
+            </validate>
+          </nvg_type>
+
+          <nvg_name>
+            <caption>Название меню</caption>
+            <hint>Название навигационного меню</hint>
+            <validate>
+              <empty>Название меню обязательно к заполнению</empty>
+            </validate>
+          </nvg_name>
+
+          <nvg_css_class>
+            <caption>CSS класс</caption>
+            <hint>Дополнительный CSS класс, который присвоен навигационному меню</hint>
+          </nvg_css_class>
+
+          <nvg_description>
+            <caption>Описание</caption>
+            <hint>Описание навигационного меню</hint>
+          </nvg_description>
+        </fields>
+      </navigations_tbl>
+    </datasources>
+  </index>
+
+  <items>
+    <caption>Пункты выбранного меню</caption>
+    <crumbs>
+      <navigations>Меню на сайте</navigations>
+      <menu>{{caption}}</menu>
+      <items>{{caption}}</items>
+    </crumbs>
+
+    <actions>
+      <add>Добавить пункт меню</add>
+    </actions>
+
+    <datasources>
+      <navitems_tbl>
+        <actions>
+          <add>
+            <caption>Добавить пункт меню</caption>
+          </add>
+          <edit>
+            <caption>Редактировать пункт меню</caption>
+          </edit>
+          <delete>
+            <caption>Удалить пункт меню</caption>
+            <text><![CDATA[Вы действительно хотите удалить пункт меню <b>«{{name}}»</b>?]]></text>
+            <error><![CDATA[Пункт меню <b>«{{name}}»</b> удалить нельзя, так как он связан с записями в таблицах]]></error>
+          </delete>
+        </actions>
+
+        <fields>
+          <nvi_visible>
+            <caption>Видимость</caption>
+            <hint>Отображать пункт меню на сайте или нет</hint>
+          </nvi_visible>
+
+          <nvi_target_blank>
+            <caption>Открывать в новом окне</caption>
+            <hint>Открывать пункт меню в новом окне или нет</hint>
+          </nvi_target_blank>
+
+          <nvi_name>
+            <caption>Название</caption>
+            <hint>Название пункта меню</hint>
+            <validate>
+              <empty>Название пункта меню обязательно к заполнению</empty>
+            </validate>
+          </nvi_name>
+
+          <nvi_lng_id_fk>
+            <caption>Язык пункта меню</caption>
+            <hint>Язык на котором будет отображен пункт меню</hint>
+          </nvi_lng_id_fk>
+
+          <nvi_css_class>
+            <caption>CSS класс</caption>
+            <hint>CSS класс, который присвоен пункту меню</hint>
+          </nvi_css_class>
+
+          <nvi_rel>
+            <caption>Rel</caption>
+            <hint>Атрибут rel, важен для SEO</hint>
+          </nvi_rel>
+
+          <nvi_address>
+            <caption>Адрес</caption>
+            <hint>Адрес на страницу. Может быть относительным (вначале символ « / »)</hint>
+            <validate>
+              <empty>Адрес пункта меню обязателен к заполнению</empty>
+            </validate>
+          </nvi_address>
+        </fields>
+      </navitems_tbl>
+    </datasources>
+  </items>
+</navigations>

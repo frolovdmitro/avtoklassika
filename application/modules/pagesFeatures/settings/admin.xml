@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagesFeatures type="MODULE" icon="" order="121">
+  <index> <!-- {{{ -->
+    <crumbs>
+      <pages>/pages/</pages>
+    </crumbs>
+
+    <actions>
+      <add />
+    </actions>
+
+    <datasources>
+      <pages_features_tbl pk="pft_id_pk" title_field="pft_route" paginationRows="true"
+        style="width:740px" useLanguages="true" listLanguagesField="pft_languages"
+        tags="page_features">
+
+        <languageFilter>pft_languages like '%|#lang#|%'</languageFilter>
+
+        <order_by>pft_route desc</order_by>
+
+        <actions>
+          <edit />
+          <delete />
+        </actions>
+
+        <tabs>
+          <main />
+          <seo />
+          <tags />
+        </tabs>
+
+        <quick_filter>
+          <pft_h1 />
+          <pft_title />
+          <pft_route />
+        </quick_filter>
+
+        <fields>
+          <pft_enabled type="bool" align="center" ordered="true"
+            tabindex="1" default="true">
+            <style scope="field">width:30px</style>
+            <inputStyle>width: 20%;</inputStyle>
+          </pft_enabled>
+
+          <pft_without_page type="bool" align="center" ordered="true"
+            tabindex="1.1" default="true">
+            <style scope="field">width:30px</style>
+            <inputStyle>clear: none;width: 60%;</inputStyle>
+          </pft_without_page>
+
+          <pft_route type="input" focused="true" tabindex="2.9" required="true">
+            <expression><![CDATA[<a target="_blank" class="direct-link" href="{{value}}">{{value}}</a>{{pft_h1}}]]></expression>
+            <validate>
+              <empty />
+            </validate>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </pft_route>
+
+          <pft_h1 type="input" ordered="true" tabindex="3" languageField="true"
+            visible="false" expifnull="false">
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+            <expression><![CDATA[<br><b>H1: </b>{{value}}]]></expression>
+          </pft_h1>
+
+          <pft_breadcrumb type="input" tabindex="3.1" languageField="true"
+            visible="false" expifnull="false">
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+            <expression><![CDATA[<br><b>Хлебные крошки: </b>{{value}}]]></expression>
+          </pft_breadcrumb>
+
+          <pft_text type="textarea" rich="true" rows="14" visible="false"
+            languageField="true">
+            <labelStyle>width: 18%;min-height:30px;</labelStyle>
+            <inputStyle>clear:both;width: 100%;</inputStyle>
+          </pft_text>
+
+          <pft_title type="input" visible="false" tabindex="4" languageField="true"
+            tab="tags">
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </pft_title>
+
+          <pft_description type="textarea" visible="false" expifnull="false"
+            format="\Uwin\Linguistics;shortedText;value;300"
+            tabindex="7" languageField="true" tab="tags">
+            <expression><![CDATA[<br>{{value}}]]></expression>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </pft_description>
+
+          <pft_keywords type="textarea" visible="false" expifnull="false"
+            tabindex="8" languageField="true" tab="tags">
+            <expression><![CDATA[<br><span style="color:#FC7905;">{{value}}</span>]]></expression>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </pft_keywords>
+
+          <pft_metas type="textarea" visible="false" tabindex="8.1" tab="tags"
+            rows="14">
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </pft_metas>
+
+          <pft_seo_header type="input" tabindex="3.1" languageField="true"
+            tab="seo" visible="false">
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </pft_seo_header>
+
+          <pft_seo_text type="textarea" rich="true" rows="22" visible="false"
+            languageField="true" tab="seo">
+            <labelStyle>width: 18%;min-height:30px;</labelStyle>
+            <inputStyle>clear:both;width: 100%;</inputStyle>
+          </pft_seo_text>
+        </fields>
+      </pages_features_tbl>
+    </datasources>
+  </index> <!-- }}} -->
+</pagesFeatures>

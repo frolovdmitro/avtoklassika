@@ -1,0 +1,1 @@
+{{includeScript('head.tpl')}}  <body>    {{BEGIN loginModule}}      {{content()}}    {{END loginModule}}    {{BEGIN adminModule}}      {{content()}}    {{END adminModule}}    {{includeScript('js.tpl')}}  </body></html>

@@ -1,0 +1,21 @@
+#!/bin/sh
+
+#order-100
+
+. $(dirname -- "$0")/../../../../database/connect_params
+
+if [ "$*" == "" ]; then
+  psql -h $HOST -U $USER -d $DB -q -f $(cd -P -- "$(dirname -- "$0")" && pwd -P)/tables.sql --variable=DIR=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
+  psql -h $HOST -U $USER -d $DB -q -f $(cd -P -- "$(dirname -- "$0")" && pwd -P)/functions.sql --variable=DIR=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
+  psql -h $HOST -U $USER -d $DB -q -f $(cd -P -- "$(dirname -- "$0")" && pwd -P)/views.sql --variable=DIR=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
+  psql -h $HOST -U $USER -d $DB -q -f $(cd -P -- "$(dirname -- "$0")" && pwd -P)/triggers.sql --variable=DIR=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
+  psql -h $HOST -U $USER -d $DB -q -f $(cd -P -- "$(dirname -- "$0")" && pwd -P)/data.sql --variable=DIR=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
+
+  exit 0;
+fi
+
+if [ -f $(cd -P -- "$(dirname -- "$0")" && pwd -P)/$1.sql ]; then
+  psql -h $HOST -U $USER -d $DB -q -f $(cd -P -- "$(dirname -- "$0")" && pwd -P)/$1.sql --variable=DIR=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
+
+  exit 0;
+fi

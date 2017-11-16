@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagesFeatures>
+  <caption>Доп. тексты страниц</caption>
+  <title>Дополнительные тексты страниц</title>
+  <description>Дополнительные тексты страниц</description>
+
+  <hide>Скрыть</hide>
+  <show>Показать</show>
+
+  <index> <!-- {{{ -->
+    <crumbs>
+      <pages>Дополнительные тексты страниц</pages>
+    </crumbs>
+
+    <actions>
+      <add>Добавить URL</add>
+    </actions>
+
+    <datasources>
+      <pages_features_tbl>
+        <actions>
+          <add>
+            <caption>Добавить URL</caption>
+          </add>
+          <edit>
+            <caption>Редактировать</caption>
+          </edit>
+          <delete>
+            <caption>Удалить URL</caption>
+            <text><![CDATA[Вы действительно хотите удалить URL <b>«{{name}}»</b>?]]></text>
+            <error><![CDATA[URL <b>«{{name}}»</b> удалить нельзя, так как она связана с записями в таблицах]]></error>
+          </delete>
+        </actions>
+
+        <tabs>
+          <main>Основные данные</main>
+          <seo>SEO-текст</seo>
+          <tags>Мета теги</tags>
+        </tabs>
+
+        <fields>
+          <pft_enabled>
+            <caption><![CDATA[Активно]]></caption>
+          </pft_enabled>
+
+          <pft_without_page>
+            <caption><![CDATA[Не учитывать сортировку, пейджинг]]></caption>
+          </pft_without_page>
+
+          <pft_route>
+            <caption>Данные</caption>
+            <form_caption>URL</form_caption>
+            <hint>Относительный URL страницы</hint>
+            <validate>
+              <empty>Поле обязательно к заполнению</empty>
+            </validate>
+          </pft_route>
+
+          <pft_h1>
+            <caption>Данные</caption>
+            <form_caption>H1</form_caption>
+          </pft_h1>
+
+          <pft_breadcrumb>
+            <caption>Хлебные крошки</caption>
+          </pft_breadcrumb>
+
+          <pft_title>
+            <caption>Title</caption>
+            <hint>Title страницы</hint>
+          </pft_title>
+
+          <pft_description>
+            <caption>Тег описания (description)</caption>
+            <hint>Тег описания (description). Важен для SEO</hint>
+          </pft_description>
+
+          <pft_keywords>
+            <caption>Тег ключевые слова (keywords)</caption>
+            <hint>Тег ключевые слова (keywords). Важен для SEO</hint>
+          </pft_keywords>
+
+          <pft_text>
+            <caption>Текст страницы</caption>
+            <hint>Текст страницы</hint>
+          </pft_text>
+
+          <pft_metas>
+            <caption>Доп. мета теги</caption>
+            <hint>Можно писать все что внутри HEAD</hint>
+          </pft_metas>
+
+          <pft_seo_header>
+            <caption>Заглавие сео текста</caption>
+            <hint>Заглавие сео текста</hint>
+          </pft_seo_header>
+
+          <pft_seo_text>
+            <caption>Cео текста</caption>
+            <hint>Cео текста</hint>
+          </pft_seo_text>
+        </fields>
+      </pages_features_tbl>
+    </datasources>
+  </index> <!-- }}} -->
+</pagesFeatures>

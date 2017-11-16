@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<comments>
+  <caption>Комментарии</caption>
+  <title>Управление комментариями</title>
+  <description>Управление комментариями пользователей</description>
+
+  <hide>Скрыть</hide>
+  <show>Показать</show>
+
+  <fastActions>
+    <news>Комментарии к новостям</news>
+    <adverts>Комментарии к объявлениям</adverts>
+    <details>Комментарии к автозапчастям</details>
+    <settings>Настройки</settings>
+  </fastActions>
+
+  <tabs>
+    <news>Ком. к новостям</news>
+    <adverts>Ком. к объявлениям</adverts>
+    <details>Ком. к автозапчастям</details>
+    <settings/>
+    <language />
+  </tabs>
+
+  <index>
+    <crumbs>
+      <comments>Комментарии</comments>
+    </crumbs>
+
+    <actions>
+      <add>Добавить комментарий</add>
+    </actions>
+
+    <datasources>
+      <comments_tbl>
+        <actions>
+          <add>
+            <caption>Добавить комментарий</caption>
+          </add>
+          <add_child>
+            <caption>Добавить ответ на комментарий</caption>
+          </add_child>
+          <edit>
+            <caption>Редактировать комментарий</caption>
+          </edit>
+          <delete>
+            <caption>Удалить комментарий</caption>
+            <text><![CDATA[<b>Внимание!</b> Будут также удалены все ответы на этот комментарий, если они существуют.<br>Вы действительно хотите удалить комментарий <b>«{{name}}»</b>?]]></text>
+            <error><![CDATA[Комментарий <b>«{{name}}»</b> удалить нельзя, так как он связан с записями в таблицах]]></error>
+          </delete>
+        </actions>
+
+        <fields>
+          <cmt_visible>
+            <caption><![CDATA[Види&shy;мость]]></caption>
+            <hint>Отображать комментарий или нет</hint>
+          </cmt_visible>
+
+          <cmt_type>
+            <caption>Тип</caption>
+            <values>
+              <detail>Деталь</detail>
+              <news>Новость</news>
+              <advert>Объявление</advert>
+            </values>
+          </cmt_type>
+
+          <cmt_datetime>
+            <caption>Время публик.</caption>
+            <hint>Время публикации комментарий</hint>
+          </cmt_datetime>
+
+          <cmt_usr_id_fk>
+            <caption>Пользователь</caption>
+            <hint>Пользователь, который опубликовал комментарий</hint>
+          </cmt_usr_id_fk>
+
+          <usr_name>
+            <caption>Пользователь</caption>
+            <hint>Пользователь, который опубликовал комментарий</hint>
+          </usr_name>
+
+          <subject>
+            <caption>Тема</caption>
+            <hint>Тема, где оставлен комментарий</hint>
+          </subject>
+
+          <!-- <dsc_image> -->
+          <!--   <caption>Изображение</caption> -->
+          <!--   <hint>Изображение скидки</hint> -->
+          <!-- </dsc_image> -->
+          <!--  -->
+          <nw_name>
+            <caption>Новость</caption>
+            <hint>Новость, в которую написать комментарий</hint>
+          </nw_name>
+
+          <cmt_nw_id_fk>
+            <caption>Новость</caption>
+            <hint>Новость, в которую написать комментарий</hint>
+          </cmt_nw_id_fk>
+
+          <bsn_company>
+            <caption>Партнер</caption>
+            <hint>Партнер, к которому написан комментарий</hint>
+          </bsn_company>
+
+          <cmt_adv_id_fk>
+            <caption>Объявление</caption>
+            <hint>Объявление, к которому написан комментарий</hint>
+          </cmt_adv_id_fk>
+
+          <cmt_text>
+            <caption>Комментарий</caption>
+            <hint>Текст комментария</hint>
+            <validate>
+              <empty>Текст сообщения обязателен к заполнению</empty>
+            </validate>
+          </cmt_text>
+
+          <answers>
+            <caption>Ответы</caption>
+            <hint>Ответы на комментарий</hint>
+          </answers>
+        </fields>
+      </comments_tbl>
+    </datasources>
+  </index>
+
+  <discounts>
+    <crumbs>
+      <comments>Комментарии к скидкам</comments>
+    </crumbs>
+
+    <datasources>
+      <comments_tbl>
+        <fields>
+          <cmt_dsc_id_fk>
+            <validate>
+              <empty>Скидка к которой оставляется комментарий обязательна к заполнению</empty>
+            </validate>
+          </cmt_dsc_id_fk>
+        </fields>
+      </comments_tbl>
+    </datasources>
+  </discounts>
+
+  <business>
+    <crumbs>
+      <comments>Комментарии к партнерам</comments>
+    </crumbs>
+
+    <datasources>
+      <comments_tbl>
+        <fields>
+          <cmt_bsn_id_fk>
+            <validate>
+              <empty>Партнер к которому оставляется комментарий обязателен к заполнению</empty>
+            </validate>
+          </cmt_bsn_id_fk>
+        </fields>
+      </comments_tbl>
+    </datasources>
+  </business>
+
+  <settings>
+    <configs>
+      <comments>
+        <notifications>
+          <caption>Уведомления</caption>
+
+          <enabled>
+            <caption>Отправлять уведомления о новых комментариях администраторам</caption>
+            <hint>Отправлять уведомления о новых комментариях администраторам</hint>
+          </enabled>
+
+          <emails>
+            <caption>Email`ы, на которые отправлять уведомления</caption>
+            <hint>Email`ы, на которые отправлять уведомления, указанные через запятую</hint>
+          </emails>
+        </notifications>
+
+        <spam>
+          <caption>Борьба со спамом</caption>
+
+          <stopwords>
+            <caption>Стоп слова</caption>
+            <hint>Стоп слова с которыми нельзя указывать комментарии</hint>
+          </stopwords>
+        </spam>
+      </comments>
+    </configs>
+  </settings>
+</comments>

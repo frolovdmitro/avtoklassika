@@ -1,0 +1,1 @@
+{{IF labor_hours}}<div class="hours_bar">    {{labor_hours}}</div>{{END IF}}

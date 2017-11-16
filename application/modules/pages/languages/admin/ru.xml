@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages>
+    <caption>Страницы</caption>
+    <title>Управление статическими страницами</title>
+    <description>Управление статическими страницами сайта</description>
+
+    <hide>Скрыть</hide>
+    <show>Показать</show>
+
+    <index>
+        <crumbs>
+            <pages>Страницы</pages>
+        </crumbs>
+
+        <actions>
+            <add>Создать страницу</add>
+        </actions>
+
+        <datasources>
+            <pages_tbl>
+                <actions>
+                    <add>
+                        <caption>Создать страницу</caption>
+                    </add>
+                    <edit>
+                        <caption>Редактировать страницу</caption>
+                    </edit>
+                    <delete>
+                        <caption>Удалить страницу</caption>
+                        <text><![CDATA[Вы действительно хотите удалить страницу <b>«{{name}}»</b>?]]></text>
+                        <error><![CDATA[Страницу <b>«{{name}}»</b> удалить нельзя, так как она связана с записями в таблицах]]></error>
+                    </delete>
+                </actions>
+
+                <tabs>
+                    <main>Основные данные</main>
+                    <text>Текст страницы</text>
+                    <css>Дополнительный CSS</css>
+                </tabs>
+
+                <fields>
+                    <pg_enabled>
+                        <caption><![CDATA[Видим&shy;ость]]></caption>
+                        <hint>Страница видима на сайте или нет</hint>
+                    </pg_enabled>
+
+                    <pg_caption>
+                        <caption>Название, описание и ключевые слова</caption>
+                        <hint>Название, описание и ключевые слова страницы</hint>
+
+                        <form_caption>Название</form_caption>
+                        <form_hint>Название страницы (отображается как заглавие)</form_hint>
+
+                        <validate>
+                            <empty>Название страницы обязательно к заполнению</empty>
+                        </validate>
+                    </pg_caption>
+
+                    <pg_robots>
+                      <caption>Meta robots</caption>
+                      <hint>Мета тег ROBOTS</hint>
+                      <values>
+                        <indexfollow>INDEX, FOLLOW</indexfollow>
+                        <noindexfollow>NOINDEX, FOLLOW</noindexfollow>
+                        <indexnofollow>INDEX, NOFOLLOW</indexnofollow>
+                        <noindexnofollow>NOINDEX, NOFOLLOW</noindexnofollow>
+                      </values>
+                    </pg_robots>
+
+                    <pg_title>
+                        <caption>Title</caption>
+                        <hint>Title страницы(отображается в окне браузера, важно для SEO. Если не указать, используется Название страницы)</hint>
+                    </pg_title>
+                    
+                    <pg_synonym>
+                        <caption>Синоним страницы</caption>
+                        <hint>Имя страницы в URL. Латинскими буквами с заменой пробелов на знак «-».</hint>
+
+                        <validate>
+                            <unique>Данный синоним страницы уже существует. Он должен быть уникальным</unique>
+                            <regexp>Синоним может состоять только с латинских букв, цифр и символа « - »</regexp>
+                        </validate>
+                    </pg_synonym>
+
+                    <pg_canonical>
+                        <caption>Канонический адрес страницы</caption>
+                        <hint>Заполняется автоматически, нужен когда идет смена адреса страницы</hint>
+                    </pg_canonical>
+
+                    <pg_301_redirect>
+                        <caption>301 редирект на страницу</caption>
+                        <hint>Используется, когда нужно сделать редирект на другую страницу</hint>
+                    </pg_301_redirect>
+
+                    <pg_description>
+                        <caption>Тэг описания (description)</caption>
+                        <hint>Тэг описания (description). Важен для SEO</hint>
+                    </pg_description>
+
+                    <pg_keywords>
+                        <caption>Тэг ключевые слова (keywords)</caption>
+                        <hint>Тэг ключевые слова (keywords). Важен для SEO</hint>
+                    </pg_keywords>
+
+                    <pg_css_class>
+                        <caption>CSS класс</caption>
+                        <hint>CSS класс страницы</hint>
+                    </pg_css_class>
+
+                    <pg_text>
+                        <caption>Текст страницы</caption>
+                        <hint>Текст страницы</hint>
+                        <validate>
+                            <empty>Текст страницы обязателен к заполнению</empty>
+                        </validate>
+                    </pg_text>
+
+                    <css_additions>
+                        <caption>Дополнительный CSS</caption>
+                    </css_additions>
+                </fields>
+            </pages_tbl>
+        </datasources>
+    </index>
+
+    <files>
+        <crumbs>
+            <pages>Страницы</pages>
+            <files>Файлы к «{{caption}}»</files>
+        </crumbs>
+
+        <actions>
+            <add>Добавить файл</add>
+        </actions>
+
+        <datasources>
+            <pages_files_tbl>
+                <actions>
+                    <add>
+                        <caption>Добавить файл</caption>
+                    </add>
+                    <edit>
+                        <caption>Редактировать файл</caption>
+                    </edit>
+                    <delete>
+                        <caption>Удалить файл</caption>
+                        <text><![CDATA[Вы действительно хотите удалить файл <b>«{{name}}»</b>?]]></text>
+                        <error><![CDATA[Файл <b>«{{name}}»</b> удалить нельзя, так как оно связано с записями в таблицах]]></error>
+                    </delete>
+                </actions>
+
+                <fields>
+                    <pfl_file>
+                        <caption>Файл</caption>
+                        <hint>Файл</hint>
+                        <validate>
+                            <empty>Файл обязателен к заполнению</empty>
+                        </validate>
+                    </pfl_file>
+
+                    <pfl_name>
+                        <caption>Наименование</caption>
+                        <hint>Наименование файла</hint>
+                    </pfl_name>
+                </fields>
+            </pages_files_tbl>
+        </datasources>
+    </files>
+</pages>

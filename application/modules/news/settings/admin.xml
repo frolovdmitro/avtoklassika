@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<news type="MODULE" icon="" order="13">
+  <fastActions>
+    <categories />
+    <settings />
+  </fastActions>
+
+  <tabs>
+    <categories visible="true" />
+    <settings visible="true" />
+    <language visible="true" />
+  </tabs>
+
+  <index>
+    <crumbs>
+      <news>/news/</news>
+    </crumbs>
+
+    <actions>
+      <add />
+    </actions>
+
+    <datasources>
+      <news_tbl pk="nw_id_pk" title_field="nw_name" paginationRows="true"
+        useLanguages="true" listLanguagesField="nw_languages"
+        style="width:800px"
+        tags="news|news-{{nw_synonym}}">
+
+        <joins>
+          <nwf name="(select nwf_nw_id_fk, count(nwf_id_pk) count_files from news_files_tbl group by nwf_nw_id_fk)" type="left" pk="nw_id_pk"
+            fk="nwf_nw_id_fk" />
+
+          <ntg name="(select ntg_nw_id_fk, count(ntg_id_pk) count_tags from news_tags_tbl group by ntg_nw_id_fk)" type="left" pk="nw_id_pk"
+            fk="ntg_nw_id_fk" />
+        </joins>
+
+        <order_by>nw_datetime desc</order_by>
+
+        <actions>
+          <edit />
+          <delete />
+        </actions>
+
+        <tabs>
+          <main />
+          <text />
+          <meta_tags />
+          <css />
+        </tabs>
+
+        <quick_filter>
+          <nw_name />
+          <nw_title />
+          <nw_keywords />
+          <nw_description />
+          <nw_text />
+          <nw_synonym />
+        </quick_filter>
+
+        <fields>
+          <nw_enabled type="bool" align="center" ordered="true"
+            tabindex="1" default="true">
+            <style scope="field">width:30px</style>
+            <inputStyle>width: 20%;</inputStyle>
+          </nw_enabled>
+
+          <nw_image type="file" align="center" tabindex="5.6" required="true">
+            <style scope="field">width:30px</style>
+            <validate>
+              <empty />
+              <extension>jpg|jpeg|png|gif</extension>
+              <maxSize>250</maxSize>
+              <width>220</width>
+              <height>150</height>
+            </validate>
+            <destination>images/news/</destination>
+            <fileName function="web-translit" sufix="-bg">nw_name_ru</fileName>
+            <resizes>
+              <small>
+                <destination>images/news/</destination>
+                <filename function="web-translit" sufix="-sm">nw_name_ru</filename>
+                <width>73</width>
+                <height>50</height>
+              </small>
+            </resizes>
+
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </nw_image>
+
+          <nw_datetime type="datetime" required="true" tabindex="2.9"
+            align="center" ordered="true">
+            <format><![CDATA[null;date;d.m.Y H:i;value]]></format>
+            <default>now</default>
+            <default_format>d.m.Y H:i</default_format>
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+              <parseDate />
+            </validate>
+            <style scope="field">color:green;width: 50px;</style>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </nw_datetime>
+
+          <nw_name type="input" ordered="true"  required="true" focused="true"
+            tabindex="3" languageField="true">
+            <expression><![CDATA[<a target="_blank" class="direct-link" href="/news/{{nw_synonym}}/">{{value}}</a>{{count_files}}{{nw_description}}{{nw_keywords}}]]></expression>
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+            </validate>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </nw_name>
+
+          <nw_nwc_id_fk tabindex="3.1" type="list" visible="false" required="true">
+            <list table="news_categories_tbl" pk="nwc_id_pk"
+              name="nwc_name_ru" order="nwc_order">
+            </list>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+            </validate>
+          </nw_nwc_id_fk>
+
+          <nw_car_id_fk tabindex="3.2" type="list" visible="false" required="true">
+            <list table="cars_tbl" pk="car_id_pk" with_null="true"
+              name="car_name_ru" order="car_order">
+            </list>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </nw_car_id_fk>
+
+          <nw_synonym type="input" visible="false" tabindex="5">
+            <callback module="news" model="News" function="getSynonym">
+              <params>
+                <caption>nw_name_ru</caption>
+              </params>
+            </callback>
+            <preprocessing>
+              <trim />
+              <lowercase />
+            </preprocessing>
+            <validate>
+              <regexp>^[a-z0-9\-]+$</regexp>
+              <unique table="news_tbl" column="nw_synonym" />
+            </validate>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </nw_synonym>
+
+          <nw_canonical type="input" visible="false" tabindex="3.9"
+            tab="meta_tags">
+            <callback module="news" model="News" function="getCanonical">
+              <params>
+                <name>nw_name_ru</name>
+                <synonym>nw_synonym</synonym>
+              </params>
+            </callback>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </nw_canonical>
+
+          <nw_text type="textarea" rich="true" rows="16" visible="false"
+            focused="true" required="true" tab="text" languageField="true"
+            richContainerClass="clearfix"
+            richContainerClassDinamyc="nw_css_class">
+            <labelStyle>width: 18%;min-height:30px;</labelStyle>
+            <inputStyle>clear:both;width: 100%;</inputStyle>
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+            </validate>
+          </nw_text>
+
+          <count_files field="coalesce(count_files,0)" type="int" visible="false"
+            noTable="true" noForm="true" expifnull="false">
+            <expression><![CDATA[<br>Файлы: {{value}}]]></expression>
+            <link page="files" />
+          </count_files>
+
+          <count_tags field="coalesce(count_tags,0)" type="int" visible="false"
+            noTable="true" noForm="true" expifnull="false">
+            <expression><![CDATA[, Категории: {{value}}]]></expression>
+            <link page="tags" />
+          </count_tags>
+
+          <nw_robots type="list" list="static" visible="false" tabindex="1"
+            tab="meta_tags">
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </nw_robots>
+
+          <nw_title type="textarea" visible="false" tabindex="4" rows="1"
+            tab="meta_tags" languageField="true">
+            <expression><![CDATA[<br><span style="color:#FC7905;">{{value}}</span>]]></expression>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </nw_title>
+
+          <nw_description type="textarea" visible="false" expifnull="false"
+            format="\Uwin\Linguistics;shortedText;value;300" rows="2"
+            tabindex="7"  tab="meta_tags" languageField="true">
+            <expression><![CDATA[<br>{{value}}]]></expression>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </nw_description>
+
+          <nw_keywords type="textarea" visible="false" expifnull="false"
+            tabindex="8"  tab="meta_tags" rows="3" languageField="true">
+            <expression><![CDATA[<br><span style="color:#FC7905;">{{value}}</span>]]></expression>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </nw_keywords>
+
+          <css_additions field="null" type="textarea" code="css" noTable="true"
+            focused="true" visible="false" tab="css" rows="17"
+            fromfile="true" filename="images/news/{{row_id}}/css/addition.css">
+            <labelStyle>min-height:30px;width:100%</labelStyle>
+            <inputStyle>clear: none;width:100%;</inputStyle>
+          </css_additions>
+        </fields>
+      </news_tbl>
+    </datasources>
+  </index>
+
+  <categories>
+    <crumbs>
+      <categories>/categories/</categories>
+    </crumbs>
+
+    <actions>
+      <add />
+    </actions>
+
+    <datasources>
+      <news_categories_tbl pk="nwc_id_pk" title_field="nwc_name"
+        useLanguages="true" listLanguagesField="nwc_languages"
+        draggable="nwc_order" paginationRows="false">
+
+        <order_by>nwc_order</order_by>
+
+        <quick_filter>
+          <nwc_name />
+          <nwc_synonym />
+        </quick_filter>
+
+        <actions>
+          <edit />
+          <delete />
+        </actions>
+
+        <fields>
+          <nwc_enabled type="bool" tabindex="1"
+            align="center">
+            <style scope="field">width:30px</style>
+            <default>true</default>
+          </nwc_enabled>
+
+          <nwc_name type="input" tabindex="2" required="true"
+            focused="true" languageField="true">
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+            </validate>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </nwc_name>
+
+          <nwc_synonym type="input" visible="false" tabindex="5"
+            required="true">
+            <preprocessing>
+              <trim />
+              <lowercase />
+            </preprocessing>
+            <validate>
+              <empty />
+              <regexp>^[a-z0-9\-]+$</regexp>
+              <unique table="news_categories_tbl" column="nwc_synonym" />
+            </validate>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </nwc_synonym>
+
+          <nwc_robots type="list" list="static" visible="false" tabindex="5.5">
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </nwc_robots>
+
+          <nwc_title type="input" visible="false" tabindex="6"
+            languageField="true">
+            <expression><![CDATA[<br><span style="color:#FC7905;">{{value}}</span>]]></expression>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </nwc_title>
+
+          <nwc_description type="textarea" visible="false" expifnull="false"
+            format="\Uwin\Linguistics;shortedText;value;300" rows="2"
+            tabindex="7"  languageField="true">
+            <expression><![CDATA[<br>{{value}}]]></expression>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </nwc_description>
+
+          <nwc_keywords type="textarea" visible="false" expifnull="false"
+            tabindex="8" rows="3" languageField="true">
+            <expression><![CDATA[<br><span style="color:#FC7905;">{{value}}</span>]]></expression>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </nwc_keywords>
+
+        </fields>
+      </news_categories_tbl>
+    </datasources>
+  </categories>
+
+  <files>
+    <crumbs>
+      <news>/news/</news>
+
+      <files type="data" url="/news/{{value}}/"
+        table="news_tbl"
+        pk="nw_id_pk" title_field="nw_name_ru">
+        <params>
+          <nw_id_pk>id</nw_id_pk>
+        </params>
+      </files>
+    </crumbs>
+
+    <actions>
+      <add />
+    </actions>
+
+    <datasources>
+      <news_files_tbl pk="nwf_id_pk" title_field="nwf_id_pk" search="false"
+        paginationRows="true" >
+
+        <params>
+          <nwf_nw_id_fk type="get">id</nwf_nw_id_fk>
+        </params>
+
+        <order_by>nwf_id_pk</order_by>
+
+        <actions>
+          <edit />
+          <delete />
+        </actions>
+
+        <fields>
+          <nwf_id_pk type="int" visible="false" noForm="true" noTable="true" />
+
+          <nwf_file type="file" required="true" align="center" tabindex="2">
+            <validate>
+              <empty />
+            </validate>
+            <fileName function="web-translit">nwf_name</fileName>
+            <destination>files/news/{{id}}/files/</destination>
+            <style scope="field">width:30px</style>
+          </nwf_file>
+
+          <nwf_name type="input" tabindex="1"  focused="true"/>
+        </fields>
+      </news_files_tbl>
+    </datasources>
+  </files>
+
+  <tags>
+    <crumbs>
+      <news>/news/</news>
+
+      <tags type="data" url="/news/{{value}}/"
+        table="news_tbl"
+        pk="nw_id_pk" title_field="nw_name_ru">
+        <params>
+          <nw_id_pk>id</nw_id_pk>
+        </params>
+      </tags>
+    </crumbs>
+
+    <actions>
+      <add />
+    </actions>
+
+    <datasources>
+      <news_tags_tbl pk="ntg_id_pk" title_field="ntg_id_pk" search="false"
+        paginationRows="true" >
+
+        <joins>
+          <car name="news_categories_tbl" type="left" pk="ntg_nwc_id_fk"
+            fk="nwc_id_pk" />
+        </joins>
+
+        <params>
+          <ntg_nw_id_fk type="get">id</ntg_nw_id_fk>
+        </params>
+
+        <order_by>ntg_id_pk</order_by>
+
+        <actions>
+          <edit />
+          <delete />
+        </actions>
+
+        <fields>
+          <ntg_id_pk type="int" visible="false" noForm="true" noTable="true" />
+
+          <ntg_nwc_id_fk visible="false" type="list" tabindex="3" focused="true">
+            <list table="news_categories_tbl" pk="nwc_id_pk"
+              name="nwc_name"
+              order="nwc_order">
+              <where>nwc_enabled = true</where>
+            </list>
+          </ntg_nwc_id_fk>
+
+          <nwc_name type="input" noTable="true" noForm="true">
+          </nwc_name>
+        </fields>
+      </news_tags_tbl>
+    </datasources>
+  </tags>
+
+  <settings style="width: 90%">
+    <configs>
+      <news>
+        <index>
+          <title type="input" language="true"  />
+
+          <keywords type="textarea" rows="5" language="true"  />
+
+          <description type="textarea" rows="5" language="true"  />
+        </index>
+      </news>
+    </configs>
+  </settings>
+
+  <language style="width: 95%;">
+    <language>
+      <file type="xml" path="modules/news/languages/" />
+    </language>
+  </language>
+</news>

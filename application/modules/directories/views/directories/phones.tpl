@@ -1,0 +1,1 @@
+<!-- {{IF phones}}<ul class="phones-bar">  {{BEGIN phones}}  <li class="phones-bar__item"><a href="tel:{{phone_unformat}}">{{phone}}</a></li>  {{END phones}}</ul>{{END IF}} -->{{IF phones}}<ul class="phones_bar clearfix">  <li class="phones_bar_item">    {{BEGIN phones}}    <a href="tel:{{phone_unformat}}">{{phone}}</a>    {{END phones}}  </li></ul>{{END IF}}

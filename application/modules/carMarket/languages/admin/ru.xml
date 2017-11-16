@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<carMarket>
+  <caption>Продажа авто</caption>
+  <title>Продажа авто</title>
+  <description>Продажа авто</description>
+
+  <hide>Скрыть</hide>
+  <show>Показать</show>
+
+  <tabs>
+    <sold>Продано</sold>
+    <language />
+  </tabs>
+
+  <fastActions>
+    <sold>Продано</sold>
+  </fastActions>
+
+  <index> <!-- {{{ -->
+    <crumbs>
+      <carMarket>Продажа авто</carMarket>
+    </crumbs>
+
+    <actions>
+      <add>Добавить объявление</add>
+    </actions>
+
+    <datasources>
+      <car_market_tbl>
+        <tabs>
+          <main>Основные данные</main>
+          <meta_tags>Мета-теги</meta_tags>
+        </tabs>
+
+        <actions>
+          <add>
+            <caption>Создать объявление</caption>
+          </add>
+          <edit>
+            <caption>Редактировать объявление</caption>
+          </edit>
+          <delete>
+            <caption>Удалить объявление</caption>
+            <text><![CDATA[Вы действительно хотите удалить объявление <b>«{{name}}»</b>?]]></text>
+            <error><![CDATA[Объявление <b>«{{name}}»</b> удалить нельзя, так как она связана с записями в таблицах]]></error>
+          </delete>
+        </actions>
+
+        <fields>
+          <cmk_enabled>
+            <caption><![CDATA[Продано]]></caption>
+          </cmk_enabled>
+
+          <cmk_is_original>
+            <caption>Оригинал</caption>
+          </cmk_is_original>
+
+          <cmk_date_create>
+            <caption>Дата создания</caption>
+            <validate>
+              <parseDateTime>Неверный формат даты/времени</parseDateTime>
+            </validate>
+          </cmk_date_create>
+
+          <car_name>
+            <caption>Авто</caption>
+          </car_name>
+
+          <cmk_car_id_fk>
+            <caption>Авто</caption>
+          </cmk_car_id_fk>
+
+          <cmk_year>
+            <caption>Год</caption>
+            <hint>Год автомобиля</hint>
+
+            <validate>
+              <parseInt>Значение может быть только целым числом</parseInt>
+            </validate>
+          </cmk_year>
+
+          <cmk_seria>
+            <caption>Серия</caption>
+            <hint>Серия автомобиля</hint>
+          </cmk_seria>
+
+          <cmk_price_eur>
+            <caption>Цена, EUR</caption>
+            <hint>Цена автомобиля</hint>
+
+            <validate>
+              <parseInt>Значение может быть только целым числом</parseInt>
+            </validate>
+          </cmk_price_eur>
+
+          <cmk_image>
+            <caption><![CDATA[Изображение (380x380)]]></caption>
+            <hint>Изображение объявления</hint>
+            <validate>
+              <empty>Поле не можеты быть пустым</empty>
+              <extension>Можно добавлять только jpg, jpeg, png, gif</extension>
+            </validate>
+          </cmk_image>
+
+          <cmk_background>
+            <caption>Фон на странице объявления</caption>
+            <validate>
+              <empty>Поле не можеты быть пустым</empty>
+              <extension>Можно добавлять только jpg, jpeg, png, gif</extension>
+            </validate>
+          </cmk_background>
+
+          <cmk_general_features>
+            <caption>Основные особенности</caption>
+            <hint>Выводятся в списке объявлений. Каждое с новой строки</hint>
+
+            <validate>
+              <empty>Поле обязательно к заполнению</empty>
+            </validate>
+          </cmk_general_features>
+
+          <cmk_small_description>
+            <caption>Сокращенное описание</caption>
+            <hint>Выводится в списке объявлений</hint>
+
+            <validate>
+              <empty>Поле обязательно к заполнению</empty>
+            </validate>
+          </cmk_small_description>
+
+          <count_images>
+            <caption>Доп. фото</caption>
+          </count_images>
+
+          <count_features>
+            <caption>Особенности</caption>
+          </count_features>
+
+          <count_descriptions>
+            <caption>Блоки описания</caption>
+          </count_descriptions>
+
+          <cmk_h1>
+            <caption>H1</caption>
+            <hint>Оглавление объявления</hint>
+          </cmk_h1>
+
+          <cmk_title>
+            <caption>Title</caption>
+            <hint>Title объявления(отображается в окне браузера, важно для SEO. Если не указать, используется название новости)</hint>
+          </cmk_title>
+
+          <cmk_description>
+            <caption>Описание (тег description)</caption>
+            <hint>Описание (тег description)</hint>
+          </cmk_description>
+
+          <cmk_keywords>
+            <caption>Тэг ключевые слова (keywords)</caption>
+            <hint>Тэг ключевые слова (keywords). Важен для SEO</hint>
+          </cmk_keywords>
+        </fields>
+      </car_market_tbl>
+    </datasources>
+  </index> <!-- }}} -->
+
+  <images> <!-- {{{ -->
+    <crumbs>
+      <carMarket>Продажа авто</carMarket>
+      <images>Фото в объявлении «{{caption}}»</images>
+    </crumbs>
+
+    <actions>
+      <add>Добавить фото</add>
+    </actions>
+
+    <datasources>
+      <car_market_photos_tbl>
+        <actions>
+          <add>
+            <caption>Добавить фото</caption>
+          </add>
+          <edit>
+            <caption>Редактировать фото</caption>
+          </edit>
+          <delete>
+            <caption>Удалить фото</caption>
+            <text><![CDATA[Вы действительно хотите удалить фото <b>«{{name}}»</b>?]]></text>
+          </delete>
+        </actions>
+
+        <fields>
+          <cmp_enabled>
+            <caption><![CDATA[Видим&shy;ость]]></caption>
+            <hint>Отобрадать фото на сайте или нет</hint>
+          </cmp_enabled>
+
+          <cmp_name>
+            <caption>Название фото</caption>
+            <hint>Название фото</hint>
+          </cmp_name>
+
+          <cmp_image>
+            <caption>Фото</caption>
+            <hint>Фото</hint>
+            <validate>
+              <empty>Фото обязательно к заполнению</empty>
+            </validate>
+          </cmp_image>
+        </fields>
+      </car_market_photos_tbl>
+    </datasources>
+  </images> <!-- }}} -->
+
+  <features> <!-- {{{ -->
+    <crumbs>
+      <carMarket>Продажа авто</carMarket>
+      <features>Особенности объявления «{{caption}}»</features>
+    </crumbs>
+
+    <actions>
+      <add>Добавить особенность</add>
+    </actions>
+
+    <datasources>
+      <car_market_features_tbl>
+        <actions>
+          <add>
+            <caption>Добавить особенность</caption>
+          </add>
+          <edit>
+            <caption>Редактировать особенность</caption>
+          </edit>
+          <delete>
+            <caption>Удалить особенность</caption>
+            <text><![CDATA[Вы действительно хотите удалить особенность <b>«{{name}}»</b>?]]></text>
+          </delete>
+        </actions>
+
+        <fields>
+          <cmf_enabled>
+            <caption><![CDATA[Видим&shy;ость]]></caption>
+          </cmf_enabled>
+
+          <cmf_icon>
+            <caption>Иконка</caption>
+            <values>
+              <condition>Состояние и комплектация</condition>
+              <body>Кузов</body>
+              <salon>Салон</salon>
+              <running>Ходовая</running>
+              <tires>Шины</tires>
+              <engine>Двигатель</engine>
+            </values>
+          </cmf_icon>
+
+          <cmf_header>
+            <caption>Название особенности</caption>
+            <hint>Название особенности</hint>
+          </cmf_header>
+
+          <cmf_text>
+            <caption>Текст особенности</caption>
+            <hint>Текст особенности</hint>
+          </cmf_text>
+        </fields>
+      </car_market_features_tbl>
+    </datasources>
+  </features> <!-- }}} -->
+
+  <descriptions> <!-- {{{ -->
+    <crumbs>
+      <carMarket>Продажа авто</carMarket>
+      <descriptions>Описания в объявлении «{{caption}}»</descriptions>
+    </crumbs>
+
+    <actions>
+      <add>Добавить описание</add>
+    </actions>
+
+    <datasources>
+      <car_market_descriptions_tbl>
+        <actions>
+          <add>
+            <caption>Добавить описание</caption>
+          </add>
+          <edit>
+            <caption>Редактировать описание</caption>
+          </edit>
+          <delete>
+            <caption>Удалить описание</caption>
+            <text><![CDATA[Вы действительно хотите удалить описание <b>«{{name}}»</b>?]]></text>
+          </delete>
+        </actions>
+
+        <fields>
+          <cmd_enabled>
+            <caption><![CDATA[Видим&shy;ость]]></caption>
+          </cmd_enabled>
+
+          <cmd_header>
+            <caption>Заглавие описания</caption>
+            <hint>Заглавие описания</hint>
+          </cmd_header>
+
+          <cmd_text>
+            <caption>Описание</caption>
+            <hint>Текст описания</hint>
+          </cmd_text>
+
+          <cmd_youtube_id>
+            <caption>ID ролика на YouTube</caption>
+            <hint>ID ролика на YouTube</hint>
+          </cmd_youtube_id>
+
+          <cmd_image>
+            <caption>Фото описания</caption>
+          </cmd_image>
+        </fields>
+      </car_market_descriptions_tbl>
+    </datasources>
+  </descriptions> <!-- }}} -->
+</carMarket>

@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<news>
+  <caption>Новости</caption>
+  <title>Управление новостями</title>
+  <description>Управление новостями на сайте</description>
+
+  <hide>Скрыть</hide>
+  <show>Показать</show>
+
+  <fastActions>
+    <categories>Категории</categories>
+    <settings>Настройки</settings>
+  </fastActions>
+
+  <tabs>
+    <categories>Категории</categories>
+    <settings />
+    <language />
+  </tabs>
+
+  <index>
+    <crumbs>
+      <news>Новости</news>
+    </crumbs>
+
+    <actions>
+      <add>Создать новость</add>
+    </actions>
+
+    <datasources>
+      <news_tbl>
+        <actions>
+          <add>
+            <caption>Создать новость</caption>
+          </add>
+          <edit>
+            <caption>Редактировать новость</caption>
+          </edit>
+          <delete>
+            <caption>Удалить удалить</caption>
+            <text><![CDATA[Вы действительно хотите удалить новость <b>«{{name}}»</b>?]]></text>
+            <error><![CDATA[Новость <b>«{{name}}»</b> удалить нельзя, так как она связана с записями в таблицах]]></error>
+          </delete>
+        </actions>
+
+        <tabs>
+          <main>Основные данные</main>
+          <text>Текст новости</text>
+          <css>Дополнительный CSS</css>
+          <meta_tags>Мета-теги</meta_tags>
+        </tabs>
+
+        <fields>
+          <nw_enabled>
+            <caption><![CDATA[Видим&shy;ость]]></caption>
+            <hint>Новость видима на сайте или нет</hint>
+          </nw_enabled>
+
+          <nw_car_id_fk>
+            <caption>Автомобиль</caption>
+          </nw_car_id_fk>
+
+          <nw_nwc_id_fk>
+            <caption>Категория</caption>
+
+            <validate>
+              <empty>Название новости обязательно к заполнению</empty>
+            </validate>
+          </nw_nwc_id_fk>
+
+          <nw_name>
+            <caption>Название, описание и ключевые слова</caption>
+            <hint>Название, описание и ключевые слова новости</hint>
+
+            <form_caption>Название</form_caption>
+            <form_hint>Название новости (отображается как заглавие)</form_hint>
+
+            <validate>
+              <empty>Название новости обязательно к заполнению</empty>
+            </validate>
+          </nw_name>
+
+          <nw_robots>
+            <caption>Meta robots</caption>
+            <hint>Мета тег ROBOTS</hint>
+            <values>
+              <indexfollow>INDEX, FOLLOW</indexfollow>
+              <noindexfollow>NOINDEX, FOLLOW</noindexfollow>
+              <indexnofollow>INDEX, NOFOLLOW</indexnofollow>
+              <noindexnofollow>NOINDEX, NOFOLLOW</noindexnofollow>
+            </values>
+          </nw_robots>
+
+          <nw_title>
+            <caption>Title</caption>
+            <hint>Title новости(отображается в окне браузера, важно для SEO. Если не указать, используется название новости)</hint>
+          </nw_title>
+
+          <nw_image>
+            <caption>Изображение</caption>
+            <hint>Изображение новости</hint>
+            <validate>
+              <empty>Изображение обязательно к заполнению (220х150)</empty>
+              <extension>Можно добавлять только jpg, jpeg, png, gif</extension>
+              <maxSize>Максимальный размер изображения не более 150Кб</maxSize>
+              <width>Размеры изображение должны быть 220х150 пикселей</width>
+              <height>Размеры изображение должны быть 220х150 пикселей</height>
+            </validate>
+          </nw_image>
+
+          <nw_datetime>
+            <caption>Дата публикации</caption>
+            <hint>Дата публикации новости</hint>
+
+            <validate>
+              <empty>Дата публикации новости обязательна к заполнению</empty>
+              <parseDate>Неверный формат даты. Нужно ДД.ММ.ГГГГ</parseDate>
+            </validate>
+          </nw_datetime>
+
+          <nw_synonym>
+            <caption>Синоним для url</caption>
+            <hint>Имя новости в URL. Латинскими буквами с заменой пробелов на знак «-».</hint>
+
+            <validate>
+              <empty>Синоним новости обязателен к заполнению</empty>
+              <unique>Данный синоним новости уже существует. Он должен быть уникальным</unique>
+              <regexp>Синоним может состоять только с латинских букв, цифр и символа « - »</regexp>
+            </validate>
+          </nw_synonym>
+
+          <nw_canonical>
+            <caption>Канонический адрес новости</caption>
+            <hint>Заполняется автоматически, нужен когда идет смена адреса новости</hint>
+          </nw_canonical>
+
+          <nw_description>
+            <caption>Описание (тег description)</caption>
+            <hint>Описание (тег description)</hint>
+          </nw_description>
+
+          <nw_keywords>
+            <caption>Тэг ключевые слова (keywords)</caption>
+            <hint>Тэг ключевые слова (keywords). Важен для SEO</hint>
+          </nw_keywords>
+
+          <nw_short_description>
+            <caption>Краткое описание</caption>
+            <hint>Краткое описание к новости</hint>
+            <validate>
+              <empty>Описание к новости обязательно к заполнению</empty>
+            </validate>
+          </nw_short_description>
+
+          <nw_additional_text>
+            <caption>Дополнительный текст</caption>
+            <hint>Дополнительный текст слева</hint>
+            <validate>
+              <empty>
+                Дополнительный текст слева обязателен к заполнению
+              </empty>
+            </validate>
+          </nw_additional_text>
+
+          <nw_text>
+            <caption>Текст новости</caption>
+            <hint>Текст новости</hint>
+            <validate>
+              <empty>Текст новости обязателен к заполнению</empty>
+            </validate>
+          </nw_text>
+
+          <nw_nct_id_fk>
+            <caption>Категория новости</caption>
+            <hint>Категория к которой пренадлежит новость</hint>
+          </nw_nct_id_fk>
+
+          <css_additions>
+            <caption>Дополнительный CSS</caption>
+          </css_additions>
+
+          <nw_author>
+            <caption>Автор</caption>
+            <hint>Автор новости</hint>
+          </nw_author>
+
+          <nw_source_link>
+            <caption>Источник</caption>
+            <hint>Url адрес источника</hint>
+          </nw_source_link>
+        </fields>
+      </news_tbl>
+    </datasources>
+  </index>
+
+  <categories>
+    <crumbs>
+      <categories>Категории новостей</categories>
+    </crumbs>
+
+    <actions>
+      <add>Добавить категорию</add>
+    </actions>
+
+    <datasources>
+      <news_categories_tbl>
+        <actions>
+          <add>
+            <caption>Добавить категорию</caption>
+          </add>
+          <edit>
+            <caption>Редактировать категорию</caption>
+          </edit>
+          <delete>
+            <caption>Удалить категорию</caption>
+            <text><![CDATA[Вы действительно хотите удалить категорию <b>«{{name}}»</b>?]]></text>
+            <error><![CDATA[Категорию <b>«{{name}}»</b> удалить нельзя, так как он связан с записями в таблицах]]></error>
+          </delete>
+        </actions>
+
+        <fields>
+          <nwc_enabled>
+            <caption>Отображать</caption>
+            <hint>Отображать Категорию или нет</hint>
+          </nwc_enabled>
+
+          <nwc_name>
+            <caption>Название</caption>
+            <hint>Название категории</hint>
+
+            <validate>
+              <empty>Название категории обязательно к заполнению</empty>
+            </validate>
+          </nwc_name>
+
+          <nwc_synonym>
+            <caption>Синоним категории</caption>
+            <hint>Имя категории в URL. Латинскими буквами с заменой пробелов на знак «-».</hint>
+
+            <validate>
+              <empty>Синоним категории обязателен к заполнению</empty>
+              <unique>Данный синоним категории уже существует. Он должен быть уникальным</unique>
+              <regexp>Синоним может состоять только с латинских букв, цифр и символа « - »</regexp>
+            </validate>
+          </nwc_synonym>
+
+          <nwc_robots>
+            <caption>Meta robots</caption>
+            <hint>Мета тег ROBOTS</hint>
+            <values>
+              <indexfollow>INDEX, FOLLOW</indexfollow>
+              <noindexfollow>NOINDEX, FOLLOW</noindexfollow>
+              <indexnofollow>INDEX, NOFOLLOW</indexnofollow>
+              <noindexnofollow>NOINDEX, NOFOLLOW</noindexnofollow>
+            </values>
+          </nwc_robots>
+
+          <nwc_title>
+            <caption>Title</caption>
+            <hint>Title категории новости</hint>
+          </nwc_title>
+
+          <nwc_description>
+            <caption>Описание (тег description)</caption>
+            <hint>Описание (тег description)</hint>
+          </nwc_description>
+
+          <nwc_keywords>
+            <caption>Тэг ключевые слова (keywords)</caption>
+            <hint>Тэг ключевые слова (keywords). Важен для SEO</hint>
+          </nwc_keywords>
+        </fields>
+      </news_categories_tbl>
+    </datasources>
+  </categories>
+
+  <tags>
+    <caption>Теги к новости</caption>
+    <crumbs>
+      <news>Новости</news>
+      <tags>Теги к «{{caption}}»</tags>
+    </crumbs>
+
+    <actions>
+      <add>Добавить тег</add>
+    </actions>
+
+    <datasources>
+      <news_tags_tbl>
+        <actions>
+          <add>
+            <caption>Добавить тег</caption>
+          </add>
+          <edit>
+            <caption>Редактировать тег</caption>
+          </edit>
+          <delete>
+            <caption>Удалить тег</caption>
+            <text><![CDATA[Вы действительно хотите удалить тег <b>«{{name}}»</b>?]]></text>
+          </delete>
+        </actions>
+
+        <fields>
+          <ntg_nwc_id_fk>
+            <caption>Категория</caption>
+          </ntg_nwc_id_fk>
+
+          <nwc_name>
+            <caption>Наименование</caption>
+          </nwc_name>
+        </fields>
+      </news_tags_tbl>
+    </datasources>
+  </tags>
+
+  <files>
+    <caption>Файлы к новости</caption>
+    <crumbs>
+      <news>Новости</news>
+      <files>Файлы к «{{caption}}»</files>
+    </crumbs>
+
+    <actions>
+      <add>Добавить файл</add>
+    </actions>
+
+    <datasources>
+      <news_files_tbl>
+        <actions>
+          <add>
+            <caption>Добавить файл</caption>
+          </add>
+          <edit>
+            <caption>Редактировать файл</caption>
+          </edit>
+          <delete>
+            <caption>Удалить файл</caption>
+            <text><![CDATA[Вы действительно хотите удалить файл <b>«{{name}}»</b>?]]></text>
+            <error><![CDATA[Файл <b>«{{name}}»</b> удалить нельзя, так как оно связано с записями в таблицах]]></error>
+          </delete>
+        </actions>
+
+        <fields>
+          <nwf_file>
+            <caption>Файл</caption>
+            <hint>Файл</hint>
+            <validate>
+              <empty>Файл обязателен к заполнению</empty>
+            </validate>
+          </nwf_file>
+
+          <nwf_name>
+            <caption>Наименование</caption>
+            <hint>Наименование файла</hint>
+          </nwf_name>
+        </fields>
+      </news_files_tbl>
+    </datasources>
+  </files>
+
+  <tags>
+    <caption>Теги к новости</caption>
+    <crumbs>
+      <news>Новости</news>
+      <tags>Теги к «{{caption}}»</tags>
+    </crumbs>
+
+    <actions>
+      <add>Добавить тег</add>
+    </actions>
+
+    <datasources>
+      <news_tags_tbl>
+        <actions>
+          <add>
+            <caption>Добавить тег</caption>
+          </add>
+          <edit>
+            <caption>Редактировать тег</caption>
+          </edit>
+          <delete>
+            <caption>Удалить тег</caption>
+            <text><![CDATA[Вы действительно хотите удалить тег <b>«{{name}}»</b>?]]></text>
+          </delete>
+        </actions>
+
+        <fields>
+          <nwt_type>
+            <caption>Предопределенный</caption>
+            <values>
+              <null>---</null>
+              <credit>Кредит</credit>
+              <service>Сервис</service>
+              <schedule>Изменения в графике работы</schedule>
+            </values>
+          </nwt_type>
+
+          <nwt_car_id_fk>
+            <caption>Модель авто</caption>
+          </nwt_car_id_fk>
+
+          <car_name>
+            <caption>Наименование</caption>
+          </car_name>
+        </fields>
+      </news_tags_tbl>
+    </datasources>
+  </tags>
+
+  <settings>
+    <caption>Настройки</caption>
+    <configs>
+      <news>
+        <index>
+          <caption>Главная страница новостей</caption>
+
+          <title>
+            <caption>Тег title</caption>
+            <hint>Тег title для страницы</hint>
+          </title>
+
+          <description>
+            <caption>Тег description</caption>
+            <hint>Тег description для страницы</hint>
+          </description>
+
+          <keywords>
+            <caption>Тег keywords</caption>
+            <hint>Тег keywords для страницы</hint>
+          </keywords>
+        </index>
+      </news>
+    </configs>
+  </settings>
+</news>

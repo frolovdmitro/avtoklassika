@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cars>
+  <search_placeholder>Поиск запчастей</search_placeholder>
+  <autoparts_catalogue>Каталог запчастей</autoparts_catalogue>
+  <hot_deals>ГОРЯЧИЕ ПРЕДЛОЖЕНИЯ</hot_deals>
+  <docs>документация</docs>
+  <download_price>скачать прайслист</download_price>
+  <header_text>ЗАПЧАСТИ НА </header_text>
+  <autoparts>АВТОЗАПЧАСТИ</autoparts>
+  <pricelist>Прайслист</pricelist>
+  <print>распечатать</print>
+  <send>переслать</send>
+  <download>скачать</download>
+  <num>№</num>
+  <category>КАТЕГОРИЯ</category>
+  <num_by_catalogue>№ ПО КАТАЛОГУ</num_by_catalogue>
+  <price>ЦЕНА</price>
+  <to_basket><![CDATA[в&nbsp;корзину]]></to_basket>
+  <documentation>Документация</documentation>
+  <tiles>плитка</tiles>
+  <select_size>Выберите размер</select_size>
+  <select_color>Выберите цвет</select_color>
+  <description>Описание</description>
+  <related_products>СОПУТСТВУЮЩИЕ ТОВАРЫ</related_products>
+  <not_in_store>Нет на складе</not_in_store>
+  <sections>Разделы</sections>
+  <show_schema>показать схему</show_schema>
+  <hide_schema>скрыть схему</hide_schema>
+</cars>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cars>
+  <null/>
+  <requests>
+    <send_email_request>false</send_email_request>
+    <email_requests/>
+  <email>avtoclassika.com@gmail.com</email></requests>
+  <validate>
+    <add_request>
+      <name>
+        <empty/>
+      </name>
+
+      <email>
+        <empty/>
+        <parseEmail/>
+      </email>
+
+      <car>
+        <empty/>
+      </car>
+
+      <model>
+        <empty/>
+      </model>
+
+      <year>
+        <parseInt/>
+      </year>
+
+      <detail_name>
+        <empty/>
+      </detail_name>
+
+      <detail_num>
+        <empty/>
+      </detail_num>
+    </add_request>
+  </validate>
+</cars>

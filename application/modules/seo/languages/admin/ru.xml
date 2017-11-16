@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<seo>
+  <caption>SEO</caption>
+  <title>SEO</title>
+  <description>Управление SEO оптимизацией</description>
+
+  <tabs>
+    <categories>Категории страниц</categories>
+  </tabs>
+
+  <index> <!-- {{{ -->
+    <crumbs>
+      <seo>SEO</seo>
+    </crumbs>
+
+    <actions>
+      <add>Добавить ссылку</add>
+      <multiadd>Добавить пакет ссылок</multiadd>
+    </actions>
+
+    <datasources>
+      <seo_links_tbl>
+        <actions>
+          <add>
+            <caption>Добавить ссылку</caption>
+          </add>
+
+          <edit>
+            <caption>Редактировать ссылку</caption>
+          </edit>
+
+          <delete>
+            <caption>Удалить ссылку</caption>
+            <text><![CDATA[Вы действительно хотите удалить ссылку <b>«{{name}}»</b>?]]></text>
+            <error><![CDATA[Ссылку <b>«{{name}}»</b> удалить нельзя, так как она связана с записями в таблицах]]></error>
+            <relative><![CDATA[Внимание! С ссылкой <b>«{{name}}»</b> связаны записи, которые будут удалены]]></relative>
+          </delete>
+
+          <multiadd>
+            <caption>Добавить пакет ссылок</caption>
+            <button>Добавить</button>
+          </multiadd>
+        </actions>
+
+        <fields>
+          <sol_enabled>
+            <caption>Активная</caption>
+          </sol_enabled>
+
+          <sol_link>
+            <caption>URL</caption>
+            <hint>URL ссылки</hint>
+            <validate>
+              <empty>Обязательное поле</empty>
+            </validate>
+          </sol_link>
+
+          <sol_anchor>
+            <caption>Анкор</caption>
+            <hint>Анкор ссылки</hint>
+            <validate>
+              <empty>Обязательное поле</empty>
+            </validate>
+          </sol_anchor>
+
+          <sol_count>
+            <caption>Кол-во ссылок</caption>
+            <hint>Требуемое кол-во ссылок на страницах</hint>
+            <validate>
+              <empty>Обязательное поле</empty>
+              <parseInt>Неверное число</parseInt>
+            </validate>
+          </sol_count>
+
+          <count_links>
+            <caption>Размещено ссылок</caption>
+          </count_links>
+        </fields>
+      </seo_links_tbl>
+    </datasources>
+  </index> <!-- }}} -->
+
+  <links_categories> <!-- {{{ -->
+    <caption>Категории страниц ссылки</caption>
+    <crumbs>
+      <seo>Ссылки</seo>
+      <categories>Категории ссылки «{{caption}}»</categories>
+    </crumbs>
+
+    <actions>
+      <add>Добавить категорию</add>
+    </actions>
+
+    <datasources>
+      <seo_links_categories_page_tbl>
+        <actions>
+          <add>
+            <caption>Добавить ссылку</caption>
+          </add>
+          <delete>
+            <caption>Удалить ссылку</caption>
+            <text>
+              <![CDATA[Вы действительно хотите удалить ссылку <b>«{{name}}»</b>?]]></text>
+            <error>
+              <![CDATA[Ссылку <b>«{{name}}»</b> удалить нельзя, так как он связан с записями в таблицах]]></error>
+          </delete>
+        </actions>
+
+        <fields>
+          <scp_type>
+            <caption>Категория</caption>
+          </scp_type>
+
+          <slcp_scp_id_fk>
+            <caption>Категория</caption>
+          </slcp_scp_id_fk>
+        </fields>
+      </seo_links_categories_page_tbl>
+    </datasources>
+  </links_categories> <!-- }}} -->
+
+  <categories> <!-- {{{ -->
+    <crumbs>
+      <categories>Категории страниц</categories>
+    </crumbs>
+
+    <actions>
+      <add>Добавить категорию</add>
+    </actions>
+
+    <datasources>
+      <seo_categories_page_tbl>
+        <actions>
+          <add>
+            <caption>Добавить категорию</caption>
+          </add>
+
+          <edit>
+            <caption>Редактировать категорию</caption>
+          </edit>
+
+          <delete>
+            <caption>Удалить категорию</caption>
+            <text><![CDATA[Вы действительно хотите удалить категорию <b>«{{name}}»</b>?]]></text>
+          </delete>
+        </actions>
+
+        <fields>
+          <scp_enabled>
+            <caption>Активная</caption>
+          </scp_enabled>
+
+          <scp_type>
+            <caption>Тип страницы</caption>
+            <values>
+              <news>Новости</news>
+              <pages>Статические страницы</pages>
+              <products>Товары</products>
+              <categories_catalogue>Категории каталога</categories_catalogue>
+              <adverts>Объявления</adverts>
+            </values>
+          </scp_type>
+
+          <scp_max_count_links>
+            <caption>Кол-во ссылок</caption>
+            <hint>Максимальное кол-во ссылок в блоке</hint>
+            <validate>
+              <empty>Обязательное поле</empty>
+              <parseInt>Неверное число</parseInt>
+            </validate>
+          </scp_max_count_links>
+
+          <count_pages>
+            <caption>Страниц на сайте</caption>
+          </count_pages>
+
+          <count_links>
+            <caption>Размещено ссылок</caption>
+          </count_links>
+        </fields>
+      </seo_categories_page_tbl>
+    </datasources>
+  </categories> <!-- }}} -->
+
+  <pages_by_categories> <!-- {{{ -->
+    <crumbs>
+      <categories>Категории страниц</categories>
+      <pages>Страницы категории «{{caption}}»</pages>
+    </crumbs>
+
+    <datasources>
+      <pages_urls_vw>
+        <fields>
+          <url>
+            <caption>Страница</caption>
+          </url>
+        </fields>
+      </pages_urls_vw>
+    </datasources>
+  </pages_by_categories> <!-- }}} -->
+
+  <pages_by_link> <!-- {{{ -->
+    <crumbs>
+      <links>Ссылки</links>
+      <pages2>Страницы ссылки «{{caption}}»</pages2>
+    </crumbs>
+  </pages_by_link> <!-- }}} -->
+
+  <forms> <!-- {{{ -->
+    <caption>Формы</caption>
+    <multiadd>
+      <fields>
+        <text>
+          <caption>Набор ссылок</caption>
+          <hint>Набор ссылок, каждая с новой строки.{cat},{cat};{link};{anchor};{к-во ссылок}</hint>
+          <validate>
+            <empty>Обязательное поле</empty>
+            </validate>
+        </text>
+      </fields>
+    </multiadd>
+  </forms> <!-- }}} -->
+</seo>

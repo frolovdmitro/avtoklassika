@@ -1,0 +1,2005 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cars>
+  <caption>Автомобили</caption>
+  <title>Управление автомобилями</title>
+  <description>Управление автомобилями</description>
+
+  <hide>Скрыть</hide>
+  <show>Показать</show>
+
+  <fastActions>
+    <car_types>Типы авто</car_types>
+    <requests>Запросы на запчасти</requests>
+    <autoparts_in_stock>Запчасти в наличии</autoparts_in_stock>
+    <all_autoparts>Все запчасти</all_autoparts>
+    <new_autoparts_mailer>Запчасти для рассылки</new_autoparts_mailer>
+    <sale_autoparts_mailer>Акционная рассылка</sale_autoparts_mailer>
+    <requests_cars>Авто для запросов на запчасти</requests_cars>
+    <settings>Настройки</settings>
+  </fastActions>
+
+  <tabs>
+    <car_types>Типы авто</car_types>
+    <requests>Запросы на запчасти</requests>
+    <autoparts_in_stock>Запчасти в наличии</autoparts_in_stock>
+    <all_autoparts>Все запчасти</all_autoparts>
+    <settings />
+    <language />
+  </tabs>
+
+  <index> <!-- {{{ -->
+    <crumbs>
+      <cars>Автомобили</cars>
+    </crumbs>
+
+    <actions>
+      <add>Добавить автомобиль</add>
+      <autobazarExcel>Автобазар Excel</autobazarExcel>
+      <autobazarExcel_confirm_text>Вы действительно хотите экспортировать запчасти для Автобазара?</autobazarExcel_confirm_text>
+    </actions>
+
+    <datasources>
+      <cars_tbl>
+        <actions>
+          <add>
+            <caption>Добавить автомобиль</caption>
+          </add>
+          <edit>
+            <caption>Редактировать автомобиль</caption>
+          </edit>
+          <delete>
+            <caption>Удалить автомобиль</caption>
+            <text><![CDATA[Вы действительно хотите удалить автомобиль <b>«{{name}}»</b>?]]></text>
+            <error><![CDATA[Автомобиль <b>«{{name}}»</b> удалить нельзя, так как он связан с записями в таблицах]]></error>
+          </delete>
+          <autobazarExcel>
+            <caption>Генерация Автобазар Excel</caption>
+            <button>Генерировать</button>
+          </autobazarExcel>
+        </actions>
+
+        <tabs>
+          <main>Основные данные</main>
+          <meta_tags>Мета-теги</meta_tags>
+          <docs>Документация</docs>
+          <price>Прайс</price>
+          <seo>SEO текст</seo>
+        </tabs>
+
+        <footer>
+          <fields>
+            <sum_orders>
+              <caption>Общая сумма оплаченных заказов</caption>
+            </sum_orders>
+
+            <count_orders>
+              <caption>Общее количество оплаченных заказов</caption>
+            </count_orders>
+
+            <count_details>
+              <caption>Количество деталей в наличии</caption>
+            </count_details>
+
+            <count_all_details>
+              <caption>Общее количество деталей</caption>
+            </count_all_details>
+          </fields>
+        </footer>
+
+        <fields>
+          <car_enabled>
+            <caption>Отображать</caption>
+            <hint>Отображать авто на сайте или нет</hint>
+          </car_enabled>
+
+          <car_name>
+            <caption>Авто</caption>
+            <hint>Название автомобиля</hint>
+            <validate>
+              <empty>Название авто обязательно к заполнению</empty>
+            </validate>
+          </car_name>
+
+          <car_crt_id_fk>
+            <caption>Тип авто</caption>
+            <validate>
+              <empty>Поле обязательно к заполнению</empty>
+            </validate>
+          </car_crt_id_fk>
+
+          <car_synonym>
+            <caption>Синоним</caption>
+            <hint>Синоним авто. Латинскими буквами, цифрами, вместо пробелов дефис.</hint>
+
+            <validate>
+              <empty>Синоним авто обязателен к заполнению</empty>
+              <unique>Данный синоним уже существует. Он должен быть уникальным</unique>
+              <regexp>Синоним может состоять только с латинских букв и цифр</regexp>
+            </validate>
+          </car_synonym>
+
+          <car_image>
+            <caption>Фото</caption>
+            <hint>Фото автомобиля</hint>
+
+            <validate>
+              <empty>Изображение авто обязательно к заполнению(109x78)</empty>
+              <extension>Можно добавлять только jpg, jpeg, png, gif</extension>
+              <maxSize>Максимальный размер изображения не более 200Кб</maxSize>
+              <width>Размеры изображения должны быть 109x78 пикселей</width>
+              <heignt>Размеры изображения должны быть 109x78 пикселей</heignt>
+            </validate>
+          </car_image>
+
+          <car_image_active>
+            <caption>Фото в активном состоянии</caption>
+
+            <validate>
+              <empty>Изображение авто обязательно к заполнению(109x78)</empty>
+              <extension>Можно добавлять только jpg, jpeg, png, gif</extension>
+              <maxSize>Максимальный размер изображения не более 200Кб</maxSize>
+              <width>Размеры изображения должны быть 109x78 пикселей</width>
+              <heignt>Размеры изображения должны быть 109x78 пикселей</heignt>
+            </validate>
+          </car_image_active>
+
+          <car_robots>
+            <caption>Meta robots</caption>
+            <hint>Мета тег ROBOTS</hint>
+            <values>
+              <indexfollow>INDEX, FOLLOW</indexfollow>
+              <noindexfollow>NOINDEX, FOLLOW</noindexfollow>
+              <indexnofollow>INDEX, NOFOLLOW</indexnofollow>
+              <noindexnofollow>NOINDEX, NOFOLLOW</noindexnofollow>
+            </values>
+          </car_robots>
+
+          <car_title>
+            <caption>Title</caption>
+            <hint>Title авто(отображается в окне браузера, важно для SEO. Если не указать, используется Название авто)</hint>
+          </car_title>
+
+          <car_description>
+            <caption>Тэг описания (description)</caption>
+            <hint>Тэг описания (description). Важен для SEO</hint>
+          </car_description>
+
+          <car_keywords>
+            <caption>Тэг ключевые слова (keywords)</caption>
+            <hint>Тэг ключевые слова (keywords). Важен для SEO</hint>
+          </car_keywords>
+
+          <car_seo_header>
+            <caption>Заглавие SEO текста</caption>
+            <hint>Заглавие SEO текста на странице авто</hint>
+          </car_seo_header>
+
+          <car_seo_image>
+            <caption>Фото для SEO</caption>
+
+            <validate>
+              <extension>Можно добавлять только jpg, jpeg, png, gif</extension>
+              <maxSize>Максимальный размер изображения не более 400Кб</maxSize>
+              <width>Размеры изображения должны быть 380x235 пикселей</width>
+              <heignt>Размеры изображения должны быть 380x235 пикселей</heignt>
+            </validate>
+          </car_seo_image>
+
+          <car_seo_text>
+            <caption>SEO текст</caption>
+            <hint>SEO текст на странице авто</hint>
+          </car_seo_text>
+
+          <car_info>
+            <caption>Информация</caption>
+            <hint>Дополнительная инфо о авто</hint>
+          </car_info>
+
+          <car_docs_robots>
+            <caption>Meta robots</caption>
+            <hint>Мета тег ROBOTS</hint>
+            <values>
+              <indexfollow>INDEX, FOLLOW</indexfollow>
+              <noindexfollow>NOINDEX, FOLLOW</noindexfollow>
+              <indexnofollow>INDEX, NOFOLLOW</indexnofollow>
+              <noindexnofollow>NOINDEX, NOFOLLOW</noindexnofollow>
+            </values>
+          </car_docs_robots>
+
+          <car_docs_title>
+            <caption>Title</caption>
+            <hint>Title авто(отображается в окне браузера, важно для SEO. Если не указать, используется Название авто)</hint>
+          </car_docs_title>
+
+          <car_docs_description>
+            <caption>Тэг описания (description)</caption>
+            <hint>Тэг описания (description). Важен для SEO</hint>
+          </car_docs_description>
+
+          <car_docs_keywords>
+            <caption>Тэг ключевые слова (keywords)</caption>
+            <hint>Тэг ключевые слова (keywords). Важен для SEO</hint>
+          </car_docs_keywords>
+
+          <car_price_robots>
+            <caption>Meta robots</caption>
+            <hint>Мета тег ROBOTS</hint>
+            <values>
+              <indexfollow>INDEX, FOLLOW</indexfollow>
+              <noindexfollow>NOINDEX, FOLLOW</noindexfollow>
+              <indexnofollow>INDEX, NOFOLLOW</indexnofollow>
+              <noindexnofollow>NOINDEX, NOFOLLOW</noindexnofollow>
+            </values>
+          </car_price_robots>
+
+          <car_price_title>
+            <caption>Title</caption>
+            <hint>Title авто(отображается в окне браузера, важно для SEO. Если не указать, используется Название авто)</hint>
+          </car_price_title>
+
+          <car_price_description>
+            <caption>Тэг описания (description)</caption>
+            <hint>Тэг описания (description). Важен для SEO</hint>
+          </car_price_description>
+
+          <car_price_keywords>
+            <caption>Тэг ключевые слова (keywords)</caption>
+            <hint>Тэг ключевые слова (keywords). Важен для SEO</hint>
+          </car_price_keywords>
+
+          <count_details>
+            <caption>Запчасти</caption>
+            <link>Запчасти в данном автомобиле</link>
+          </count_details>
+
+          <count_docs>
+            <caption>Документы</caption>
+          </count_docs>
+
+          <sum_orders>
+            <caption>Заказы</caption>
+            <link>Сумма оплаченных заказов с деталями в данном авто</link>
+          </sum_orders>
+
+          <count_orders>
+            <caption>Кол-во оплаченных заказов</caption>
+          </count_orders>
+        </fields>
+      </cars_tbl>
+    </datasources>
+  </index> <!-- }}} -->
+
+  <autoparts> <!-- {{{ -->
+    <crumbs>
+      <cars>Автомобили</cars>
+      <car>{{caption}}</car>
+      <autopart>{{caption}}</autopart>
+    </crumbs>
+
+    <actions>
+      <add>Добавить группу автозапчастей</add>
+    </actions>
+
+    <datasources>
+      <autoparts_tbl>
+        <actions>
+          <add>
+            <caption>Добавить группу автозапчастей</caption>
+          </add>
+          <edit>
+            <caption>Редактировать группу автозапчастей</caption>
+          </edit>
+          <delete>
+            <caption>Удалить группу автозапчастей</caption>
+            <text><![CDATA[Вы действительно хотите удалить группу автозапчастей <b>«{{name}}»</b>?]]></text>
+            <error><![CDATA[Группу автозапчастей <b>«{{name}}»</b> удалить нельзя, так как она связана с записями в таблицах]]></error>
+          </delete>
+        </actions>
+
+        <tabs>
+          <main>Основные данные</main>
+          <seo>SEO текст</seo>
+        </tabs>
+
+        <footer>
+          <fields>
+            <sum_orders>
+              <caption>Общая сумма оплаченных заказов</caption>
+            </sum_orders>
+
+            <count_orders>
+              <caption>Общее количество оплаченных заказов</caption>
+            </count_orders>
+
+            <count_details>
+              <caption>Количество деталей в наличии</caption>
+            </count_details>
+
+            <count_all_details>
+              <caption>Общее количество деталей</caption>
+            </count_all_details>
+          </fields>
+        </footer>
+
+        <fields>
+          <apt_enabled>
+            <caption>Включено</caption>
+            <hint>Отображать группу автозапчастей или нет</hint>
+          </apt_enabled>
+
+          <apt_is_last>
+            <caption>Последняя группа</caption>
+            <hint>Последняя группа автозапчастей</hint>
+          </apt_is_last>
+
+          <apt_name>
+            <caption>Название</caption>
+            <hint>Название группы автозапчастей</hint>
+            <validate>
+              <empty>Название группы обязательно к заполнению</empty>
+            </validate>
+          </apt_name>
+
+          <name_link>
+            <caption>Название</caption>
+            <hint>Название группы автозапчастей</hint>
+          </name_link>
+
+          <apt_image>
+            <caption>Чертеж</caption>
+            <hint>Чертеж группы автозапчастей</hint>
+
+            <validate>
+              <extension>Можно добавлять только jpg, jpeg, png, gif</extension>
+              <maxSize>Максимальный размер изображения не более 400Кб</maxSize>
+            </validate>
+          </apt_image>
+
+          <apt_robots>
+            <caption>Meta robots</caption>
+            <hint>Мета тег ROBOTS</hint>
+            <values>
+              <indexfollow>INDEX, FOLLOW</indexfollow>
+              <noindexfollow>NOINDEX, FOLLOW</noindexfollow>
+              <indexnofollow>INDEX, NOFOLLOW</indexnofollow>
+              <noindexnofollow>NOINDEX, NOFOLLOW</noindexnofollow>
+            </values>
+          </apt_robots>
+
+          <apt_title>
+            <caption>Title</caption>
+            <hint>Title группы автозапчастей(отображается в окне браузера, важно для SEO. Если не указать, используется Название авто)</hint>
+          </apt_title>
+
+          <apt_description>
+            <caption>Тэг описания (description)</caption>
+            <hint>Тэг описания (description). Важен для SEO</hint>
+          </apt_description>
+
+          <apt_keywords>
+            <caption>Тэг ключевые слова (keywords)</caption>
+            <hint>Тэг ключевые слова (keywords). Важен для SEO</hint>
+          </apt_keywords>
+
+          <apt_info>
+            <caption>Информация</caption>
+            <hint>Дополнительная инфо о группе</hint>
+          </apt_info>
+
+          <apt_seo_header>
+            <caption>Заглавие SEO текста</caption>
+            <hint>Заглавие SEO текста на странице запчасти</hint>
+          </apt_seo_header>
+
+          <apt_seo_text>
+            <caption>SEO текст</caption>
+            <hint>SEO текст на странице запчасти</hint>
+          </apt_seo_text>
+
+          <count_details>
+            <caption>Запчасти</caption>
+            <link>Запчасти в данной группе автозапчастей</link>
+          </count_details>
+
+          <sum_orders>
+            <caption>Заказы</caption>
+            <link>Сумма оплаченных заказов с деталями в данном группе</link>
+          </sum_orders>
+
+          <count_orders>
+            <caption>Кол-во оплаченных заказов</caption>
+          </count_orders>
+        </fields>
+      </autoparts_tbl>
+    </datasources>
+  </autoparts> <!-- }}} -->
+
+  <details> <!-- {{{ -->
+    <crumbs>
+      <cars>Автомобили</cars>
+      <car>{{caption}}</car>
+      <autopart>{{caption}}</autopart>
+    </crumbs>
+
+    <actions>
+      <add>Добавить автозапчасть</add>
+    </actions>
+
+    <datasources>
+      <details_autoparts_tbl>
+        <actions>
+          <add>
+            <caption>Добавить автозапчасть</caption>
+          </add>
+          <edit>
+            <caption>Редактировать автозапчасть</caption>
+          </edit>
+          <delete>
+            <caption>Удалить автозапчасть</caption>
+            <text><![CDATA[Вы действительно хотите удалить автозапчасть <b>«{{name}}»</b>?]]></text>
+            <error><![CDATA[Автозапчасть <b>«{{name}}»</b> удалить нельзя, так как он связан с записями в таблицах]]></error>
+          </delete>
+        </actions>
+
+        <fields>
+          <dpt_enabled>
+            <caption>Видим.</caption>
+            <form_caption>Отображать</form_caption>
+            <hint>Отображать запчасть на сайте или нет</hint>
+          </dpt_enabled>
+
+          <dpt_often_buy>
+            <caption>Часто покупают</caption>
+          </dpt_often_buy>
+
+          <dpt_sale>
+            <caption>Акция</caption>
+          </dpt_sale>
+
+          <dpt_image>
+            <caption>Фото</caption>
+            <hint>Фото запчасти</hint>
+
+            <validate>
+              <extension>Можно добавлять только jpg, jpeg, png, gif</extension>
+              <maxSize>Максимальный размер изображения не более 300Кб</maxSize>
+              <width>Размеры изображения должны быть 800x600 пикселей</width>
+              <heignt>Размеры изображения должны быть 800x600 пикселей</heignt>
+            </validate>
+          </dpt_image>
+
+          <dpt_image_txt>
+            <caption>Фото</caption>
+            <hint>Фото запчасти</hint>
+          </dpt_image_txt>
+
+          <dpt_name>
+            <caption>Название</caption>
+            <hint>Название запчасти</hint>
+            <validate>
+              <empty>Название запчасти обязательно к заполнению</empty>
+            </validate>
+          </dpt_name>
+
+          <dpt_num_detail>
+            <caption>Номер запчасти</caption>
+            <hint>Номер запчасти</hint>
+            <validate>
+              <empty>Поле обязательно к заполнению</empty>
+            </validate>
+          </dpt_num_detail>
+
+          <dpt_status>
+            <caption>Статус</caption>
+            <values>
+              <secondhand>Б/У</secondhand>
+              <replica>Новодел</replica>
+              <new>Новое</new>
+              <restaurare>Реставрация</restaurare>
+            </values>
+            <validate>
+              <empty>Статус запчасти обязателен к заполнению</empty>
+            </validate>
+          </dpt_status>
+
+          <dpt_cost>
+            <caption>Стоимость</caption>
+            <hint>Стоимость автозапчасти, USD</hint>
+            <validate>
+              <parseFloat>Неверное число</parseFloat>
+            </validate>
+          </dpt_cost>
+
+          <dpt_discount>
+            <caption>Скидка</caption>
+            <hint>Скидка на автозапчасть, %</hint>
+            <validate>
+              <parseInt>Неверное число</parseInt>
+            </validate>
+          </dpt_discount>
+
+          <dpt_presence>
+            <caption><![CDATA[Нали&shy;чие]]></caption>
+            <hint>Наличие автозапчасти, количество</hint>
+            <validate>
+              <parseFloat>Неверное число</parseFloat>
+            </validate>
+          </dpt_presence>
+
+          <dpt_weight>
+            <caption>Вес</caption>
+            <hint>Вес запчасти, кг.</hint>
+            <validate>
+              <parseFloat>Неверное число</parseFloat>
+            </validate>
+          </dpt_weight>
+
+          <dpt_num_order>
+            <caption>Номер на схеме</caption>
+            <hint>Номер запчасти на схеме</hint>
+          </dpt_num_order>
+
+          <dpt_title>
+            <caption>Title</caption>
+            <hint>Title запчасти(отображается в окне браузера, важно для SEO. Если не указать, используется Название авто)</hint>
+          </dpt_title>
+
+          <dpt_description>
+            <caption>Тэг описания (description)</caption>
+            <hint>Тэг описания (description). Важен для SEO</hint>
+          </dpt_description>
+
+          <dpt_keywords>
+            <caption>Тэг ключевые слова (keywords)</caption>
+            <hint>Тэг ключевые слова (keywords). Важен для SEO</hint>
+          </dpt_keywords>
+
+          <car_info>
+            <caption>Информация</caption>
+            <hint>Дополнительная инфо о авто</hint>
+          </car_info>
+
+          <sum_orders>
+            <caption>Заказы</caption>
+            <link>Сумма на которую купленно деталь</link>
+          </sum_orders>
+
+          <count_orders>
+            <caption>Кол-во купленных деталей</caption>
+          </count_orders>
+        </fields>
+      </details_autoparts_tbl>
+    </datasources>
+  </details> <!-- }}} -->
+
+  <orders_in_car> <!-- {{{ -->
+    <crumbs>
+      <cars>Автомобили</cars>
+      <order>Купленные запчасти авто {{caption}}</order>
+    </crumbs>
+
+    <datasources>
+      <orders_details_tbl>
+        <fields>
+          <dpt_image>
+            <caption>Фото</caption>
+            <hint>Фото запчасти</hint>
+          </dpt_image>
+
+          <dpt_name>
+            <caption>Название</caption>
+            <hint>Название запчасти</hint>
+          </dpt_name>
+        </fields>
+      </orders_details_tbl>
+    </datasources>
+  </orders_in_car> <!-- }}} -->
+
+  <details_in_car> <!-- {{{ -->
+    <crumbs>
+      <cars>Автомобили</cars>
+      <details>Запчасти авто {{caption}}</details>
+    </crumbs>
+  </details_in_car> <!-- }}} -->
+
+  <autoparts_in_stock> <!-- {{{ -->
+    <crumbs>
+      <cars>Автомобили</cars>
+      <autoparts_in_stock>Запчасти в наличии</autoparts_in_stock>
+    </crumbs>
+  </autoparts_in_stock> <!-- }}} -->
+
+  <all_autoparts> <!-- {{{ -->
+    <crumbs>
+      <cars>Автомобили</cars>
+      <all_autoparts>Все запчасти</all_autoparts>
+    </crumbs>
+
+    <actions>
+      <add>Добавить автозапчасть</add>
+    </actions>
+
+    <datasources>
+      <details_autoparts_tbl>
+        <actions>
+          <add>
+            <caption>Добавить автозапчасть</caption>
+          </add>
+          <edit>
+            <caption>Редактировать автозапчасть</caption>
+          </edit>
+          <delete>
+            <caption>Удалить автозапчасть</caption>
+            <text><![CDATA[Вы действительно хотите удалить автозапчасть <b>«{{name}}»</b>?]]></text>
+            <error><![CDATA[Автозапчасть <b>«{{name}}»</b> удалить нельзя, так как он связан с записями в таблицах]]></error>
+          </delete>
+        </actions>
+
+        <tabs>
+          <main>Основные данные</main>
+          <text>Текст</text>
+        </tabs>
+
+        <footer>
+          <fields>
+            <sum_orders>
+              <caption>Общая сумма оплаченных заказов</caption>
+            </sum_orders>
+
+            <count_orders>
+              <caption>Общее количество оплаченных заказов</caption>
+            </count_orders>
+          </fields>
+        </footer>
+
+        <fields>
+          <dpt_enabled>
+            <caption>Вид.</caption>
+            <form_caption>Отображать</form_caption>
+            <hint>Отображать запчасть на сайте или нет</hint>
+          </dpt_enabled>
+
+          <dpt_often_buy>
+            <caption>Часто покупают</caption>
+          </dpt_often_buy>
+
+          <dpt_sale>
+            <caption>Акция</caption>
+          </dpt_sale>
+
+          <car_name>
+            <caption>Авто</caption>
+          </car_name>
+
+          <apt_name>
+            <caption>Группа запчастей</caption>
+          </apt_name>
+
+          <dpt_image>
+            <caption>Фото</caption>
+            <hint>Фото запчасти</hint>
+
+            <validate>
+              <extension>Можно добавлять только jpg, jpeg, png, gif</extension>
+              <maxSize>Максимальный размер изображения не более 300Кб</maxSize>
+              <width>Размеры изображения должны быть 800x600 пикселей</width>
+              <heignt>Размеры изображения должны быть 800x600 пикселей</heignt>
+            </validate>
+          </dpt_image>
+
+          <dpt_image_txt>
+            <caption>Фото</caption>
+            <hint>Фото запчасти</hint>
+          </dpt_image_txt>
+
+          <dpt_name>
+            <caption>Название</caption>
+            <hint>Название запчасти</hint>
+            <validate>
+              <empty>Название запчасти обязательно к заполнению</empty>
+            </validate>
+          </dpt_name>
+
+          <dpt_num_detail>
+            <caption>Номер запчасти</caption>
+            <hint>Номер запчасти</hint>
+            <validate>
+              <empty>Поле обязательно к заполнению</empty>
+            </validate>
+          </dpt_num_detail>
+
+          <dpt_status>
+            <caption>Статус</caption>
+            <values>
+              <secondhand>Б/У</secondhand>
+              <replica>Новодел</replica>
+              <new>Новое</new>
+              <restaurare>Реставрация</restaurare>
+            </values>
+            <validate>
+              <empty>Статус запчасти обязателен к заполнению</empty>
+            </validate>
+          </dpt_status>
+
+          <dpt_cost>
+            <caption><![CDATA[Стоим&shy;ость]]></caption>
+            <hint>Стоимость автозапчасти, USD</hint>
+            <validate>
+              <parseFloat>Неверное число</parseFloat>
+            </validate>
+          </dpt_cost>
+
+          <dpt_discount>
+            <caption>Скидка</caption>
+            <hint>Скидка на автозапчасть, %</hint>
+            <validate>
+              <parseInt>Неверное число</parseInt>
+            </validate>
+          </dpt_discount>
+
+          <dpt_presence>
+            <caption><![CDATA[Нали&shy;чие]]></caption>
+            <hint>Наличие автозапчасти, количество</hint>
+            <validate>
+              <parseFloat>Неверное число</parseFloat>
+            </validate>
+          </dpt_presence>
+
+          <dpt_weight>
+            <caption>Вес</caption>
+            <hint>Вес запчасти, кг.</hint>
+            <validate>
+              <parseFloat>Неверное число</parseFloat>
+            </validate>
+          </dpt_weight>
+
+          <dpt_num_order>
+            <caption>Номер на схеме</caption>
+            <hint>Номер запчасти на схеме</hint>
+          </dpt_num_order>
+
+          <dpt_robots>
+            <caption>Meta robots</caption>
+            <hint>Мета тег ROBOTS</hint>
+            <values>
+              <indexfollow>INDEX, FOLLOW</indexfollow>
+              <noindexfollow>NOINDEX, FOLLOW</noindexfollow>
+              <indexnofollow>INDEX, NOFOLLOW</indexnofollow>
+              <noindexnofollow>NOINDEX, NOFOLLOW</noindexnofollow>
+            </values>
+          </dpt_robots>
+
+          <dpt_title>
+            <caption>Title</caption>
+            <hint>Title запчасти(отображается в окне браузера, важно для SEO. Если не указать, используется Название авто)</hint>
+          </dpt_title>
+
+          <dpt_description>
+            <caption>Тэг описания (description)</caption>
+            <hint>Тэг описания (description). Важен для SEO</hint>
+          </dpt_description>
+
+          <dpt_keywords>
+            <caption>Тэг ключевые слова (keywords)</caption>
+            <hint>Тэг ключевые слова (keywords). Важен для SEO</hint>
+          </dpt_keywords>
+
+          <sum_orders>
+            <caption>Заказы</caption>
+            <link>Сумма на которую купленно деталь</link>
+          </sum_orders>
+
+          <count_orders>
+            <caption>Кол-во купленных деталей</caption>
+          </count_orders>
+
+          <dpt_info>
+            <caption>Доп. информация</caption>
+          </dpt_info>
+        </fields>
+      </details_autoparts_tbl>
+    </datasources>
+  </all_autoparts> <!-- }}} -->
+
+  <orders> <!-- {{{ -->
+    <crumbs>
+      <cars>Автомобили</cars>
+      <car>{{caption}}</car>
+      <autopart>{{caption}}</autopart>
+      <orders>Заказы детали «{{caption}}»</orders>
+    </crumbs>
+
+    <datasources>
+      <orders_details_tbl>
+        <footer>
+          <fields>
+            <odd_sum>
+              <caption>Общая сумма заказаных деталей</caption>
+            </odd_sum>
+          </fields>
+        </footer>
+
+        <fields>
+          <ord_num>
+            <caption>Номер заказа</caption>
+          </ord_num>
+
+          <ord_datetime>
+            <caption>Дата создания</caption>
+          </ord_datetime>
+
+          <ord_status>
+            <caption>Статус</caption>
+
+            <values>
+              <proccess>В работе</proccess>
+              <wait_payment>Ожидание оплаты</wait_payment>
+              <paid>Оплачено</paid>
+              <verify_payment>Проверка оплаты</verify_payment>
+              <cancel>Отменен</cancel>
+              <success>Выполнен</success>
+            </values>
+          </ord_status>
+
+          <ord_method_payment>
+            <caption>Метод оплаты</caption>
+
+            <values>
+              <cash>Наличными в офисе</cash>
+              <visa>Visa/Mastercard</visa>
+              <paypal>PayPal</paypal>
+              <western>Western Union</western>
+              <privar24>Приват 24</privar24>
+              <cod>Наложенный платеж</cod>
+              <contact>Платежная система Contact</contact>
+              <portmone>Portmone</portmone>
+              <courier>Курьером</courier>
+            </values>
+          </ord_method_payment>
+
+          <ord_method_delivery>
+            <caption>Метод доставки</caption>
+
+            <values>
+              <pickup>Самовывоз</pickup>
+              <post>Почта</post>
+              <newpost>Новая почта</newpost>
+              <courier>Курьер</courier>
+              <ups>UPS</ups>
+              <conductor>Кондуктором</conductor>
+            </values>
+          </ord_method_delivery>
+
+          <ord_discount>
+            <caption>Скидка</caption>
+            <hint>Процент скидки</hint>
+
+            <validate>
+              <parseInt>Скидка может быть только целым числом</parseInt>
+            </validate>
+          </ord_discount>
+
+          <ord_note>
+            <caption>Дополнительная информация</caption>
+            <hint>Дополнительная информация о заказе</hint>
+          </ord_note>
+
+          <ord_user_name>
+            <caption>Пользователь</caption>
+          </ord_user_name>
+
+          <odd_cost>
+            <caption><![CDATA[Стоим&shy;ость]]></caption>
+            <hint>Стоимость автозапчасти, USD</hint>
+          </odd_cost>
+
+          <odd_count>
+            <caption>Кол-во</caption>
+          </odd_count>
+
+          <odd_sum>
+            <caption>Сумма</caption>
+          </odd_sum>
+        </fields>
+      </orders_details_tbl>
+    </datasources>
+  </orders> <!-- }}} -->
+
+  <photos> <!-- {{{ -->
+    <caption>Доп. фото детали</caption>
+    <crumbs>
+      <cars>Автомобили</cars>
+      <car>{{caption}}</car>
+      <autopart>{{caption}}</autopart>
+      <photos>Фото к детали «{{caption}}»</photos>
+    </crumbs>
+
+    <actions>
+      <add>Добавить фото</add>
+    </actions>
+
+    <datasources>
+      <details_autoparts_photos_tbl>
+        <actions>
+          <add>
+            <caption>Добавить фото</caption>
+          </add>
+          <edit>
+            <caption>Редактировать фото</caption>
+          </edit>
+          <delete>
+            <caption>Удалить фото</caption>
+            <text><![CDATA[Вы действительно хотите удалить фото <b>«{{name}}»</b>?]]></text>
+            <error><![CDATA[Фото <b>«{{name}}»</b> удалить нельзя, так как оно связано с записями в таблицах]]></error>
+          </delete>
+        </actions>
+
+        <fields>
+          <dap_enabled>
+            <caption>Видимость</caption>
+            <hint>Отображать фото или нет</hint>
+          </dap_enabled>
+
+          <dap_name>
+            <caption>Наименование</caption>
+            <hint>Наименование фото</hint>
+            <validate>
+              <empty>Наименование фото обязательно к заполнению</empty>
+            </validate>
+          </dap_name>
+
+          <dap_image>
+            <caption>Фото</caption>
+            <hint>Фото</hint>
+            <validate>
+              <empty>Фото обязательно к заполнению</empty>
+              <extension>Разрешено загружать только изображения в форматах JPG и PNG</extension>
+              <maxSize>Максимальный размер загружаемого изображения не более 800кБ</maxSize>
+              <width>Размеры изображения должны быть 800x600 пикселей</width>
+              <heignt>Размеры изображения должны быть 800x600 пикселей</heignt>
+            </validate>
+          </dap_image>
+        </fields>
+      </details_autoparts_photos_tbl>
+    </datasources>
+  </photos> <!-- }}} -->
+
+  <addition_autopars> <!-- {{{ -->
+    <caption>Доп. размежение в группах</caption>
+    <crumbs>
+      <cars>Автомобили</cars>
+      <car>{{caption}}</car>
+      <autopart>{{caption}}</autopart>
+      <addition_autopars>Доп. группы детали «{{caption}}»</addition_autopars>
+    </crumbs>
+
+    <actions>
+      <add>Добавить</add>
+    </actions>
+
+    <datasources>
+      <details_addition_autoparts_tbl>
+        <actions>
+          <add>
+            <caption>Добавить</caption>
+          </add>
+          <edit>
+            <caption>Редактировать</caption>
+          </edit>
+          <delete>
+            <caption>Удалить</caption>
+            <text><![CDATA[Вы действительно хотите удалить <b>«{{name}}»</b>?]]></text>
+            <error><![CDATA[<b>«{{name}}»</b> удалить нельзя, так как оно связано с записями в таблицах]]></error>
+          </delete>
+        </actions>
+
+        <fields>
+          <car_name>
+            <caption>Авто</caption>
+          </car_name>
+
+          <apt_name>
+            <caption>Группа автозапчастей</caption>
+          </apt_name>
+
+          <daa_apt_id_fk>
+            <caption>Группа автозапчастей</caption>
+            <validate>
+              <empty>Поле обязательно к заполнению</empty>
+            </validate>
+          </daa_apt_id_fk>
+        </fields>
+      </details_addition_autoparts_tbl>
+    </datasources>
+  </addition_autopars> <!-- }}} -->
+
+  <coordinates> <!-- {{{ -->
+    <caption>Координаты детали</caption>
+    <crumbs>
+      <cars>Автомобили</cars>
+      <car>{{caption}}</car>
+      <autopart>{{caption}}</autopart>
+      <coordinates>Координаты детали «{{caption}}»</coordinates>
+    </crumbs>
+
+    <actions>
+      <add>Добавить координаты</add>
+    </actions>
+
+    <datasources>
+      <coord_detail_autoparts_tbl>
+        <actions>
+          <add>
+            <caption>Добавить координаты</caption>
+          </add>
+          <edit>
+            <caption>Редактировать координаты</caption>
+          </edit>
+          <delete>
+            <caption>Удалить координаты</caption>
+            <text><![CDATA[Вы действительно хотите удалитькоординатыфото <b>«{{name}}»</b>?]]></text>
+          </delete>
+        </actions>
+
+        <fields>
+          <cda_top>
+            <caption>Координаты от верха</caption>
+            <hint>Координаты от верха</hint>
+            <validate>
+              <empty>Поле обязательно к заполнению</empty>
+              <parseInt>Значение может быть только целым числом</parseInt>
+            </validate>
+          </cda_top>
+
+          <cda_left>
+            <caption>Координаты от левого края</caption>
+            <hint>Координаты от левого края</hint>
+            <validate>
+              <empty>Поле обязательно к заполнению</empty>
+              <parseInt>Значение может быть только целым числом</parseInt>
+            </validate>
+          </cda_left>
+        </fields>
+      </coord_detail_autoparts_tbl>
+    </datasources>
+  </coordinates> <!-- }}} -->
+
+  <details_colors> <!-- {{{ -->
+    <caption>Дополнительные цвета</caption>
+    <crumbs>
+      <cars>Автомобили</cars>
+      <car>{{caption}}</car>
+      <autopart>{{caption}}</autopart>
+      <colors>Цвета детали «{{caption}}»</colors>
+    </crumbs>
+
+    <actions>
+      <add>Добавить цвет</add>
+    </actions>
+
+    <datasources>
+      <details_autoparts_colors_tbl>
+        <actions>
+          <add>
+            <caption>Добавить цвет</caption>
+          </add>
+          <edit>
+            <caption>Редактировать цвет</caption>
+          </edit>
+          <delete>
+            <caption>Удалить цвет</caption>
+            <text><![CDATA[Вы действительно хотите удалить цвет <b>«{{name}}»</b>?]]></text>
+          </delete>
+        </actions>
+
+        <fields>
+          <dac_name>
+            <caption>Название</caption>
+            <hint>Название цвета</hint>
+            <validate>
+              <empty>Название цвета обязательно к заполнению</empty>
+            </validate>
+          </dac_name>
+
+          <dac_diff_cost>
+            <caption>Разница в цене</caption>
+            <hint>Разница в цена, USD(если цена меньше использовать со знаком минус)</hint>
+            <validate>
+              <parseFloat>Неверное число</parseFloat>
+            </validate>
+          </dac_diff_cost>
+
+          <dac_available>
+            <caption><![CDATA[Нали&shy;чие]]></caption>
+            <hint>Наличие автозапчасти, количество</hint>
+            <validate>
+              <parseFloat>Неверное число</parseFloat>
+            </validate>
+          </dac_available>
+
+          <dac_image>
+            <caption>Фото</caption>
+            <hint>Фото запчасти в этом цвете</hint>
+
+            <validate>
+              <extension>Можно добавлять только jpg, jpeg, png, gif</extension>
+              <maxSize>Максимальный размер изображения не более 300Кб</maxSize>
+              <width>Размеры изображения должны быть 800x600 пикселей</width>
+              <heignt>Размеры изображения должны быть 800x600 пикселей</heignt>
+            </validate>
+          </dac_image>
+        </fields>
+      </details_autoparts_colors_tbl>
+    </datasources>
+  </details_colors> <!-- }}} -->
+
+  <details_sizes> <!-- {{{ -->
+    <caption>Дополнительные размеры</caption>
+    <crumbs>
+      <cars>Автомобили</cars>
+      <car>{{caption}}</car>
+      <autopart>{{caption}}</autopart>
+      <sizes>Размеры детали «{{caption}}»</sizes>
+    </crumbs>
+
+    <actions>
+      <add>Добавить размер</add>
+    </actions>
+
+    <datasources>
+      <details_autoparts_sizes_tbl>
+        <actions>
+          <add>
+            <caption>Добавить размер</caption>
+          </add>
+          <edit>
+            <caption>Редактировать размер</caption>
+          </edit>
+          <delete>
+            <caption>Удалить размер</caption>
+            <text><![CDATA[Вы действительно хотите удалить размер <b>«{{name}}»</b>?]]></text>
+          </delete>
+        </actions>
+
+        <fields>
+          <das_name>
+            <caption>Название</caption>
+            <hint>Название размера</hint>
+            <validate>
+              <empty>Название размера обязательно к заполнению</empty>
+            </validate>
+          </das_name>
+
+          <das_diff_cost>
+            <caption>Разница в цене</caption>
+            <hint>Разница в цена, USD(если цена меньше использовать со знаком минус)</hint>
+            <validate>
+              <parseFloat>Неверное число</parseFloat>
+            </validate>
+          </das_diff_cost>
+
+          <das_available>
+            <caption><![CDATA[Нали&shy;чие]]></caption>
+            <hint>Наличие автозапчасти, количество</hint>
+            <validate>
+              <parseFloat>Неверное число</parseFloat>
+            </validate>
+          </das_available>
+
+          <das_image>
+            <caption>Фото</caption>
+            <hint>Фото запчасти в этом размере</hint>
+
+            <validate>
+              <extension>Можно добавлять только jpg, jpeg, png, gif</extension>
+              <maxSize>Максимальный размер изображения не более 300Кб</maxSize>
+              <width>Размеры изображения должны быть 800x600 пикселей</width>
+              <heignt>Размеры изображения должны быть 800x600 пикселей</heignt>
+            </validate>
+          </das_image>
+        </fields>
+      </details_autoparts_sizes_tbl>
+    </datasources>
+  </details_sizes> <!-- }}} -->
+
+  <pair_colors_sizes> <!-- {{{ -->
+    <caption>Пары цвет/размер</caption>
+    <crumbs>
+      <cars>Автомобили</cars>
+      <car>{{caption}}</car>
+      <autopart>{{caption}}</autopart>
+      <pair>Пары цвет/размер детали «{{caption}}»</pair>
+    </crumbs>
+
+    <actions>
+      <add>Добавить пару</add>
+    </actions>
+
+    <datasources>
+      <details_autoparts_colors_sizes_pair_tbl>
+        <actions>
+          <add>
+            <caption>Добавить пару</caption>
+          </add>
+          <edit>
+            <caption>Редактировать пару</caption>
+          </edit>
+          <delete>
+            <caption>Удалить пару</caption>
+            <text><![CDATA[Вы действительно хотите удалить пару <b>«{{name}}»</b>?]]></text>
+          </delete>
+        </actions>
+
+        <fields>
+          <dac_name>
+            <caption>Цвет</caption>
+          </dac_name>
+
+          <das_name>
+            <caption>Размер</caption>
+          </das_name>
+
+          <csp_dac_id_fk>
+            <caption>Цвет</caption>
+          </csp_dac_id_fk>
+
+          <csp_das_id_fk>
+            <caption>Размер</caption>
+          </csp_das_id_fk>
+
+          <csp_cost>
+            <caption>Цена</caption>
+            <hint>Цена пары, USD</hint>
+            <validate>
+              <parseFloat>Неверное число</parseFloat>
+            </validate>
+          </csp_cost>
+
+          <csp_available>
+            <caption><![CDATA[Нали&shy;чие]]></caption>
+            <hint>Наличие пары</hint>
+            <validate>
+              <parseFloat>Неверное число</parseFloat>
+            </validate>
+          </csp_available>
+        </fields>
+      </details_autoparts_colors_sizes_pair_tbl>
+    </datasources>
+  </pair_colors_sizes> <!-- }}} -->
+
+  <requests1> <!-- {{{ -->
+    <crumbs>
+      <cars>Автомобили</cars>
+      <requests>Запросы на запчасти</requests>
+    </crumbs>
+
+    <datasources>
+      <details_requests_tbl>
+        <actions>
+          <edit>
+            <caption>Редактировать запрос</caption>
+          </edit>
+          <delete>
+            <caption>Удалить запрос</caption>
+            <text><![CDATA[Вы действительно хотите удалить запрос <b>«{{name}}»</b>?]]></text>
+            <error><![CDATA[Запрос <b>«{{name}}»</b> удалить нельзя, так как он связан с записями в таблицах]]></error>
+          </delete>
+        </actions>
+
+        <fields>
+          <drq_performed>
+            <caption><![CDATA[Выпол&shy;ненно]]></caption>
+          </drq_performed>
+
+          <drq_bought>
+            <caption><![CDATA[Куп&shy;лено]]></caption>
+          </drq_bought>
+
+          <drq_datetime>
+            <caption>Дата заявки</caption>
+          </drq_datetime>
+
+          <dpt_image>
+            <caption>Фото</caption>
+          </dpt_image>
+
+          <dpt_name>
+            <caption>Запчасть</caption>
+          </dpt_name>
+
+          <dpt_cost>
+            <caption><![CDATA[Стоим&shy;ость]]></caption>
+            <hint>Стоимость автозапчасти, USD</hint>
+          </dpt_cost>
+
+          <dpt_discount>
+            <caption>Скидка</caption>
+            <hint>Скидка на автозапчасть, %</hint>
+            <validate>
+              <parseInt>Неверное число</parseInt>
+            </validate>
+          </dpt_discount>
+
+          <apt_name>
+            <caption>Группа запчастей</caption>
+          </apt_name>
+
+          <usr_name>
+            <caption>Пользователь</caption>
+          </usr_name>
+
+        </fields>
+      </details_requests_tbl>
+    </datasources>
+  </requests1> <!-- }}} -->
+
+  <car_types> <!-- {{{ -->
+    <caption>Типы авто</caption>
+    <crumbs>
+      <car_types>Типы авто</car_types>
+    </crumbs>
+
+    <actions>
+      <add>Добавить тип авто</add>
+    </actions>
+
+    <datasources>
+      <car_types_tbl>
+        <actions>
+          <add>
+            <caption>Добавить тип авто</caption>
+          </add>
+          <edit>
+            <caption>Редактировать тип авто</caption>
+          </edit>
+          <delete>
+            <caption>Удалить тип авто</caption>
+            <text>
+              <![CDATA[Вы действительно хотите удалить тип авто <b>«{{name}}»</b>?]]></text>
+            <error>
+              <![CDATA[Тип авто <b>«{{name}}»</b> удалить нельзя, так как он связан с записями в таблицах]]></error>
+          </delete>
+        </actions>
+
+        <fields>
+          <crt_enabled>
+            <caption>Использовать</caption>
+          </crt_enabled>
+
+          <crt_name>
+            <caption>Название</caption>
+            <hint>Название типа авто</hint>
+
+            <validate>
+              <empty>Название типа авто обязательно к заполнению</empty>
+            </validate>
+          </crt_name>
+
+          <crt_synonym>
+            <caption>Синоним</caption>
+            <hint>Сокращенное название типа авто латинскими буквами</hint>
+
+            <validate>
+              <empty>Синоним обязателен к заполнению</empty>
+              <unique>Данный синоним валюты уже существует.
+                Он должен быть уникальным
+              </unique>
+              <regexp>Синоним может состоять только с латинских букв, цифр и
+                символа « - »
+              </regexp>
+            </validate>
+          </crt_synonym>
+        </fields>
+      </car_types_tbl>
+    </datasources>
+  </car_types> <!-- }}} -->
+
+  <docs> <!-- {{{ -->
+    <crumbs>
+      <cars>Автомобили</cars>
+      <docs>Документация к «{{caption}}»</docs>
+    </crumbs>
+
+    <actions>
+      <add>Создать документ</add>
+    </actions>
+
+    <datasources>
+      <car_docs_tbl>
+        <actions>
+          <add>
+            <caption>Создать документ</caption>
+          </add>
+          <edit>
+            <caption>Редактировать документ</caption>
+          </edit>
+          <delete>
+            <caption>Удалить документ</caption>
+            <text><![CDATA[Вы действительно хотите удалить документ <b>«{{name}}»</b>?]]></text>
+            <error><![CDATA[Документ <b>«{{name}}»</b> удалить нельзя, так как она связана с записями в таблицах]]></error>
+          </delete>
+        </actions>
+
+        <tabs>
+          <main>Основные данные</main>
+          <text>Текст документа</text>
+          <meta_tags>Мета-теги</meta_tags>
+        </tabs>
+
+        <fields>
+          <crd_enabled>
+            <caption><![CDATA[Видим&shy;ость]]></caption>
+          </crd_enabled>
+
+          <crd_name>
+            <caption>Название, описание и ключевые слова</caption>
+            <hint>Название, описание и ключевые слова новости</hint>
+
+            <form_caption>Название</form_caption>
+            <form_hint>Название документа (отображается как заглавие)</form_hint>
+
+            <validate>
+              <empty>Название документа обязательно к заполнению</empty>
+            </validate>
+          </crd_name>
+
+          <crd_robots>
+            <caption>Meta robots</caption>
+            <hint>Мета тег ROBOTS</hint>
+            <values>
+              <indexfollow>INDEX, FOLLOW</indexfollow>
+              <noindexfollow>NOINDEX, FOLLOW</noindexfollow>
+              <indexnofollow>INDEX, NOFOLLOW</indexnofollow>
+              <noindexnofollow>NOINDEX, NOFOLLOW</noindexnofollow>
+            </values>
+          </crd_robots>
+
+          <crd_title>
+            <caption>Title</caption>
+            <hint>Title документа(отображается в окне браузера, важно для SEO. Если не указать, используется название новости)</hint>
+          </crd_title>
+
+          <crd_synonym>
+            <caption>Синоним для url</caption>
+            <hint>Имя документа в URL. Латинскими буквами с заменой пробелов на знак «-».</hint>
+
+            <validate>
+              <empty>Синоним документа обязателен к заполнению</empty>
+              <unique>Данный синоним документа уже существует. Он должен быть уникальным</unique>
+              <regexp>Синоним может состоять только с латинских букв, цифр и символа « - »</regexp>
+            </validate>
+          </crd_synonym>
+
+          <crd_description>
+            <caption>Описание (тег description)</caption>
+            <hint>Описание (тег description)</hint>
+          </crd_description>
+
+          <crd_keywords>
+            <caption>Тэг ключевые слова (keywords)</caption>
+            <hint>Тэг ключевые слова (keywords). Важен для SEO</hint>
+          </crd_keywords>
+
+          <crd_text>
+            <caption>Текст документа</caption>
+            <hint>Текст документа</hint>
+            <validate>
+              <empty>Текст документа обязателен к заполнению</empty>
+            </validate>
+          </crd_text>
+        </fields>
+      </car_docs_tbl>
+    </datasources>
+  </docs> <!-- }}} -->
+
+  <new_autoparts_mailer> <!-- {{{ -->
+    <crumbs>
+      <cars>Автомобили</cars>
+      <new_autoparts_mailer>Товары в рассылке</new_autoparts_mailer>
+    </crumbs>
+
+    <actions>
+      <sendNewDetails>Разослать новые запчасти</sendNewDetails>
+      <sendNewDetails_confirm_text>Вы действительно хотите разослать новые запчасти?</sendNewDetails_confirm_text>
+    </actions>
+
+    <datasources>
+      <new_autoparts_mailer_vw>
+        <actions>
+          <delete>
+            <caption>Ислючить из рассылки</caption>
+            <text><![CDATA[Вы действительно хотите исключить из рассылки <b>«{{name}}»</b>?]]></text>
+          </delete>
+          <sendNewDetails>
+            <caption>Разослать новые запчасти</caption>
+            <button>Разослать</button>
+          </sendNewDetails>
+        </actions>
+
+        <fields>
+          <detail_image>
+            <caption>Фото</caption>
+          </detail_image>
+
+          <car_name>
+            <caption>Авто</caption>
+          </car_name>
+
+          <detail_name>
+            <caption>Название</caption>
+            <hint>Название запчасти</hint>
+          </detail_name>
+
+          <detail_num>
+            <caption>Номер запчасти</caption>
+            <hint>Номер запчасти</hint>
+          </detail_num>
+
+          <status>
+            <caption>Статус</caption>
+            <values>
+              <secondhand>Б/У</secondhand>
+              <replica>Новодел</replica>
+              <new>Новое</new>
+              <restaurare>Реставрация</restaurare>
+            </values>
+          </status>
+
+          <cost_unformat>
+            <caption>Стоимость</caption>
+            <hint>Стоимость автозапчасти, USD</hint>
+          </cost_unformat>
+        </fields>
+      </new_autoparts_mailer_vw>
+    </datasources>
+  </new_autoparts_mailer> <!-- }}} -->
+
+  <sale_autoparts_mailer> <!-- {{{ -->
+    <crumbs>
+      <cars>Автомобили</cars>
+      <sale_autoparts_mailer>Товары в рассылке</sale_autoparts_mailer>
+    </crumbs>
+
+    <actions>
+      <sendSaleDetails>Разослать акционные запчасти</sendSaleDetails>
+      <sendSaleDetails_confirm_text>Вы действительно хотите разослать акционные запчасти?</sendSaleDetails_confirm_text>
+    </actions>
+
+    <datasources>
+      <sale_autoparts_mailer_vw>
+        <actions>
+          <delete>
+            <caption>Ислючить из рассылки</caption>
+            <text><![CDATA[Вы действительно хотите исключить из рассылки <b>«{{name}}»</b>?]]></text>
+          </delete>
+          <sendSaleDetails>
+            <caption>Разослать акционные запчасти</caption>
+            <button>Разослать</button>
+          </sendSaleDetails>
+        </actions>
+
+        <fields>
+          <detail_image>
+            <caption>Фото</caption>
+          </detail_image>
+
+          <car_name>
+            <caption>Авто</caption>
+          </car_name>
+
+          <detail_name>
+            <caption>Название</caption>
+            <hint>Название запчасти</hint>
+          </detail_name>
+
+          <detail_num>
+            <caption>Номер запчасти</caption>
+            <hint>Номер запчасти</hint>
+          </detail_num>
+
+          <status>
+            <caption>Статус</caption>
+            <values>
+              <secondhand>Б/У</secondhand>
+              <replica>Новодел</replica>
+              <new>Новое</new>
+              <restaurare>Реставрация</restaurare>
+            </values>
+          </status>
+
+          <cost_unformat>
+            <caption>Стоимость</caption>
+            <hint>Стоимость автозапчасти, USD</hint>
+          </cost_unformat>
+        </fields>
+      </sale_autoparts_mailer_vw>
+    </datasources>
+  </sale_autoparts_mailer> <!-- }}} -->
+
+  <requests> <!-- {{{ -->
+    <crumbs>
+      <requests>Запросы на детали</requests>
+    </crumbs>
+
+    <datasources>
+      <details_requests_tbl>
+        <actions>
+          <edit>
+            <caption>Редактировать</caption>
+          </edit>
+          <delete>
+            <caption>Удалить</caption>
+            <text><![CDATA[Вы действительно хотите удалить запись <b>«{{name}}»</b>?]]></text>
+          </delete>
+        </actions>
+
+        <fields>
+          <drq_date>
+            <caption>Дата заявки</caption>
+          </drq_date>
+
+          <drq_name>
+            <caption>Пользователь</caption>
+            <hint>Имя пользователя</hint>
+            <validate>
+              <empty>Вы не указали ФИО пользователя</empty>
+            </validate>
+          </drq_name>
+
+          <drq_email>
+            <caption>Email</caption>
+            <hint>Email пользователя</hint>
+            <validate>
+              <empty>Вы не указали email</empty>
+              <email>Вы указали несуществующий email</email>
+            </validate>
+          </drq_email>
+
+          <cfr_name>
+            <caption>Автомобиль</caption>
+          </cfr_name>
+
+          <drq_car_id_fk>
+            <caption>Автомобиль</caption>
+            <validate>
+              <empty>Обязательное поле</empty>
+            </validate>
+          </drq_car_id_fk>
+
+          <drq_model>
+            <caption>Модель</caption>
+            <hint>Модель авто</hint>
+          </drq_model>
+
+          <drq_year>
+            <caption>Год</caption>
+            <hint>Год выпуска авто</hint>
+            <validate>
+              <parseInt>Неверное число</parseInt>
+            </validate>
+          </drq_year>
+
+          <drq_volume>
+            <caption>Объем</caption>
+            <hint>Объем двигателя</hint>
+          </drq_volume>
+
+          <drq_body_type>
+            <caption>Тип кузова</caption>
+            <hint>Тип кузова</hint>
+          </drq_body_type>
+
+          <drq_fuel_type>
+            <caption>Тип топлива</caption>
+            <hint>Тип топлива</hint>
+          </drq_fuel_type>
+
+          <drq_detail_num>
+            <caption>№ по каталогу</caption>
+            <hint>№ запчасти по каталогу</hint>
+            <validate>
+              <empty>Обязательное поле</empty>
+            </validate>
+          </drq_detail_num>
+
+          <drq_detail_name>
+            <caption>Название детали</caption>
+            <hint>Название детали</hint>
+            <validate>
+              <empty>Обязательное поле</empty>
+            </validate>
+          </drq_detail_name>
+
+          <drq_image>
+            <caption>Фото детали</caption>
+
+            <validate>
+              <extension>Можно добавлять только jpg, jpeg, png, gif</extension>
+              <maxSize>Максимальный размер изображения не более 1000Кб</maxSize>
+            </validate>
+          </drq_image>
+
+          <drq_detail_state>
+            <caption>Статус</caption>
+            <values>
+              <secondhand>Б/У</secondhand>
+              <replica>Новодел</replica>
+              <new>Новое</new>
+              <restaurare>Реставрация</restaurare>
+            </values>
+            <validate>
+              <empty>Статус запчасти обязателен к заполнению</empty>
+            </validate>
+          </drq_detail_state>
+
+          <drq_approximet_cost>
+            <caption>Допуск по цене</caption>
+          </drq_approximet_cost>
+
+          <drq_text>
+            <caption>Дополнительно</caption>
+          </drq_text>
+        </fields>
+      </details_requests_tbl>
+    </datasources>
+  </requests> <!-- }}} -->
+
+  <requests_cars> <!-- {{{ -->
+    <crumbs>
+      <requests_cars>Автомобили для запросов на запчасти</requests_cars>
+    </crumbs>
+
+    <actions>
+      <add>Создать авто</add>
+    </actions>
+
+    <datasources>
+      <cars_for_requests_tbl>
+        <actions>
+          <add>
+            <caption>Добавить</caption>
+          </add>
+          <edit>
+            <caption>Редактировать</caption>
+          </edit>
+          <delete>
+            <caption>Удалить</caption>
+            <text><![CDATA[Вы действительно хотите удалить запись <b>«{{name}}»</b>?]]></text>
+          </delete>
+        </actions>
+
+        <fields>
+          <cfr_name>
+            <caption>Авто</caption>
+            <hint>Автомобиль</hint>
+            <validate>
+              <empty>Вы не указали название автомобиля</empty>
+            </validate>
+          </cfr_name>
+        </fields>
+      </cars_for_requests_tbl>
+    </datasources>
+  </requests_cars> <!-- }}} -->
+
+  <settings> <!-- {{{ -->
+    <caption>Настройки</caption>
+    <configs>
+      <cars>
+        <requests>
+          <caption>Настройки запросов на автозапчасти</caption>
+
+          <email>
+              <caption>Email уведомлений о запросе</caption>
+              <hint>Email уведомлений о новом запросе на деталь</hint>
+
+              <validate>
+                <email>Вы указали неверный email</email>
+              </validate>
+          </email>
+
+          <send_email_request>
+            <caption>Включить автоматическое уведомление пользователей о наличии</caption>
+          </send_email_request>
+
+          <email_requests>
+            <caption>Email уведомлений о запросе</caption>
+            <hint>Email уведомлений о запросе на автозапчасть</hint>
+
+            <validate>
+              <email>Вы указали неверный email</email>
+            </validate>
+          </email_requests>
+
+          <subject>
+            <caption>Тема письма</caption>
+            <hint>Тема письма</hint>
+          </subject>
+
+          <body>
+            <caption>Текст письма</caption>
+            <hint>Текст письма</hint>
+          </body>
+        </requests>
+
+        <templates>
+          <caption>Шаблоны мета-тегов страницы детали</caption>
+
+          <title>
+            <caption>Тег title</caption>
+            <hint>Шаблон для тега title</hint>
+          </title>
+
+          <description>
+            <caption>Тег description</caption>
+            <hint>Шаблон для тега description</hint>
+          </description>
+
+          <keywords>
+            <caption>Тег keywords</caption>
+            <hint>Шаблон для тега keywords</hint>
+          </keywords>
+
+          <share>
+            <caption>Тело письма "поделиться"</caption>
+            <hint>Тело письма "поделиться"</hint>
+          </share>
+        </templates>
+
+        <templates_car>
+          <caption>Шаблоны мета-тегов страницы авто</caption>
+
+          <title>
+            <caption>Тег title</caption>
+            <hint>Шаблон для тега title</hint>
+          </title>
+
+          <description>
+            <caption>Тег description</caption>
+            <hint>Шаблон для тега description</hint>
+          </description>
+
+          <keywords>
+            <caption>Тег keywords</caption>
+            <hint>Шаблон для тега keywords</hint>
+          </keywords>
+
+          <share>
+            <caption>Тело письма "поделиться"</caption>
+            <hint>Тело письма "поделиться"</hint>
+          </share>
+        </templates_car>
+
+        <templates_category>
+          <caption>Шаблоны мета-тегов категории</caption>
+
+          <title>
+            <caption>Тег title</caption>
+            <hint>Шаблон для тега title</hint>
+          </title>
+
+          <description>
+            <caption>Тег description</caption>
+            <hint>Шаблон для тега description</hint>
+          </description>
+
+          <keywords>
+            <caption>Тег keywords</caption>
+            <hint>Шаблон для тега keywords</hint>
+          </keywords>
+
+          <share>
+            <caption>Тело письма "поделиться"</caption>
+            <hint>Тело письма "поделиться"</hint>
+          </share>
+        </templates_category>
+
+        <templates_last_category>
+          <caption>Шаблоны мета-тегов последней категории</caption>
+
+          <title>
+            <caption>Тег title</caption>
+            <hint>Шаблон для тега title</hint>
+          </title>
+
+          <description>
+            <caption>Тег description</caption>
+            <hint>Шаблон для тега description</hint>
+          </description>
+
+          <keywords>
+            <caption>Тег keywords</caption>
+            <hint>Шаблон для тега keywords</hint>
+          </keywords>
+
+          <share>
+            <caption>Тело письма "поделиться"</caption>
+            <hint>Тело письма "поделиться"</hint>
+          </share>
+        </templates_last_category>
+
+        <mails>
+          <caption>Шаблоны отправляемых системой писем</caption>
+
+          <mailer>
+            <caption>Шаблон письма рассылки новых автозапчастей</caption>
+
+            <subject>
+              <caption>Тема письма</caption>
+              <hint>Тема письма</hint>
+            </subject>
+
+            <body>
+              <caption>Текст письма</caption>
+              <hint>Текст письма</hint>
+            </body>
+          </mailer>
+
+          <sale_mailer>
+            <caption>Шаблон письма рассылки акционных автозапчастей</caption>
+
+            <subject>
+              <caption>Тема письма</caption>
+              <hint>Тема письма</hint>
+            </subject>
+
+            <body>
+              <caption>Текст письма</caption>
+              <hint>Текст письма</hint>
+            </body>
+          </sale_mailer>
+        </mails>
+      </cars>
+    </configs>
+  </settings> <!-- }}} -->
+
+  <forms> <!-- {{{ -->
+    <send_mail>
+      <fields>
+        <email>
+          <caption>Email</caption>
+          <hint>Email, на который будет отправлено письмо</hint>
+        </email>
+
+        <subject>
+          <caption>Тема письма</caption>
+          <hint>Тема отправляемого письма</hint>
+          <validate>
+            <empty>Тема письма обязательна к заполнению</empty>
+          </validate>
+        </subject>
+
+        <text>
+          <caption>Текст письма</caption>
+          <hint>Текст отправляемого письма</hint>
+          <validate>
+            <empty>Текст письма обязателен к заполнению</empty>
+          </validate>
+        </text>
+      </fields>
+    </send_mail>
+
+    <autobazarExcel>
+      <fields>
+        <activate>
+          <caption>Вы действительно хотите экспортировать запчасти для Автобазара?</caption>
+        </activate>
+      </fields>
+    </autobazarExcel>
+
+    <sendSaleDetails>
+      <fields>
+        <activate>
+          <caption>Вы действительно хотите разослать акционные запчасти?</caption>
+        </activate>
+      </fields>
+    </sendSaleDetails>
+
+    <sendNewDetails>
+      <fields>
+        <activate>
+          <caption>Вы действительно хотите разослать новые запчасти?</caption>
+        </activate>
+      </fields>
+    </sendNewDetails>
+  </forms> <!-- }}} -->
+</cars>

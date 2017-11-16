@@ -1,0 +1,103 @@
+{
+  "users/generate-users-excel": {
+    "description": "",
+    "controller": "users",
+    "action": "newUsersExcel"
+  },
+
+  "users/subscribe": {
+    "description": "",
+    "controller": "users",
+    "action": "subscribe"
+  },
+
+  "users/unsubscribe": {
+    "description": "",
+    "controller": "users",
+    "action": "unsubscribe"
+  },
+
+  "json/users/add-review-form.html": {
+    "description": "",
+    "controller": "users",
+    "action": "addReviewForm"
+  },
+
+  "users/add-review": {
+    "description": "",
+    "controller": "users",
+    "action": "addReview"
+  },
+
+  "users/set-currency/:synonym": {
+    "description": "",
+    "controller": "users",
+    "action": "setCurrency"
+  },
+
+  "users/auth": {
+    "description": "",
+    "controller": "users",
+    "action": "auth"
+  },
+
+  "users/repair": {
+    "description": "",
+    "controller": "users",
+    "action": "repairPassword"
+  },
+
+  "users/logout": {
+    "description": "",
+    "controller": "users",
+    "action": "logout"
+  },
+
+  "json/users/register-form.html": {
+    "description": "",
+    "controller": "users",
+    "action": "registerForm"
+  },
+
+  "users/register": {
+    "description": "",
+    "controller": "users",
+    "action": "register"
+  },
+
+  "cabinet": {
+    "description": "",
+    "controller": "users",
+    "action": "cabinet"
+  },
+
+  "cabinet/editadvert/:id": {
+    "description": "",
+    "controller": "users",
+    "action": "editAdverts"
+  },
+
+  "cabinet/editadvert/:id": {
+    "description": "",
+    "controller": "users",
+    "action": "editAdverts"
+  },
+
+  "cabinet/save/:type": {
+    "description": "",
+    "controller": "users",
+    "action": "saveDataCabinet"
+  },
+
+  "callback/:type": {
+    "description": "",
+    "controller": "users",
+    "action": "oAuthenticate"
+  },
+
+  "s/:idMailer/:md5Email/logo.jpeg": {
+    "description": "",
+    "controller": "users",
+    "action": "mailOpenStat"
+  }
+}

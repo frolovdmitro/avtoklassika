@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<orders>
+  <survey>Submit survey</survey>
+
+  <quick_buy_text>Укажите Ваше имя и мобильный телефон. В ближайшее время наш менеджер свяжется с вами</quick_buy_text>
+  <our_order>Ваш заказ</our_order>
+
+  <quick_buy>
+    <success>Спасиба, Ваш заказ оформлен. Наш менеджер в ближайшее время свяжется с Вами.</success>
+  </quick_buy>
+
+  <order_num>Номер заказа</order_num>
+
+  <validate>
+    <quick_buy>
+      <name>
+        <empty>Вы не указали Ваше имя</empty>
+      </name>
+
+      <phone>
+        <empty>Вы не указали Ваш телефон</empty>
+      </phone>
+
+      <email>
+        <empty>Вы не указали ва E-mail</empty>
+        <parseEmail>Вы указали неверный E-mail</parseEmail>
+      </email>
+    </quick_buy>
+
+    <promocode>
+      <promocode>
+        <empty>Вы не указали промокод</empty>
+        <not>Вы указали неверный промокод</not>
+      </promocode>
+    </promocode>
+
+    <order_user_info>
+      <name>
+        <empty>Имя не может быть пустым</empty>
+      </name>
+
+      <phone>
+        <empty>Телефон должен быть указан</empty>
+      </phone>
+
+      <street>
+        <empty>Улица не указана</empty>
+      </street>
+
+      <build>
+        <empty>Не указано</empty>
+      </build>
+
+      <flat>
+        <empty>Не указана</empty>
+      </flat>
+
+      <city>
+        <empty>Город не указан</empty>
+      </city>
+
+      <index>
+        <empty>Индекс не указан</empty>
+      </index>
+
+      <country>
+        <empty>Страна не указана</empty>
+      </country>
+    </order_user_info>
+  </validate>
+  <i_new_client>Я новый клиент</i_new_client>
+  <i_old_client>Я уже покупал</i_old_client>
+
+  <create_order>Оформление заказа</create_order>
+  <step_1>Что покупаем?</step_1>
+  <step_2>Доставка и оплата</step_2>
+  <step_3>Подтверждение</step_3>
+  <basket>Корзина</basket>
+  <total_cost>Общая сумма</total_cost>
+  <products_cost>Сумма товара</products_cost>
+  <unit>шт.</unit>
+  <fio>ФИО</fio>
+  <next>Далее</next>
+  <register>Регистрация</register>
+  <authenticate>Авторизация</authenticate>
+  <or_login_social>Или регистрация при помощи</or_login_social>
+  <input_promocode>Введите промокод</input_promocode>
+  <promocode_hint>Введите код на скидку</promocode_hint>
+  <apply>Применить</apply>
+  <recipient>Получатель</recipient>
+  <address>Адрес</address>
+  <add_comment>Добавить комментарий</add_comment>
+  <comment_text>Текст комментария</comment_text>
+  <delivery_cost>Стоимость доставки</delivery_cost>
+  <created_order>Оформить заказ</created_order>
+  <created>создан</created>
+  <has_state>в состоянии</has_state>
+  <state>
+    <not_complete>не завершон</not_complete>
+    <proccess>в работе</proccess>
+    <wait_payment>ожидание оплаты</wait_payment>
+    <paid>оплачен</paid>
+    <verify_payment>проверка оплаты</verify_payment>
+    <cancel>отменен</cancel>
+    <success>выполнен</success>
+  </state>
+
+  <country>Страна</country>
+  <city>Город</city>
+  <index>Индекс</index>
+  <build>Дом</build>
+  <street>Улица</street>
+  <flat_abb>кв.</flat_abb>
+  <order>Заказ</order>
+  <decorated>оформлен</decorated>
+  <confirm_address>Подтвердить адрес</confirm_address>
+
+  <user_data>Ваши данные</user_data>
+  <mrms>Уважаемый(ая)</mrms>
+  <you_order>Ваш заказ</you_order>
+  <order_thanks_text><![CDATA[
+    В ближайшее время наш менеджер свяжется с Вами.<br>
+    <strong>Отследить статус заказа вы можете в личном кабинете.</strong>
+  ]]></order_thanks_text>
+  <congratulations>БЛАГОДАРИМ ЗА ПОКУПКУ!</congratulations>
+  <share_friends>Поделитесь с друзьями!</share_friends>
+  <order_description>Оптала заказа #</order_description>
+</orders>

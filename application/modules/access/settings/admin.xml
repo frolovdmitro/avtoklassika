@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<access type="MAIN" icon="" order="-10">
+    <tabs>
+        <filter_help visible="true" />
+    </tabs>
+
+    <index useLanguages="false">
+        <crumbs>
+            <access>/access/</access>
+        </crumbs>
+
+        <actions>
+            <add />
+        </actions>
+
+        <datasources>
+            <administrators_tbl pk="adm_id_pk" title_field="adm_name" paginationRows="true">
+
+                <order_by>adm_date_registration desc</order_by>
+
+                <quick_filter>
+                    <adm_username />
+                    <adm_name />
+                    <adm_email />
+                    <adm_jobtitle />
+                </quick_filter>
+
+                <actions>
+                    <edit />
+                    <delete />
+                </actions>
+
+                <fields>
+                    <adm_enabled type="bool" align="center" ordered="true">
+                        <style scope="field">width:30px</style>
+                        <default>true</default>
+                    </adm_enabled>
+
+                    <adm_date_registration noForm="true" type="date" ordered="true" align="center">
+                        <format><![CDATA[null;date;d.m.Y<\b\r>H:i;value]]></format>
+                    </adm_date_registration>
+
+                    <!--<adm_image type="file" align="center">-->
+                        <!--<validate>-->
+                            <!--<extension>jpg|jpeg|png</extension>-->
+                            <!--<max_size>512</max_size>-->
+                        <!--</validate>-->
+                    <!--</adm_image>-->
+
+                    <adm_username type="input" ordered="true" focused="true"
+                            required="true">
+                        <expression><![CDATA[<a href="mailto:{{value}}">{{value}}</a>]]></expression>
+                        <preprocessing>
+                            <trim />
+                        </preprocessing>
+                        <validate>
+                            <empty />
+                            <email />
+                        </validate>
+                    </adm_username>
+
+                    <adm_password type="password" visible="false"
+                            required="true">
+                        <preprocessing>
+                            <trim />
+                        </preprocessing>
+                        <validate>
+                            <empty />
+                        </validate>
+                    </adm_password>
+
+                    <adm_name type="input" ordered="true" required="true">
+                        <link page="rules" />
+                        <preprocessing>
+                            <trim />
+                        </preprocessing>
+                        <validate>
+                            <empty />
+                        </validate>
+                    </adm_name>
+
+                    <adm_sex type="list" ordered="true" list="static" align="center"
+                            languageValue="true" >
+                    </adm_sex>
+
+                    <adm_jobtitle type="input" ordered="true">
+
+                    </adm_jobtitle>
+
+                    <adm_department type="input" ordered="true">
+                    </adm_department>
+                </fields>
+            </administrators_tbl>
+        </datasources>
+    </index>
+
+    <rules>
+        <crumbs>
+            <access>/access/</access>
+            <rules type="data" url="/access/{{value}}/" table="administrators_tbl"
+                  pk="adm_id_pk" title_field="adm_name">
+                <params>
+                    <adm_id_pk>id</adm_id_pk>
+                </params>
+            </rules>
+        </crumbs>
+
+        <actions>
+            <add module="access" model="Access" function="addRule" />
+        </actions>
+
+        <datasources>
+            <access_rules_administrators_tbl pk="ara_id_pk" title_field="ara_module_name" paginationRows="true">
+
+                <params>
+                    <ara_adm_id_fk type="get">id</ara_adm_id_fk>
+                </params>
+
+                <where>ara_parent_id_fk is null</where>
+                <order_by>ara_module_name desc</order_by>
+
+                <quick_filter>
+                    <ara_module_name />
+                </quick_filter>
+
+                <actions>
+                    <edit />
+                    <delete />
+                </actions>
+
+                <actions_function>
+                    <add module="access" model="Access" function="addRule" />
+                    <edit module="access" model="Access" function="editRule" />
+                </actions_function>
+
+                <fields>
+                    <ara_adm_id_fk type="int" visible="false" noForm="true">
+                    </ara_adm_id_fk>
+
+                    <ara_enabled type="bool" align="center" ordered="true">
+                        <style scope="field">width:30px</style>
+                        <default>true</default>
+                        <inputStyle>width: 25.3%;</inputStyle>
+                    </ara_enabled>
+
+                    <ara_hide_module type="bool" align="center" ordered="true">
+                        <style scope="field">width:30px</style>
+                        <default>false</default>
+                        <inputStyle>clear: none;width: 22%;</inputStyle>
+                    </ara_hide_module>
+
+                    <ara_module_name type="list" ordered="true" focused="true" visible="false"
+                            required="true" list="function" module="access" model="Access" function="getModulesSelect">
+                    </ara_module_name>
+
+                    <ara_module_caption type="input" noForm="true" ordered="true">
+                    </ara_module_caption>
+
+                    <ara_add_records type="list" ordered="true" required="true"
+                             languageValue="true" list="static">
+                    </ara_add_records>
+
+                    <ara_edit_records type="list" ordered="true" required="true"
+                             languageValue="true" list="static">
+                    </ara_edit_records>
+
+                    <ara_delete_records type="list" ordered="true" required="true"
+                             languageValue="true" list="static">
+                    </ara_delete_records>
+
+                    <ara_submodules field="'Подмодули'" type="input" noForm="true" align="center">
+                        <link page="subrules" noId="true">
+                            <params>
+                                <ara_adm_id_fk getFieldNotNull="ara_adm_id_fk">
+                                    adm_id
+                                </ara_adm_id_fk>
+                                <ara_id_pk getFieldNotNull="ara_id_pk">
+                                    id
+                                </ara_id_pk>
+                            </params>
+                        </link>
+                    </ara_submodules>
+
+                    <ara_filter type="textarea" visible="false">
+                    </ara_filter>
+                </fields>
+            </access_rules_administrators_tbl>
+        </datasources>
+    </rules>
+
+    <subrules>
+        <crumbs>
+            <access>/access/</access>
+            <rules type="data" table="administrators_tbl"
+                  pk="adm_id_pk" title_field="adm_name">
+                <url><![CDATA[/administrator/access/rules/?id={{value}}]]></url>
+                <params>
+                    <adm_id_pk>adm_id</adm_id_pk>
+                </params>
+            </rules>
+            <subrules type="data" url="" table="access_rules_administrators_tbl"
+                  pk="ara_id_pk" title_field="ara_module_caption">
+                <params>
+                    <ara_id_pk>id</ara_id_pk>
+                </params>
+            </subrules>
+        </crumbs>
+
+        <actions>
+            <add module="access" model="Access" function="addSubRule" />
+        </actions>
+
+        <datasources>
+            <access_rules_administrators_tbl pk="ara_id_pk" title_field="ara_module_name" paginationRows="true">
+
+                <params>
+                    <ara_adm_id_fk type="get">adm_id</ara_adm_id_fk>
+                    <ara_parent_id_fk type="get">id</ara_parent_id_fk>
+                </params>
+
+                <order_by>ara_module_name desc</order_by>
+
+                <quick_filter>
+                    <ara_module_name />
+                </quick_filter>
+
+                <actions>
+                    <edit />
+                    <delete />
+                </actions>
+
+                <actions_function>
+                    <add module="access" model="Access" function="addSubRule" />
+                    <edit module="access" model="Access" function="editSubRule" />
+                </actions_function>
+
+                <fields>
+                    <ara_enabled type="bool" align="center" ordered="true">
+                        <style scope="field">width:30px</style>
+                        <default>true</default>
+                        <inputStyle>width: 25.3%;</inputStyle>
+                    </ara_enabled>
+
+                    <ara_hide_module type="bool" align="center" ordered="true">
+                        <style scope="field">width:30px</style>
+                        <default>false</default>
+                        <inputStyle>clear: none;width: 22%;</inputStyle>
+                    </ara_hide_module>
+
+                    <ara_module_name type="list" ordered="true" focused="true" visible="false"
+                            required="true" list="function" module="access"
+                            model="Access" function="getSubModulesSelect">
+                    </ara_module_name>
+
+                    <ara_module_caption type="input" noForm="true" ordered="true">
+                    </ara_module_caption>
+
+                    <ara_add_records type="list" ordered="true" required="true"
+                             languageValue="true" list="static">
+                    </ara_add_records>
+
+                    <ara_edit_records type="list" ordered="true" required="true"
+                             languageValue="true" list="static">
+                    </ara_edit_records>
+
+                    <ara_delete_records type="list" ordered="true" required="true"
+                             languageValue="true" list="static">
+                    </ara_delete_records>
+
+                    <ara_filter type="textarea" visible="false">
+                    </ara_filter>
+                </fields>
+            </access_rules_administrators_tbl>
+        </datasources>
+    </subrules>
+
+    <filter_help>
+        <crumbs>
+            <filter_help>/filter_help/</filter_help>
+        </crumbs>
+
+        <datasources type="page" module="access" model="access" action="filterhelp" />
+    </filter_help>
+</access>

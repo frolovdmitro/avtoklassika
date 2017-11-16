@@ -1,0 +1,6 @@
+{
+  ":page": {
+    "description": "Статическая страница",
+    "action": "index"
+  }
+}

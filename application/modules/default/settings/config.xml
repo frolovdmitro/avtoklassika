@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<default>
+    <null/>
+<benefits><one_type>refund</one_type><two_type>payments</two_type><three_type>delivery</three_type></benefits></default>

@@ -1,0 +1,2785 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cars type="MODULE" icon="" order="20">
+  <fastActions>
+    <car_types />
+    <autoparts_in_stock />
+    <all_autoparts />
+    <new_autoparts_mailer />
+    <sale_autoparts_mailer />
+    <requests />
+    <requests_cars />
+    <settings />
+  </fastActions>
+
+  <tabs>
+    <car_types visible="true" />
+    <autoparts_in_stock visible="true" />
+    <all_autoparts visible="true" />
+    <settings visible="true" />
+    <language visible="true" />
+  </tabs>
+
+  <index> <!-- {{{ -->
+    <crumbs>
+      <cars>/cars/</cars>
+    </crumbs>
+
+    <actions>
+      <add />
+      <!-- <autobazarExcel module="cars" model="Cars" -->
+      <!--   function="autobazarExcel" form="autobazarExcel" /> -->
+    </actions>
+
+    <datasources>
+      <cars_tbl pk="car_id_pk" title_field="car_name" paginationRows="true"
+        useLanguages="true" listLanguagesField="car_languages"
+        style="width: 780px;" draggable="car_order" tags="cars">
+
+        <joins>
+          <dtl name="total_count_by_car_vw" type="left" pk="car_id_pk"
+                fk="apt_car_id_fk" />
+
+          <crd name="(select crd_car_id_fk, count(crd_id_pk) as count_docs from car_docs_tbl group by crd_car_id_fk)"
+            type="left" pk="car_id_pk"
+            fk="crd_car_id_fk" />
+
+          <!-- <tsc name="total_sum_by_car_vw" type="left" pk="car_id_pk" -->
+          <!--       fk="apt_car_id_fk" /> -->
+        </joins>
+
+        <languageFilter>car_languages like '%|#lang#|%'</languageFilter>
+
+        <order_by>car_order</order_by>
+
+        <tabs>
+          <main />
+          <meta_tags />
+          <docs />
+          <price />
+          <seo />
+        </tabs>
+
+        <actions>
+          <edit />
+          <delete />
+        </actions>
+
+        <!-- <footer> -->
+        <!--   <query>sum(sum_orders) as sum_orders, -->
+        <!--     sum(count_orders) as count_orders, -->
+        <!--     sum(count_details) as count_details, -->
+        <!--     sum(count_all_details) as count_all_details -->
+        <!--   </query> -->
+
+        <!--   <fields> -->
+        <!--     <sum_orders format="null;number_format;value;0;,; " -->
+        <!--       expifnull="false" align="center"> -->
+        <!--         <style scope="field">color: blue</style> -->
+        <!--         <expression><![CDATA[ -->
+        <!--           {{value}} USD{{count_orders}} -->
+        <!--         ]]></expression> -->
+        <!--     </sum_orders> -->
+
+        <!--     <count_orders visible="false" format="null;number_format;value;0;,; " expifnull="false"> -->
+        <!--         <style scope="field">color: green</style> -->
+        <!--         <expression><![CDATA[<br>{{value}} зак.]]></expression> -->
+        <!--     </count_orders> -->
+
+        <!--     <count_details format="null;number_format;value;0;,; " -->
+        <!--       expifnull="false" align="center"> -->
+        <!--         <style scope="field">color: blue</style> -->
+        <!--         <expression><![CDATA[ -->
+        <!--           <span style="color:gray">В&#38;nbsp;наличии:&#38;nbsp;</span>{{value}} -->
+        <!--           {{count_all_details}} -->
+        <!--         ]]></expression> -->
+        <!--     </count_details> -->
+
+        <!--     <count_all_details visible="false" format="null;number_format;value;0;,; " expifnull="false"> -->
+        <!--         <style scope="field">color: green</style> -->
+        <!--         <expression><![CDATA[<br> -->
+        <!--           <span style="color:gray">Всего:&#38;nbsp;</span>{{value}} -->
+        <!--         ]]></expression> -->
+        <!--     </count_all_details> -->
+        <!--   </fields> -->
+        <!-- </footer> -->
+
+        <quick_filter>
+          <car_name />
+        </quick_filter>
+
+        <fields>
+          <car_order type="int" visible="false" noTable="true" noForm="true" />
+
+          <car_enabled type="bool" tabindex="0"
+              default="true" align="center">
+            <style scope="field">width:30px</style>
+            <inputStyle>width: 25.3%;</inputStyle>
+          </car_enabled>
+
+          <car_image type="file" align="center"
+                     required="true" tabindex="2">
+              <style scope="field">width:30px</style>
+              <validate>
+                  <empty />
+                  <extension>jpg|jpeg|png|gif</extension>
+                  <maxSize>200</maxSize>
+                  <width>109</width>
+                  <heignt>78</heignt>
+              </validate>
+              <destination>images/cars/</destination>
+              <fileName>car_synonym</fileName>
+              <labelStyle>width: 18%;</labelStyle>
+              <inputStyle>width: 80%;</inputStyle>
+          </car_image>
+
+          <car_image_active type="file" align="center"
+                     required="true" tabindex="2.1" visible="false">
+              <validate>
+                  <empty />
+                  <extension>jpg|jpeg|png|gif</extension>
+                  <maxSize>200</maxSize>
+                  <width>109</width>
+                  <heignt>78</heignt>
+              </validate>
+              <destination>images/cars/</destination>
+              <fileName sufix="-active">car_synonym</fileName>
+              <labelStyle>width: 18%;</labelStyle>
+              <inputStyle>width: 80%;</inputStyle>
+          </car_image_active>
+
+          <car_name type="input" required="true"
+            languageField="true" tabindex="1" focused="true">
+            <preprocessing>
+                <trim />
+            </preprocessing>
+            <validate>
+                <empty />
+            </validate>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+            <link page="autoparts" noId="true">
+              <params>
+                <car_id_pk getFieldNotNull="car_id_pk">car_id</car_id_pk>
+                <car_synonym getFieldNotNull="car_synonym">car_synonym</car_synonym>
+                <null nullValue="true">parent_id</null>
+              </params>
+            </link>
+          </car_name>
+
+          <car_synonym type="input" visible="false" tabindex="1.5" required="true">
+              <preprocessing>
+                  <trim />
+                  <lowercase />
+              </preprocessing>
+              <validate>
+                <empty />
+                <regexp>^[a-z0-9\-]+$</regexp>
+                <unique table="cars_tbl" column="car_synonym" />
+              </validate>
+              <labelStyle>width: 18%;</labelStyle>
+              <inputStyle>width: 80%;</inputStyle>
+          </car_synonym>
+
+          <car_crt_id_fk tabindex="1.6" type="list" visible="false" required="true">
+            <list table="car_types_tbl" pk="crt_id_pk"
+              name="crt_name_ru" order="crt_order">
+            </list>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+            </validate>
+          </car_crt_id_fk>
+
+          <car_robots type="list" list="static" visible="false" tabindex="3.9"
+            tab="meta_tags">
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </car_robots>
+
+          <car_title type="input" visible="false" tabindex="4"
+            languageField="true" tab="meta_tags">
+              <labelStyle>width: 18%;</labelStyle>
+              <inputStyle>width: 80%;</inputStyle>
+          </car_title>
+
+          <car_description type="textarea" visible="false" expifnull="false"
+                  format="\Uwin\Linguistics;shortedText;value;300"
+                  tabindex="7" languageField="true" tab="meta_tags">
+              <expression><![CDATA[<br>{{value}}]]></expression>
+              <labelStyle>width: 18%;</labelStyle>
+              <inputStyle>width: 80%;</inputStyle>
+          </car_description>
+
+          <car_keywords type="textarea" visible="false" expifnull="false"
+                  tabindex="8" languageField="true" tab="meta_tags">
+              <expression><![CDATA[<br><span style="color:#FC7905;">{{value}}</span>]]></expression>
+              <labelStyle>width: 18%;</labelStyle>
+              <inputStyle>width: 80%;</inputStyle>
+          </car_keywords>
+
+          <car_seo_header type="input" tab="seo" languageField="true"
+            visible="false">
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </car_seo_header>
+
+          <car_seo_image type="file" align="center" visible="false" tab="seo">
+            <validate>
+              <extension>jpg|jpeg|png|gif</extension>
+              <maxSize>400</maxSize>
+              <width>380</width>
+              <height>235</height>
+            </validate>
+            <destination>images/cars/{{car_synonym}}/</destination>
+            <fileName function="web-translit" sufix="-inf">car_seo_header_ru</fileName>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </car_seo_image>
+
+          <car_seo_text type="textarea" rich="true" rows="8" tab="seo"
+            languageField="true" visible="false">
+            <labelStyle>width: 18%;min-height:30px;</labelStyle>
+            <inputStyle>clear:both;width: 100%;</inputStyle>
+          </car_seo_text>
+
+          <car_docs_robots type="list" list="static" visible="false" tabindex="3.9"
+            tab="docs">
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </car_docs_robots>
+
+          <car_docs_title type="input" visible="false" tabindex="4"
+            languageField="true" tab="docs">
+              <labelStyle>width: 18%;</labelStyle>
+              <inputStyle>width: 80%;</inputStyle>
+          </car_docs_title>
+
+          <car_docs_description type="textarea" visible="false" expifnull="false"
+                  tabindex="7" languageField="true" tab="docs">
+              <labelStyle>width: 18%;</labelStyle>
+              <inputStyle>width: 80%;</inputStyle>
+          </car_docs_description>
+
+          <car_docs_keywords type="textarea" visible="false" expifnull="false"
+                  tabindex="8" languageField="true" tab="docs">
+              <labelStyle>width: 18%;</labelStyle>
+              <inputStyle>width: 80%;</inputStyle>
+          </car_docs_keywords>
+
+          <car_price_robots type="list" list="static" visible="false" tabindex="3.9"
+            tab="price">
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </car_price_robots>
+
+          <car_price_title type="input" visible="false" tabindex="4"
+            languageField="true" tab="price">
+              <labelStyle>width: 18%;</labelStyle>
+              <inputStyle>width: 80%;</inputStyle>
+          </car_price_title>
+
+          <car_price_description type="textarea" visible="false" expifnull="false"
+                  tabindex="7" languageField="true" tab="price">
+              <labelStyle>width: 18%;</labelStyle>
+              <inputStyle>width: 80%;</inputStyle>
+          </car_price_description>
+
+          <car_price_keywords type="textarea" visible="false" expifnull="false"
+                  tabindex="8" languageField="true" tab="price">
+              <labelStyle>width: 18%;</labelStyle>
+              <inputStyle>width: 80%;</inputStyle>
+          </car_price_keywords>
+
+          <count_details field="coalesce(count_presence, 0)" type="int" align="center"
+                  format="null;number_format;value;0;,; " expifnull="false"
+                  noTable="true" noForm="true">
+              <style scope="field">width:130px;color: green</style>
+              <expression><![CDATA[
+                <span style="color:gray">В&nbsp;наличии:&nbsp;</span>{{value}}{{count_all_details}}
+              ]]></expression>
+          </count_details>
+
+          <count_docs field="coalesce(count_docs, 0)" type="int" align="center"
+                format="null;number_format;value;0;,; " expifnull="false"
+                noTable="true" noForm="true">
+            <link page="docs" />
+            <style scope="field">width:30px</style>
+          </count_docs>
+
+          <count_all_details field="coalesce(count_total, 0)" type="int" visible="false"
+                  format="null;number_format;value;0;,; " expifnull="false"
+                  noTable="true" noForm="true">
+              <style scope="field">color: green</style>
+              <expression><![CDATA[
+                <br><span style="color:gray">Всего:&nbsp;</span>{{value}}]]>
+              </expression>
+              <link page="details_in_car" />
+          </count_all_details>
+
+          <!-- <sum_orders field="coalesce(sum_orders, 0)" type="int" align="center" -->
+          <!--         format="null;number_format;value;0;,; " expifnull="false" -->
+          <!--         noTable="true" noForm="true"> -->
+          <!--     <style scope="field">width:130px;color: green</style> -->
+          <!--     <expression><![CDATA[ -->
+          <!--       {{value}}<span style="color:gray"> USD</span>{{count_orders}} -->
+          <!--     ]]></expression> -->
+          <!--     <link page="orders_in_car" /> -->
+          <!-- </sum_orders> -->
+          <!--  -->
+          <!-- <count_orders field="coalesce(count_orders, 0)" type="int" visible="false" -->
+          <!--         format="null;number_format;value;0;,; " expifnull="false" -->
+          <!--         noTable="true" noForm="true"> -->
+          <!--     <style scope="field">color: green</style> -->
+          <!--     <expression><![CDATA[ -->
+          <!--       <br>{{value}}<span style="color:gray"> зак.</span>]]> -->
+          <!--     </expression> -->
+          <!-- </count_orders> -->
+        </fields>
+      </cars_tbl>
+    </datasources>
+  </index> <!-- }}} -->
+
+  <autoparts> <!-- {{{ -->
+    <crumbs>
+      <cars>/cars/</cars>
+
+      <car type="data" table="cars_tbl"
+            pk="car_id_pk" title_field="car_name_ru">
+        <url><![CDATA[/administrator/cars/autoparts/?car_id={{value}}&parent_id=]]></url>
+        <params>
+            <car_id_pk>car_id</car_id_pk>
+        </params>
+      </car>
+
+      <autopart type="recursive"
+          pk="apt_id_pk" title_field="apt_name_ru"
+          parent_field="apt_parent_id_fk">
+          <table>
+            (select * from autoparts_tbl
+            left join cars_tbl on car_id_pk = apt_car_id_fk
+            ) apt
+          </table>
+          <url><![CDATA[/administrator/cars/autoparts/?car_id={{apt_car_id_fk}}&car_synonym={{car_synonym}}&parent_id={{value}}]]></url>
+        <params>
+          <car_synonym>car_synonym</car_synonym>
+          <apt_car_id_fk>car_id</apt_car_id_fk>
+          <apt_id_pk>parent_id</apt_id_pk>
+        </params>
+      </autopart>
+    </crumbs>
+
+    <actions>
+      <add />
+    </actions>
+
+    <datasources>
+      <autoparts_tbl pk="apt_id_pk" title_field="apt_name"
+          useLanguages="true" listLanguagesField="apt_languages"
+          paginationRows="false" draggable="apt_order"
+          style="width: 780px;" tags="autoparts">
+        <params>
+            <apt_car_id_fk type="get">car_id</apt_car_id_fk>
+            <apt_parent_id_fk type="get">parent_id</apt_parent_id_fk>
+        </params>
+
+        <languageFilter>apt_languages like '%|#lang#|%'</languageFilter>
+
+        <joins>
+          <car name="cars_tbl" type="left" pk="apt_car_id_fk"
+                fk="car_id_pk" />
+        </joins>
+
+        <order_by>apt_order</order_by>
+
+        <quick_filter>
+            <apt_name />
+        </quick_filter>
+
+        <actions>
+            <edit />
+            <delete />
+        </actions>
+
+        <tabs>
+          <main />
+          <seo />
+        </tabs>
+
+        <!-- <footer> -->
+        <!--   <query>sum(0) as sum_orders, count(0) as count_orders, -->
+        <!--     count(0) as count_details, count(0) as count_all_details -->
+        <!--   </query> -->
+
+        <!--   <fields> -->
+        <!--     <sum_orders format="null;number_format;value;0;,; " -->
+        <!--       expifnull="false" align="center"> -->
+        <!--         <style scope="field">color: blue</style> -->
+        <!--         <expression><![CDATA[ -->
+        <!--           {{value}} USD{{count_orders}} -->
+        <!--         ]]></expression> -->
+        <!--     </sum_orders> -->
+
+        <!--     <count_orders visible="false" format="null;number_format;value;0;,; " expifnull="false"> -->
+        <!--         <style scope="field">color: green</style> -->
+        <!--         <expression><![CDATA[<br>{{value}} зак.]]></expression> -->
+        <!--     </count_orders> -->
+
+        <!--     <count_details format="null;number_format;value;0;,; " -->
+        <!--       expifnull="false" align="center"> -->
+        <!--         <style scope="field">color: blue</style> -->
+        <!--         <expression><![CDATA[ -->
+        <!--           <span style="color:gray">В&#38;nbsp;наличии:&#38;nbsp;</span>{{value}} -->
+        <!--           {{count_all_details}} -->
+        <!--         ]]></expression> -->
+        <!--     </count_details> -->
+
+        <!--     <count_all_details visible="false" format="null;number_format;value;0;,; " expifnull="false"> -->
+        <!--         <style scope="field">color: green</style> -->
+        <!--         <expression><![CDATA[<br> -->
+        <!--           <span style="color:gray">Всего:&#38;nbsp;</span>{{value}} -->
+        <!--         ]]></expression> -->
+        <!--     </count_all_details> -->
+        <!--   </fields> -->
+        <!-- </footer> -->
+
+        <fields>
+          <apt_order type="int" visible="false" noTable="true" noForm="true" />
+
+          <apt_car_id_fk noTable="true" noForm="true" type="int" visible="false" />
+
+          <apt_parent_id_fk type="int" noTable="true" noForm="true" visible="false" />
+
+          <car_synonym noTable="true" noForm="true" type="input" visible="false" />
+
+          <apt_enabled type="bool" tabindex="1" align="center">
+              <style scope="field">width:30px</style>
+              <inputStyle>width: 25.3%;</inputStyle>
+              <default>true</default>
+          </apt_enabled>
+
+          <apt_is_last type="bool" tabindex="1.1" visible="false">
+              <inputStyle>clear:none;width: 25.3%;</inputStyle>
+              <default>false</default>
+          </apt_is_last>
+
+          <apt_image type="file" align="center" tabindex="3">
+              <style scope="field">width:30px</style>
+              <validate>
+                  <extension>jpg|jpeg|png|gif</extension>
+                  <maxSize>400</maxSize>
+              </validate>
+              <destination>images/cars/{{car_synonym}}/autoparts/</destination>
+              <fileName function="web-translit">apt_name_ru</fileName>
+              <labelStyle>width: 18%;</labelStyle>
+              <inputStyle>width: 80%;</inputStyle>
+          </apt_image>
+
+          <apt_name type="input" tabindex="2" focused="true" required="true"
+              languageField="true" visible="false">
+              <link page="autoparts" noId="true">
+                <params>
+                  <apt_car_id_fk getFieldNotNull="apt_car_id_fk">car_id</apt_car_id_fk>
+                  <car_synonym getFieldNotNull="car_synonym">car_synonym</car_synonym>
+                  <apt_id_pk getFieldNotNull="apt_id_pk">parent_id</apt_id_pk>
+                </params>
+              </link>
+              <preprocessing>
+                  <trim />
+              </preprocessing>
+              <validate>
+                  <empty />
+              </validate>
+              <labelStyle>width: 18%;</labelStyle>
+              <inputStyle>width: 80%;</inputStyle>
+          </apt_name>
+
+          <apt_name_dpt field="apt_name" type="input" noTable="true" noForm="true"
+              languageField="true" visible="false" >
+            <link page="details" noId="true">
+            car_synonym<params>
+                <apt_car_id_fk getFieldNotNull="apt_car_id_fk">car_id</apt_car_id_fk>
+                <car_synonym getFieldNotNull="car_synonym">car_synonym</car_synonym>
+                <apt_id_pk getFieldNotNull="apt_id_pk">parent_id</apt_id_pk>
+              </params>
+            </link>
+          </apt_name_dpt>
+
+          <name_link_apt type="input" noTable="true" noForm="true"
+            visible="false" expifnull="false">
+            <field>case apt_is_last when true then null else true end</field>
+            <expression>{{apt_name}}</expression>
+          </name_link_apt>
+
+          <name_link_dpt type="input" noTable="true" noForm="true"
+            expifnull="false" visible="false">
+            <field>case apt_is_last when true then true else null end</field>
+            <expression>{{apt_name_dpt}}</expression>
+          </name_link_dpt>
+
+          <name_link field="null" type="input" noForm="true" noTable="true">
+            <expression>{{name_link_apt}}{{name_link_dpt}}</expression>
+          </name_link>
+
+          <apt_robots type="list" list="static" visible="false" tabindex="3.9">
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </apt_robots>
+
+          <apt_title type="input" visible="false" tabindex="4" languageField="true">
+              <labelStyle>width: 18%;</labelStyle>
+              <inputStyle>width: 80%;</inputStyle>
+          </apt_title>
+
+          <apt_description type="textarea" visible="false" expifnull="false"
+                  format="\Uwin\Linguistics;shortedText;value;300"
+                  tabindex="7" languageField="true">
+              <labelStyle>width: 18%;</labelStyle>
+              <inputStyle>width: 80%;</inputStyle>
+          </apt_description>
+
+          <apt_keywords type="textarea" visible="false" expifnull="false"
+                  tabindex="8" languageField="true">
+              <labelStyle>width: 18%;</labelStyle>
+              <inputStyle>width: 80%;</inputStyle>
+          </apt_keywords>
+
+          <apt_seo_header type="input" tab="seo" languageField="true"
+            visible="false">
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </apt_seo_header>
+
+          <apt_seo_text type="textarea" rich="true" rows="14" tab="seo"
+            languageField="true" visible="false">
+            <labelStyle>width: 18%;min-height:30px;</labelStyle>
+            <inputStyle>clear:both;width: 100%;</inputStyle>
+          </apt_seo_text>
+
+          <!-- <apt_info type="textarea" visible="false" expifnull="false" -->
+          <!--         tabindex="8.1" languageField="true"> -->
+          <!--     <expression><![CDATA[<br><span style="color:#FC7905;">{{value}}</span>]]></expression> -->
+          <!--     <labelStyle>width: 18%;</labelStyle> -->
+          <!--     <inputStyle>width: 80%;</inputStyle> -->
+          <!-- </apt_info> -->
+
+          <!-- <count_details field="coalesce(null, 0)" type="int" align="center" -->
+          <!--         format="null;number_format;value;0;,; " expifnull="false" -->
+          <!--         noTable="true" noForm="true"> -->
+          <!--     <style scope="field">width:30px;color: green</style> -->
+          <!--     <expression><![CDATA[ -->
+          <!--       <span style="color:gray">В&#38;nbsp;наличии:&#38;nbsp;</span>{{value}}{{count_all_details}} -->
+          <!--     ]]></expression> -->
+          <!-- </count_details> -->
+
+          <!-- <count_all_details field="coalesce(null, 0)" type="int" visible="false" -->
+          <!--         format="null;number_format;value;0;,; " expifnull="false" -->
+          <!--         noTable="true" noForm="true"> -->
+          <!--     <style scope="field">color: green</style> -->
+          <!--     <expression><![CDATA[ -->
+          <!--       <br><span style="color:gray">Всего:&#38;nbsp;</span>{{value}}]]> -->
+          <!--     </expression> -->
+          <!--     <link page="details_in_car" /> -->
+          <!-- </count_all_details> -->
+
+          <!-- <sum_orders field="coalesce(null, 0)" type="int" align="center" -->
+          <!--         format="null;number_format;value;0;,; " expifnull="false" -->
+          <!--         noTable="true" noForm="true"> -->
+          <!--     <style scope="field">width:30px;color: green</style> -->
+          <!--     <expression><![CDATA[ -->
+          <!--       {{value}}<span style="color:gray"> USD</span>{{count_orders}} -->
+          <!--     ]]></expression> -->
+          <!--     <link page="orders" /> -->
+          <!-- </sum_orders> -->
+
+          <!-- <count_orders field="coalesce(null, 0)" type="int" visible="false" -->
+          <!--         format="null;number_format;value;0;,; " expifnull="false" -->
+          <!--         noTable="true" noForm="true"> -->
+          <!--     <style scope="field">color: green</style> -->
+          <!--     <expression><![CDATA[ -->
+          <!--       <br>{{value}}<span style="color:gray"> зак.</span>]]> -->
+          <!--     </expression> -->
+          <!-- </count_orders> -->
+        </fields>
+      </autoparts_tbl>
+    </datasources>
+  </autoparts> <!-- }}} -->
+
+  <orders_in_car useLanguages="false"> <!-- {{{ -->
+    <reference page="orders" />
+
+    <crumbs>
+      <cars>/cars/</cars>
+
+      <car />
+
+      <autopart />
+
+      <orders />
+
+      <order type="data" table="cars_tbl"
+            pk="car_id_pk" title_field="car_name_ru">
+            <url>/</url>
+        <params>
+            <car_id_pk>id</car_id_pk>
+        </params>
+      </order>
+    </crumbs>
+
+    <datasources>
+      <orders_details_tbl>
+        <params>
+          <apt_car_id_fk type="get">id</apt_car_id_fk>
+          <odd_dpt_id_fk disabled="true"/>
+        </params>
+
+        <fields>
+          <ord_num visible="false" />
+          <ord_method_delivery visible="false" />
+          <ord_method_payment visible="false" />
+
+          <dpt_image type="file" align="center">
+              <style scope="field">width:30px</style>
+          </dpt_image>
+
+          <dpt_num_detail type="input" visible="false">
+          </dpt_num_detail>
+
+          <dpt_name type="input" tabindex="2" focused="true" required="true"
+            languageField="true" ordered="true">
+              <expression><![CDATA[
+                <b>{{dpt_num_detail}}</b> &mdash; {{value}}
+              ]]></expression>
+          </dpt_name>
+        </fields>
+      </orders_details_tbl>
+    </datasources>
+  </orders_in_car> <!-- }}} -->
+
+  <details_in_car> <!-- {{{ -->
+    <reference page="all_autoparts" />
+    <crumbs>
+      <cars>/cars/</cars>
+
+      <all_autoparts />
+
+      <details type="data" table="cars_tbl"
+            pk="car_id_pk" title_field="car_name_ru">
+            <url>/</url>
+        <params>
+            <car_id_pk>id</car_id_pk>
+        </params>
+      </details>
+
+      <autopart />
+    </crumbs>
+
+    <datasources>
+      <details_autoparts_tbl>
+        <params>
+          <apt_car_id_fk type="get">id</apt_car_id_fk>
+        </params>
+
+        <fields>
+          <car_name visible="false" />
+        </fields>
+      </details_autoparts_tbl>
+    </datasources>
+  </details_in_car> <!-- }}} -->
+
+  <details> <!-- {{{ -->
+    <reference page="all_autoparts" />
+    <crumbs>
+      <cars>/cars/</cars>
+
+      <all_autoparts />
+
+      <car type="data" table="cars_tbl"
+            pk="car_id_pk" title_field="car_name_ru">
+        <url><![CDATA[/administrator/cars/autoparts/?car_id={{value}}&parent_id=]]></url>
+        <params>
+            <car_id_pk>car_id</car_id_pk>
+        </params>
+      </car>
+
+      <autopart type="recursive"
+          pk="apt_id_pk" title_field="apt_name_ru"
+          parent_field="apt_parent_id_fk">
+          <table>
+            (select * from autoparts_tbl
+            left join cars_tbl on car_id_pk = apt_car_id_fk
+            ) apt
+          </table>
+          <url><![CDATA[/administrator/cars/autoparts/?car_id={{apt_car_id_fk}}&car_synonym={{car_synonym}}&parent_id={{value}}]]></url>
+        <params>
+          <car_synonym>car_synonym</car_synonym>
+          <apt_car_id_fk>car_id</apt_car_id_fk>
+          <apt_id_pk>parent_id</apt_id_pk>
+        </params>
+      </autopart>
+    </crumbs>
+
+    <actions>
+      <add />
+    </actions>
+
+    <datasources>
+      <details_autoparts_tbl>
+        <params>
+          <dpt_apt_id_fk type="get">parent_id</dpt_apt_id_fk>
+        </params>
+
+        <fields>
+          <car_name visible="false" />
+          <apt_name visible="false" />
+        </fields>
+      </details_autoparts_tbl>
+    </datasources>
+  </details> <!-- }}} -->
+
+  <autoparts_in_stock> <!-- {{{ -->
+    <reference page="all_autoparts" />
+    <crumbs>
+      <cars>/cars/</cars>
+      <all_autoparts />
+      <autoparts_in_stock>/</autoparts_in_stock>
+    </crumbs>
+
+    <datasources>
+      <details_autoparts_tbl>
+        <where>coalesce(dpt_presence,0) != 0</where>
+      </details_autoparts_tbl>
+    </datasources>
+  </autoparts_in_stock> <!-- }}} -->
+
+  <all_autoparts> <!-- {{{ -->
+    <crumbs>
+      <cars>/cars/</cars>
+      <all_autoparts>/</all_autoparts>
+    </crumbs>
+
+    <datasources>
+      <details_autoparts_tbl pk="dpt_id_pk" title_field="dpt_name"
+          useLanguages="true" listLanguagesField="dpt_languages"
+          style="width: 780px;" paginationRows="true" tags="details">
+
+        <joins>
+          <apt name="autoparts_tbl" type="left"
+            pk="dpt_apt_id_fk" fk="apt_id_pk" />
+
+          <car name="cars_tbl" type="left"
+            pk="apt_car_id_fk" fk="car_id_pk" />
+
+          <dap name="details_autoparts_photos_count_vw" type="left"
+            pk="dpt_id_pk" fk="dap_dpt_id_fk" />
+
+          <daa name="details_addition_autoparts_count_vw" type="left"
+            pk="dpt_id_pk" fk="daa_dpt_id_fk" />
+
+          <dac name="details_colors_count_vw" type="left"
+            pk="dpt_id_pk" fk="dac_dpt_id_fk" />
+
+          <das name="details_sizes_count_vw" type="left"
+            pk="dpt_id_pk" fk="das_dpt_id_fk" />
+
+          <csp name="details_colors_sizes_pair_count_vw" type="left"
+            pk="dpt_id_pk" fk="csp_dpt_id_fk" />
+
+          <tod name="total_orders_by_details_vw" type="left"
+            pk="dpt_id_pk" fk="odd_dpt_id_fk" />
+
+          <!-- <diff_cost name="detail_discount_diff_fn(dpt_id_pk)" type="left" -->
+          <!--   pk="true" fk="" use_in_footer="false"/> -->
+        </joins>
+
+        <languageFilter>dpt_languages like '%|#lang#|%'</languageFilter>
+
+        <order_by>dpt_name</order_by>
+
+        <tabs>
+          <main />
+          <text />
+        </tabs>
+
+        <quick_filter>
+          <car_name />
+          <apt_name />
+          <dpt_name />
+          <dpt_num_detail />
+          <dpt_status />
+          <dpt_cost />
+          <dpt_sale_caption />
+          <dpt_presence_caption />
+        </quick_filter>
+
+        <actions>
+            <edit />
+            <delete newline="true"/>
+        </actions>
+
+        <footer>
+          <query>sum(sum_orders) as sum_orders, sum(count_orders) as count_orders
+          </query>
+
+          <fields>
+            <sum_orders format="null;number_format;value;0;,; "
+              expifnull="false" align="center">
+                <style scope="field">color: blue</style>
+                <expression><![CDATA[
+                  {{value}} USD{{count_orders}}
+                ]]></expression>
+            </sum_orders>
+
+            <count_orders visible="false" format="null;number_format;value;0;,; " expifnull="false">
+                <style scope="field">color: green</style>
+                <expression><![CDATA[<br>{{value}} зак.]]></expression>
+            </count_orders>
+          </fields>
+        </footer>
+
+        <fields>
+          <car_id_pk type="int" visible="false" noTable="true" noForm="true" />
+
+          <car_synonym type="input" visible="false" noTable="true" noForm="true" />
+
+          <dpt_order type="int" visible="false" noTable="true" noForm="true" />
+
+          <dpt_apt_id_fk type="int" visible="false" noTable="true" noForm="true" />
+
+          <dpt_enabled type="bool" tabindex="1" align="center" ordered="true">
+              <style scope="field">width:30px</style>
+              <inputStyle>width: 25.3%;</inputStyle>
+              <default>true</default>
+          </dpt_enabled>
+
+          <dpt_often_buy type="bool" tabindex="1" align="center" visible="false">
+              <style scope="field">width:30px</style>
+              <inputStyle>clear: none;width: 25.3%;</inputStyle>
+              <default>false</default>
+          </dpt_often_buy>
+
+          <!-- <dpt_sale type="bool" tabindex="1" align="center" ordered="true" -->
+          <!--   visible="false"> -->
+          <!--     <style scope="field">width:30px</style> -->
+          <!--     <inputStyle>clear: none;width: 25.3%;</inputStyle> -->
+          <!--     <default>false</default> -->
+          <!-- </dpt_sale> -->
+          <!--  -->
+          <dpt_sale_caption noTable="true" noForm="true" expifnull="false"
+            visible="false">
+            <field>case dpt_sale when true then 'Акционное предложение!' else null end</field>
+            <expression><![CDATA[<b style="red">{{value}}</b><br>]]></expression>
+            <style scope="field">color: #f00</style>
+          </dpt_sale_caption>
+
+          <dpt_image type="file" align="center" tabindex="2.4">
+              <style scope="field">width:30px</style>
+              <validate>
+                  <extension>jpg|jpeg|png|gif</extension>
+                  <maxSize>300</maxSize>
+                  <width>800</width>
+                  <heignt>600</heignt>
+              </validate>
+              <destination>images/cars/{{car_synonym}}/details/{{parent_id}}/</destination>
+              <fileName function="web-translit" sufix="-bg">dpt_num_detail</fileName>
+              <labelStyle>width: 18%;</labelStyle>
+              <inputStyle>width: 40%;</inputStyle>
+              <resizes>
+                  <medium>
+                    <destination>images/cars/{{car_synonym}}/details/{{parent_id}}/</destination>
+                      <fileName function="web-translit" sufix="-md">dpt_num_detail</fileName>
+                      <width>318</width>
+                      <height>217</height>
+                  </medium>
+
+                  <small>
+                    <destination>images/cars/{{car_synonym}}/details/{{parent_id}}/</destination>
+                      <fileName function="web-translit" sufix="-sm">dpt_num_detail</fileName>
+                      <width>160</width>
+                      <height>120</height>
+                  </small>
+
+                  <mini>
+                    <destination>images/cars/{{car_synonym}}/details/{{parent_id}}/</destination>
+                      <fileName function="web-translit" sufix="-mini">dpt_num_detail</fileName>
+                      <width>90</width>
+                      <height>90</height>
+                  </mini>
+              </resizes>
+          </dpt_image>
+
+          <dpt_image_txt type="input" tabindex="2.41"
+            visible="false">
+            <labelStyle>width: 10%;clear:none;margin: 0 0 0 4%;</labelStyle>
+            <inputStyle>width: 26%;</inputStyle>
+          </dpt_image_txt>
+
+          <car_name type="input" languageField="true" noTable="true" noForm="true"
+            ordered="true">
+          </car_name>
+
+          <apt_name type="input" languageField="true" noTable="true" noForm="true"
+            ordered="true">
+            <style scope="field">max-width:160px;</style>
+          </apt_name>
+
+          <dpt_num_detail type="input" tabindex="2.1" required="true"
+            visible="false">
+              <preprocessing>
+                  <trim />
+              </preprocessing>
+              <validate>
+                  <empty />
+              </validate>
+              <labelStyle>width: 18%;</labelStyle>
+              <inputStyle>width: 40%;</inputStyle>
+          </dpt_num_detail>
+
+          <dpt_name type="input" tabindex="2" focused="true" required="true"
+            languageField="true" ordered="true">
+              <preprocessing>
+                  <trim />
+              </preprocessing>
+              <validate>
+                  <empty />
+              </validate>
+              <labelStyle>width: 18%;</labelStyle>
+              <inputStyle>width: 80%;</inputStyle>
+              <expression><![CDATA[
+                {{dpt_sale_caption}}<b>{{dpt_num_detail}}</b> &mdash; {{value}}{{count_photos}}{{count_addition_autopars}}{{count_colors}}{{count_sizes}}{{dpt_num_order}}{{count_pair_colors_sizes}}
+              ]]></expression>
+          </dpt_name>
+
+          <count_photos field="coalesce(count_photos,0)" type="int" visible="false" noForm="true" noTable="true">
+            <link page="photos" noId="true">
+              <params>
+                <car_id_pk getFieldNotNull="car_id_pk">car_id</car_id_pk>
+                <car_synonym getFieldNotNull="car_synonym">car_synonym</car_synonym>
+                <dpt_apt_id_fk getFieldNotNull="dpt_apt_id_fk">parent_id</dpt_apt_id_fk>
+                <dpt_id_pk getFieldNotNull="dpt_id_pk">id</dpt_id_pk>
+              </params>
+            </link>
+            <expression><![CDATA[<br>Дополнительные фото: {{value}}]]></expression>
+          </count_photos>
+
+          <count_addition_autopars field="coalesce(count_addition_autopars,0)"
+            type="int" visible="false" noForm="true" noTable="true">
+            <link page="addition_autopars" noId="true">
+              <params>
+                <car_id_pk getFieldNotNull="car_id_pk">car_id</car_id_pk>
+                <car_synonym getFieldNotNull="car_synonym">car_synonym</car_synonym>
+                <dpt_apt_id_fk getFieldNotNull="dpt_apt_id_fk">parent_id</dpt_apt_id_fk>
+                <dpt_id_pk getFieldNotNull="dpt_id_pk">id</dpt_id_pk>
+              </params>
+            </link>
+            <expression><![CDATA[<br>Дополнительно расположен в: {{value}} группах]]></expression>
+          </count_addition_autopars>
+
+          <count_colors field="coalesce(count_colors,0)"
+            type="int" visible="false" noForm="true" noTable="true">
+            <link page="details_colors" noId="true">
+              <params>
+                <car_id_pk getFieldNotNull="car_id_pk">car_id</car_id_pk>
+                <car_synonym getFieldNotNull="car_synonym">car_synonym</car_synonym>
+                <dpt_apt_id_fk getFieldNotNull="dpt_apt_id_fk">parent_id</dpt_apt_id_fk>
+                <dpt_id_pk getFieldNotNull="dpt_id_pk">id</dpt_id_pk>
+              </params>
+            </link>
+            <expression><![CDATA[<br>Доп. цвета: {{value}}]]></expression>
+          </count_colors>
+
+          <count_sizes field="coalesce(count_sizes,0)"
+            type="int" visible="false" noForm="true" noTable="true">
+            <link page="details_sizes" noId="true">
+              <params>
+                <car_id_pk getFieldNotNull="car_id_pk">car_id</car_id_pk>
+                <car_synonym getFieldNotNull="car_synonym">car_synonym</car_synonym>
+                <dpt_apt_id_fk getFieldNotNull="dpt_apt_id_fk">parent_id</dpt_apt_id_fk>
+                <dpt_id_pk getFieldNotNull="dpt_id_pk">id</dpt_id_pk>
+              </params>
+            </link>
+            <expression><![CDATA[, Доп. размеры: {{value}}]]></expression>
+          </count_sizes>
+
+          <count_pair_colors_sizes field="coalesce(count_pair_colors_sizes,0)"
+            type="int" visible="false" noForm="true" noTable="true">
+            <link page="pair_colors_sizes" noId="true">
+              <params>
+                <car_id_pk getFieldNotNull="car_id_pk">car_id</car_id_pk>
+                <car_synonym getFieldNotNull="car_synonym">car_synonym</car_synonym>
+                <dpt_apt_id_fk getFieldNotNull="dpt_apt_id_fk">parent_id</dpt_apt_id_fk>
+                <dpt_id_pk getFieldNotNull="dpt_id_pk">id</dpt_id_pk>
+              </params>
+            </link>
+            <expression><![CDATA[<br>Пары цвет/размер: {{value}}]]></expression>
+          </count_pair_colors_sizes>
+
+          <dpt_status type="list" list="static" required="true" languageValue="true"
+                    tabindex="2.2" ordered="true" align="true">
+              <preprocessing>
+                  <trim />
+              </preprocessing>
+              <validate>
+                  <empty />
+              </validate>
+            <labelStyle>width: 10%;clear:none;margin: 0 0 0 4%;</labelStyle>
+            <inputStyle>width: 26%;</inputStyle>
+            <style scope="field">width:30px;</style>
+            <default>remake</default>
+          </dpt_status>
+
+          <dpt_cost type="float" align="center" tabindex="2.5" ordered="true"
+            format="null;number_format;value;2;,; " expifnull="false">
+              <style scope="field">width:30px;</style>
+              <expression><![CDATA[
+                {{value}}<span style="color:gray"> USD</span>
+              ]]></expression>
+            <preprocessing>
+                <trim />
+            </preprocessing>
+            <validate>
+                <parseFloat />
+            </validate>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 40%;</inputStyle>
+          </dpt_cost>
+
+          <dpt_discount expifnull="false" align="center"
+            type="int" tabindex="2.61" ordered="true">
+            <expression><![CDATA[-{{value}}<span style="color:gray">%</span>{{diff_cost}}]]></expression>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+            <style scope="field">width:30px;</style>
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <parseInt />
+            </validate>
+          </dpt_discount>
+
+          <diff_cost expifnull="false" visible="false" noTable="true"
+            noForm="true" type="float" use_in_footer="false">
+            <field>detail_discount_diff_fn(dpt_id_pk)</field>
+            <expression><![CDATA[<br>-{{value}}<span style="color:gray"> USD</span>]]></expression>
+          </diff_cost>
+          <dpt_presence type="float" align="center" tabindex="2.6"
+            format="null;number_format;value;0;,; " ordered="true">
+              <style scope="field">width:30px;</style>
+            <preprocessing>
+                <trim />
+            </preprocessing>
+            <validate>
+                <parseFloat />
+            </validate>
+            <labelStyle>width: 10%;clear:none;margin: 0 0 0 4%;</labelStyle>
+            <inputStyle>width: 26%;</inputStyle>
+          </dpt_presence>
+
+          <dpt_presence_caption type="input" visible="false" noForm="true" noTable="true">
+            <field>
+              case when dpt_presence > 0 then 'наличие' else 'отсутствие' end
+            </field>
+          </dpt_presence_caption>
+
+          <dpt_weight type="float" align="center" expifnull="false" ordered="true"
+            format="null;number_format;value;0;,; " tabindex="2.7" visible="false">
+              <style scope="field">width:30px;</style>
+              <expression><![CDATA[
+                {{value}}<span style="color:gray">кг.</span>
+              ]]></expression>
+            <preprocessing>
+                <trim />
+            </preprocessing>
+            <validate>
+                <parseFloat />
+            </validate>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 40%;</inputStyle>
+          </dpt_weight>
+
+          <dpt_num_order expifnull="false"
+            type="int" visible="false" tabindex="2.8">
+            <link page="coordinates" noId="true">
+              <params>
+                <car_id_pk getFieldNotNull="car_id_pk">car_id</car_id_pk>
+                <car_synonym getFieldNotNull="car_synonym">car_synonym</car_synonym>
+                <dpt_apt_id_fk getFieldNotNull="dpt_apt_id_fk">parent_id</dpt_apt_id_fk>
+                <dpt_id_pk getFieldNotNull="dpt_id_pk">id</dpt_id_pk>
+              </params>
+            </link>
+            <expression><![CDATA[<br>Номер на схеме: {{value}}]]></expression>
+            <labelStyle>width: 10%;clear:none;margin: 0 0 0 4%;</labelStyle>
+            <inputStyle>width: 26%;</inputStyle>
+          </dpt_num_order>
+
+          <dpt_robots type="list" list="static" visible="false" tabindex="3.9">
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </dpt_robots>
+
+          <dpt_title type="input" visible="false" tabindex="4" languageField="true">
+              <labelStyle>width: 18%;</labelStyle>
+              <inputStyle>width: 80%;</inputStyle>
+          </dpt_title>
+
+          <dpt_description type="textarea" visible="false" expifnull="false"
+                  format="\Uwin\Linguistics;shortedText;value;300" rows="2"
+                  tabindex="7" languageField="true">
+              <labelStyle>width: 18%;</labelStyle>
+              <inputStyle>width: 80%;</inputStyle>
+          </dpt_description>
+
+          <dpt_keywords type="textarea" visible="false" expifnull="false"
+                  tabindex="8" languageField="true" rows="2">
+              <labelStyle>width: 18%;</labelStyle>
+              <inputStyle>width: 80%;</inputStyle>
+          </dpt_keywords>
+
+          <sum_orders field="coalesce(sum_orders, 0)" type="int" align="center"
+                  format="null;number_format;value;0;,; " expifnull="false"
+                  noTable="true" noForm="true" ordered="true">
+              <style scope="field">width:30px;color: green</style>
+              <expression><![CDATA[
+                {{value}}<span style="color:gray"> USD</span>{{count_orders}}
+              ]]></expression>
+            <link page="orders" noId="true">
+              <params>
+                <car_id_pk getFieldNotNull="car_id_pk">car_id</car_id_pk>
+                <car_synonym getFieldNotNull="car_synonym">car_synonym</car_synonym>
+                <dpt_apt_id_fk getFieldNotNull="dpt_apt_id_fk">parent_id</dpt_apt_id_fk>
+                <dpt_id_pk getFieldNotNull="dpt_id_pk">id</dpt_id_pk>
+              </params>
+            </link>
+          </sum_orders>
+
+          <count_orders field="coalesce(count_orders, 0)" type="int" visible="false"
+                  format="null;number_format;value;0;,; " expifnull="false"
+                  noTable="true" noForm="true">
+              <style scope="field">color: green</style>
+              <expression><![CDATA[
+                <br>{{value}}<span style="color:gray"> зак.</span>]]>
+              </expression>
+          </count_orders>
+
+          <dpt_info type="textarea" rich="true" rows="30" tab="text"
+            languageField="true" visible="false">
+            <labelStyle>width: 18%;min-height:30px;</labelStyle>
+            <inputStyle>clear:both;width: 100%;</inputStyle>
+          </dpt_info>
+        </fields>
+      </details_autoparts_tbl>
+    </datasources>
+  </all_autoparts> <!-- }}} -->
+
+  <orders useLanguages="false"> <!-- {{{ -->
+    <crumbs>
+      <cars>/cars/</cars>
+
+      <car type="data" table="cars_tbl"
+            pk="car_id_pk" title_field="car_name_ru">
+        <url><![CDATA[/administrator/cars/autoparts/?car_id={{value}}&parent_id=]]></url>
+        <params>
+            <car_id_pk>car_id</car_id_pk>
+        </params>
+      </car>
+
+      <autopart type="recursive"
+          pk="apt_id_pk" title_field="apt_name_ru"
+          parent_field="apt_parent_id_fk">
+          <table>
+            (select *,
+            case apt_is_last when true then 'details' else 'autoparts' end as types
+            from autoparts_tbl
+            left join cars_tbl on car_id_pk = apt_car_id_fk
+            ) apt
+          </table>
+          <url><![CDATA[/administrator/cars/details/?car_id={{apt_car_id_fk}}&car_synonym={{car_synonym}}&parent_id={{value}}]]></url>
+        <params>
+          <car_synonym>car_synonym</car_synonym>
+          <apt_car_id_fk>car_id</apt_car_id_fk>
+          <apt_id_pk>parent_id</apt_id_pk>
+        </params>
+      </autopart>
+
+      <orders type="data" table="details_autoparts_tbl"
+          pk="dpt_id_pk" title_field="dpt_num_detail">
+        <url>/</url>
+        <params>
+          <dpt_id_pk>id</dpt_id_pk>
+        </params>
+      </orders>
+    </crumbs>
+
+    <datasources>
+      <orders_details_tbl pk="odd_id_pk" title_field="dpt_name"
+          paginationRows="true">
+
+        <joins>
+          <dpt name="details_autoparts_tbl" type="left"
+            pk="odd_dpt_id_fk" fk="dpt_id_pk" />
+
+          <apt name="autoparts_tbl" type="left"
+            pk="dpt_apt_id_fk" fk="apt_id_pk" />
+
+          <ord name="orders_tbl" type="left"
+            pk="odd_ord_id_fk" fk="ord_id_pk" />
+
+          <usr name="users_tbl" type="left"
+            pk="ord_usr_id_fk" fk="usr_id_pk" />
+
+          <cnt name="countries_tbl" type="left"
+            pk="ord_user_cnt_id_fk" fk="cnt_id_pk" />
+
+          <usr_cnt name="countries_tbl" type="left"
+            pk="usr_cnt_id_fk" fk="cnt_id_pk" />
+        </joins>
+
+        <params>
+          <odd_dpt_id_fk type="get">id</odd_dpt_id_fk>
+        </params>
+
+        <order_by>ord_datetime desc</order_by>
+
+        <quick_filter>
+          <ord_num />
+        </quick_filter>
+
+        <footer>
+          <query>sum(odd_sum) as odd_sum
+          </query>
+
+          <fields>
+            <odd_sum format="null;number_format;value;2;,; "
+              expifnull="false" align="center">
+                <expression><![CDATA[
+                  {{value}} <span style="color:gray">USD</span>
+                ]]></expression>
+            </odd_sum>
+          </fields>
+        </footer>
+
+        <fields>
+          <ord_num type="input" align="center" ordered="true"
+                  noForm="true" noTable="true">
+              <style scope="field">width:30px</style>
+          </ord_num>
+
+          <ord_datetime noForm="true" noTable="true" type="datetime"
+            ordered="true" align="center">
+              <format><![CDATA[null;date;d.m.Y<\b\r>H:i;value]]></format>
+            <style scope="field">width:30px</style>
+            <expression>{{value}}</expression>
+          </ord_datetime>
+
+          <ord_status type="list" list="static" languageValue="true"
+            align="center" ordered="true">
+              <style scope="field">width:30px</style>
+          </ord_status>
+
+          <ord_user_name type="input" ordered="true">
+            <expression><![CDATA[
+              {{value}}{{usr_name}}{{user_registered}}
+              {{ord_user_email}}{{usr_email}}
+              {{ord_user_phones}}{{usr_phones}}<br>
+              {{ord_user_city}}{{usr_city}}
+              {{ord_user_street}}{{usr_street}}
+              {{ord_user_build}}{{usr_build}}
+              {{ord_user_flat}}{{usr_flat}}
+              {{ord_cnt_name_ru}}{{cnt_name_ru}}
+              {{ord_user_index}}{{usr_index}}
+              ]]>
+            </expression>
+            <field>case when ord_usr_id_fk is null then ord_user_name else null end </field>
+          </ord_user_name>
+
+          <ord_method_delivery type="list" list="static" languageValue="true"
+            align="center" ordered="true">
+              <style scope="field">width:30px</style>
+          </ord_method_delivery>
+
+          <ord_method_payment type="list" list="static" languageValue="true"
+            align="center" ordered="true">
+              <style scope="field">width:30px</style>
+          </ord_method_payment>
+
+          <user_registered type="input" visible="false" expifnull="false">
+            <field>
+                case when ord_usr_id_fk is null then 'гость' else 'зарегистрирован' end
+            </field>
+            <expression><![CDATA[<i style="color:grey"> ({{value}})</i>]]></expression>
+          </user_registered>
+
+          <usr_name type="input" visible="false" expifnull="false">
+          </usr_name>
+
+          <usr_phones type="input" visible="false" expifnull="false">
+            <expression><![CDATA[<br><b>Тел.</b> {{value}}]]></expression>
+          </usr_phones>
+
+          <ord_user_phones type="input" visible="false" expifnull="false">
+            <expression><![CDATA[<br><b>Тел.</b> {{value}}]]></expression>
+            <field>case when ord_usr_id_fk is null then ord_user_phones else null end </field>
+          </ord_user_phones>
+
+          <ord_user_email type="input" visible="false" noTable="true"
+            noForm="true" expifnull="false">
+            <field>case when ord_usr_id_fk is null then ord_user_email else null end </field>
+              <expression><![CDATA[<br><a class="direct-link" href="mailto:{{value}}">{{value}}</a>]]></expression>
+          </ord_user_email>
+
+          <usr_email type="input" visible="false" noTable="true"
+            noForm="true" expifnull="false">
+              <expression><![CDATA[<br><a class="direct-link" href="mailto:{{value}}">{{value}}</a>]]></expression>
+          </usr_email>
+
+          <ord_user_city type="input" visible="false" expifnull="false"
+            noTable="true" noForm="true">
+            <expression>{{value}}, </expression>
+            <field>case when ord_usr_id_fk is null then ord_user_city else null end </field>
+          </ord_user_city>
+
+          <usr_city type="input" visible="false" expifnull="false"
+            noTable="true" noForm="true">
+            <expression>{{value}}, </expression>
+          </usr_city>
+
+          <ord_user_street type="input" visible="false" expifnull="false"
+            noTable="true" noForm="true">
+            <expression>{{value}}, </expression>
+            <field>case when ord_usr_id_fk is null then ord_user_street else null end </field>
+          </ord_user_street>
+
+          <usr_street type="input" visible="false" expifnull="false"
+            noTable="true" noForm="true">
+            <expression>{{value}}, </expression>
+          </usr_street>
+
+          <ord_user_build type="input" visible="false" expifnull="false"
+            noTable="true" noForm="true">
+            <expression>{{value}}, </expression>
+            <field>case when ord_usr_id_fk is null then ord_user_build else null end </field>
+          </ord_user_build>
+
+          <usr_build type="input" visible="false" expifnull="false"
+            noTable="true" noForm="true">
+            <expression>{{value}}, </expression>
+          </usr_build>
+
+          <ord_user_flat type="input" visible="false" expifnull="false"
+            noTable="true" noForm="true">
+            <expression>{{value}}, </expression>
+            <field>case when ord_usr_id_fk is null then ord_user_flat else null end </field>
+          </ord_user_flat>
+
+          <usr_flat type="input" visible="false" expifnull="false"
+            noTable="true" noForm="true">
+            <expression>{{value}}, </expression>
+          </usr_flat>
+
+          <ord_cnt_name_ru type="input" visible="false" expifnull="false"
+            noTable="true" noForm="true">
+            <expression>{{value}}, </expression>
+            <field>case when ord_usr_id_fk is null then cnt.cnt_name_ru else null end </field>
+          </ord_cnt_name_ru>
+
+          <cnt_name_ru field="usr_cnt.cnt_name_ru" type="input" visible="false" expifnull="false"
+            noTable="true" noForm="true">
+            <expression>{{value}}, </expression>
+          </cnt_name_ru>
+
+          <ord_user_index type="input" visible="false" expifnull="false"
+            noTable="true" noForm="true">
+            <field>case when ord_usr_id_fk is null then ord_user_index else null end </field>
+          </ord_user_index>
+
+          <usr_index type="input" visible="false" expifnull="false"
+            noTable="true" noForm="true">
+          </usr_index>
+
+          <odd_cost type="float" align="center" ordered="true"
+            format="null;number_format;value;2;,; " expifnull="false">
+              <style scope="field">width:30px;</style>
+              <expression><![CDATA[
+                {{value}}<span style="color:gray"> USD</span>
+              ]]></expression>
+          </odd_cost>
+
+          <odd_count type="int" align="center"
+            format="null;number_format;value;0;,; " ordered="true">
+              <style scope="field">width:30px;</style>
+          </odd_count>
+
+          <odd_sum type="float" align="center" ordered="true"
+            format="null;number_format;value;2;,; " expifnull="false">
+              <style scope="field">width:30px;</style>
+              <field>odd_count*odd_cost</field>
+              <expression><![CDATA[
+                {{value}}<span style="color:gray"> USD</span>
+              ]]></expression>
+          </odd_sum>
+        </fields>
+      </orders_details_tbl>
+    </datasources>
+  </orders> <!-- }}} -->
+
+  <photos> <!-- {{{ -->
+    <crumbs>
+      <cars>/cars/</cars>
+
+      <car type="data" table="cars_tbl"
+            pk="car_id_pk" title_field="car_name_ru">
+        <url><![CDATA[/administrator/cars/autoparts/?car_id={{value}}&parent_id=]]></url>
+        <params>
+            <car_id_pk>car_id</car_id_pk>
+        </params>
+      </car>
+
+      <autopart type="recursive"
+          pk="apt_id_pk" title_field="apt_name_ru"
+          parent_field="apt_parent_id_fk">
+          <table>
+            (select *,
+            case apt_is_last when true then 'details' else 'autoparts' end as types
+            from autoparts_tbl
+            left join cars_tbl on car_id_pk = apt_car_id_fk
+            ) apt
+          </table>
+          <url><![CDATA[/administrator/cars/details/?car_id={{apt_car_id_fk}}&car_synonym={{car_synonym}}&parent_id={{value}}]]></url>
+        <params>
+          <car_synonym>car_synonym</car_synonym>
+          <apt_car_id_fk>car_id</apt_car_id_fk>
+          <apt_id_pk>parent_id</apt_id_pk>
+        </params>
+      </autopart>
+
+      <photos type="data" table="details_autoparts_tbl"
+          pk="dpt_id_pk" title_field="dpt_num_detail">
+        <url>/</url>
+        <params>
+          <dpt_id_pk>id</dpt_id_pk>
+        </params>
+      </photos>
+    </crumbs>
+
+    <actions>
+      <add />
+    </actions>
+
+    <datasources>
+      <details_autoparts_photos_tbl pk="dap_id_pk" title_field="dap_name"
+        useLanguages="true" listLanguagesField="dap_languages"
+        paginationRows="true" draggable="dap_order">
+
+        <params>
+          <dap_dpt_id_fk type="get">id</dap_dpt_id_fk>
+        </params>
+
+        <order_by>dap_order</order_by>
+
+        <quick_filter>
+          <dap_name />
+        </quick_filter>
+
+        <actions>
+          <edit />
+          <delete />
+        </actions>
+
+        <fields>
+          <dap_enabled type="bool" default="true" tabindex="1">
+            <style scope="field">width:30px</style>
+          </dap_enabled>
+
+          <dap_image type="file" align="center" tabindex="2.4" required="true">
+            <style scope="field">width:30px</style>
+            <validate>
+              <empty />
+              <extension>jpg|jpeg|png|gif</extension>
+              <maxSize>300</maxSize>
+              <width>800</width>
+              <heignt>600</heignt>
+            </validate>
+            <destination>images/cars/{{car_synonym}}/details/{{id}}/</destination>
+            <fileName function="web-translit" sufix="-bg">dap_name_ru</fileName>
+            <!-- <resizes> -->
+            <!--   <small> -->
+            <!--     <destination>images/cars/{{car_synonym}}/details/{{id}}/</destination> -->
+            <!--     <fileName function="web&#45;translit" sufix="&#45;sm">dap_name_ru</fileName> -->
+            <!--     <width>60</width> -->
+            <!--     <height>60</height> -->
+            <!--   </small> -->
+            <!-- </resizes> -->
+          </dap_image>
+
+          <dap_name type="input" focused="true" languageField="true"
+                  required="true" tabindex="2">
+              <preprocessing>
+                  <trim />
+              </preprocessing>
+              <validate>
+                  <empty />
+              </validate>
+          </dap_name>
+        </fields>
+      </details_autoparts_photos_tbl>
+    </datasources>
+  </photos> <!-- }}} -->
+
+  <addition_autopars> <!-- {{{ -->
+    <crumbs>
+      <cars>/cars/</cars>
+
+      <car type="data" table="cars_tbl"
+            pk="car_id_pk" title_field="car_name_ru">
+        <url><![CDATA[/administrator/cars/autoparts/?car_id={{value}}&parent_id=]]></url>
+        <params>
+            <car_id_pk>car_id</car_id_pk>
+        </params>
+      </car>
+
+      <autopart type="recursive"
+          pk="apt_id_pk" title_field="apt_name_ru"
+          parent_field="apt_parent_id_fk">
+          <table>
+            (select *,
+            case apt_is_last when true then 'details' else 'autoparts' end as types
+            from autoparts_tbl
+            left join cars_tbl on car_id_pk = apt_car_id_fk
+            ) apt
+          </table>
+          <url><![CDATA[/administrator/cars/details/?car_id={{apt_car_id_fk}}&car_synonym={{car_synonym}}&parent_id={{value}}]]></url>
+        <params>
+          <car_synonym>car_synonym</car_synonym>
+          <apt_car_id_fk>car_id</apt_car_id_fk>
+          <apt_id_pk>parent_id</apt_id_pk>
+        </params>
+      </autopart>
+
+      <addition_autopars type="data" table="details_autoparts_tbl"
+          pk="dpt_id_pk" title_field="dpt_num_detail">
+        <url>/</url>
+        <params>
+          <dpt_id_pk>id</dpt_id_pk>
+        </params>
+      </addition_autopars>
+    </crumbs>
+
+    <actions>
+      <add />
+    </actions>
+
+    <datasources>
+      <details_addition_autoparts_tbl pk="daa_id_pk" title_field="daa_apt_id_fk"
+        paginationRows="true">
+
+        <joins>
+          <apt name="autoparts_tbl" type="left" pk="daa_apt_id_fk"
+            fk="apt_id_pk" />
+
+          <car name="cars_tbl" type="left" pk="apt_car_id_fk"
+            fk="car_id_pk" />
+        </joins>
+
+        <params>
+          <daa_dpt_id_fk type="get">id</daa_dpt_id_fk>
+        </params>
+
+        <order_by>daa_id_pk</order_by>
+
+        <actions>
+          <edit />
+          <delete />
+        </actions>
+
+        <fields>
+          <daa_apt_id_fk tabindex="1" type="list" visible="false"
+            focused="true" required="true">
+            <list pk="apt_id_pk" name="name">
+              <table>
+                (select apt_id_pk, concat(apt_name_ru, '/', car_name_ru) as name
+                from autoparts_tbl
+                join cars_tbl on car_id_pk = apt_car_id_fk
+                where apt_is_last = true
+                order by apt_name_ru desc) tbl
+              </table>
+            </list>
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+            </validate>
+          </daa_apt_id_fk>
+
+          <car_name type="input" noTable="true" noForm="true"
+            languageField="true">
+          </car_name>
+          <apt_name type="input" noTable="true" noForm="true"
+            languageField="true">
+          </apt_name>
+        </fields>
+      </details_addition_autoparts_tbl>
+    </datasources>
+  </addition_autopars> <!-- }}} -->
+
+  <coordinates useLanguages="false"> <!-- {{{ -->
+    <crumbs>
+      <cars>/cars/</cars>
+
+      <car type="data" table="cars_tbl"
+            pk="car_id_pk" title_field="car_name_ru">
+        <url><![CDATA[/administrator/cars/autoparts/?car_id={{value}}&parent_id=]]></url>
+        <params>
+            <car_id_pk>car_id</car_id_pk>
+        </params>
+      </car>
+
+      <autopart type="recursive"
+          pk="apt_id_pk" title_field="apt_name_ru"
+          parent_field="apt_parent_id_fk">
+          <table>
+            (select *,
+            case apt_is_last when true then 'details' else 'autoparts' end as types
+            from autoparts_tbl
+            left join cars_tbl on car_id_pk = apt_car_id_fk
+            ) apt
+          </table>
+          <url><![CDATA[/administrator/cars/details/?car_id={{apt_car_id_fk}}&car_synonym={{car_synonym}}&parent_id={{value}}]]></url>
+        <params>
+          <car_synonym>car_synonym</car_synonym>
+          <apt_car_id_fk>car_id</apt_car_id_fk>
+          <apt_id_pk>parent_id</apt_id_pk>
+        </params>
+      </autopart>
+
+      <coordinates type="data" table="details_autoparts_tbl"
+          pk="dpt_id_pk" title_field="dpt_num_detail">
+        <url>/</url>
+        <params>
+          <dpt_id_pk>id</dpt_id_pk>
+        </params>
+      </coordinates>
+    </crumbs>
+
+    <actions>
+      <add />
+    </actions>
+
+    <datasources>
+      <coord_detail_autoparts_tbl pk="cda_id_pk" title_field="cda_id_pk"
+        paginationRows="true">
+
+        <params>
+          <cda_dpt_id_fk type="get">id</cda_dpt_id_fk>
+        </params>
+
+        <order_by>cda_id_pk</order_by>
+
+        <actions>
+          <edit />
+          <delete />
+        </actions>
+
+        <fields>
+          <cda_id_pk type="int" visible="false" noTable="true" noForm="true" />
+
+          <cda_top type="int" focused="true" required="true">
+              <preprocessing>
+                  <trim />
+              </preprocessing>
+              <validate>
+                  <empty />
+                  <parseInt />
+              </validate>
+          </cda_top>
+
+          <cda_left type="int" required="true">
+              <preprocessing>
+                  <trim />
+              </preprocessing>
+              <validate>
+                  <empty />
+                  <parseInt />
+              </validate>
+          </cda_left>
+        </fields>
+      </coord_detail_autoparts_tbl>
+    </datasources>
+  </coordinates> <!-- }}} -->
+
+  <details_colors> <!-- {{{ -->
+    <crumbs>
+      <cars>/cars/</cars>
+
+      <car type="data" table="cars_tbl"
+            pk="car_id_pk" title_field="car_name_ru">
+        <url><![CDATA[/administrator/cars/autoparts/?car_id={{value}}&parent_id=]]></url>
+        <params>
+            <car_id_pk>car_id</car_id_pk>
+        </params>
+      </car>
+
+      <autopart type="recursive"
+          pk="apt_id_pk" title_field="apt_name_ru"
+          parent_field="apt_parent_id_fk">
+          <table>
+            (select *,
+            case apt_is_last when true then 'details' else 'autoparts' end as types
+            from autoparts_tbl
+            left join cars_tbl on car_id_pk = apt_car_id_fk
+            ) apt
+          </table>
+          <url><![CDATA[/administrator/cars/details/?car_id={{apt_car_id_fk}}&car_synonym={{car_synonym}}&parent_id={{value}}]]></url>
+        <params>
+          <car_synonym>car_synonym</car_synonym>
+          <apt_car_id_fk>car_id</apt_car_id_fk>
+          <apt_id_pk>parent_id</apt_id_pk>
+        </params>
+      </autopart>
+
+      <colors type="data" table="details_autoparts_tbl"
+          pk="dpt_id_pk" title_field="dpt_num_detail">
+        <url>/</url>
+        <params>
+          <dpt_id_pk>id</dpt_id_pk>
+        </params>
+      </colors>
+    </crumbs>
+
+    <actions>
+      <add />
+    </actions>
+
+    <datasources>
+      <details_autoparts_colors_tbl pk="dac_id_pk" title_field="dac_name"
+        useLanguages="true" listLanguagesField="dac_languages"
+        paginationRows="true" draggable="dac_order">
+
+        <params>
+          <dac_dpt_id_fk type="get">id</dac_dpt_id_fk>
+        </params>
+
+        <order_by>dac_order</order_by>
+
+        <actions>
+          <edit />
+          <delete />
+        </actions>
+
+        <fields>
+          <dac_id_pk type="int" visible="false" noTable="true" noForm="true" />
+
+          <dac_image type="file" align="center" tabindex="2.7">
+            <style scope="field">width:30px</style>
+            <validate>
+              <extension>jpg|jpeg|png|gif</extension>
+              <maxSize>300</maxSize>
+              <width>800</width>
+              <heignt>600</heignt>
+            </validate>
+            <destination>images/cars/{{car_synonym}}/details/{{id}}/</destination>
+            <fileName function="web-translit" sufix="-bg">dac_name_ru</fileName>
+            <resizes>
+              <medium>
+                <destination>images/cars/{{car_synonym}}/details/{{id}}/</destination>
+                <fileName function="web-translit" sufix="-md">dac_name_ru</fileName>
+                <width>318</width>
+                <height>217</height>
+              </medium>
+
+              <small>
+                <destination>images/cars/{{car_synonym}}/details/{{id}}/</destination>
+                <fileName function="web-translit" sufix="-sm">dac_name_ru</fileName>
+                <width>60</width>
+                <height>60</height>
+              </small>
+            </resizes>
+          </dac_image>
+
+          <dac_name type="input" tabindex="2" focused="true" required="true"
+            languageField="true">
+              <preprocessing>
+                  <trim />
+              </preprocessing>
+              <validate>
+                  <empty />
+              </validate>
+          </dac_name>
+
+          <dac_diff_cost type="float" align="center" tabindex="2.5"
+            format="null;number_format;value;2;,; " expifnull="false">
+              <style scope="field">width:30px;</style>
+              <expression><![CDATA[
+                {{value}}<span style="color:gray"> USD</span>
+              ]]></expression>
+            <preprocessing>
+                <trim />
+            </preprocessing>
+            <validate>
+                <parseFloat />
+            </validate>
+          </dac_diff_cost>
+
+          <dac_available type="float" align="center" tabindex="2.6"
+            format="null;number_format;value;0;,; ">
+              <style scope="field">width:30px;</style>
+            <preprocessing>
+                <trim />
+            </preprocessing>
+            <validate>
+                <parseFloat />
+            </validate>
+          </dac_available>
+        </fields>
+      </details_autoparts_colors_tbl>
+    </datasources>
+  </details_colors> <!-- }}} -->
+
+  <details_sizes> <!-- {{{ -->
+    <crumbs>
+      <cars>/cars/</cars>
+
+      <car type="data" table="cars_tbl"
+            pk="car_id_pk" title_field="car_name_ru">
+        <url><![CDATA[/administrator/cars/autoparts/?car_id={{value}}&parent_id=]]></url>
+        <params>
+            <car_id_pk>car_id</car_id_pk>
+        </params>
+      </car>
+
+      <autopart type="recursive"
+          pk="apt_id_pk" title_field="apt_name_ru"
+          parent_field="apt_parent_id_fk">
+          <table>
+            (select *,
+            case apt_is_last when true then 'details' else 'autoparts' end as types
+            from autoparts_tbl
+            left join cars_tbl on car_id_pk = apt_car_id_fk
+            ) apt
+          </table>
+          <url><![CDATA[/administrator/cars/details/?car_id={{apt_car_id_fk}}&car_synonym={{car_synonym}}&parent_id={{value}}]]></url>
+        <params>
+          <car_synonym>car_synonym</car_synonym>
+          <apt_car_id_fk>car_id</apt_car_id_fk>
+          <apt_id_pk>parent_id</apt_id_pk>
+        </params>
+      </autopart>
+
+      <sizes type="data" table="details_autoparts_tbl"
+          pk="dpt_id_pk" title_field="dpt_num_detail">
+        <url>/</url>
+        <params>
+          <dpt_id_pk>id</dpt_id_pk>
+        </params>
+      </sizes>
+    </crumbs>
+
+    <actions>
+      <add />
+    </actions>
+
+    <datasources>
+      <details_autoparts_sizes_tbl pk="das_id_pk" title_field="das_name"
+        useLanguages="true" listLanguagesField="das_languages"
+        paginationRows="true" draggable="das_order">
+
+        <params>
+          <das_dpt_id_fk type="get">id</das_dpt_id_fk>
+        </params>
+
+        <order_by>das_order</order_by>
+
+        <actions>
+          <edit />
+          <delete />
+        </actions>
+
+        <fields>
+          <das_id_pk type="int" visible="false" noTable="true" noForm="true" />
+
+          <das_image type="file" align="center" tabindex="2.7">
+            <style scope="field">width:30px</style>
+            <validate>
+              <extension>jpg|jpeg|png|gif</extension>
+              <maxSize>300</maxSize>
+              <width>800</width>
+              <heignt>600</heignt>
+            </validate>
+            <destination>images/cars/{{car_synonym}}/details/{{id}}/</destination>
+            <fileName function="web-translit" sufix="-bg">das_name_ru</fileName>
+            <resizes>
+              <medium>
+                <destination>images/cars/{{car_synonym}}/details/{{id}}/</destination>
+                <fileName function="web-translit" sufix="-md">das_name_ru</fileName>
+                <width>318</width>
+                <height>217</height>
+              </medium>
+
+              <small>
+                <destination>images/cars/{{car_synonym}}/details/{{id}}/</destination>
+                <fileName function="web-translit" sufix="-sm">das_name_ru</fileName>
+                <width>60</width>
+                <height>60</height>
+              </small>
+            </resizes>
+          </das_image>
+
+          <das_name type="input" tabindex="2" focused="true" required="true"
+            languageField="true">
+              <preprocessing>
+                  <trim />
+              </preprocessing>
+              <validate>
+                  <empty />
+              </validate>
+          </das_name>
+
+          <das_diff_cost type="float" align="center" tabindex="2.5"
+            format="null;number_format;value;2;,; " expifnull="false">
+              <style scope="field">width:30px;</style>
+              <expression><![CDATA[
+                {{value}}<span style="color:gray"> USD</span>
+              ]]></expression>
+            <preprocessing>
+                <trim />
+            </preprocessing>
+            <validate>
+                <parseFloat />
+            </validate>
+          </das_diff_cost>
+
+          <das_available type="float" align="center" tabindex="2.6"
+            format="null;number_format;value;0;,; ">
+              <style scope="field">width:30px;</style>
+            <preprocessing>
+                <trim />
+            </preprocessing>
+            <validate>
+                <parseFloat />
+            </validate>
+          </das_available>
+        </fields>
+      </details_autoparts_sizes_tbl>
+    </datasources>
+  </details_sizes> <!-- }}} -->
+
+  <pair_colors_sizes> <!-- {{{ -->
+    <crumbs>
+      <cars>/cars/</cars>
+
+      <car type="data" table="cars_tbl"
+            pk="car_id_pk" title_field="car_name_ru">
+        <url><![CDATA[/administrator/cars/autoparts/?car_id={{value}}&parent_id=]]></url>
+        <params>
+            <car_id_pk>car_id</car_id_pk>
+        </params>
+      </car>
+
+      <autopart type="recursive"
+          pk="apt_id_pk" title_field="apt_name_ru"
+          parent_field="apt_parent_id_fk">
+          <table>
+            (select *,
+            case apt_is_last when true then 'details' else 'autoparts' end as types
+            from autoparts_tbl
+            left join cars_tbl on car_id_pk = apt_car_id_fk
+            ) apt
+          </table>
+          <url><![CDATA[/administrator/cars/details/?car_id={{apt_car_id_fk}}&car_synonym={{car_synonym}}&parent_id={{value}}]]></url>
+        <params>
+          <car_synonym>car_synonym</car_synonym>
+          <apt_car_id_fk>car_id</apt_car_id_fk>
+          <apt_id_pk>parent_id</apt_id_pk>
+        </params>
+      </autopart>
+
+      <pair type="data" table="details_autoparts_tbl"
+          pk="dpt_id_pk" title_field="dpt_num_detail">
+        <url>/</url>
+        <params>
+          <dpt_id_pk>id</dpt_id_pk>
+        </params>
+      </pair>
+    </crumbs>
+
+    <actions>
+      <add />
+    </actions>
+
+    <datasources>
+      <details_autoparts_colors_sizes_pair_tbl pk="csp_id_pk"
+        title_field="csp_id_pk" paginationRows="true">
+
+        <joins>
+          <dac name="details_autoparts_colors_tbl" type="left" pk="csp_dac_id_fk"
+                fk="dac_id_pk" />
+
+          <das name="details_autoparts_sizes_tbl" type="left" pk="csp_das_id_fk"
+                fk="das_id_pk" />
+        </joins>
+
+        <params>
+          <csp_dpt_id_fk type="get">id</csp_dpt_id_fk>
+        </params>
+
+        <order_by>csp_id_pk</order_by>
+
+        <actions>
+          <edit />
+          <delete />
+        </actions>
+
+        <fields>
+          <csp_id_pk type="int" visible="false" noTable="true" noForm="true" />
+
+          <dac_name type="input" noTable="true" noForm="true"
+            languageField="true">
+          </dac_name>
+
+          <csp_dac_id_fk tabindex="1.6" type="list" visible="false"
+            required="true" focused="true">
+            <list table="details_autoparts_colors_tbl" pk="dac_id_pk"
+              name="dac_name_ru" order="dac_order">
+              <where>dac_dpt_id_fk = {{id}}</where>
+            </list>
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+            </validate>
+          </csp_dac_id_fk>
+
+          <das_name type="input" noTable="true" noForm="true"
+            languageField="true">
+          </das_name>
+
+          <csp_das_id_fk tabindex="1.6" type="list" visible="false"
+            required="true">
+            <list table="details_autoparts_sizes_tbl" pk="das_id_pk"
+              name="das_name_ru" order="das_order">
+              <where>das_dpt_id_fk = {{id}}</where>
+            </list>
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+            </validate>
+          </csp_das_id_fk>
+
+          <csp_cost type="float" align="center" tabindex="2.5"
+            format="null;number_format;value;2;,; " expifnull="false">
+              <style scope="field">width:30px;</style>
+              <expression><![CDATA[
+                {{value}}<span style="color:gray"> USD</span>
+              ]]></expression>
+            <preprocessing>
+                <trim />
+            </preprocessing>
+            <validate>
+                <parseFloat />
+            </validate>
+          </csp_cost>
+
+          <csp_available type="float" align="center" tabindex="2.6"
+            format="null;number_format;value;0;,; ">
+              <style scope="field">width:30px;</style>
+            <preprocessing>
+                <trim />
+            </preprocessing>
+            <validate>
+                <parseFloat />
+            </validate>
+          </csp_available>
+        </fields>
+      </details_autoparts_colors_sizes_pair_tbl>
+    </datasources>
+  </pair_colors_sizes> <!-- }}} -->
+
+  <car_types> <!-- {{{ -->
+    <crumbs>
+      <car_types>/cars/car_types/</car_types>
+    </crumbs>
+
+    <actions>
+      <add/>
+    </actions>
+
+    <datasources>
+      <car_types_tbl pk="crt_id_pk" title_field="crt_synonym"
+        paginationRows="false" tags="car_types"
+        useLanguages="true" listLanguagesField="crt_languages"
+        draggable="crt_order">
+
+        <languageFilter>crt_languages like '%|#lang#|%'</languageFilter>
+
+        <order_by>crt_order</order_by>
+
+        <quick_filter>
+          <crt_name/>
+          <crt_synonym/>
+        </quick_filter>
+
+        <actions>
+          <edit/>
+          <delete/>
+        </actions>
+
+        <fields>
+          <crt_enabled type="bool" align="center" default="true">
+            <style scope="field">width:30px</style>
+            <inputStyle>width: 25.3%;</inputStyle>
+          </crt_enabled>
+
+          <crt_name type="input" required="true" languageField="true"
+            focused="true">
+            <preprocessing>
+              <trim/>
+            </preprocessing>
+            <validate>
+              <empty/>
+            </validate>
+          </crt_name>
+
+          <crt_synonym type="input" required="true">
+            <preprocessing>
+              <trim/>
+              <lowercase/>
+            </preprocessing>
+            <validate>
+              <empty/>
+              <unique table="car_types_tbl" column="crt_synonym"/>
+              <regexp>^[a-z0-9\-]+$</regexp>
+            </validate>
+          </crt_synonym>
+        </fields>
+      </car_types_tbl>
+    </datasources>
+  </car_types> <!-- }}} -->
+
+  <docs> <!-- {{{ -->
+    <crumbs>
+      <cars>/cars/</cars>
+      <docs type="data" url="/docs/{{value}}/"
+        table="car_docs_tbl"
+        pk="crd_id_pk" title_field="crd_name_ru">
+        <params>
+          <crd_id_pk>id</crd_id_pk>
+        </params>
+      </docs>
+    </crumbs>
+
+    <actions>
+      <add />
+    </actions>
+
+    <datasources>
+      <car_docs_tbl pk="crd_id_pk" title_field="crd_name" paginationRows="true"
+        useLanguages="true" listLanguagesField="crd_languages"
+        style="width:800px">
+
+        <params>
+          <crd_car_id_fk type="get">id</crd_car_id_fk>
+        </params>
+
+        <order_by>crd_name_ru desc</order_by>
+
+        <actions>
+          <edit />
+          <delete />
+        </actions>
+
+        <tabs>
+          <main />
+          <meta_tags />
+        </tabs>
+
+        <quick_filter>
+          <crd_name />
+          <crd_title />
+          <crd_keywords />
+          <crd_description />
+          <crd_text />
+          <crd_synonym />
+        </quick_filter>
+
+        <fields>
+          <crd_enabled type="bool" align="center" ordered="true"
+            tabindex="1" default="true">
+            <style scope="field">width:30px</style>
+            <inputStyle>width: 20%;</inputStyle>
+          </crd_enabled>
+
+          <crd_name type="input" ordered="true"  required="true" focused="true"
+            tabindex="3" languageField="true">
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+            </validate>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </crd_name>
+
+          <crd_synonym type="input" visible="false" tabindex="5">
+            <callback module="cars" model="Cars" function="getDocSynonym">
+              <params>
+                <caption>crd_name_ru</caption>
+              </params>
+            </callback>
+            <preprocessing>
+              <trim />
+              <lowercase />
+            </preprocessing>
+            <validate>
+              <regexp>^[a-z0-9\-]+$</regexp>
+              <unique table="car_docs_tbl" column="crd_synonym" />
+            </validate>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </crd_synonym>
+
+          <crd_text type="textarea" rich="true" rows="10" visible="false"
+            focused="true" required="true" languageField="true"
+            richContainerClass="clearfix" tabindex="100">
+            <labelStyle>width: 18%;min-height:30px;</labelStyle>
+            <inputStyle>clear:both;width: 100%;</inputStyle>
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+            </validate>
+          </crd_text>
+
+          <crd_robots type="list" list="static" visible="false" tabindex="3.9"
+            tab="meta_tags">
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </crd_robots>
+
+          <crd_title type="input" visible="false" tabindex="4"
+            tab="meta_tags" languageField="true">
+            <expression><![CDATA[<br><span style="color:#FC7905;">{{value}}</span>]]></expression>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </crd_title>
+
+          <crd_description type="textarea" visible="false" expifnull="false"
+            format="\Uwin\Linguistics;shortedText;value;300" rows="2"
+            tabindex="7"  tab="meta_tags" languageField="true">
+            <expression><![CDATA[<br>{{value}}]]></expression>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </crd_description>
+
+          <crd_keywords type="textarea" visible="false" expifnull="false"
+            tabindex="8"  tab="meta_tags" rows="3" languageField="true">
+            <expression><![CDATA[<br><span style="color:#FC7905;">{{value}}</span>]]></expression>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </crd_keywords>
+        </fields>
+      </car_docs_tbl>
+    </datasources>
+  </docs> <!-- }}} -->
+
+  <new_autoparts_mailer  useLanguages="false"> <!-- {{{ -->
+    <crumbs>
+      <cars>/cars/</cars>
+      <new_autoparts_mailer>/</new_autoparts_mailer>
+    </crumbs>
+
+    <actions>
+      <sendNewDetails module="cars" model="Cars"
+        function="sendNewDetails" form="sendNewDetails" />
+    </actions>
+
+    <datasources>
+      <new_autoparts_mailer_vw pk="detail_id" title_field="detail_name"
+          style="width: 780px;" paginationRows="true">
+
+        <order_by>detail_last_update</order_by>
+
+        <quick_filter>
+          <detail_name />
+          <detail_num />
+          <dpt_num_detail />
+          <car_name />
+        </quick_filter>
+
+        <actions>
+          <delete />
+        </actions>
+
+        <actions_function>
+          <delete module="cars" model="Cars" function="notInMailer" />
+        </actions_function>
+
+        <fields>
+          <detail_image type="file" align="center" tabindex="2.4">
+              <style scope="field">width:30px</style>
+          </detail_image>
+
+          <car_name type="input" languageField="true" noTable="true"
+            noForm="true" ordered="true" />
+
+          <autopart_name type="input" languageField="true" noTable="true"
+            noForm="true" visible="false">
+          </autopart_name>
+
+          <detail_num type="input" visible="false">
+          </detail_num>
+
+          <detail_name type="input" languageField="true" ordered="true">
+              <expression><![CDATA[
+                <b>{{detail_num}}</b> &mdash; {{value}}
+              ]]></expression>
+          </detail_name>
+
+          <car_synonym type="input" visible="false" noTable="true"
+            noForm="true" />
+
+          <status type="list" list="static" languageValue="true"
+            ordered="true">
+            <style scope="field">width:30px;</style>
+          </status>
+
+          <cost_unformat type="float" align="center" ordered="true"
+            format="null;number_format;value;2;,; " expifnull="false">
+              <style scope="field">width:30px;</style>
+              <expression><![CDATA[
+                {{value}}<span style="color:gray"> USD</span>
+              ]]></expression>
+          </cost_unformat>
+        </fields>
+      </new_autoparts_mailer_vw>
+    </datasources>
+  </new_autoparts_mailer> <!-- }}} -->
+
+  <sale_autoparts_mailer  useLanguages="false"> <!-- {{{ -->
+    <crumbs>
+      <cars>/cars/</cars>
+      <sale_autoparts_mailer>/</sale_autoparts_mailer>
+    </crumbs>
+
+    <actions>
+      <sendSaleDetails module="cars" model="Cars"
+        function="sendSaleDetails" form="sendSaleDetails" />
+    </actions>
+
+    <datasources>
+      <sale_autoparts_mailer_vw pk="detail_id" title_field="detail_name"
+          style="width: 780px;" paginationRows="true">
+
+        <order_by>detail_last_update</order_by>
+
+        <quick_filter>
+          <detail_name />
+          <detail_num />
+          <dpt_num_detail />
+          <car_name />
+        </quick_filter>
+
+        <!-- <actions> -->
+        <!--   <delete /> -->
+        <!-- </actions> -->
+
+        <actions_function>
+          <delete module="cars" model="Cars" function="notInMailer" />
+        </actions_function>
+
+        <fields>
+          <detail_image type="file" align="center" tabindex="2.4">
+              <style scope="field">width:30px</style>
+          </detail_image>
+
+          <car_name type="input" languageField="true" noTable="true"
+            noForm="true" ordered="true" />
+
+          <autopart_name type="input" languageField="true" noTable="true"
+            noForm="true" visible="false">
+          </autopart_name>
+
+          <detail_num type="input" visible="false">
+          </detail_num>
+
+          <detail_name type="input" languageField="true" ordered="true">
+              <expression><![CDATA[
+                <b>{{detail_num}}</b> &mdash; {{value}}
+              ]]></expression>
+          </detail_name>
+
+          <car_synonym type="input" visible="false" noTable="true"
+            noForm="true" />
+
+          <status type="list" list="static" languageValue="true"
+            ordered="true">
+            <style scope="field">width:30px;</style>
+          </status>
+
+          <cost_unformat type="float" align="center" ordered="true"
+            format="null;number_format;value;2;,; " expifnull="false">
+              <style scope="field">width:30px;</style>
+              <expression><![CDATA[
+                {{value}}<span style="color:gray"> USD</span>{{old_cost_unformat}}
+              ]]></expression>
+          </cost_unformat>
+
+          <old_cost_unformat type="float" align="center" ordered="true"
+            format="null;number_format;value;2;,; " expifnull="false" visible="false">
+              <style scope="field">width:30px;</style>
+              <expression><![CDATA[
+                <br><strike>{{value}}<span style="color:gray"> USD</span></strike>
+              ]]></expression>
+          </old_cost_unformat>
+        </fields>
+      </sale_autoparts_mailer_vw>
+    </datasources>
+  </sale_autoparts_mailer> <!-- }}} -->
+
+  <settings style="width: 90%"> <!-- {{{ -->
+    <configs>
+      <cars>
+        <requests>
+          <email type="input" />
+        </requests>
+
+        <templates>
+          <title type="textarea" rows="10" language="true" />
+
+          <keywords type="textarea" rows="10" language="true" />
+
+          <description type="textarea" rows="10" language="true" />
+
+          <share type="textarea" rows="10" language="true" />
+        </templates>
+
+        <templates_car>
+          <title type="textarea" rows="10" language="true" />
+
+          <keywords type="textarea" rows="10" language="true" />
+
+          <description type="textarea" rows="10" language="true" />
+        </templates_car>
+
+        <templates_category>
+          <title type="textarea" rows="10" language="true" />
+
+          <keywords type="textarea" rows="10" language="true" />
+
+          <description type="textarea" rows="10" language="true" />
+        </templates_category>
+
+        <templates_last_category>
+          <title type="textarea" rows="10" language="true" />
+
+          <keywords type="textarea" rows="10" language="true" />
+
+          <description type="textarea" rows="10" language="true" />
+        </templates_last_category>
+
+        <mails>
+          <mailer>
+            <subject type="input" language="true" languageField="true" />
+
+            <body type="textarea" rich="true" rows="30" language="true"
+              richNoStyleFile="true" languageField="true">
+              <labelStyle>min-height:30px;</labelStyle>
+              <inputStyle>clear: none;width:100%;</inputStyle>
+            </body>
+          </mailer>
+
+          <sale_mailer>
+            <subject type="input" language="true" languageField="true" />
+
+            <body type="textarea" rich="true" rows="30" language="true"
+              richNoStyleFile="true" languageField="true">
+              <labelStyle>min-height:30px;</labelStyle>
+              <inputStyle>clear: none;width:100%;</inputStyle>
+            </body>
+          </sale_mailer>
+        </mails>
+      </cars>
+    </configs>
+  </settings> <!-- }}} -->
+
+  <requests useLanguages="false"> <!-- {{{ -->
+    <crumbs>
+      <requests>/</requests>
+    </crumbs>
+
+    <datasources>
+      <details_requests_tbl pk="drq_id_pk" title_field="drq_name"
+        paginationRows="true">
+        <joins>
+          <ccfr name="cars_for_requests_tbl" type="left" pk="drq_car_id_fk"
+            fk="cfr_id_pk" />
+        </joins>
+          <order_by>drq_date desc</order_by>
+
+          <actions>
+            <edit />
+            <delete />
+          </actions>
+
+          <quick_filter>
+            <drq_name />
+            <drq_email />
+            <drq_detail_name />
+            <drq_detail_num />
+          </quick_filter>
+
+        <fields>
+          <drq_date type="datetime" align="center" ordered="true"
+              readonly="true" noTable="true" noForm="true">
+              <format><![CDATA[null;date;d.m.Y H:i;value]]></format>
+            <default>now</default>
+            <default_format>d.m.Y H:i</default_format>
+            <style scope="field">color:green;width: 50px;</style>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </drq_date>
+
+          <drq_name type="input" required="true" ordered="true" focused="true">
+            <preprocessing>
+                <trim />
+            </preprocessing>
+            <validate>
+                <empty />
+            </validate>
+            <expression><![CDATA[
+              {{value}}<br>{{drq_email}}<br>#{{drq_detail_num}} - {{drq_detail_name}}
+            ]]></expression>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </drq_name>
+
+          <drq_email type="input" ordered="true" required="true" visible="">
+            <expression><![CDATA[<a class="direct-link" href="mailto:{{value}}">{{value}}</a>]]></expression>
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+              <email />
+            </validate>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </drq_email>
+
+          <drq_car_id_fk type="list" visible="false" required="true">
+            <list table="cars_for_requests_tbl" pk="cfr_id_pk"
+              name="cfr_name_ru" order="cfr_name_ru">
+            </list>
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+            </validate>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 33%;</inputStyle>
+          </drq_car_id_fk>
+
+          <drq_model type="input" visible="false" expifnull="false">
+            <labelStyle>width: 10%;clear:none;margin: 0 0 0 4%;</labelStyle>
+            <inputStyle>width: 33%;</inputStyle>
+          </drq_model>
+
+          <drq_year type="int" visible="false" expifnull="false">
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <parseInt />
+            </validate>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 33%;</inputStyle>
+            <expression><![CDATA[<br>Год: {{value}}]]></expression>
+          </drq_year>
+
+          <drq_volume type="input" visible="false" expifnull="false">
+            <labelStyle>width: 10%;clear:none;margin: 0 0 0 4%;</labelStyle>
+            <inputStyle>width: 33%;</inputStyle>
+            <expression><![CDATA[<br>Объем: {{value}}]]></expression>
+          </drq_volume>
+
+          <drq_body_type type="input" visible="false" expifnull="false">
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 33%;</inputStyle>
+            <expression><![CDATA[<br>Тип кузова: {{value}}]]></expression>
+          </drq_body_type>
+
+          <drq_fuel_type type="input" visible="false" expifnull="false">
+            <labelStyle>width: 10%;clear:none;margin: 0 0 0 4%;</labelStyle>
+            <inputStyle>width: 33%;</inputStyle>
+            <expression><![CDATA[<br>Тип топлива: {{value}}]]></expression>
+          </drq_fuel_type>
+
+          <cfr_name type="input" languageField="true" noTable="true" noForm="true"
+            ordered="true">
+            <expression><![CDATA[<b>{{value}}</b> {{drq_model}}{{drq_year}}{{drq_volume}}{{drq_body_type}}{{drq_fuel_type}}]]></expression>
+          </cfr_name>
+
+          <drq_detail_num type="input" visible="false">
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 33%;</inputStyle>
+          </drq_detail_num>
+
+          <drq_detail_name type="input" visible="false">
+            <labelStyle>width: 10%;clear:none;margin: 0 0 0 4%;</labelStyle>
+            <inputStyle>width: 33%;</inputStyle>
+          </drq_detail_name>
+
+          <drq_image type="file" align="center">
+              <style scope="field">width:30px</style>
+              <validate>
+                  <extension>jpg|jpeg|png|gif</extension>
+                  <maxSize>1000</maxSize>
+              </validate>
+              <destination>images/cars/requests</destination>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 33%;</inputStyle>
+          </drq_image>
+
+          <drq_detail_state type="list" list="static" languageValue="true"
+            ordered="true" align="true">
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+            </validate>
+            <style scope="field">width:30px;</style>
+            <labelStyle>width: 10%;clear:none;margin: 0 0 0 4%;</labelStyle>
+            <inputStyle>width: 33%;</inputStyle>
+          </drq_detail_state>
+
+          <drq_approximet_cost type="input">
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </drq_approximet_cost>
+
+          <drq_text type="textarea" visible="false" rows="5">
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </drq_text>
+        </fields>
+      </details_requests_tbl>
+    </datasources>
+  </requests> <!-- }}} -->
+
+  <requests_cars> <!-- {{{ -->
+    <crumbs>
+      <requests_cars>/</requests_cars>
+    </crumbs>
+
+    <actions>
+      <add />
+    </actions>
+
+    <datasources>
+      <cars_for_requests_tbl pk="cfr_id_pk" title_field="cfr_name"
+        paginationRows="true">
+        <order_by>cfr_name desc</order_by>
+
+        <actions>
+          <edit />
+          <delete />
+        </actions>
+
+        <quick_filter>
+          <cfr_name />
+        </quick_filter>
+
+        <fields>
+          <cfr_name type="input" required="true" ordered="true" focused="true"
+            languageField="true">
+            <preprocessing>
+                <trim />
+            </preprocessing>
+            <validate>
+                <empty />
+            </validate>
+          </cfr_name>
+        </fields>
+      </cars_for_requests_tbl>
+    </datasources>
+  </requests_cars> <!-- }}} -->
+
+  <forms> <!-- {{{ -->
+    <send_mail style="width:800px">
+      <fields>
+        <email type="input" readonly="true" defaultIsVariable="true">
+          <default path="/users/index"
+            table="users_tbl">usr_email</default>
+        </email>
+
+        <subject type="input" required="true" focused="true" defaultIsVariable="true">
+          <default type="language"
+            path="/users/mails/template_other">subject</default>
+          <preprocessing>
+            <trim />
+          </preprocessing>
+          <validate>
+            <empty />
+          </validate>
+        </subject>
+
+        <text type="textarea" rows="21" required="true" defaultIsVariable="true"
+          richNoStyleFile="true" rich="true">
+          <default type="language"
+            path="/users/mails/template_other">body</default>
+          <labelStyle>width: 18%;min-height:30px;</labelStyle>
+          <inputStyle>clear:both;width:100%;</inputStyle>
+          <preprocessing>
+            <trim />
+          </preprocessing>
+          <validate>
+            <empty />
+          </validate>
+        </text>
+      </fields>
+    </send_mail>
+
+    <autobazarExcel style="width:400px">
+      <fields>
+        <activate type="text" tabindex="1">
+          <labelStyle>font-weight:normal;width:100%</labelStyle>
+          <inputStyle>display:none;</inputStyle>
+        </activate>
+      </fields>
+    </autobazarExcel>
+
+    <sendSaleDetails style="width:400px">
+      <fields>
+        <activate type="text" tabindex="1">
+          <labelStyle>font-weight:normal;width:100%</labelStyle>
+          <inputStyle>display:none;</inputStyle>
+        </activate>
+      </fields>
+    </sendSaleDetails>
+
+    <sendNewDetails style="width:400px">
+      <fields>
+        <activate type="text" tabindex="1">
+          <labelStyle>font-weight:normal;width:100%</labelStyle>
+          <inputStyle>display:none;</inputStyle>
+        </activate>
+      </fields>
+    </sendNewDetails>
+  </forms> <!-- }}} -->
+
+  <language style="width: 95%;"> <!-- {{{ -->
+      <language>
+          <file type="xml" path="modules/cars/languages/" />
+      </language>
+    </language> <!-- }}} -->
+</cars>

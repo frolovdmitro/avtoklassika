@@ -1,0 +1,72 @@
+{
+  "ads": {
+    "description": "",
+    "controller": "adverts",
+    "action": "list"
+  },
+
+  "ads/:page": {
+    "description": "",
+    "controller": "adverts",
+    "action": "list"
+  },
+
+  "ads/add": {
+    "description": "",
+    "controller": "adverts",
+    "action": "add"
+  },
+
+  "json/ads/addadvert.html": {
+    "description": "",
+    "controller": "adverts",
+    "action": "addadvert"
+  },
+
+  "ads/add-images": {
+    "description": "",
+    "controller": "adverts",
+    "action": "uploadFiles"
+  },
+
+  "json/ads/add-images": {
+    "description": "",
+    "controller": "adverts",
+    "action": "uploadFiles"
+  },
+  "json/ads/rm-image.html": {
+    "description": "",
+    "controller": "adverts",
+    "action": "rmPhoto"
+  },
+
+  "ads/:type/:id": {
+    "description": "",
+    "controller": "adverts",
+    "action": "index"
+  },
+
+  "json/ads/add-form.html": {
+    "description": "",
+    "controller": "adverts",
+    "action": "addForm"
+  },
+
+  "json/ads/checkstatus.html": {
+    "description": "",
+    "controller": "adverts",
+    "action": "checkStatus"
+  },
+
+  "json/ads/payments-form.html": {
+    "description": "",
+    "controller": "adverts",
+    "action": "modalPayments"
+  },
+
+  "json/ads/page.html": {
+    "description": "",
+    "controller": "adverts",
+    "action": "pageAjax"
+  }
+}

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages type="MODULE" icon="" order="30">
+    <index>
+        <crumbs>
+            <pages>/pages/</pages>
+        </crumbs>
+
+        <actions>
+            <add />
+        </actions>
+
+        <datasources>
+            <pages_tbl pk="pg_id_pk" title_field="pg_caption" paginationRows="true"
+                    style="width:1010px" useLanguages="true" listLanguagesField="pg_languages">
+
+                <joins>
+                    <pci name="(select pfl_pg_id_fk, count(pfl_id_pk) count_files from pages_files_tbl group by pfl_pg_id_fk)" type="left" pk="pg_id_pk"
+                      fk="pfl_pg_id_fk" />
+                </joins>
+
+                <languageFilter>pg_languages like '%|#lang#|%'</languageFilter>
+
+                <order_by>pg_caption desc</order_by>
+
+                <actions>
+                    <edit />
+                    <delete />
+                </actions>
+
+                <tabs>
+                    <main />
+                    <text />
+                    <css />
+                </tabs>
+
+                <quick_filter>
+                    <pg_caption />
+                    <pg_title />
+                    <pg_keywords />
+                    <pg_description />
+                    <pg_text />
+                    <pg_synonym />
+                </quick_filter>
+
+                <fields>
+                    <pg_enabled type="bool" align="center" ordered="true"
+                            tabindex="1" default="true">
+                        <style scope="field">width:30px</style>
+                        <inputStyle>width: 20%;</inputStyle>
+                    </pg_enabled>
+
+                    <pg_caption type="input" ordered="true"  required="true" focused="true"
+                            tabindex="3" languageField="true">
+                        <expression><![CDATA[<a target="_blank" class="direct-link" href="/{{pg_synonym}}/">{{value}}</a>{{count_files}}{{pg_description}}{{pg_keywords}}]]></expression>
+                        <preprocessing>
+                            <trim />
+                        </preprocessing>
+                        <validate>
+                            <empty />
+                        </validate>
+                        <labelStyle>width: 18%;</labelStyle>
+                        <inputStyle>width: 80%;</inputStyle>
+                    </pg_caption>
+
+                    <pg_robots type="list" list="static" visible="false" tabindex="3.9">
+                      <labelStyle>width: 18%;</labelStyle>
+                      <inputStyle>width: 80%;</inputStyle>
+                    </pg_robots>
+
+                    <pg_title type="input" visible="false" tabindex="4" languageField="true">
+                        <labelStyle>width: 18%;</labelStyle>
+                        <inputStyle>width: 80%;</inputStyle>
+                    </pg_title>
+
+                    <pg_synonym type="input" visible="false" tabindex="5">
+                      <callback module="pages" model="Pages" function="getSynonym">
+                        <params>
+                          <caption>pg_caption_ru</caption>
+                        </params>
+                      </callback>
+                      <preprocessing>
+                        <trim />
+                        <lowercase />
+                      </preprocessing>
+                      <validate>
+                        <regexp>^[a-z0-9\-]+$</regexp>
+                        <unique table="pages_tbl" column="pg_synonym" />
+                      </validate>
+                      <labelStyle>width: 18%;</labelStyle>
+                      <inputStyle>width: 32%;</inputStyle>
+                    </pg_synonym>
+
+                    <pg_canonical type="input" visible="false" tabindex="5.5">
+                        <callback module="pages" model="Pages" function="getCanonical">
+                            <params>
+                                <caption>pg_caption_ru</caption>
+                                <synonym>pg_synonym</synonym>
+                            </params>
+                        </callback>
+                        <labelStyle>clear: none;width: 13%;margin:0 0 0 3%;</labelStyle>
+                        <inputStyle>width: 32%;</inputStyle>
+                    </pg_canonical>
+
+                    <pg_301_redirect type="input" visible="false" tabindex="5.7">
+                        <labelStyle>width: 18%;</labelStyle>
+                        <inputStyle>width: 32%;</inputStyle>
+                    </pg_301_redirect>
+
+                    <pg_description type="textarea" visible="false" expifnull="false"
+                            format="\Uwin\Linguistics;shortedText;value;300"
+                            tabindex="7" languageField="true">
+                        <expression><![CDATA[<br>{{value}}]]></expression>
+                        <labelStyle>width: 18%;</labelStyle>
+                        <inputStyle>width: 80%;</inputStyle>
+                    </pg_description>
+
+                    <pg_keywords type="textarea" visible="false" expifnull="false"
+                            tabindex="8" languageField="true">
+                        <expression><![CDATA[<br><span style="color:#FC7905;">{{value}}</span>]]></expression>
+                        <labelStyle>width: 18%;</labelStyle>
+                        <inputStyle>width: 80%;</inputStyle>
+                    </pg_keywords>
+
+                    <pg_css_class type="input" align="center" tabindex="6">
+                        <labelStyle>clear: none;width: 13%;margin:0 0 0 3%;</labelStyle>
+                        <inputStyle>width: 32%;</inputStyle>
+                    </pg_css_class>
+
+                    <pg_text type="textarea" rich="true" rows="20" visible="false"
+                            focused="true" required="true" tab="text"
+                            richContainerClass="clearfix" languageField="true"
+                            richContainerClassDinamyc="pg_css_class">
+                        <labelStyle>width: 18%;min-height:30px;</labelStyle>
+                        <inputStyle>clear:both;width: 100%;</inputStyle>
+                        <preprocessing>
+                            <trim />
+                        </preprocessing>
+                        <validate>
+                            <empty />
+                        </validate>
+                    </pg_text>
+
+                    <count_files field="coalesce(count_files,0)" type="int" visible="false"
+                            noTable="true" noForm="true" expifnull="false">
+                        <expression><![CDATA[<br>Файлы: {{value}}]]></expression>
+                        <link page="files" />
+                    </count_files>
+
+                    <css_additions field="null" type="textarea" code="css" noTable="true"
+                            focused="true" visible="false" tab="css" rows="20"
+                            fromfile="true" filename="images/pages/{{row_id}}/css/addition.css">
+                        <labelStyle>min-height:30px;width:100%</labelStyle>
+                        <inputStyle>clear: none;width:100%;</inputStyle>
+                    </css_additions>
+                </fields>
+            </pages_tbl>
+        </datasources>
+    </index>
+
+    <files>
+        <crumbs>
+            <pages>/pages/</pages>
+
+            <files type="data" url="/pages/{{value}}/"
+                 table="pages_tbl"
+                  pk="pg_id_pk" title_field="pg_caption#lang#">
+                <params>
+                    <pg_id_pk>id</pg_id_pk>
+                </params>
+            </files>
+        </crumbs>
+
+        <actions>
+            <add />
+        </actions>
+
+        <datasources>
+            <pages_files_tbl pk="pfl_id_pk" title_field="pfl_id_pk" search="false"
+                    paginationRows="true" useLanguages="true" listLanguagesField="pfl_languages">
+
+                <languageFilter>pfl_languages like '%|#lang#|%'</languageFilter>
+
+                <params>
+                    <pfl_pg_id_fk type="get">id</pfl_pg_id_fk>
+                </params>
+
+                <order_by>pfl_id_pk</order_by>
+
+                <actions>
+                    <edit />
+                    <delete />
+                </actions>
+
+                <fields>
+                    <pfl_id_pk type="int" visible="false" noForm="true" noTable="true" />
+
+                    <pfl_file type="file" required="true" align="center" tabindex="2">
+                        <validate>
+                            <empty />
+                        </validate>
+                        <destination>files/pages/{{id}}/files/</destination>
+                        <style scope="field">width:30px</style>
+                    </pfl_file>
+
+                    <pfl_name type="input" tabindex="1" languageField="true" />
+                </fields>
+            </pages_files_tbl>
+        </datasources>
+    </files>
+</pages>

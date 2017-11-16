@@ -1,0 +1,812 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<directories type="MODULE" icon="" order="150">
+  <fastActions>
+    <phones />
+    <banners-places />
+    <payment_methods />
+    <delivery_methods />
+    <countries />
+    <rates />
+    <sitemap />
+    <languages />
+  </fastActions>
+
+  <!-- <fastActions> -->
+  <!--   <directories type="data" table="directories_tbl" -->
+  <!--     pk="drc_id_pk" title_field="drc_name" address_field="drc_synonym"> -->
+  <!--     <where>drc_enabled=true</where> -->
+  <!--     <order_by>drc_id_k asc</order_by> -->
+  <!--   </directories> -->
+  <!-- </fastActions> -->
+
+  <tabs>
+    <language visible="true" />
+  </tabs>
+
+  <index useLanguages="false">
+    <crumbs>
+      <directories>/directories/</directories>
+    </crumbs>
+
+    <datasources>
+      <directories_tbl pk="drc_id_pk" title_field="drc_name" search="false" paginationRows="false">
+        <query>
+          select null as drc_id_pk, 'Телефоны' as drc_name, 'Телефоны и время работы интернет магазина' as drc_description, 'phones' as drc_synonym
+          union all
+          select null as drc_id_pk, 'Баннерные площадки' as drc_name, 'Баннерные площадки, которые используются на сайте' as drc_description, 'banners-places' as drc_synonym
+          union all
+          select null as drc_id_pk, 'Языки сайта' as drc_name, 'Языки, которые используются на сайте' as drc_description, 'languages' as drc_synonym
+          union all
+          select null as drc_id_pk, 'Методы оплаты' as drc_name, 'Методы оплаты, которые доступны на сайте' as drc_description, 'payment_methods' as drc_synonym
+          union all
+          select null as drc_id_pk, 'Методы доставки' as drc_name, 'Методы доставки, которые доступны на сайте' as drc_description, 'delivery_methods' as drc_synonym
+          union all
+          select null as drc_id_pk, 'Страны' as drc_name, 'Баннерные площадки, которые используются на сайте' as drc_description, 'countries' as drc_synonym
+          union all
+          select null as drc_id_pk, 'Курсы валют' as drc_name, 'Курсы валют, которые используются на сайте' as drc_description, 'rates' as drc_synonym
+          union all
+          select null as drc_id_pk, 'Карта сайта' as drc_name, 'Карта сайта (sitemap.xml)' as drc_description, 'sitemap' as drc_synonym
+        </query>
+
+        <order_by>drc_id_pk::VARCHAR</order_by>
+        <fields>
+          <drc_name type="input">
+            <link noId="true" page="{{drc_synonym}}" />
+          </drc_name>
+
+          <drc_description type="input">
+
+          </drc_description>
+
+          <drc_synonym type="input" visible="false">
+
+          </drc_synonym>
+        </fields>
+      </directories_tbl>
+    </datasources>
+  </index>
+
+  <phones>
+    <actions>
+      <add/>
+    </actions>
+
+    <crumbs>
+      <directories>/directories/</directories>
+      <phones>phones</phones>
+    </crumbs>
+
+    <datasources>
+      <phones_tbl pk="phn_id_pk" title_field="phn_phones"
+        paginationRows="true" style="width:800px" tags="phones">
+
+        <joins>
+          <lng name="languages_tbl" type="left" pk="phn_lng_id_fk"
+            fk="lng_id_pk" />
+        </joins>
+
+        <languageFilter>lng_synonym='#lang#'</languageFilter>
+
+        <order_by>phn_phones</order_by>
+
+        <actions>
+          <edit/>
+          <delete/>
+        </actions>
+
+        <quick_filter>
+          <phn_phones />
+        </quick_filter>
+
+
+        <fields>
+          <phn_enabled type="bool" align="center" ordered="true"
+            tabindex="1" default="true">
+            <style scope="field">width:30px</style>
+            <inputStyle>width: 20%;</inputStyle>
+          </phn_enabled>
+
+          <phn_lng_id_fk tabindex="2" type="list" visible="false" required="true">
+            <list table="languages_tbl" pk="lng_id_pk"
+              name="lng_name" order="lng_order">
+              <where>lng_enabled = true</where>
+            </list>
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+            </validate>
+          </phn_lng_id_fk>
+
+          <phn_phones type="textarea" rows="3" expifnull="false"
+            required="true" focused="true" ordered="true">
+            <expression><![CDATA[{{value}}<br>{{phn_labor_hours}}]]></expression>
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+            </validate>
+          </phn_phones>
+
+          <phn_labor_hours type="input" ordered="true" required="true"
+            tabindex="4" visible="false">
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+            </validate>
+          </phn_labor_hours>
+
+          <phn_http_get type="input" visible="false" />
+
+          <phn_referel type="input" visible="false" />
+        </fields>
+      </phones_tbl>
+    </datasources>
+  </phones>
+
+  <languages useLanguages="false">
+    <crumbs>
+      <directories>/directories/</directories>
+      <languages>/directories/languages/</languages>
+    </crumbs>
+
+    <datasources>
+      <languages_tbl pk="lng_id_pk" title_field="lng_name" paginationRows="false" draggable="lng_order"
+        tags="languages">
+        <order_by>lng_order</order_by>
+
+        <quick_filter>
+          <lng_name />
+          <lng_synonym />
+        </quick_filter>
+
+        <actions>
+          <edit />
+        </actions>
+
+        <fields>
+          <lng_enabled type="bool" align="center" default="true">
+            <style scope="field">width:30px</style>
+            <inputStyle>width: 25.3%;</inputStyle>
+          </lng_enabled>
+
+          <lng_default type="bool" align="center" default="false">
+            <style scope="field">width:30px</style>
+            <inputStyle>width: 50%;clear:none;</inputStyle>
+          </lng_default>
+
+          <lng_name type="input" focused="true" required="true">
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+            </validate>
+          </lng_name>
+
+          <lng_short_name type="input" required="true" visible="false">
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+            </validate>
+          </lng_short_name>
+
+          <lng_synonym type="input" required="true" align="center">
+            <style scope="field">width:30px</style>
+            <preprocessing>
+              <trim />
+              <lowercase />
+            </preprocessing>
+            <validate>
+              <empty />
+              <unique table="languages_tbl" column="lng_synonym" />
+              <regexp>^[a-z]+$</regexp>
+            </validate>
+          </lng_synonym>
+        </fields>
+      </languages_tbl>
+    </datasources>
+  </languages>
+
+  <banners-places useLanguages="false">
+    <crumbs>
+      <banners-places/>
+    </crumbs>
+
+    <actions>
+      <add/>
+    </actions>
+
+    <datasources>
+      <banners_places_tbl pk="bnp_id_pk" title_field="bnp_type"
+        paginationRows="true" tags="banners">
+
+        <order_by>bnp_type</order_by>
+
+        <quick_filter>
+          <bnp_type/>
+        </quick_filter>
+
+        <actions>
+          <edit/>
+          <delete/>
+        </actions>
+
+        <fields>
+          <bnp_enabled type="bool" align="center" default="true">
+            <style scope="field">width:30px</style>
+            <inputStyle>width: 25.3%;</inputStyle>
+          </bnp_enabled>
+
+          <bnp_type type="list" list="static" ordered="true"
+            required="true" languageValue="true" focused="true">
+            <link page="banners"/>
+          </bnp_type>
+        </fields>
+      </banners_places_tbl>
+    </datasources>
+  </banners-places>
+
+  <banners>
+    <crumbs>
+      <banners-places>/directories/banners-places/</banners-places>
+
+      <banners type="data" url=""
+        table="banners_places_tbl"
+        pk="bnp_id_pk" title_field="bnp_type">
+        <params>
+          <bnp_id_pk>id</bnp_id_pk>
+        </params>
+      </banners>
+    </crumbs>
+
+    <actions>
+      <add/>
+    </actions>
+
+    <datasources>
+      <banners_tbl pk="bnr_id_pk" title_field="bnr_id_pk"
+        paginationRows="true" tags="banners" draggable="bnr_order"
+        useLanguages="true" listLanguagesField="bnr_languages">
+
+        <languageFilter>bnr_languages like '%|#lang#|%'</languageFilter>
+
+        <params>
+          <bnr_bnp_id_fk type="get">id</bnr_bnp_id_fk>
+        </params>
+
+        <order_by>bnr_order</order_by>
+
+        <quick_filter>
+          <bnr_count_views/>
+          <bnr_max_views/>
+          <bnr_start_date/>
+        </quick_filter>
+
+        <actions>
+          <edit/>
+          <delete/>
+        </actions>
+
+        <tabs>
+          <main />
+          <code />
+        </tabs>
+
+        <fields>
+          <bnr_id_pk type="input" noTable="true" noForm="true"
+            visible="false"/>
+
+          <bnr_enabled type="bool" align="center" default="true">
+            <style scope="field">width:30px</style>
+            <inputStyle>width: 25.3%;</inputStyle>
+          </bnr_enabled>
+
+          <bnr_target_blank type="bool" default="false">
+            <style scope="field">width:30px</style>
+            <inputStyle>width: 35%;clear:none;</inputStyle>
+          </bnr_target_blank>
+
+          <bnr_autopart_request type="bool" default="false">
+            <style scope="field">width:30px</style>
+            <inputStyle>width: 30%;clear:none;</inputStyle>
+          </bnr_autopart_request>
+
+          <bnr_file type="file" align="center" focused="true"
+            languageField="true">
+            <validate>
+              <extension>jpg|jpeg|png|gif|swf</extension>
+              <maxSize>400</maxSize>
+            </validate>
+            <destination>images/banners/</destination>
+          </bnr_file>
+
+          <bnr_url type="input" expifnull="false">
+            <expression>
+              <![CDATA[<a class="direct-link" href="{{value}}">Ссылка</a>]]></expression>
+          </bnr_url>
+
+          <bnr_code type="textarea" visible="false" expifnull="false"
+            languageField="true" rows="13" tab="code">
+            <labelStyle>width: 18%;min-height:30px;</labelStyle>
+            <inputStyle>clear:both;width: 100%;</inputStyle>
+          </bnr_code>
+
+          <bnr_count_views type="int" align="center"
+            noTable="true" noForm="true">
+            <style scope="field">width:30px</style>
+          </bnr_count_views>
+
+          <bnr_max_views type="int" align="center">
+            <preprocessing>
+              <trim/>
+            </preprocessing>
+            <validate>
+              <parseInt/>
+            </validate>
+            <style scope="field">width:30px</style>
+          </bnr_max_views>
+
+          <bnr_start_date type="datetime" align="center">
+            <format><![CDATA[null;date;d.m.Y H:i;value]]></format>
+            <expression>{{value}}{{bnr_finish_date}}</expression>
+            <preprocessing>
+              <trim/>
+            </preprocessing>
+            <validate>
+              <parseDateTime/>
+            </validate>
+          </bnr_start_date>
+
+          <bnr_finish_date type="datetime" visible="false"
+            expifnull="false">
+            <format><![CDATA[null;date;d.m.Y H:i;value]]></format>
+            <expression><![CDATA[ &mdash; {{value}}]]></expression>
+            <preprocessing>
+              <trim/>
+            </preprocessing>
+            <validate>
+              <parseDateTime/>
+            </validate>
+          </bnr_finish_date>
+        </fields>
+      </banners_tbl>
+    </datasources>
+  </banners>
+
+  <payment_methods>
+    <actions>
+      <add/>
+    </actions>
+
+    <crumbs>
+      <directories>/directories/</directories>
+      <payment_methods>/</payment_methods>
+    </crumbs>
+
+    <datasources>
+      <payment_methods_tbl pk="pym_id_pk" title_field="pym_phones"
+        useLanguages="true" listLanguagesField="pym_languages"
+        paginationRows="true" draggable="pym_order" tags="payments">
+
+        <order_by>pym_order</order_by>
+
+        <actions>
+          <edit/>
+          <delete/>
+        </actions>
+
+        <fields>
+          <pym_enabled type="bool" align="center"
+            tabindex="1" default="true">
+            <style scope="field">width:30px</style>
+            <inputStyle>width: 20%;</inputStyle>
+          </pym_enabled>
+
+          <pym_type type="list" list="static" required="true"
+            languageValue="true" visible="false">
+          </pym_type>
+
+          <pym_name type="input" required="true" focused="true"
+            languageField="true">
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+            </validate>
+            <expression><![CDATA[{{value}}{{pym_description}}]]></expression>
+          </pym_name>
+
+          <pym_description type="textarea" rows="5" expifnull="false"
+            visible="false" languageField="true">
+            <style scope="field">color: grey;</style>
+            <expression><![CDATA[<br>{{value}}]]></expression>
+          </pym_description>
+
+          <pym_filter type="textarea" rows="3" visible="false">
+          </pym_filter>
+        </fields>
+      </payment_methods_tbl>
+    </datasources>
+  </payment_methods>
+
+  <delivery_methods>
+    <actions>
+      <add/>
+    </actions>
+
+    <crumbs>
+      <directories>/directories/</directories>
+      <delivery_methods>/</delivery_methods>
+    </crumbs>
+
+    <datasources>
+      <delivery_methods_tbl pk="dvm_id_pk" title_field="dvm_phones"
+        useLanguages="true" listLanguagesField="dvm_languages"
+        paginationRows="true" tags="deliveries" draggable="dvm_order">
+
+        <order_by>dvm_order</order_by>
+
+        <actions>
+          <edit/>
+          <delete/>
+        </actions>
+
+        <fields>
+          <dvm_enabled type="bool" align="center"
+            tabindex="1" default="true">
+            <style scope="field">width:30px</style>
+            <inputStyle>width: 20%;</inputStyle>
+          </dvm_enabled>
+
+          <dvm_type type="list" list="static" required="true"
+            languageValue="true" visible="false">
+          </dvm_type>
+
+          <dvm_name type="input" required="true" focused="true"
+            languageField="true">
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+            </validate>
+            <expression><![CDATA[{{value}}{{dvm_description}}]]></expression>
+          </dvm_name>
+
+          <dvm_cost type="float" align="center" expifnull="false"
+            format="null;number_format;value;2;,; ">
+            <preprocessing>
+              <trim/>
+            </preprocessing>
+            <validate>
+              <parseFloat/>
+            </validate>
+            <expression><![CDATA[
+              {{value}}<span style="color:gray"> USD</span>
+            ]]></expression>
+          </dvm_cost>
+
+          <dvm_description type="textarea" rows="5" expifnull="false"
+            visible="false" languageField="true">
+            <style scope="field">color: grey;</style>
+            <expression><![CDATA[<br>{{value}}]]></expression>
+          </dvm_description>
+
+          <dvm_filter type="textarea" rows="3" visible="false">
+          </dvm_filter>
+        </fields>
+      </delivery_methods_tbl>
+    </datasources>
+  </delivery_methods>
+
+  <countries>
+    <crumbs>
+      <directories>/directories/</directories>
+      <countries>/directories/countries/</countries>
+    </crumbs>
+
+    <actions>
+      <add/>
+    </actions>
+
+    <datasources>
+      <countries_tbl pk="cnt_id_pk" title_field="cnt_name"
+        paginationRows="true"
+        useLanguages="true"
+        listLanguagesField="cnt_languages">
+
+        <joins>
+          <rat name="rates_tbl" type="left" pk="cnt_rat_id_fk"
+            fk="rat_id_pk" />
+        </joins>
+
+        <languageFilter>cnt_languages like '%|#lang#|%'</languageFilter>
+
+        <order_by>cnt_name desc</order_by>
+
+        <quick_filter>
+          <cnt_name/>
+          <cnt_synonym/>
+          <cnt_code />
+        </quick_filter>
+
+        <actions>
+          <edit/>
+          <delete/>
+        </actions>
+
+        <fields>
+          <cnt_enabled type="bool" align="center">
+            <style scope="field">width:30px</style>
+            <inputStyle>width: 25.3%;</inputStyle>
+            <default>true</default>
+          </cnt_enabled>
+
+          <cnt_name type="input" focused="true" required="true"
+            ordered="true"
+            languageField="true">
+            <preprocessing>
+              <trim/>
+            </preprocessing>
+            <validate>
+              <empty/>
+            </validate>
+          </cnt_name>
+
+          <cnt_synonym type="input" required="true" ordered="true">
+            <preprocessing>
+              <trim/>
+              <lowercase/>
+            </preprocessing>
+            <validate>
+              <empty/>
+              <unique table="countries_tbl" column="cnt_synonym"/>
+              <regexp>^[a-z0-9\-]+$</regexp>
+            </validate>
+          </cnt_synonym>
+
+          <cnt_code type="input" required="true" ordered="true">
+            <preprocessing>
+              <trim/>
+              <lowercase/>
+            </preprocessing>
+            <validate>
+              <empty/>
+              <unique table="countries_tbl" column="cnt_code"/>
+              <regexp>^[a-z0-9\-]+$</regexp>
+            </validate>
+          </cnt_code>
+
+          <cnt_onetime_tariff type="float" required="true">
+            <preprocessing>
+              <trim/>
+            </preprocessing>
+            <validate>
+              <empty/>
+              <parseFloat/>
+            </validate>
+          </cnt_onetime_tariff>
+
+          <cnt_kg_tariff type="float" required="true">
+            <preprocessing>
+              <trim/>
+            </preprocessing>
+            <validate>
+              <empty/>
+              <parseFloat/>
+            </validate>
+          </cnt_kg_tariff>
+
+          <cnt_rat_id_fk type="list" visible="false">
+            <list table="rates_tbl" pk="rat_id_pk" with_null="true"
+              name="rat_currency_ru" order="rat_order">
+              <where>rat_enabled = true</where>
+            </list>
+          </cnt_rat_id_fk>
+
+          <rat_currency_ru type="input" noTable="true" noForm="true">
+          </rat_currency_ru>
+
+          <cnt_prior type="int">
+            <preprocessing>
+              <trim/>
+            </preprocessing>
+            <validate>
+              <parseInt/>
+            </validate>
+          </cnt_prior>
+        </fields>
+      </countries_tbl>
+    </datasources>
+  </countries>
+
+  <rates>
+    <crumbs>
+      <directories>/directories/</directories>
+      <rates>/directories/rates/</rates>
+    </crumbs>
+
+    <actions>
+      <add/>
+    </actions>
+
+    <datasources>
+      <rates_tbl pk="rat_id_pk" title_field="rat_currency"
+        paginationRows="false" tags="currencies"
+        useLanguages="true" listLanguagesField="rat_languages"
+        draggable="rat_order">
+
+        <languageFilter>rat_languages like '%|#lang#|%'</languageFilter>
+
+        <order_by>rat_order</order_by>
+
+        <quick_filter>
+          <rat_currency/>
+          <rat_synonym/>
+        </quick_filter>
+
+        <actions>
+          <edit/>
+          <delete/>
+        </actions>
+
+        <fields>
+          <rat_enabled type="bool" align="center" default="true">
+            <style scope="field">width:30px</style>
+            <inputStyle>width: 25.3%;</inputStyle>
+          </rat_enabled>
+
+          <rat_default type="bool" align="center">
+            <style scope="field">width:30px</style>
+            <inputStyle>clear: none;width: 25.3%;</inputStyle>
+          </rat_default>
+
+          <rat_currency type="input" focused="true" required="true"
+            languageField="true">
+            <preprocessing>
+              <trim/>
+            </preprocessing>
+            <validate>
+              <empty/>
+            </validate>
+          </rat_currency>
+
+          <rat_short_name type="input" required="true"
+            languageField="true">
+            <preprocessing>
+              <trim/>
+            </preprocessing>
+            <validate>
+              <empty/>
+            </validate>
+          </rat_short_name>
+
+          <rat_synonym type="input" required="true">
+            <preprocessing>
+              <trim/>
+              <lowercase/>
+            </preprocessing>
+            <validate>
+              <empty/>
+              <unique table="rates_tbl" column="rat_synonym"/>
+              <regexp>^[a-z0-9\-]+$</regexp>
+            </validate>
+          </rat_synonym>
+
+          <rat_value type="float" required="true">
+            <preprocessing>
+              <trim/>
+            </preprocessing>
+            <validate>
+              <empty/>
+              <parseFloat/>
+            </validate>
+          </rat_value>
+        </fields>
+      </rates_tbl>
+    </datasources>
+  </rates>
+
+  <sitemap useLanguages="false">
+    <crumbs>
+      <directories>/directories/</directories>
+      <sitemap>/</sitemap>
+    </crumbs>
+
+    <datasources>
+      <sitemap_vw pk="id" title_field="name">
+        <query>select * from sitemap_pages_fn('{{synonym}}')</query>
+
+        <order_by>order_num</order_by>
+
+        <quick_filter>
+          <name />
+        </quick_filter>
+
+        <actions>
+          <edit />
+        </actions>
+
+        <actions_function>
+          <edit module="directories" model="Directories" function="saveNode" />
+        </actions_function>
+
+        <fields>
+          <order_num type="input" noTable="true" noForm="true" visible="false">
+          </order_num>
+
+          <synonym type="input" noTable="true" noForm="true" visible="false">
+          </synonym>
+
+          <enabled type="bool" align="center" default="true">
+            <style scope="field">width:30px</style>
+            <inputStyle>width: 25.3%;</inputStyle>
+          </enabled>
+
+          <name_url type="input" noTable="true" noForm="true" visible="false">
+            <field>case when is_last != true then name else null end</field>
+            <link page="sitemap" noId="true">
+              <params>
+                <synonym getFieldNotNull="synonym">synonym</synonym>
+              </params>
+            </link>
+          </name_url>
+
+          <name_name type="input" noTable="true" noForm="true" visible="false">
+            <field>case when is_last != true then null else name end</field>
+          </name_name>
+
+          <name type="input" readonly="true">
+            <expression><![CDATA[{{name_name}}{{name_url}} {{url}}]]></expression>
+          </name>
+
+          <url field="route" type="input" noTable="true" noForm="true" expifnull="false"
+            visible="false">
+            <expression><![CDATA[
+              ------ <a target="_blank" class="direct-link" href="{{value}}">перейти</a>
+            ]]></expression>
+          </url>
+
+          <changefreq type="list" list="static" focused="true">
+            <style scope="field">width:100px</style>
+          </changefreq>
+
+          <priority type="int" align="center">
+            <style scope="field">width:100px</style>
+            <preprocessing>
+              <trim/>
+            </preprocessing>
+            <validate>
+              <parseFloat/>
+            </validate>
+          </priority>
+
+          <lastmod type="date" align="center">
+            <style scope="field">width:100px</style>
+            <format><![CDATA[null;date;d.m.Y H:i;value]]></format>
+            <preprocessing>
+              <trim/>
+            </preprocessing>
+            <validate>
+              <parseDateTime/>
+            </validate>
+          </lastmod>
+        </fields>
+      </sitemap_vw>
+    </datasources>
+  </sitemap>
+
+  <language style="width: 95%;">
+    <language>
+      <file type="xml" path="modules/directories/languages/" />
+    </language>
+  </language>
+</directories>

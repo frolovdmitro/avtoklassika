@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<adverts type="MODULE" icon="" order="50">
+  <fastActions>
+    <payable_adverts visible="true" />
+    <settings />
+  </fastActions>
+
+  <tabs>
+    <payable_adverts visible="true" />
+    <settings visible="true" />
+    <language visible="true" />
+  </tabs>
+
+  <index useLanguages="false">
+    <crumbs>
+      <adverts>/adverts/</adverts>
+    </crumbs>
+
+    <actions>
+      <add />
+    </actions>
+
+    <datasources>
+      <adverts_tbl pk="adv_id_pk" title_field="adv_title" paginationRows="true"
+        tags="adverts|advert-id">
+        <joins>
+          <ada name="(select ada_adv_id_fk, count(ada_id_pk) count_images from adverts_attachments_tbl group by ada_adv_id_fk)" type="left" pk="adv_id_pk"
+            fk="ada_adv_id_fk" />
+
+          <usr name="users_tbl" type="left"
+            pk="adv_usr_id_fk" fk="usr_id_pk" />
+        </joins>
+
+        <order_by>adv_date_create desc</order_by>
+
+        <tabs>
+          <main />
+          <user />
+          <meta_tags />
+        </tabs>
+
+        <actions>
+          <edit />
+          <delete newline="true" />
+        </actions>
+
+        <quick_filter>
+          <adv_title />
+          <adv_text />
+          <adv_type />
+          <adv_category />
+          <adv_date_create />
+          <usr_name />
+          <usr_email />
+          <adv_id_pk />
+        </quick_filter>
+
+        <fields>
+          <adv_enabled type="bool" align="center" ordered="true"
+            tabindex="1" default="true">
+            <style scope="field">width:30px</style>
+            <inputStyle>width: 20%;</inputStyle>
+          </adv_enabled>
+
+          <adv_type_payable visible="true" tabindex="14"  type="input" align="center" ordered="true" default="true">
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+            </validate>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 46%;</inputStyle>
+            <style scope="field">max-width:100px;</style>
+            <expression>Text</expression>
+          </adv_type_payable>
+
+          <adv_date_create type="datetime" ordered="true" align="center"
+            tabindex="2.2">
+            <format><![CDATA[null;date;d.m.Y;value]]></format>
+            <style scope="field">width:30px</style>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+            <default>now</default>
+            <default_format>d.m.Y H:i</default_format>
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+              <parseDateTime />
+            </validate>
+          </adv_date_create>
+
+          <adv_id_pk type="int"  noTable="true" noForm="true" expifnull="false"  align="center">
+            <expression><![CDATA[{{value}}]]></expression>
+            <labelStyle>width: 18%;</labelStyle>
+            <style scope="field">width:20px;</style>
+          </adv_id_pk>
+
+          <adv_type type="list" list="static" languageValue="true"
+            tabindex="2" required="true" align="center" ordered="true">
+            <style scope="field">width:30px</style>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </adv_type>
+
+          <adv_category type="list" list="static" languageValue="true"
+            tabindex="2.1" required="true" align="center" ordered="true">
+            <style scope="field">width:30px</style>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </adv_category>
+
+          <adv_image type="file" align="center" noForm="true">
+            <style scope="field">width:30px</style>
+            <validate>
+              <extension>jpg|jpeg|png|gif</extension>
+            </validate>
+            <destination>images/adverts/</destination>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </adv_image>
+
+          <adv_name type="input" ordered="true"  required="true" focused="true"
+            tabindex="4">
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+            </validate>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+            <expression>{{value}}{{adv_text}}</expression>
+            <style scope="field">max-width:300px;</style>
+          </adv_name>
+
+          <adv_cost type="input" visible="false" tabindex="4.1">
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <parseInt />
+            </validate>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 46%;</inputStyle>
+          </adv_cost>
+
+          <adv_rat_id_fk tabindex="4.2" type="list" visible="false">
+            <list table="rates_tbl" pk="rat_id_pk"
+              name="rat_currency_ru" order="rat_order">
+            </list>
+            <labelStyle>width: 10%;clear:none;margin: 0 0 0 4%;</labelStyle>
+            <inputStyle>width: 20%;</inputStyle>
+          </adv_rat_id_fk>
+
+          <adv_usr_id_fk tabindex="3" type="list" focused="true"
+            required="true" visible="false" expifnull="false">
+            <list table="users_tbl" pk="usr_id_pk" with_null="true"
+              calculate_name="coalesce(usr_name, ' - ', usr_email)"
+              name="usr_name" order="coalesce(usr_name, ' - ', usr_email)">
+            </list>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </adv_usr_id_fk>
+
+          <adv_text type="textarea" field="strip_tags(adv_text)" visible="false" expifnull="false"
+            format="\Uwin\Linguistics;shortedText;value;300"
+            tabindex="7" rows="5" required="true">
+            <expression><![CDATA[<br>{{value}}]]></expression>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+            <style scope="field">color:grey</style>
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+            </validate>
+          </adv_text>
+
+          <usr_name type="input" ordered="true" noForm="true" noTable="true">
+            <expression>
+              {{value}}{{usr_email}}{{usr_phones}}{{usr_skype}}{{usr_icq}}
+            </expression>
+            <style scope="field">min-width:160px;</style>
+          </usr_name>
+
+          <usr_phones type="input" visible="false" expifnull="false"
+            noTable="true" noForm="true">
+            <expression><![CDATA[<br><b>Тел.</b> {{value}}]]></expression>
+          </usr_phones>
+
+          <usr_skype type="input" visible="false" expifnull="false"
+            noTable="true" noForm="true">
+            <expression><![CDATA[<br><b>Skype:</b> {{value}}]]></expression>
+          </usr_skype>
+
+          <usr_icq type="input" visible="false" expifnull="false"
+            noTable="true" noForm="true">
+            <expression><![CDATA[<br><b>ICQ:</b> {{value}}]]></expression>
+          </usr_icq>
+
+          <usr_email type="input" visible="false" noTable="true" noForm="true">
+            <expression><![CDATA[<br><a class="direct-link" href="mailto:{{value}}">{{value}}</a>]]></expression>
+          </usr_email>
+
+          <count_images field="coalesce(count_images,0)" type="int"
+            noTable="true" noForm="true" expifnull="false"
+            align="center">
+            <link page="images" />
+            <style scope="field">width:30px</style>
+          </count_images>
+
+          <adv_user_name type="input" visible="false" tab="user">
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </adv_user_name>
+
+          <adv_user_city type="input" visible="false" tab="user">
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </adv_user_city>
+
+          <adv_user_email type="input" visible="false" tab="user">
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <email />
+            </validate>
+          </adv_user_email>
+
+          <adv_user_phone type="input" visible="false" tab="user">
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </adv_user_phone>
+
+          <adv_robots type="list" list="static" visible="false" tabindex="10"
+            tab="meta_tags">
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </adv_robots>
+
+          <adv_title type="textarea" visible="false" rows="2"
+            tab="meta_tags" tabindex="11">
+            <expression><![CDATA[<br><span style="color:#FC7905;">{{value}}</span>]]></expression>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </adv_title>
+
+          <adv_description field="strip_tags(adv_description)" type="textarea" visible="false" expifnull="false"
+            format="\Uwin\Linguistics;shortedText;value;300" rows="2"
+            tabindex="12"  tab="meta_tags">
+            <expression><![CDATA[<br>{{value}}]]></expression>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </adv_description>
+
+          <adv_keywords type="textarea" visible="false" expifnull="false"
+            tabindex="13"  tab="meta_tags" rows="3">
+            <expression><![CDATA[<br><span style="color:#FC7905;">{{value}}</span>]]></expression>
+            <labelStyle>width: 18%;</labelStyle>
+            <inputStyle>width: 80%;</inputStyle>
+          </adv_keywords>
+        </fields>
+      </adverts_tbl>
+    </datasources>
+  </index>
+
+  <payable_adverts useLanguages="false">
+    <reference page="index" />
+
+    <datasources>
+      <adverts_tbl>
+        <where>adv_type_payable = 1</where>
+      </adverts_tbl>
+    </datasources>
+  </payable_adverts>
+
+  <images useLanguages="false">
+    <crumbs>
+      <adverts>/adverts/</adverts>
+
+      <images type="data" url="/adverts/{{value}}/"
+        table="adverts_tbl"
+        pk="adv_id_pk" title_field="adv_title">
+        <params>
+          <adv_id_pk>id</adv_id_pk>
+        </params>
+      </images>
+    </crumbs>
+
+    <actions>
+      <add />
+    </actions>
+
+    <datasources>
+      <adverts_attachments_tbl pk="ada_id_pk" title_field="ada_id_pk" search="false"
+        paginationRows="true" tags="advert-images">
+
+        <params>
+          <ada_adv_id_fk type="get">id</ada_adv_id_fk>
+        </params>
+
+        <order_by>ada_id_pk</order_by>
+
+        <actions>
+          <delete />
+        </actions>
+
+        <actions_function>
+          <add module="adverts" model="Adverts" function="addImage"/>
+        </actions_function>
+
+        <fields>
+          <ada_id_pk type="int" visible="false" noForm="true" noTable="true" />
+
+          <ada_enabled type="bool" align="center" ordered="true"
+            tabindex="0" default="true">
+            <style scope="field">width:30px</style>
+            <inputStyle>width: 20%;</inputStyle>
+          </ada_enabled>
+
+          <ada_image type="file" required="true" align="center"
+            tabindex="2" focused="true">
+            <validate>
+              <empty />
+            </validate>
+            <destination>images/ads/{{id}}/</destination>
+          </ada_image>
+        </fields>
+      </adverts_attachments_tbl>
+    </datasources>
+  </images>
+
+  <settings style="width: 90%">
+    <configs>
+      <adverts>
+        <index>
+          <title type="input" language="true"  />
+
+          <keywords type="textarea" rows="5" language="true"  />
+
+          <description type="textarea" rows="5" language="true"  />
+        </index>
+
+        <templates>
+          <title type="textarea" rows="15" language="true" />
+
+          <keywords type="textarea" rows="15" language="true" />
+
+          <description type="textarea" rows="15" language="true" />
+
+          <share type="textarea" rows="10" language="true" />
+        </templates>
+      </adverts>
+    </configs>
+  </settings>
+
+  <language style="width: 95%;">
+    <language>
+      <file type="xml" path="modules/adverts/languages/" />
+    </language>
+  </language>
+</adverts>

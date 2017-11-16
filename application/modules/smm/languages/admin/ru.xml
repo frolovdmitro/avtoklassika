@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<smm>
+    <caption>Социальные сети</caption>
+    <title>Социальные сети</title>
+    <description>Управление социальными сетями</description>
+
+    <index>
+        <crumbs>
+            <smm>Социальные сети</smm>
+        </crumbs>
+
+        <actions>
+            <add>Добавить соц. сеть</add>
+        </actions>
+
+        <datasources>
+            <smm_tbl>
+                <actions>
+                    <add>
+                        <caption>Добавить соц. сеть</caption>
+                    </add>
+                    <edit>
+                        <caption>Редактировать данные соц. сети</caption>
+                    </edit>
+                    <delete>
+                        <caption>Удалить соц. сеть</caption>
+                        <text><![CDATA[Вы действительно хотите удалить соц. сеть <b>«{{name}}»</b>?]]></text>
+                        <error><![CDATA[Соц. сеть <b>«{{name}}»</b> удалить нельзя, так как она связана с записями в таблицах]]></error>
+                    </delete>
+                </actions>
+
+                <fields>
+                    <smm_enabled>
+                        <caption>Видимость</caption>
+                        <hint>Отображать иконку соц. сети или нет</hint>
+                    </smm_enabled>
+
+                    <smm_show_like_button>
+                        <caption>Кнопка "мне нравится"</caption>
+                        <hint>Отображать кнопку "мне нравится" или нет</hint>
+                    </smm_show_like_button>
+
+                    <smm_show_like_box>
+                        <caption>Блок с группой</caption>
+                        <hint>Отображать блок с группой или нет</hint>
+                    </smm_show_like_box>
+
+                    <smm_type>
+                        <caption>Тип соц. сети</caption>
+                        <hint>Тип социальной сети</hint>
+
+                        <values>
+                            <vkontakte>ВКонтакте</vkontakte>
+                            <facebook>Facebook</facebook>
+                            <twitter>Twitter</twitter>
+                            <googleplus>Google+</googleplus>
+                            <youtube>YouTube</youtube>
+                        </values>
+                    </smm_type>
+
+                    <smm_name>
+                        <caption>Наименование</caption>
+                        <hint>Наименование, которое отображается при наведении на иконку соц. сети</hint>
+                        <validate>
+                            <empty>Наименование соц. сети обязательно к заполнению</empty>
+                        </validate>
+                    </smm_name>
+
+                    <smm_url>
+                        <caption>Адрес</caption>
+                        <hint>Адрес страницы в соц. сети</hint>
+                        <validate>
+                            <empty>Адрес страницы в соц. сети обязателен к заполнению</empty>
+                            <parseUrl>Указан неправильный адрес страницы в соц. сети</parseUrl>
+                        </validate>
+                    </smm_url>
+
+                    <smm_id>
+                        <caption>ID группы</caption>
+                        <hint>ID группы</hint>
+                    </smm_id>
+
+                    <smm_page_id>
+                        <caption>ID страницы</caption>
+                        <hint>ID страницы (используется только в ВКонтакте)</hint>
+                    </smm_page_id>
+
+                    <smm_css_class>
+                        <caption>CSS класс для иконок</caption>
+                        <hint>CSS класс для иконок соц. сети</hint>
+                    </smm_css_class>
+                </fields>
+            </smm_tbl>
+        </datasources>
+    </index>
+</smm>

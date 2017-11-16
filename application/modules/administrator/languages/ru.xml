@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<administrator>
+    <login>
+        <title>Авторизация в панель управленя сайтом</title>
+        <caption>Войдите в систему управления сайтом</caption>
+        <email>name@example.com</email>
+        <password>Пароль</password>
+        <enter>Войти</enter>
+        <errors>
+            <name_empty>Вы не указали email, для авторизации</name_empty>
+            <password_empty>Вы не указали пароль, для авторизации</password_empty>
+            <failed>Вы увазали неверно email или пароль, для авторизации</failed>
+        </errors>
+    </login>
+
+    <index>
+        <backToSite>Перейти на сайт</backToSite>
+        <hello>Здравствуйте</hello>
+        <noread>У вас нет непрочитанных</noread>
+        <noread_message>сообщений</noread_message>
+        <profile>Профиль</profile>
+        <exit>Сохранить и Выйти</exit>
+        <redmine>Управление разработкой в Redmine</redmine>
+    </index>
+
+    <table>
+        <empty>(нет данных)</empty>
+        <search>поиск в таблице...</search>
+        <rowsOnPage>Строк на странице</rowsOnPage>
+        <all>Все</all>
+        <page>Страница</page>
+        <from>из</from>
+    </table>
+
+    <tables_name>
+        <rentals_tbl>Пункты проката</rentals_tbl>
+        <reserves_tbl>Резервации</reserves_tbl>
+        <navigations_tbl>Навигационные меню</navigations_tbl>
+        <navitems_tbl>Пункты меню</navitems_tbl>
+        <cars_tbl>Автомобили</cars_tbl>
+        <rentals_working_time_tbl>Рабочее время пункта проката</rentals_working_time_tbl>
+        <additional_services_tariff_tbl>Тарифы на дополнительные услуги</additional_services_tariff_tbl>
+        <load_factors_tbl>Коэффициенты загрузки пункта проката</load_factors_tbl>
+        <money_operations_tbl>Денежные начисления резерва</money_operations_tbl>
+        <reserves_documents_tbl>Документы прикрепленные к резервам</reserves_documents_tbl>
+        <tariff_tbl>Коэффициенты сроков аренды</tariff_tbl>
+        <discounts_tbl>Скидки за ранюю бронь</discounts_tbl>
+    </tables_name>
+
+    <forms>
+        <cancel>Отмена</cancel>
+        <close>Закрыть</close>
+        <delete>Удалить</delete>
+        <add>Добавить</add>
+        <add_child>Добавить</add_child>
+        <edit>Редактировать</edit>
+        <move>Переместить</move>
+        <restore>Восстановить значения по-умолчанию</restore>
+        <save>Сохранить</save>
+        <success>Данные успешно сохранены</success>
+    </forms>
+</administrator>

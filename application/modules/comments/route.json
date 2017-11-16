@@ -1,0 +1,7 @@
+{
+  "comments/add/:id": {
+    "description": "",
+    "controller": "comments",
+    "action": "addUserComment"
+  }
+}

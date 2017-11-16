@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<adverts>
+  <caption>Объявления</caption>
+  <title>Управление объявлениями</title>
+  <description>Управление объявлениями</description>
+
+  <hide>Скрыть</hide>
+  <show>Показать</show>
+
+  <tabs>
+    <payable_adverts>Платные объявления</payable_adverts>
+    <settings />
+    <language />
+  </tabs>
+
+  <fastActions>
+    <payable_adverts>Платные объявления</payable_adverts>
+    <settings>Настройки</settings>
+  </fastActions>
+
+  <index>
+    <crumbs>
+      <adverts>Объявления</adverts>
+    </crumbs>
+
+    <actions>
+      <add>Добавить объявление</add>
+    </actions>
+
+    <datasources>
+      <adverts_tbl>
+        <tabs>
+          <main>Основные данные</main>
+          <user>Пользователь</user>
+          <meta_tags>Мета-теги</meta_tags>
+        </tabs>
+
+        <actions>
+          <add>
+            <caption>Создать объявление</caption>
+          </add>
+          <edit>
+            <caption>Редактировать объявление</caption>
+          </edit>
+          <delete>
+            <caption>Удалить объявление</caption>
+            <text><![CDATA[Вы действительно хотите удалить объявление <b>«{{name}}»</b>?]]></text>
+            <error><![CDATA[Объявление <b>«{{name}}»</b> удалить нельзя, так как она связана с записями в таблицах]]></error>
+          </delete>
+        </actions>
+
+        <fields>
+          <adv_enabled>
+            <caption><![CDATA[Видим&shy;ость]]></caption>
+            <hint>Объявление отображается на сайте или нет</hint>
+          </adv_enabled>
+
+          <adv_date_create>
+            <caption>Дата создания</caption>
+          </adv_date_create>
+
+          <adv_id_pk>
+            <caption>ID</caption>
+          </adv_id_pk>
+
+          <adv_type>
+            <caption>Тип</caption>
+
+            <values>
+              <buy>Куплю</buy>
+              <sell>Продам</sell>
+            </values>
+          </adv_type>
+
+          <adv_category>
+            <caption>Категория</caption>
+
+            <values>
+              <autopart>Запчасть</autopart>
+              <car>Автомобиль</car>
+            </values>
+          </adv_category>
+
+          <adv_name>
+            <caption>Название</caption>
+            <hint>Название объявления</hint>
+
+            <validate>
+              <empty>Название объявления обязательно к заполнению</empty>
+            </validate>
+          </adv_name>
+
+          <adv_type_payable>
+            <caption>Тип (платное/бесплатное) </caption>
+            <hint>Платное =1 )/бесплатное = 0 </hint>
+
+            <validate>
+              <empty>Тип обязательно к заполнению</empty>
+            </validate>
+          </adv_type_payable>
+
+          <adv_cost>
+            <caption>Цена</caption>
+            <hint>Стоимость товара в объявлении</hint>
+
+            <validate>
+              <parseInt>Значение может быть только целым числом</parseInt>
+            </validate>
+          </adv_cost>
+
+          <adv_rat_id_fk>
+            <caption>Валюта</caption>
+          </adv_rat_id_fk>
+
+          <adv_image>
+            <caption><![CDATA[Изображе&shy;ние]]></caption>
+            <hint>Изображение объявления</hint>
+            <validate>
+              <extension>Можно добавлять только jpg, jpeg, png, gif</extension>
+            </validate>
+          </adv_image>
+
+          <adv_usr_id_fk>
+            <caption>Пользователь</caption>
+          </adv_usr_id_fk>
+
+          <adv_text>
+            <caption>Текст объявления</caption>
+            <hint>Текст объявления</hint>
+            <validate>
+              <empty>Текст объявления обязателен к заполнению</empty>
+            </validate>
+          </adv_text>
+
+          <usr_name>
+            <caption>Пользователь</caption>
+          </usr_name>
+
+          <count_images>
+            <caption>Доп. фото</caption>
+          </count_images>
+
+          <adv_robots>
+            <caption>Meta robots</caption>
+            <hint>Мета тег ROBOTS</hint>
+            <values>
+              <indexfollow>INDEX, FOLLOW</indexfollow>
+              <noindexfollow>NOINDEX, FOLLOW</noindexfollow>
+              <indexnofollow>INDEX, NOFOLLOW</indexnofollow>
+              <noindexnofollow>NOINDEX, NOFOLLOW</noindexnofollow>
+            </values>
+          </adv_robots>
+
+          <adv_title>
+            <caption>Title</caption>
+            <hint>Title объявления(отображается в окне браузера, важно для SEO. Если не указать, используется название новости)</hint>
+          </adv_title>
+
+          <adv_description>
+            <caption>Описание (тег description)</caption>
+            <hint>Описание (тег description)</hint>
+          </adv_description>
+
+          <adv_keywords>
+            <caption>Тэг ключевые слова (keywords)</caption>
+            <hint>Тэг ключевые слова (keywords). Важен для SEO</hint>
+          </adv_keywords>
+
+          <adv_user_name>
+            <caption>Имя</caption>
+            <hint>Имя оставившего заявку</hint>
+          </adv_user_name>
+
+          <adv_user_phone>
+            <caption>Телефон</caption>
+            <hint>Телефон, человека оставившего заявку</hint>
+          </adv_user_phone>
+
+          <adv_user_email>
+            <caption>Email</caption>
+            <hint>Email, человека оставившего заявку</hint>
+            <validate>
+              <parseEmail>Неверный email</parseEmail>
+            </validate>
+          </adv_user_email>
+
+          <adv_user_city>
+            <caption>Город и страна</caption>
+            <hint>Город и страна, человека оставившего заявку</hint>
+          </adv_user_city>
+        </fields>
+      </adverts_tbl>
+    </datasources>
+  </index>
+
+  <payable_adverts>
+    <crumbs>
+      <adverts>Платные объявления</adverts>
+    </crumbs>
+
+    <actions>
+      <add>Добавить объявление</add>
+    </actions>
+
+    <datasources>
+      <adverts_tbl>
+        <tabs>
+          <main>Основные данные</main>
+          <user>Пользователь</user>
+          <meta_tags>Мета-теги</meta_tags>
+        </tabs>
+
+        <actions>
+          <add>
+            <caption>Создать объявление</caption>
+          </add>
+          <edit>
+            <caption>Редактировать объявление</caption>
+          </edit>
+          <delete>
+            <caption>Удалить объявление</caption>
+            <text><![CDATA[Вы действительно хотите удалить объявление <b>«{{name}}»</b>?]]></text>
+            <error><![CDATA[Объявление <b>«{{name}}»</b> удалить нельзя, так как она связана с записями в таблицах]]></error>
+          </delete>
+        </actions>
+
+        <fields>
+          <adv_enabled>
+            <caption><![CDATA[Видим&shy;ость]]></caption>
+            <hint>Объявление отображается на сайте или нет</hint>
+          </adv_enabled>
+
+          <adv_date_create>
+            <caption>Дата создания</caption>
+          </adv_date_create>
+
+          <adv_id_pk>
+            <caption>ID</caption>
+          </adv_id_pk>
+
+          <adv_type>
+            <caption>Тип</caption>
+
+            <values>
+              <buy>Куплю</buy>
+              <sell>Продам</sell>
+            </values>
+          </adv_type>
+
+          <adv_category>
+            <caption>Категория</caption>
+
+            <values>
+              <autopart>Запчасть</autopart>
+              <car>Автомобиль</car>
+            </values>
+          </adv_category>
+
+          <adv_name>
+            <caption>Название</caption>
+            <hint>Название объявления</hint>
+
+            <validate>
+              <empty>Название объявления обязательно к заполнению</empty>
+            </validate>
+          </adv_name>
+
+          <adv_type_payable>
+            <caption>Тип (платное/бесплатное) </caption>
+            <hint>Платное =1 )/бесплатное = 0 </hint>
+
+            <validate>
+              <empty>Тип обязательно к заполнению</empty>
+            </validate>
+          </adv_type_payable>
+
+
+
+          <adv_cost>
+            <caption>Цена</caption>
+            <hint>Стоимость товара в объявлении</hint>
+
+            <validate>
+              <parseInt>Значение может быть только целым числом</parseInt>
+            </validate>
+          </adv_cost>
+
+          <adv_rat_id_fk>
+            <caption>Валюта</caption>
+          </adv_rat_id_fk>
+
+          <adv_image>
+            <caption><![CDATA[Изображе&shy;ние]]></caption>
+            <hint>Изображение объявления</hint>
+            <validate>
+              <extension>Можно добавлять только jpg, jpeg, png, gif</extension>
+            </validate>
+          </adv_image>
+
+          <adv_usr_id_fk>
+            <caption>Пользователь</caption>
+          </adv_usr_id_fk>
+
+          <adv_text>
+            <caption>Текст объявления</caption>
+            <hint>Текст объявления</hint>
+            <validate>
+              <empty>Текст объявления обязателен к заполнению</empty>
+            </validate>
+          </adv_text>
+
+          <usr_name>
+            <caption>Пользователь</caption>
+          </usr_name>
+
+          <count_images>
+            <caption>Доп. фото</caption>
+          </count_images>
+
+          <adv_robots>
+            <caption>Meta robots</caption>
+            <hint>Мета тег ROBOTS</hint>
+            <values>
+              <indexfollow>INDEX, FOLLOW</indexfollow>
+              <noindexfollow>NOINDEX, FOLLOW</noindexfollow>
+              <indexnofollow>INDEX, NOFOLLOW</indexnofollow>
+              <noindexnofollow>NOINDEX, NOFOLLOW</noindexnofollow>
+            </values>
+          </adv_robots>
+
+          <adv_title>
+            <caption>Title</caption>
+            <hint>Title объявления(отображается в окне браузера, важно для SEO. Если не указать, используется название новости)</hint>
+          </adv_title>
+
+          <adv_description>
+            <caption>Описание (тег description)</caption>
+            <hint>Описание (тег description)</hint>
+          </adv_description>
+
+          <adv_keywords>
+            <caption>Тэг ключевые слова (keywords)</caption>
+            <hint>Тэг ключевые слова (keywords). Важен для SEO</hint>
+          </adv_keywords>
+
+          <adv_user_name>
+            <caption>Имя</caption>
+            <hint>Имя оставившего заявку</hint>
+          </adv_user_name>
+
+          <adv_user_phone>
+            <caption>Телефон</caption>
+            <hint>Телефон, человека оставившего заявку</hint>
+          </adv_user_phone>
+
+          <adv_user_email>
+            <caption>Email</caption>
+            <hint>Email, человека оставившего заявку</hint>
+            <validate>
+              <parseEmail>Неверный email</parseEmail>
+            </validate>
+          </adv_user_email>
+
+          <adv_user_city>
+            <caption>Город и страна</caption>
+            <hint>Город и страна, человека оставившего заявку</hint>
+          </adv_user_city>
+        </fields>
+      </adverts_tbl>
+    </datasources>
+  </payable_adverts>
+
+  <images>
+    <crumbs>
+      <adverts>Объявления</adverts>
+      <images>Фото в объявлении «{{caption}}»</images>
+    </crumbs>
+
+    <actions>
+      <add>Добавить фото</add>
+    </actions>
+
+    <datasources>
+      <adverts_attachments_tbl>
+        <actions>
+          <add>
+            <caption>Добавить фото</caption>
+          </add>
+          <edit>
+            <caption>Редактировать фото</caption>
+          </edit>
+          <delete>
+            <caption>Удалить фото</caption>
+            <text><![CDATA[Вы действительно хотите удалить фото <b>«{{name}}»</b>?]]></text>
+          </delete>
+        </actions>
+
+        <fields>
+          <ada_enabled>
+            <caption><![CDATA[Видим&shy;ость]]></caption>
+            <hint>Отобрадать фото на сайте или нет</hint>
+          </ada_enabled>
+
+          <ada_image>
+            <caption>Фото</caption>
+            <hint>Фото</hint>
+            <validate>
+              <empty>Фото обязательно к заполнению</empty>
+            </validate>
+          </ada_image>
+        </fields>
+      </adverts_attachments_tbl>
+    </datasources>
+  </images>
+
+  <settings>
+    <caption>Настройки</caption>
+    <configs>
+      <adverts>
+        <index>
+          <caption>Главная страница списка объявлений</caption>
+
+          <title>
+            <caption>Тег title</caption>
+            <hint>Тег title для страницы</hint>
+          </title>
+
+          <description>
+            <caption>Тег description</caption>
+            <hint>Тег description для страницы</hint>
+          </description>
+
+          <keywords>
+            <caption>Тег keywords</caption>
+            <hint>Тег keywords для страницы</hint>
+          </keywords>
+        </index>
+
+        <templates>
+          <caption>Шаблоны мета-тегов объявления</caption>
+
+          <title>
+            <caption>Тег title</caption>
+            <hint>Шаблон для тега title</hint>
+          </title>
+
+          <description>
+            <caption>Тег description</caption>
+            <hint>Шаблон для тега description</hint>
+          </description>
+
+          <keywords>
+            <caption>Тег keywords</caption>
+            <hint>Шаблон для тега keywords</hint>
+          </keywords>
+
+          <share>
+            <caption>Тело письма "поделиться"</caption>
+            <hint>Тело письма "поделиться"</hint>
+          </share>
+        </templates>
+      </adverts>
+    </configs>
+  </settings>
+</adverts>

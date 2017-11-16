@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<adverts>
+  <adverts>ОБЪЯВЛЕНИЯ</adverts>
+  <add_advert>Подать объявление</add_advert>
+  <our_adverts>Обьявления по продаже  ретроавтомобилей и запчастей</our_adverts>
+  <contract_price>договорная</contract_price>
+  <buy>КУПЛЮ</buy>
+  <sell>ПРОДАМ</sell>
+  <cars>автомобили</cars>
+  <autoparts>запчасти</autoparts>
+  <other_adverts>Другие объявления</other_adverts>
+  <i_buy>куплю</i_buy>
+  <i_sell>продам</i_sell>
+  <autopart>запчасть</autopart>
+  <car>Автомобиль</car>
+  <city_country>Город и Страна</city_country>
+  <select_type>Выберите тип</select_type>
+  <select_category>Выберите раздел</select_category>
+  <select_currency>Выберите валюту</select_currency>
+  <input_price>Укажие цену или оставьте поле пустым</input_price>
+  <title>Заглавие</title>
+  <advert_text>Текст обьявления</advert_text>
+  <upload_photo>Загрузить фото</upload_photo>
+  <goToCart>Перейти в корзину</goToCart>
+  <needpayadvertmessage>Ваше объявление сохранено. Для публикации объявления, Вам необходимо оплатить платное размещение (10 UAH)</needpayadvertmessage>
+  <validate>
+    <add>
+      <name>
+        <empty>Вы не указали Ваше имя</empty>
+      </name>
+
+      <city>
+        <empty>Вы не указали Город и Страну</empty>
+      </city>
+
+      <email>
+        <empty>Вы не указали ваш E-mail</empty>
+        <parseEmail>Вы указали неверный E-mail</parseEmail>
+      </email>
+
+      <phone>
+        <empty>Вы не указали ваш телефон</empty>
+      </phone>
+
+      <type>
+        <empty>Уажите тип объявления</empty>
+      </type>
+
+      <category>
+        <empty>Уажите раздел объявления</empty>
+      </category>
+
+      <caption>
+        <empty>Вы не указали заглавие объявления</empty>
+      </caption>
+
+      <text>
+        <empty>Вы не указали тект объявления</empty>
+      </text>
+
+      <files>
+        <maxfilesize>Максимальный размер загружаемых файлов 2Мб</maxfilesize>
+        <maxfiles>Максимально можно загрузить 10 файлов</maxfiles>
+      </files>
+    </add>
+  </validate>
+</adverts>

@@ -1,0 +1,6 @@
+{
+  "s/:idMailer/:md5Email/logo.jpeg": {
+    "controller": "mailer",
+    "action": "mailOpenStat"
+  }
+}

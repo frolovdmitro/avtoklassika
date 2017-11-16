@@ -1,0 +1,125 @@
+{
+  "cars/autobazar-excel": {
+    "description": "",
+    "controller": "cars",
+    "action": "autobazarExcel"
+  },
+
+  "car/add-request": {
+    "description": "",
+    "controller": "cars",
+    "action": "addRequestAutopart"
+  },
+
+  "request/add-image": {
+    "description": "",
+    "controller": "cars",
+    "action": "uploadRequestImage"
+  },
+
+  "search": {
+    "description": "",
+    "controller": "cars",
+    "action": "searchPage"
+  },
+
+  "cars/new": {
+    "description": "",
+    "controller": "cars",
+    "action": "newDetails2"
+  },
+
+
+  "car/:car": {
+    "description": "",
+    "controller": "cars",
+    "action": "index"
+  },
+
+
+  "car/:car/all": {
+    "description": "",
+    "controller": "cars",
+    "action": "allDetails",
+    "full": true
+  },
+
+  "car/:car/documentations": {
+    "description": "",
+    "controller": "cars",
+    "action": "docsList"
+  },
+
+  "car/:car/documentations/:doc": {
+    "description": "",
+    "controller": "cars",
+    "action": "doc"
+  },
+
+  "car/:car/price/price.pdf": {
+    "description": "",
+    "controller": "cars",
+    "action": "pricePdf"
+  },
+
+  "car/:car/price": {
+    "description": "",
+    "controller": "cars",
+    "action": "price"
+  },
+
+  "car/:car/:autopart": {
+    "description": "",
+    "controller": "cars",
+    "action": "details"
+  },
+
+  "car/:car/:autopart/:detail": {
+    "description": "",
+    "controller": "cars",
+    "action": "detail"
+  },
+
+  "json/car/:autopart/page.html": {
+    "description": "",
+    "controller": "cars",
+    "action": "pageAjax"
+  },
+
+  "json/car-all/:autopart/page.html": {
+    "description": "",
+    "controller": "cars",
+    "action": "pageAjax",
+    "full": 1
+  },
+
+  "json/car/:car_id/autopart-nodes/:id/:type": {
+    "description": "",
+    "controller": "cars",
+    "action": "treeAutoparts"
+  },
+
+  "json/car/:car_id/detail-color-size/:id": {
+    "description": "",
+    "controller": "cars",
+    "action": "colorSizeInfo"
+  },
+
+  "json/request-autopart.html": {
+    "description": "",
+    "controller": "cars",
+    "action": "requestAutopart"
+  },
+
+  "json/details/search/presence.html": {
+    "description": "",
+    "controller": "cars",
+    "action": "searchPresenceDetail"
+  },
+
+  "json/details/search/:query/result.html": {
+    "description": "",
+    "controller": "cars",
+    "action": "searchDetail"
+  }
+}

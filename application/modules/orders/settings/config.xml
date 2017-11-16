@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<orders>
+  <validate>
+    <quick_buy>
+      <name>
+        <empty/>
+      </name>
+
+      <phone>
+        <empty/>
+      </phone>
+
+      <email>
+        <empty/>
+        <parseEmail/>
+      </email>
+    </quick_buy>
+
+    <promocode>
+      <promocode>
+        <empty/>
+      </promocode>
+    </promocode>
+
+    <order_user_info>
+      <name>
+        <empty/>
+      </name>
+
+      <phone>
+        <empty/>
+      </phone>
+
+      <street>
+        <empty/>
+      </street>
+
+      <city>
+        <empty/>
+      </city>
+
+      <index>
+        <empty/>
+      </index>
+
+      <country>
+        <empty/>
+      </country>
+    </order_user_info>
+  </validate>
+<general><administrator_email>avtoclassika.com@gmail.com</administrator_email></general><liqpay><phone/><id>i24349046233</id><password>XoMlTAYFjMNibRfuQyBF6q28qXpbdZeUpfA1mvcO</password></liqpay><paypal><username>AbeYZRBwbK7SXzbaG8P7jFLHeZ7fGRiYvHtdcSNRFW8rT4LSHb8t9_KlFUYL</username><password>EAgwQRD9UiGQuBuDRP4SDnsP1lAQaND8cLnfbW_G6B6TzapoqHJ4ZVEEDdep</password></paypal><portmone><payee_id>6182</payee_id><login>shp_avtoclassika1</login><password>aaa111</password></portmone><private24><id>102393</id><password>xg33K7MAN304Oxx3w5MRDunGdC7um90H</password></private24></orders>

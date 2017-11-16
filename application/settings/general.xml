@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <languageAdmin>ru</languageAdmin>
+
+  <status>
+    <minify_enabled>false</minify_enabled>
+  </status>
+
+  <css>
+    <main>
+      <name>main.css</name>
+    </main>
+
+    <backend_main>
+      <name>main.css</name>
+    </backend_main>
+  </css>
+
+  <js>
+    <main>
+      <name>main.js</name>
+    </main>
+
+    <backend_main>
+      <name>main.js</name>
+    </backend_main>
+  </js>
+
+  <!-- Тут могут быть описания флеш-файлов-->
+  <mode>index</mode> <!-- index|teaser|maintenance -->
+
+  <teaser>
+  </teaser>
+
+  <redmine>http://redmine.uwinart.com/projects/avtoclassika-com/</redmine>
+
+  <maintenance>
+    <retry_after>7200</retry_after>
+  </maintenance>
+
+  <sphinx>
+    <host>sphinx</host>
+    <port>9322</port>
+  </sphinx>
+
+  <google_analytics>
+    <disabled/>
+    <code/>
+  </google_analytics>
+
+  <mail>
+    <name>Avtoclassika.com</name>
+    <email>info@avtoclassika.com</email>
+    <smtp>
+      <host>127.0.0.1</host>
+    </smtp>
+  </mail>
+
+  <static_servers>
+    <default>s1.avtoclassika.com</default>
+  </static_servers>
+
+  <databases>
+    <default>
+      <host>127.0.0.1</host>
+      <port>5432</port>
+      <dbname>avtoclassika_db</dbname>
+      <user>avtoclassika</user>
+      <password>qMI2KhzaFtZLubrd</password>
+    </default>
+
+    <administrator>
+      <host>127.0.0.1</host>
+      <port>5432</port>
+      <dbname>avtoclassika_db</dbname>
+      <user>admavtoclassika</user>
+      <password>VRoK5a20MIXRKWah</password>
+    </administrator>
+  </databases>
+
+  <session>
+    <!--Время жизни сессии-->
+    <gc_maxlifetime>2592000</gc_maxlifetime>
+    <!--Время жизки кук-->
+    <cookie_lifetime>96422400</cookie_lifetime>
+
+    <!--Хранить сессии в файлах-->
+    <files>
+      <enabled>false</enabled>
+    </files>
+
+    <!--Хранить сессии в memcached-->
+    <memcached>
+      <!--Используется группа серверов ли нет-->
+      <enabled>true</enabled>
+      <!--Адрес сервера-->
+      <host>127.0.0.1</host>
+      <!--Порт на котором работает сервер-->
+      <port>17780</port>
+    </memcached>
+  </session>
+
+  <cacher>
+    <type>Memcached</type>
+    <!--включено или нет использование memcached-->
+    <enabled>true</enabled>
+    <default_group>main</default_group>
+
+    <groups>
+      <main>
+        <!--Используется группа серверов ли нет-->
+        <enabled>true</enabled>
+
+        <!--Список серверов группы-->
+        <server>
+          <!--Используется сервер или нет-->
+          <enabled>true</enabled>
+          <!--Адрес сервера-->
+          <host>127.0.0.1</host>
+          <!--Порт на котором работает сервер-->
+          <port>17781</port>
+          <!--Вес сервера в связке серверов-->
+          <weight>0</weight>
+        </server>
+      </main>
+    </groups>
+  </cacher>
+
+  <exceptions>
+    <debug>true</debug>
+
+    <!--логирование ошибок в файл-->
+    <logInFile>
+      <!--регистрировать пользовательские ошибки-->
+      <validateError>true</validateError>
+      <!--файл, куда будут регистрироваться пользовательские ошибки-->
+      <fileValidateError>erroruser.log</fileValidateError>
+      <!--регистрировать ошибки маршрутизации (ошибка 404)-->
+      <routeError>true</routeError>
+      <!--файл, куда будут регистрироваться ошибки маршрутизации-->
+      <fileRouteError>errorroute.log</fileRouteError>
+      <!--регистрировать системные ошибки-->
+      <systemError>true</systemError>
+      <!--файл, куда будут регистрироваться системные ошибки-->
+      <fileSystemError>errorsystem.log</fileSystemError>
+      <!--регистрирование ошибок безопасности-->
+      <securityError>true</securityError>
+      <!--файл, куда будут регистрироваться ошибки безопасности-->
+      <fileSecurityError>errorsecurity.log</fileSecurityError>
+      <!--регистрирование фатальных ошибок-->
+      <fatalError>true</fatalError>
+      <!--файл, куда будут регистрироваться фатальные ошибки-->
+      <fileFatalError>errorfatal.log</fileFatalError>
+    </logInFile>
+
+    <sendmail>
+      <mail>
+        <address>y@uwinart.com</address>
+        <userError>false</userError>
+        <routeError>true</routeError>
+        <systemError>true</systemError>
+        <securityError>false</securityError>
+        <fatalError>true</fatalError>
+      </mail>
+    </sendmail>
+  </exceptions>
+
+  <profile>
+    <!--режим профилирования-->
+    <enabled>true</enabled>
+    <!--логирование информации о профилировании в файл-->
+    <logInFile>false</logInFile>
+    <!--файл, куда будет сохранятся информация о профилировании-->
+    <file>profile.log</file>
+  </profile>
+
+  <email_header><![CDATA[
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{{subject}}</title>
+  <style type="text/css">
+    #outlook a{
+      padding:0;
+    }
+
+    body{
+      width:100% !important;
+      -webkit-text-size-adjust:100%;
+      -ms-text-size-adjust:100%;
+      margin:0;
+      padding:0;
+    }
+
+    .ExternalClass{
+      width:100%;
+    }
+
+    .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font,
+    .ExternalClass td, .ExternalClass div{
+      line-height: 100%;
+    }
+
+    #backgroundTable{
+      margin:0;
+      padding:0;
+      width:100% !important;
+      line-height: 100% !important;
+    }
+
+    p{
+      margin: 1em 0;
+    }
+
+    table td{
+      border-collapse: collapse;
+    }
+
+    table{
+      border-collapse:collapse;
+      mso-table-lspace:0pt;
+      mso-table-rspace:0pt;
+    }
+
+    @media only screen and (max-device-width: 480px){
+      a[href^="tel"], a[href^="sms"]{
+        text-decoration: none;
+        color: black;
+        pointer-events: none;
+        cursor: default;
+      }
+
+      .mobile_link a[href^="tel"], .mobile_link a[href^="sms"]{
+        text-decoration: default;
+        color: orange !important;
+        pointer-events: auto;
+        cursor: default;
+      }
+    }
+
+    @media only screen and (min-device-width: 768px)
+    and (max-device-width: 1024px){
+      a[href^="tel"], a[href^="sms"]{
+        text-decoration: none;
+        color: blue;
+        pointer-events: none;
+        cursor: default;
+      }
+
+      .mobile_link a[href^="tel"], .mobile_link a[href^="sms"]{
+        text-decoration: default;
+        color: orange !important;
+        pointer-events: auto;
+        cursor: default;
+      }
+    }
+  </style>
+</head>
+<body>
+  ]]></email_header>
+<email_footer><![CDATA[
+<body>
+]]></email_footer>
+</root>

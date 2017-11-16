@@ -1,0 +1,780 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<directories>
+  <caption>Справочники</caption>
+  <title>Управление справочниками</title>
+  <description>Управление справочниками</description>
+
+  <hide>Скрыть</hide>
+  <show>Показать</show>
+
+  <fastActions>
+    <phones>Телефоны</phones>
+    <banners-places>Баннерные площадки</banners-places>
+    <languages>Языки сайта</languages>
+    <payment_methods>Методы оплаты</payment_methods>
+    <delivery_methods>Методы доставки</delivery_methods>
+    <countries>Страны</countries>
+    <rates>Курсы валют</rates>
+    <sitemap>Карта сайта</sitemap>
+  </fastActions>
+
+  <tabs>
+    <language />
+  </tabs>
+
+  <index>
+    <crumbs>
+      <directories>Справочники</directories>
+    </crumbs>
+
+    <datasources>
+      <directories_tbl>
+        <fields>
+          <drc_name>
+            <caption>Справочник</caption>
+            <hint>Наименование справочника</hint>
+          </drc_name>
+
+          <drc_description>
+            <caption>Описание</caption>
+            <hint>Описание справочника</hint>
+          </drc_description>
+        </fields>
+      </directories_tbl>
+    </datasources>
+  </index>
+
+
+  <phones>
+    <caption>Языки сайта</caption>
+    <crumbs>
+      <directories>Справочники</directories>
+      <phones>Номера телефонов</phones>
+    </crumbs>
+
+    <actions>
+      <add>Добавить телефоны</add>
+    </actions>
+
+    <datasources>
+      <phones_tbl>
+        <actions>
+          <add>
+            <caption>Добавить телефоны</caption>
+          </add>
+          <edit>
+            <caption>Редактировать телефоны</caption>
+          </edit>
+          <delete>
+            <caption>Удалить телефоны</caption>
+            <text><![CDATA[Вы действительно хотите удалить телефоны <b>«{{name}}»</b>?]]></text>
+            <error><![CDATA[Телефоны <b>«{{name}}»</b> удалить нельзя, так как он связан с записями в таблицах]]></error>
+          </delete>
+        </actions>
+
+        <fields>
+          <phn_lng_id_fk>
+            <caption>Язык</caption>
+          </phn_lng_id_fk>
+
+          <phn_enabled>
+            <caption><![CDATA[Видимость]]></caption>
+            <hint>Видимость телефонов на сайте</hint>
+          </phn_enabled>
+
+          <phn_phones>
+            <caption>Телефоны</caption>
+            <hint>Список номоров телефонов</hint>
+
+            <validate>
+              <empty>Телефоны обязательны к заполнению</empty>
+            </validate>
+          </phn_phones>
+
+          <phn_labor_hours>
+            <caption>Время работы</caption>
+            <hint>Время работы номеров телефонов. Используйте (( и )) для выделения</hint>
+
+            <validate>
+              <empty>Время работы обязательно к заполнению</empty>
+            </validate>
+          </phn_labor_hours>
+
+          <phn_http_get>
+            <caption>GET-переменная</caption>
+            <hint>Использовать телефоны при получении GET-переменной</hint>
+          </phn_http_get>
+
+          <phn_referel>
+            <caption>Реферел</caption>
+            <hint>Использовать телефоны при переходе с определенного реферела</hint>
+          </phn_referel>
+        </fields>
+      </phones_tbl>
+    </datasources>
+  </phones>
+
+  <languages>
+    <caption>Языки сайта</caption>
+    <crumbs>
+      <directories>Справочники</directories>
+      <languages>Языки сайта</languages>
+    </crumbs>
+
+    <actions>
+      <add>Добавить язык</add>
+    </actions>
+
+    <datasources>
+      <languages_tbl>
+        <actions>
+          <add>
+            <caption>Добавить язык</caption>
+          </add>
+          <edit>
+            <caption>Редактировать язык</caption>
+          </edit>
+          <delete>
+            <caption>Удалить язык</caption>
+            <text><![CDATA[Вы действительно хотите удалить язык <b>«{{name}}»</b>?]]></text>
+            <error><![CDATA[Язык <b>«{{name}}»</b> удалить нельзя, так как он связан с записями в таблицах]]></error>
+          </delete>
+        </actions>
+
+        <fields>
+          <lng_enabled>
+            <caption><![CDATA[Исполь&shy;зовать]]></caption>
+            <hint>Использовать язык на сайте или нет</hint>
+          </lng_enabled>
+
+          <lng_default>
+            <caption>По умолчанию</caption>
+            <hint>Язык, который будет использоваться по умолчанию</hint>
+          </lng_default>
+
+          <lng_name>
+            <caption>Полное наименование</caption>
+            <hint>Полное наименование языка</hint>
+
+            <validate>
+              <empty>Наименование языка обязательно к заполнению</empty>
+            </validate>
+          </lng_name>
+
+          <lng_short_name>
+            <caption>Сокращенное наименование</caption>
+            <hint>Сокращенное наименование языка</hint>
+
+            <validate>
+              <empty>Сокращенное наименование языка обязательно к заполнению</empty>
+            </validate>
+          </lng_short_name>
+
+          <lng_synonym>
+            <caption>Синоним</caption>
+            <hint>Название языка латинскими буквами</hint>
+
+            <validate>
+              <empty>Синоним языка обязателен к заполнению</empty>
+              <unique>Данный синоним языка уже существует. Он должен быть уникальным</unique>
+              <regexp>Синоним может состоять только с латинских букв</regexp>
+            </validate>
+          </lng_synonym>
+        </fields>
+      </languages_tbl>
+    </datasources>
+  </languages>
+
+  <banners-places>
+    <caption>Баннерные площадки</caption>
+    <crumbs>
+      <banners-places>Баннерные пощадки</banners-places>
+    </crumbs>
+
+    <actions>
+      <add>Добавить баннерную площадку</add>
+    </actions>
+
+    <datasources>
+      <banners_places_tbl>
+        <actions>
+          <add>
+            <caption>Добавить баннерную площадку</caption>
+          </add>
+          <edit>
+            <caption>Редактировать баннерную площадку</caption>
+          </edit>
+          <delete>
+            <caption>Удалить баннерную площадку</caption>
+            <text>
+              <![CDATA[Вы действительно хотите удалить баннерную площадку <b>«{{name}}»</b>?]]></text>
+            <error>
+              <![CDATA[Баннерную площадку <b>«{{name}}»</b> удалить нельзя, так как она связана с записями в таблицах]]></error>
+          </delete>
+        </actions>
+
+        <fields>
+          <bnp_enabled>
+            <caption>Отображать</caption>
+            <hint>Отображать баннерную площадку на сайте или нет
+            </hint>
+          </bnp_enabled>
+
+          <bnp_type>
+            <caption>Баннерная площадка</caption>
+            <hint>Баннерная площадка</hint>
+            <values>
+              <index_slider>Баннеры возле слайдера на главной странице</index_slider>
+              <index_hot>Баннеры на главной странице в горячих предложениях</index_hot>
+              <car>Баннеры на странице авто</car>
+              <adverts>Баннеры на страницах объявлений</adverts>
+            </values>
+          </bnp_type>
+        </fields>
+      </banners_places_tbl>
+    </datasources>
+  </banners-places>
+
+  <banners>
+    <caption>Банера</caption>
+    <crumbs>
+      <banners-places>Баннерные пощадки</banners-places>
+      <banners>Баннера баннерной пощадки «{{caption}}»</banners>
+    </crumbs>
+
+    <actions>
+      <add>Добавить баннер</add>
+    </actions>
+
+    <datasources>
+      <banners_tbl>
+        <actions>
+          <add>
+            <caption>Добавить баннер</caption>
+          </add>
+          <edit>
+            <caption>Редактировать баннер</caption>
+          </edit>
+          <delete>
+            <caption>Удалить баннер</caption>
+            <text>
+              <![CDATA[Вы действительно хотите удалить баннер <b>«{{name}}»</b>?]]></text>
+            <error>
+              <![CDATA[Баннер <b>«{{name}}»</b> удалить нельзя, так как он связан с записями в таблицах]]></error>
+          </delete>
+        </actions>
+
+        <tabs>
+          <main>Основные данные</main>
+          <code>Код баннера</code>
+        </tabs>
+
+        <fields>
+          <bnr_enabled>
+            <caption>Отображать</caption>
+            <hint>Отображать баннер на сайте или нет</hint>
+          </bnr_enabled>
+
+          <bnr_target_blank>
+            <caption>Открывать в новом окне</caption>
+            <hint>Открывать баннер в новом окне или нет</hint>
+          </bnr_target_blank>
+
+          <bnr_autopart_request>
+            <caption>Запрос на запчасть</caption>
+          </bnr_autopart_request>
+
+          <bnr_file>
+            <caption>Файл</caption>
+            <hint>Файл баннера</hint>
+            <validate>
+              <empty>Файл баннера обязателен к заполнению</empty>
+              <extension>Можно добавлять только jpg, jpeg, png,
+                gif и swf
+              </extension>
+              <maxSize>
+                Максимальный размер файла не более 400Кб
+              </maxSize>
+            </validate>
+          </bnr_file>
+
+          <bnr_code>
+            <caption>Код баннера</caption>
+            <hint>
+              Код для баннера
+            </hint>
+          </bnr_code>
+
+          <bnr_url>
+            <caption>Ссылка баннера</caption>
+            <hint>
+              Ссылка баннера, работает только для изображений
+            </hint>
+          </bnr_url>
+
+          <bnr_count_views>
+            <caption>Кол-во показов</caption>
+            <hint>Кол-во показов баннера</hint>
+          </bnr_count_views>
+
+          <bnr_max_views>
+            <caption>Макс. кол-во показов</caption>
+            <hint>Максимальное кол-во показов баннера</hint>
+            <validate>
+              <parseInt>Значение может быть только целым числом
+              </parseInt>
+            </validate>
+          </bnr_max_views>
+
+          <bnr_start_date>
+            <form_caption>Дата/время начала показа</form_caption>
+            <caption>Дата/время показа</caption>
+            <hint>Дата/время начала показа баннера</hint>
+            <validate>
+              <parseDateTime>
+                Неверный формат(ДД.ММ.ГГГГ ЧЧ:ММ)
+              </parseDateTime>
+            </validate>
+          </bnr_start_date>
+
+          <bnr_finish_date>
+            <caption>Дата/время окончания показа</caption>
+            <hint>Дата/время окончания показа баннера</hint>
+            <validate>
+              <parseDateTime>
+                Неверный формат(ДД.ММ.ГГГГ ЧЧ:ММ)
+              </parseDateTime>
+            </validate>
+          </bnr_finish_date>
+        </fields>
+      </banners_tbl>
+    </datasources>
+  </banners>
+
+  <payment_methods>
+    <caption>Методы оплаты</caption>
+    <crumbs>
+      <directories>Справочники</directories>
+      <payment_methods>Методы оплаты</payment_methods>
+    </crumbs>
+
+    <actions>
+      <add>Добавить метод оплаты</add>
+    </actions>
+
+    <datasources>
+      <payment_methods_tbl>
+        <actions>
+          <add>
+            <caption>Добавить метод оплаты</caption>
+          </add>
+          <edit>
+            <caption>Редактировать метод оплаты</caption>
+          </edit>
+          <delete>
+            <caption>Удалить метод оплаты</caption>
+            <text><![CDATA[Вы действительно хотите удалить метод оплаты <b>«{{name}}»</b>?]]></text>
+            <error><![CDATA[Метод оплаты <b>«{{name}}»</b> удалить нельзя, так как он связан с записями в таблицах]]></error>
+          </delete>
+        </actions>
+
+        <fields>
+          <pym_enabled>
+            <caption><![CDATA[Видимость]]></caption>
+          </pym_enabled>
+
+          <pym_type>
+            <caption>Тип метода оплаты</caption>
+            <values>
+              <visa>Visa/Mastercard</visa>
+              <private24>Приват24</private24>
+              <paypal>PayPal</paypal>
+              <western>Western Union</western>
+              <cash>Наличные</cash>
+              <courier>Оплата курьером</courier>
+              <contact>Contact</contact>
+              <portmone>Portmone</portmone>
+              <cod>COD</cod>
+            </values>
+          </pym_type>
+
+          <pym_name>
+            <caption>Имя метода оплаты</caption>
+            <hint>Название метода оплаты</hint>
+
+            <validate>
+              <empty>Имя метода оплаты обязательно к заполнению</empty>
+            </validate>
+          </pym_name>
+
+          <pym_description>
+            <caption>Описание</caption>
+            <hint>Описание метода оплаты</hint>
+
+            <validate>
+              <empty>Описание обязательно к заполнению</empty>
+            </validate>
+          </pym_description>
+
+          <pym_filter>
+            <caption>Фильтр</caption>
+            <hint>(СТРАНА='ua' ИЛИ ГОРОД='КИЕВ' ИЛИ ГОРОД='МОСКВА') И ВЕС>=30</hint>
+          </pym_filter>
+        </fields>
+      </payment_methods_tbl>
+    </datasources>
+  </payment_methods>
+
+  <delivery_methods>
+    <caption>Методы доставки</caption>
+    <crumbs>
+      <directories>Справочники</directories>
+      <delivery_methods>Методы доставки</delivery_methods>
+    </crumbs>
+
+    <actions>
+      <add>Добавить метод доставки</add>
+    </actions>
+
+    <datasources>
+      <delivery_methods_tbl>
+        <actions>
+          <add>
+            <caption>Добавить метод доставки</caption>
+          </add>
+          <edit>
+            <caption>Редактировать метод доставки</caption>
+          </edit>
+          <delete>
+            <caption>Удалить метод доставки</caption>
+            <text><![CDATA[Вы действительно хотите удалить метод доставки <b>«{{name}}»</b>?]]></text>
+            <error><![CDATA[Метод доставки <b>«{{name}}»</b> удалить нельзя, так как он связан с записями в таблицах]]></error>
+          </delete>
+        </actions>
+
+        <fields>
+          <dvm_enabled>
+            <caption><![CDATA[Видимость]]></caption>
+          </dvm_enabled>
+
+          <dvm_type>
+            <caption>Тип метода доставки</caption>
+            <values>
+              <ukrposhta>Укрпочта</ukrposhta>
+              <novaposhta>Новая Почта</novaposhta>
+              <courier>Курьерская доставка</courier>
+              <pickup>Самовывоз </pickup>
+              <conductor>Кондуктором</conductor>
+              <ups>UPS</ups>
+            </values>
+          </dvm_type>
+
+          <dvm_name>
+            <caption>Имя метода доставки</caption>
+            <hint>Название метода доставки</hint>
+
+            <validate>
+              <empty>Имя метода доставки обязательно к заполнению</empty>
+            </validate>
+          </dvm_name>
+
+          <dvm_cost>
+            <caption>Цена</caption>
+            <hint>Цена доставки</hint>
+
+            <validate>
+              <parseFloat>Цена может быть только числом</parseFloat>
+            </validate>
+          </dvm_cost>
+
+          <dvm_description>
+            <caption>Описание</caption>
+            <hint>Описание метода доставки</hint>
+
+            <validate>
+              <empty>Описание обязательно к заполнению</empty>
+            </validate>
+          </dvm_description>
+
+          <dvm_filter>
+            <caption>Фильтр</caption>
+            <hint>(СТРАНА='ua' ИЛИ ГОРОД='КИЕВ' ИЛИ ГОРОД='МОСКВА') И ВЕС>=30</hint>
+          </dvm_filter>
+        </fields>
+      </delivery_methods_tbl>
+    </datasources>
+  </delivery_methods>
+
+  <rates>
+    <caption>Курсы валют</caption>
+    <crumbs>
+      <directories>Справочники</directories>
+      <rates>Курсы валют</rates>
+    </crumbs>
+
+    <actions>
+      <add>Добавить валюту</add>
+    </actions>
+
+    <datasources>
+      <rates_tbl>
+        <actions>
+          <add>
+            <caption>Добавить валюту</caption>
+          </add>
+          <edit>
+            <caption>Редактировать курс валют</caption>
+          </edit>
+          <delete>
+            <caption>Удалить курс валюты</caption>
+            <text>
+              <![CDATA[Вы действительно хотите удалить курс валюты <b>«{{name}}»</b>?]]></text>
+            <error>
+              <![CDATA[курс валюты <b>«{{name}}»</b> удалить нельзя, так как он связан с записями в таблицах]]></error>
+          </delete>
+        </actions>
+
+        <fields>
+          <rat_enabled>
+            <caption>Использовать</caption>
+            <hint>Использовать валюту или нет</hint>
+          </rat_enabled>
+
+          <rat_default>
+            <caption>Основная</caption>
+          </rat_default>
+
+          <rat_currency>
+            <caption>Валюта</caption>
+            <hint>Название валюты</hint>
+
+            <validate>
+              <empty>Название валюты обязательно к заполнению
+              </empty>
+            </validate>
+          </rat_currency>
+
+          <rat_short_name>
+            <caption>Сокращенное название</caption>
+            <hint>Сокращенное название валюты</hint>
+
+            <validate>
+              <empty>
+                Сокращенное название валюты обязательно к заполнению
+              </empty>
+            </validate>
+          </rat_short_name>
+
+          <rat_synonym>
+            <caption>Синоним</caption>
+            <hint>Сокращенное название валюты латинскими буквами
+            </hint>
+
+            <validate>
+              <empty>Синоним валюты обязателен к заполнению
+              </empty>
+              <unique>Данный синоним валюты уже существует. Он
+                должен быть уникальным
+              </unique>
+              <regexp>Синоним может состоять только с латинских
+                букв, цифр и символа « - »
+              </regexp>
+            </validate>
+          </rat_synonym>
+
+          <rat_value>
+            <caption>Курс</caption>
+            <hint>Курс валюты относительно гривны</hint>
+
+            <validate>
+              <empty>Курс валюты обязателен к заполнению</empty>
+              <parseFloat>Курс валюты может быть только числом
+              </parseFloat>
+            </validate>
+          </rat_value>
+        </fields>
+      </rates_tbl>
+    </datasources>
+  </rates>
+
+  <countries>
+    <caption>Страны</caption>
+    <crumbs>
+      <directories>Справочники</directories>
+      <countries>Страны</countries>
+    </crumbs>
+
+    <actions>
+      <add>Добавить страну</add>
+    </actions>
+
+    <datasources>
+      <countries_tbl>
+        <actions>
+          <add>
+            <caption>Добавить страну</caption>
+          </add>
+          <edit>
+            <caption>Редактировать данные страны</caption>
+          </edit>
+          <delete>
+            <caption>Удалить страну</caption>
+            <text>
+              <![CDATA[Вы действительно хотите удалить страну <b>«{{name}}»</b>?]]></text>
+            <error>
+              <![CDATA[Страну <b>«{{name}}»</b> удалить нельзя, так как она связан с записями в таблицах]]></error>
+          </delete>
+        </actions>
+
+        <fields>
+          <cnt_enabled>
+            <caption>Видимость</caption>
+            <hint>Отображать страну или нет</hint>
+          </cnt_enabled>
+
+          <cnt_name>
+            <caption>Страна</caption>
+            <hint>Название страны</hint>
+
+            <validate>
+              <empty>Название страны обязательно к заполнению
+              </empty>
+            </validate>
+          </cnt_name>
+
+          <cnt_synonym>
+            <caption>Синоним</caption>
+            <hint>Название страны латинскими буквами с заменой
+              пробелов на знак « - »
+            </hint>
+
+            <validate>
+              <empty>Синоним страны обязателен к заполнению
+              </empty>
+              <unique>Данный синоним страны уже существует. Он
+                должен быть уникальным
+              </unique>
+              <regexp>Синоним может состоять только с латинских
+                букв, цифр и символа « - »
+              </regexp>
+            </validate>
+          </cnt_synonym>
+
+          <cnt_code>
+            <caption>Код</caption>
+            <hint>Буквенный код страны</hint>
+
+            <validate>
+              <empty>Код страны обязателен к заполнению
+              </empty>
+              <unique>Данный код страны уже существует. Он
+                должен быть уникальным
+              </unique>
+              <regexp>Код страны может состоять только с латинских
+                букв, цифр и символа « - »
+              </regexp>
+            </validate>
+          </cnt_code>
+
+          <cnt_onetime_tariff>
+            <caption>Единоразовый тариф</caption>
+            <hint>Единоразовый тариф для доставки в страну</hint>
+
+            <validate>
+              <empty>Поле обязательно к заполнению</empty>
+              <parseFloat>Поле может быть только числом</parseFloat>
+            </validate>
+          </cnt_onetime_tariff>
+
+          <cnt_kg_tariff>
+            <caption>Тариф за киллограмм</caption>
+            <hint>Тариф для доставки за 1 киллограмм</hint>
+
+            <validate>
+              <empty>Поле обязательно к заполнению</empty>
+              <parseFloat>Поле может быть только числом</parseFloat>
+            </validate>
+          </cnt_kg_tariff>
+
+          <cnt_rat_id_fk>
+            <caption>Валюта</caption>
+          </cnt_rat_id_fk>
+
+          <rat_currency_ru>
+            <caption>Валюта</caption>
+          </rat_currency_ru>
+
+          <cnt_prior>
+            <caption>Приоритет</caption>
+            <hint>Приоритет для сортировки</hint>
+
+            <validate>
+              <parseInt>Поле может быть только числом</parseInt>
+            </validate>
+          </cnt_prior>
+        </fields>
+      </countries_tbl>
+    </datasources>
+  </countries>
+
+  <sitemap>
+    <caption>Карта сайта</caption>
+    <crumbs>
+      <directories>Справочники</directories>
+      <sitemap>Карта сайта</sitemap>
+    </crumbs>
+
+    <datasources>
+      <sitemap_vw>
+        <actions>
+          <edit>
+            <caption>Редактировать данные страны</caption>
+          </edit>
+        </actions>
+
+        <fields>
+          <enabled>
+            <caption>Видимость</caption>
+          </enabled>
+
+          <name>
+            <caption>Раздел</caption>
+          </name>
+
+          <changefreq>
+            <caption>Частота обновления</caption>
+
+            <values>
+              <null>---</null>
+              <always>всегда (always)</always>
+              <hourly>каждый час (hourly)</hourly>
+              <daily>ежидневно (daily)</daily>
+              <weekly>ежинедельно (weekly)</weekly>
+              <monthly>ежимесячно (monthly)</monthly>
+              <yearly>ежигодно (yearly)</yearly>
+              <never>никогда (never)</never>
+            </values>
+          </changefreq>
+
+          <priority>
+            <caption>Приоритет</caption>
+            <hint>Допустимый диапазон значений — от 0.0 до 1.0</hint>
+
+            <validate>
+              <parseFloat>Значение может быть только числом</parseFloat>
+            </validate>
+          </priority>
+
+          <lastmod>
+            <caption>Дата последнего изменения</caption>
+            <hint>Формат(ДД.ММ.ГГГГ ЧЧ:ММ)</hint>
+
+            <validate>
+              <parseDateTime>Неверный формат(ДД.ММ.ГГГГ ЧЧ:ММ)</parseDateTime>
+            </validate>
+          </lastmod>
+        </fields>
+      </sitemap_vw>
+    </datasources>
+  </sitemap>
+</directories>

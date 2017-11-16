@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+  <caption>Настройки</caption>
+  <title>Настроки сайта</title>
+  <description>Управление общими настройками сайта</description>
+
+  <tabs>
+    <system>Системные</system>
+    <texts>Доп. тексты</texts>
+    <language_index>Язык. настр.</language_index>
+    <language />
+  </tabs>
+
+  <index>
+    <configs>
+      <root>
+        <general>
+          <caption>Общие настройки магазина</caption>
+
+          <organization>
+            <caption>Название организации</caption>
+            <hint>Название организации</hint>
+          </organization>
+
+          <rating>
+            <caption>Рейтинг</caption>
+            <hint>Рейтинг магазина от 0 до 100</hint>
+            <validate>
+              <parseInt>Значение может быть только целым числом</parseInt>
+            </validate>
+          </rating>
+        </general>
+
+        <discount>
+          <caption>Общая скидка на все детали</caption>
+
+          <enabled>
+            <caption>Использовать</caption>
+          </enabled>
+
+          <code>
+            <caption>Код скидки</caption>
+            <hint>Код скидки, который должен указать пользователь</hint>
+          </code>
+
+          <value>
+            <caption>Размер скидки</caption>
+            <hint>Размер скидки в процентах</hint>
+            <validate>
+              <parseInt>Значение может быть только целым числом</parseInt>
+            </validate>
+          </value>
+
+          <start_date>
+            <caption>Дата начала действия</caption>
+            <hint>ДД.ММ.ГГГГ</hint>
+
+            <validate>
+              <parseDate>Неверный формат даты. Нужно ДД.ММ.ГГГГ</parseDate>
+            </validate>
+          </start_date>
+
+          <stop_date>
+            <caption>Дата окончания действия</caption>
+            <hint>ДД.ММ.ГГГГ</hint>
+
+            <validate>
+              <parseDate>Неверный формат даты. Нужно ДД.ММ.ГГГГ</parseDate>
+            </validate>
+          </stop_date>
+        </discount>
+
+        <google_analytics>
+          <caption>Статистика Google Analytics</caption>
+
+          <enabled>
+            <caption>Использовать</caption>
+            <hint>Использовать Google Analytics или нет</hint>
+          </enabled>
+
+          <code>
+            <caption>Код аккаунта</caption>
+            <hint>Код аккаунта в Google Analytics</hint>
+          </code>
+        </google_analytics>
+
+        <seo>
+          <caption>SEO</caption>
+
+          <robots>
+            <caption>robots.txt</caption>
+            <hint>robots.txt</hint>
+          </robots>
+
+          <redirects>
+            <caption>Редиректы</caption>
+            <hint>Как разделитель истользуется любой пробельный символ. url относительные</hint>
+          </redirects>
+        </seo>
+      </root>
+    </configs>
+  </index>
+
+  <system>
+    <configs>
+      <root>
+        <status>
+          <caption>Состояние сайта</caption>
+
+          <minify_enabled>
+            <caption>Минифицированная версия сайта</caption>
+            <hint>Использовать минифицированную версию сайта или нет</hint>
+          </minify_enabled>
+
+          <mode>
+            <caption>Режим сайта</caption>
+            <hint>Режим в котором работает сайта</hint>
+
+            <values>
+              <index>Рабочее состояние</index>
+              <teaser>В режиме тизера</teaser>
+              <maintenance>Технические работы</maintenance>
+            </values>
+          </mode>
+        </status>
+
+        <mail>
+          <caption>Почтовый сервер</caption>
+
+          <name>
+            <caption>Имя аккаунта</caption>
+            <hint>Имя аккаунта, от которого рассылаются письма</hint>
+
+            <validate>
+              <empty>Имя аккаунта, от которого идет рассылка обязательно к заполнению</empty>
+            </validate>
+          </name>
+
+          <email>
+            <caption>Email</caption>
+            <hint>Email, от которого рассылаются письма</hint>
+
+            <validate>
+              <email>Вы указали email неверного формата</email>
+            </validate>
+          </email>
+        </mail>
+
+        <security>
+          <caption>Безопастность</caption>
+
+          <block_ip>
+            <caption>Заблокированные IP адреса</caption>
+            <hint>Заблокированные IP адреса для входа на сайт указанные через запятую</hint>
+          </block_ip>
+        </security>
+
+        <code>
+          <caption>Дополнительный HTML, CSS, JS код</caption>
+
+          <head>
+            <caption>HEAD</caption>
+            <hint>То что будет помещено в HEAD после всех его мета-тегов</hint>
+          </head>
+
+          <js>
+            <caption>JavaScript</caption>
+            <hint>Поместится в низ страницы</hint>
+          </js>
+        </code>
+      </root>
+    </configs>
+  </system>
+
+  <texts>
+    <configs>
+      <root>
+        <general>
+          <caption>Контакты магазина</caption>
+
+          <email>
+            <caption>Email</caption>
+            <hint>Ваш email для связи</hint>
+          </email>
+
+          <address>
+            <caption>Адрес</caption>
+            <hint>Ваш адрес</hint>
+          </address>
+        </general>
+      </root>
+
+      <default>
+        <index>
+          <caption>Главная страница</caption>
+
+          <title>
+            <caption>Title</caption>
+            <hint>Title главной страницы</hint>
+          </title>
+
+          <keywords>
+            <caption>Ключевые слова</caption>
+            <hint>Ключевые слова главной страницы (тег keywords)</hint>
+          </keywords>
+
+          <description>
+            <caption>Описание</caption>
+            <hint>Описание главной страницы (тег description)</hint>
+          </description>
+
+          <index_text>
+            <caption>SEO-текст на главной</caption>
+            <hint>SEO-текст на главной странице</hint>
+          </index_text>
+        </index>
+
+        <benefits>
+          <caption>Преимущества</caption>
+
+          <one_type>
+            <caption>Тип преимущества №1</caption>
+            <values>
+              <refund>Возврат денег</refund>
+              <payments>Способы оплаты</payments>
+              <delivery>Доставка</delivery>
+            </values>
+          </one_type>
+
+          <one_name>
+            <caption>Название преимущества №1</caption>
+            <hint>Название преимущества №1</hint>
+          </one_name>
+
+          <one_description>
+            <caption>Описание преимущества №1</caption>
+            <hint>Описание преимущества №1</hint>
+          </one_description>
+
+          <two_type>
+            <caption>Тип преимущества №1</caption>
+            <values>
+              <refund>Возврат денег</refund>
+              <payments>Способы оплаты</payments>
+              <delivery>Доставка</delivery>
+            </values>
+          </two_type>
+
+          <two_name>
+            <caption>Название преимущества №2</caption>
+            <hint>Название преимущества №2</hint>
+          </two_name>
+
+          <two_description>
+            <caption>Описание преимущества №2</caption>
+            <hint>Описание преимущества №2</hint>
+          </two_description>
+
+          <three_type>
+            <caption>Тип преимущества №2</caption>
+            <values>
+              <refund>Возврат денег</refund>
+              <payments>Способы оплаты</payments>
+              <delivery>Доставка</delivery>
+            </values>
+          </three_type>
+
+          <three_name>
+            <caption>Название преимущества №3</caption>
+            <hint>Название преимущества №3</hint>
+          </three_name>
+
+          <three_description>
+            <caption>Описание преимущества №3</caption>
+            <hint>Описание преимущества №3</hint>
+          </three_description>
+        </benefits>
+
+        <index_seo>
+          <caption>SEO текст на главной странице</caption>
+
+          <header>
+            <caption>Заглавие seo-текста</caption>
+            <hint>Заглавие seo-текста</hint>
+          </header>
+
+          <text>
+            <caption>SEO текст</caption>
+          </text>
+        </index_seo>
+      </default>
+    </configs>
+  </texts>
+</settings>

@@ -1,0 +1,738 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+  <caption>Пользователи</caption>
+  <title>Управление пользователями</title>
+  <description>Управление пользователями</description>
+
+  <hide>Скрыть</hide>
+  <show>Показать</show>
+
+  <fastActions>
+    <not_registered>Не зарегистрированные</not_registered>
+    <blocked>Заблокированные</blocked>
+    <subscribed>Подписавшиеся</subscribed>
+    <users_reviews>Отзывы пользователей</users_reviews>
+    <settings>Настройки</settings>
+  </fastActions>
+
+  <tabs>
+    <not_registered>Не зарегист.</not_registered>
+    <blocked>Заблокированные</blocked>
+    <subscribed>Подписавшиеся</subscribed>
+    <users_reviews>Отзывы</users_reviews>
+    <settings />
+    <language />
+  </tabs>
+
+  <index>
+    <crumbs>
+      <users>Пользователи</users>
+    </crumbs>
+
+    <actions>
+      <add>Добавить пользователя</add>
+      <mailer>Рассылка письма</mailer>
+      <new_users_excel>Пользователи в Excel</new_users_excel>
+    </actions>
+
+    <datasources>
+      <users_tbl>
+        <actions>
+          <add>
+            <caption>Добавить пользователя</caption>
+          </add>
+          <edit>
+            <caption>Редактировать данные пользователя</caption>
+          </edit>
+          <delete>
+            <caption>Удалить пользователя</caption>
+            <text><![CDATA[Вы действительно хотите удалить пользователя <b>«{{name}}»</b>?]]></text>
+            <error><![CDATA[Пользователя <b>«{{name}}»</b> удалить нельзя, так как он связан с записями в таблицах]]></error>
+          </delete>
+          <mailer>
+            <caption>Рассылка письма</caption>
+            <button>Разослать</button>
+          </mailer>
+          <new_users_excel>
+            <caption>Пользователи в Excel</caption>
+            <button>Скачать</button>
+          </new_users_excel>
+        </actions>
+
+        <footer>
+          <fields>
+            <sum_orders>
+              <caption>Общая сумма оплаченных и выполненных резервов</caption>
+            </sum_orders>
+
+            <count_orders>
+              <caption>Общее количество резервов</caption>
+            </count_orders>
+
+            <incomplete_orders>
+              <caption>Общее количество резервов Limousine</caption>
+            </incomplete_orders>
+          </fields>
+        </footer>
+
+        <fields>
+          <usr_enabled>
+            <caption>Включен</caption>
+            <hint>Пользователь не заблокирован на сайте</hint>
+          </usr_enabled>
+
+          <lng_short_name>
+            <caption>Язык</caption>
+            <hint>Язык пользователя</hint>
+          </lng_short_name>
+
+          <usr_auth_type>
+            <caption>Тип регистрации</caption>
+          </usr_auth_type>
+
+          <usr_name>
+            <caption>Пользователь</caption>
+            <form_caption>ФИО пользователя</form_caption>
+            <hint>Фамилия, Имя, Отчество пользователя</hint>
+            <validate>
+              <empty>Вы не указали ФИО пользователя</empty>
+            </validate>
+          </usr_name>
+
+          <usr_phones>
+            <caption>Телефоны</caption>
+            <hint>Телефоны пользователя</hint>
+          </usr_phones>
+
+          <usr_icq>
+            <caption>ICQ</caption>
+            <hint>ICQ пользователя</hint>
+          </usr_icq>
+
+          <usr_skype>
+            <caption>Skype</caption>
+            <hint>Skype пользователя</hint>
+          </usr_skype>
+
+          <usr_sex>
+            <caption>Пол</caption>
+            <hint>Пол пользователя</hint>
+
+            <values>
+              <null>---</null>
+              <mail>Мужской</mail>
+              <femail>Женский</femail>
+            </values>
+          </usr_sex>
+
+          <usr_email>
+            <caption>Email</caption>
+            <hint>Email пользователя</hint>
+            <validate>
+              <empty>Вы не указали email</empty>
+              <email>Вы указали несуществующий email</email>
+            </validate>
+          </usr_email>
+
+          <usr_password>
+            <caption>Пароль</caption>
+            <hint>Пароль пользователя</hint>
+            <validate>
+              <empty>Вы не указали пароль</empty>
+            </validate>
+          </usr_password>
+
+          <cnt_name_ru>
+            <caption>Адрес</caption>
+          </cnt_name_ru>
+
+          <usr_cnt_id_fk>
+            <caption>Страна</caption>
+            <hint>Страна проживания пользователя</hint>
+          </usr_cnt_id_fk>
+
+          <usr_city>
+            <caption>Город</caption>
+            <hint>Город пользователя</hint>
+          </usr_city>
+
+          <usr_index>
+            <caption>Индекс</caption>
+            <hint>Почтовый индекс пользователя</hint>
+          </usr_index>
+
+          <usr_street>
+            <caption>Улица</caption>
+            <hint>Улица, на которой проживает пользователь</hint>
+          </usr_street>
+
+          <usr_build>
+            <caption>Дом</caption>
+            <hint>Дом, в котором проживает пользователь</hint>
+          </usr_build>
+
+          <usr_flat>
+            <caption>Кв.</caption>
+            <hint>Квартира пользователя</hint>
+          </usr_flat>
+
+          <usr_discount>
+            <caption>Скидка</caption>
+            <hint>Дисконтная скидка пользователя</hint>
+            <validate>
+              <parseInt>Размер скидки может быть только целым числом</parseInt>
+            </validate>
+          </usr_discount>
+
+          <usr_birthday>
+            <caption>Дата рождения</caption>
+            <hint>Дата рождения пользователя</hint>
+            <validate>
+              <parseDate>Дата должна быть в формате ДД.ММ.ГГГГ</parseDate>
+            </validate>
+          </usr_birthday>
+
+          <usr_lng_id_fk>
+            <caption>Язык</caption>
+            <hint>Язык пользователя</hint>
+          </usr_lng_id_fk>
+
+          <usr_date_registration>
+            <caption>Дата рег.</caption>
+            <form_caption>Дата регистрации</form_caption>
+            <hint>Дата регистрации пользовтаеля на сайте</hint>
+          </usr_date_registration>
+
+          <usr_date_last_visit>
+            <caption>Посл. визит</caption>
+          </usr_date_last_visit>
+
+          <last_order>
+            <caption>Посл. заказ</caption>
+          </last_order>
+
+          <sum_orders>
+            <caption>Заказы</caption>
+            <link>Сумма оплаченных заказов пользователем</link>
+          </sum_orders>
+
+          <count_orders>
+            <caption>Кол-во оплаченных заказов</caption>
+          </count_orders>
+
+          <incomplete_orders>
+            <caption>Кол-во незавершонных заказов</caption>
+          </incomplete_orders>
+        </fields>
+      </users_tbl>
+    </datasources>
+  </index>
+
+  <not_registered>
+    <crumbs>
+      <users>Не зарегистрированные пользователи</users>
+    </crumbs>
+
+    <actions>
+      <mailer>Рассылка письма</mailer>
+    </actions>
+
+    <datasources>
+      <not_registered_users_vw>
+        <actions>
+          <mailer>
+            <caption>Рассылка письма</caption>
+            <button>Разослать</button>
+          </mailer>
+        </actions>
+
+        <footer>
+          <fields>
+            <sum_orders>
+              <caption>Общая сумма всех резервов</caption>
+            </sum_orders>
+
+            <count_orders>
+              <caption>Общее количество резервов</caption>
+            </count_orders>
+
+            <incomplete_orders>
+              <caption>Общее количество резервов Limousine</caption>
+            </incomplete_orders>
+          </fields>
+        </footer>
+
+        <fields>
+          <lng_short_name>
+            <caption>Язык</caption>
+            <hint>Язык пользователя</hint>
+          </lng_short_name>
+
+          <ord_user_name>
+            <caption>Пользователь</caption>
+          </ord_user_name>
+
+          <cnt_name_ru>
+            <caption>Адрес</caption>
+          </cnt_name_ru>
+
+          <last_date_order>
+            <caption>Посл. заказ</caption>
+          </last_date_order>
+
+          <sum_orders>
+            <caption>Заказы</caption>
+            <link>Сумма оплаченных заказов пользователем</link>
+          </sum_orders>
+
+          <count_success_orders>
+            <caption>Кол-во оплаченных заказов</caption>
+          </count_success_orders>
+
+          <count_not_success_orders>
+            <caption>Кол-во незавершонных заказов</caption>
+          </count_not_success_orders>
+        </fields>
+      </not_registered_users_vw>
+    </datasources>
+  </not_registered>
+
+  <orders>
+    <crumbs>
+      <users>Пользователи</users>
+      <user_orders>Заказы {{caption}}</user_orders>
+    </crumbs>
+  </orders>
+
+  <orders_not_registers>
+    <crumbs>
+      <users>Незарегистрированные пользователи</users>
+      <user_orders>Заказы {{caption}}</user_orders>
+    </crumbs>
+  </orders_not_registers>
+
+  <blocked>
+    <caption>Заблокированные пользователи</caption>
+    <crumbs>
+      <blocked>Заблокированные пользователи</blocked>
+    </crumbs>
+  </blocked>
+
+  <subscribed>
+    <crumbs>
+      <users>Подписавшиеся пользователи</users>
+    </crumbs>
+
+    <actions>
+      <add>Добавить пользователя</add>
+    </actions>
+
+    <datasources>
+      <users_simple_subscribes_tbl>
+        <actions>
+          <add>
+            <caption>Добавить пользователя</caption>
+          </add>
+          <edit>
+            <caption>Редактировать данные пользователя</caption>
+          </edit>
+          <delete>
+            <caption>Удалить пользователя</caption>
+            <text><![CDATA[Вы действительно хотите удалить пользователя <b>«{{name}}»</b>?]]></text>
+            <error><![CDATA[Пользователя <b>«{{name}}»</b> удалить нельзя, так как он связан с записями в таблицах]]></error>
+          </delete>
+        </actions>
+
+        <fields>
+          <uss_enabled>
+            <caption>Включен</caption>
+            <hint>Пользователь не заблокирован на сайте</hint>
+          </uss_enabled>
+
+          <uss_unsubscribe>
+            <caption>Отписался</caption>
+          </uss_unsubscribe>
+
+          <lng_short_name>
+            <caption>Язык</caption>
+            <hint>Язык пользователя</hint>
+          </lng_short_name>
+
+          <uss_name>
+            <caption>Пользователь</caption>
+            <hint>Фамилия, Имя, Отчество пользователя</hint>
+            <validate>
+              <empty>Вы не указали ФИО пользователя</empty>
+            </validate>
+          </uss_name>
+
+          <uss_email>
+            <caption>Email</caption>
+            <hint>Email пользователя</hint>
+            <validate>
+              <empty>Вы не указали email</empty>
+              <email>Вы указали несуществующий email</email>
+            </validate>
+          </uss_email>
+
+          <uss_lng_id_fk>
+            <caption>Язык</caption>
+            <hint>Язык пользователя</hint>
+          </uss_lng_id_fk>
+
+          <uss_date>
+            <caption>Дата подписи</caption>
+            <hint>Дата подписи пользовтаеля на сайте</hint>
+          </uss_date>
+        </fields>
+      </users_simple_subscribes_tbl>
+    </datasources>
+  </subscribed>
+
+  <users_reviews>
+    <crumbs>
+      <users>Отзывы пользователи</users>
+    </crumbs>
+
+    <datasources>
+      <users_reviews_tbl>
+        <actions>
+          <edit>
+            <caption>Редактировать отзыв</caption>
+          </edit>
+        </actions>
+
+        <fields>
+          <urv_name>
+            <caption>Пользователь</caption>
+            <hint>Имя пользователя</hint>
+            <validate>
+              <empty>Вы не указали ФИО пользователя</empty>
+            </validate>
+          </urv_name>
+
+          <urv_email>
+            <caption>Email</caption>
+            <hint>Email пользователя</hint>
+            <validate>
+              <empty>Вы не указали email</empty>
+              <email>Вы указали несуществующий email</email>
+            </validate>
+          </urv_email>
+
+          <urv_quality_service>
+            <caption>Качество обслуживания</caption>
+            <values>
+              <null>---</null>
+              <excellent>Отлично</excellent>
+              <well>Хорошо</well>
+              <normal>Нормально</normal>
+              <bad>Плохо</bad>
+              <awful>Ужасно</awful>
+            </values>
+          </urv_quality_service>
+
+          <urv_usability_site>
+            <caption>Удобство сайта</caption>
+            <values>
+              <null>---</null>
+              <excellent>Отлично</excellent>
+              <well>Хорошо</well>
+              <normal>Нормально</normal>
+              <bad>Плохо</bad>
+              <awful>Ужасно</awful>
+            </values>
+          </urv_usability_site>
+
+          <urv_quality_goods>
+            <caption>Качество сайта</caption>
+            <values>
+              <null>---</null>
+              <excellent>Отлично</excellent>
+              <well>Хорошо</well>
+              <normal>Нормально</normal>
+              <bad>Плохо</bad>
+              <awful>Ужасно</awful>
+            </values>
+          </urv_quality_goods>
+
+          <urv_shipping>
+            <caption>Доставка</caption>
+            <values>
+              <null>---</null>
+              <excellent>Отлично</excellent>
+              <well>Хорошо</well>
+              <normal>Нормально</normal>
+              <bad>Плохо</bad>
+              <awful>Ужасно</awful>
+            </values>
+          </urv_shipping>
+
+          <urv_text>
+            <caption>Отзыв</caption>
+            <hint>Отзыв пользователя</hint>
+            <validate>
+              <empty>Вы не указали ФИО пользователя</empty>
+            </validate>
+          </urv_text>
+
+          <urv_datetime>
+            <caption>Дата отзывы</caption>
+          </urv_datetime>
+        </fields>
+      </users_reviews_tbl>
+    </datasources>
+  </users_reviews>
+
+  <mails>
+    <crumbs>
+      <users>Пользователи</users>
+      <mails_user>Письма пользователя «{{caption}}»</mails_user>
+    </crumbs>
+  </mails>
+
+  <settings>
+    <caption>Настройки</caption>
+    <configs>
+      <users>
+        <notifications>
+          <caption>Уведомления</caption>
+
+          <enabled>
+            <caption>Отправлять уведомления о новых подписавшихся пользователях </caption>
+            <hint>Отправлять уведомления о новых подписавшихся пользователях администраторам</hint>
+          </enabled>
+
+          <emails>
+            <caption>Email`ы, на которые отправлять уведомления</caption>
+            <hint>Email`ы, на которые отправлять уведомления, указанные через запятую</hint>
+          </emails>
+        </notifications>
+
+        <auth_api>
+          <caption>Настройки сервисов авторизации</caption>
+
+          <google>
+            <caption>Google OAuth 2.0 API</caption>
+
+            <client_id>
+              <caption>Client ID</caption>
+              <hint>Client ID</hint>
+            </client_id>
+
+            <email>
+              <caption>Email</caption>
+              <hint>Email адрес</hint>
+            </email>
+
+            <secret>
+              <caption>Клюс</caption>
+              <hint>Секретный ключ</hint>
+            </secret>
+          </google>
+
+          <facebook>
+            <caption>Facebook OAuth 2.0 API</caption>
+
+            <app_id>
+              <caption>Идентификатор приложения</caption>
+              <hint>Идентификатор приложения</hint>
+            </app_id>
+
+            <secret>
+              <caption>Клюс</caption>
+              <hint>Секретный ключ</hint>
+            </secret>
+          </facebook>
+
+          <twitter>
+            <caption>Twitter OAuth 2.0 API</caption>
+
+            <key>
+              <caption>API key</caption>
+              <hint>API key</hint>
+            </key>
+
+            <secret>
+              <caption>API secret</caption>
+              <hint>API secret</hint>
+            </secret>
+
+            <token>
+              <caption>Access token</caption>
+              <hint>Access token</hint>
+            </token>
+
+            <tokensecret>
+              <caption>Access token secret</caption>
+              <hint>Access token secret</hint>
+            </tokensecret>
+          </twitter>
+
+          <vk>
+            <caption>ВКонтакте OAuth 2.0 API</caption>
+
+            <app_id>
+              <caption>ID приложения</caption>
+              <hint>ID приложения</hint>
+            </app_id>
+
+            <secret>
+              <caption>Защищенный ключ</caption>
+              <hint>Защищенный ключ:</hint>
+            </secret>
+
+            <token>
+              <caption>Access token</caption>
+              <hint>Access token</hint>
+            </token>
+          </vk>
+
+          <odnoklassniki>
+            <caption>Одноклассники OAuth 2.0 API</caption>
+
+            <app_id>
+              <caption>ID приложения</caption>
+              <hint>ID приложения</hint>
+            </app_id>
+
+            <secret>
+              <caption>Публичный ключ</caption>
+              <hint>Публичный ключ</hint>
+            </secret>
+
+            <token>
+              <caption>Секретный ключ</caption>
+              <hint>Секретный ключ</hint>
+            </token>
+          </odnoklassniki>
+        </auth_api>
+
+        <mails>
+          <caption>Шаблоны отправляемых системой писем</caption>
+
+          <thanks_subscribe>
+            <caption>Спасибо за подписку</caption>
+
+            <subject>
+              <caption>Тема письма</caption>
+              <hint>Тема письма</hint>
+            </subject>
+
+            <body>
+              <caption>Текст письма</caption>
+              <hint>Текст письма</hint>
+            </body>
+          </thanks_subscribe>
+
+          <mail_administration>
+            <caption>Шаблон письма от администрации сайта</caption>
+
+            <subject>
+              <caption>Тема письма</caption>
+              <hint>Тема письма</hint>
+            </subject>
+
+            <body>
+              <caption>Текст письма</caption>
+              <hint>Текст письма</hint>
+            </body>
+          </mail_administration>
+
+          <public_offer>
+            <caption>Публичная оферта</caption>
+
+            <text>
+              <caption>Текст</caption>
+            </text>
+          </public_offer>
+
+          <registration>
+            <caption>Шаблон письма при регистрации</caption>
+
+            <subject>
+              <caption>Тема письма</caption>
+              <hint>Тема письма</hint>
+            </subject>
+
+            <body>
+              <caption>Текст письма</caption>
+              <hint>Текст письма</hint>
+            </body>
+          </registration>
+
+          <lost_password>
+            <caption>Шаблон письма Восстановление пароля</caption>
+
+            <subject>
+              <caption>Тема письма</caption>
+              <hint>Тема письма</hint>
+            </subject>
+
+            <body>
+              <caption>Текст письма</caption>
+              <hint>Текст письма</hint>
+            </body>
+          </lost_password>
+
+          <change_discount>
+            <caption>Шаблон письма Смена скидки</caption>
+
+            <subject>
+              <caption>Тема письма</caption>
+              <hint>Тема письма</hint>
+            </subject>
+
+            <body>
+              <caption>Текст письма</caption>
+              <hint>Текст письма</hint>
+            </body>
+          </change_discount>
+        </mails>
+      </users>
+    </configs>
+  </settings>
+
+  <forms>
+    <caption>Формы</caption>
+    <mailer>
+      <fields>
+        <subject>
+          <caption>Тема письма</caption>
+          <hint>Тема отправляемого письма</hint>
+          <validate>
+            <empty>Тема письма обязательна к заполнению</empty>
+          </validate>
+        </subject>
+
+        <text>
+          <caption>Текст письма</caption>
+          <hint>Текст отправляемого письма</hint>
+          <validate>
+            <empty>Текст письма обязателен к заполнению</empty>
+          </validate>
+        </text>
+      </fields>
+    </mailer>
+
+    <new_users_excel>
+      <fields>
+        <from>
+          <caption>Регистрация от</caption>
+          <hint>Например 01.01.2016</hint>
+          <validate>
+            <empty>Обязательное поле</empty>
+            <parseDate>Дата должна быть в формате ДД.ММ.ГГГГ</parseDate>
+          </validate>
+        </from>
+        <to>
+          <caption>до</caption>
+          <hint>Например 01.01.2016, если не указано, то по сейчас</hint>
+          <validate>
+            <parseDate>Дата должна быть в формате ДД.ММ.ГГГГ</parseDate>
+          </validate>
+        </to>
+      </fields>
+    </new_users_excel>
+  </forms>
+</users>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<slider>
+  <caption>Слайдер</caption>
+  <title>Слайдер</title>
+  <description>Модуль для управления слайдами</description>
+
+  <hide>Скрыть</hide>
+  <show>Показать</show>
+
+  <tabs>
+    <settings />
+    <language/>
+  </tabs>
+
+  <fastActions>
+    <settings>Настройки</settings>
+  </fastActions>
+
+  <index>
+    <crumbs>
+      <index>Слайдер</index>
+    </crumbs>
+
+    <actions>
+      <add>Добавить слайд</add>
+    </actions>
+
+    <datasources>
+      <slider_tbl>
+        <actions>
+          <add>
+            <caption>Создать слайд</caption>
+          </add>
+          <edit>
+            <caption>Редактировать слайд</caption>
+          </edit>
+          <delete>
+            <caption>Удалить слайд</caption>
+            <text>
+              <![CDATA[Вы действительно хотите удалить слайд <b>«{{name}}»</b>?]]></text>
+            <error>
+              <![CDATA[слайд <b>«{{name}}»</b> удалить нельзя, так как она связана с записями в других таблицах]]></error>
+          </delete>
+        </actions>
+
+        <fields>
+          <sld_enabled>
+            <caption><![CDATA[Видим&shy;ость]]></caption>
+            <hint>Слайд видим на сайте или нет</hint>
+          </sld_enabled>
+
+          <sld_name>
+            <caption>Название</caption>
+            <hint>Название слайда</hint>
+
+            <validate>
+              <empty>Название слайда обязательно к заполнению</empty>
+            </validate>
+          </sld_name>
+
+          <sld_image>
+            <caption>Изображение</caption>
+            <hint>Изображение слайда</hint>
+            <validate>
+              <empty>Изображение обязательно к заполнению (700x186)</empty>
+              <extension>Можно добавлять только jpg, jpeg, png, gif</extension>
+              <maxSize>Максимальный размер изображения не более 250 Кб</maxSize>
+              <width>Размер изображения должен быть 700x186</width>
+              <height>Размер изображения должен быть 700x186</height>
+            </validate>
+          </sld_image>
+
+          <sld_link>
+            <caption>Ссылка</caption>
+            <hint>Ссылка слайда</hint>
+            <validate>
+              <empty>Ссылка слайда обязательна к заполнению</empty>
+            </validate>
+          </sld_link>
+
+          <sld_text>
+            <caption>Текст</caption>
+            <hint>Текст на слайде</hint>
+            <validate>
+              <empty>
+                Текст на слайде обязателен к заполнению
+              </empty>
+            </validate>
+          </sld_text>
+        </fields>
+      </slider_tbl>
+    </datasources>
+  </index>
+
+  <settings>
+    <caption>Настройки</caption>
+    <configs>
+      <slider>
+        <index>
+          <caption>Настройки слайдера</caption>
+
+          <use_autoslide>
+            <caption>Отображать слайды случайным образом</caption>
+            <hint>Отображать слайды случайным образом</hint>
+          </use_autoslide>
+
+          <delay>
+            <caption>Время прокрутки слайда</caption>
+            <hint>Время прокрутки слайда</hint>
+          </delay>
+        </index>
+      </slider>
+    </configs>
+  </settings>
+</slider>

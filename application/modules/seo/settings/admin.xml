@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<seo type="MAIN" icon="" order="-40">
+  <tabs>
+    <categories visible="true" />
+  </tabs>
+
+  <index> <!-- {{{ -->
+    <crumbs>
+      <seo>/seo/</seo>
+    </crumbs>
+
+    <actions>
+      <add>
+        <callback module="seo" model="SeoScripts" function="postingLinks" />
+      </add>
+      <multiadd module="seo" model="Seo" function="multiadd"
+        form="multiadd" />
+    </actions>
+
+    <datasources>
+      <seo_links_tbl pk="sol_id_pk" title_field="sol_anchor"
+        paginationRows="true">
+
+        <joins>
+          <slp type="left" pk="sol_id_pk" fk="slp_sol_id_fk">
+            <name>
+              (
+              select slp_sol_id_fk, count(slp_url) as count_links
+              from seo_links_on_pages_tbl
+              where slp_url in (select url from pages_urls_vw)
+              group by slp_sol_id_fk
+              )
+            </name>
+          </slp>
+        </joins>
+
+        <order_by>sol_anchor</order_by>
+
+        <actions>
+          <edit>
+            <callback module="seo" model="SeoScripts" function="postingLinks" />
+          </edit>
+          <delete>
+            <relatives_tables>
+              <seo_links_categories_page_tbl fk="slcp_sol_id_fk" />
+              <seo_links_on_pages_tbl fk="slp_sol_id_fk" />
+            </relatives_tables>
+          </delete>
+        </actions>
+
+        <fields>
+          <sol_enabled type="bool" align="center" ordered="true"
+            tabindex="1" default="true">
+            <style scope="field">width:30px</style>
+            <inputStyle>width: 20%;</inputStyle>
+          </sol_enabled>
+
+          <sol_link type="input" ordered="true" required="true" focused="true"
+            tabindex="2">
+            <expression><![CDATA[
+              <a target="_blank" class="direct-link" href="{{value}}">
+                {{sol_anchor}}</a>{{links_categories}}
+            ]]></expression>
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+            </validate>
+          </sol_link>
+
+          <sol_anchor type="input" ordered="true" required="true"
+            tabindex="3" visible="false">
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+            </validate>
+          </sol_anchor>
+
+          <sol_count align="center" type="int" tabindex="4" ordered="true"
+            required="true">
+            <style scope="field">width:30px;</style>
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+              <parseInt />
+            </validate>
+          </sol_count>
+
+          <count_links align="center" type="int" noTable="true" noForm="true"
+            ordered="true" field="coalesce(count_links, 0)">
+            <style scope="field">width:30px;</style>
+            <link page="pages_by_link" />
+          </count_links>
+
+          <links_categories
+            field="coalesce(links_categories_string_fn(sol_id_pk),
+            'Категории страниц не указаны')"
+            type="input" noTable="true" noForm="true" visible="false">
+            <link page="links_categories"/>
+            <expression><![CDATA[<br>{{value}}]]></expression>
+          </links_categories>
+        </fields>
+      </seo_links_tbl>
+    </datasources>
+  </index> <!-- }}} -->
+
+  <links_categories useLanguages="false"> <!-- {{{ -->
+    <crumbs>
+      <seo>/seo/</seo>
+
+      <categories type="data" url="/"
+        table="seo_links_tbl"
+        pk="sol_id_pk" title_field="sol_anchor">
+        <params>
+          <sol_id_pk>id</sol_id_pk>
+        </params>
+      </categories>
+    </crumbs>
+
+    <actions>
+      <add/>
+    </actions>
+
+    <datasources>
+      <seo_links_categories_page_tbl pk="slcp_id_pk" title_field="slcp_id_pk"
+        paginationRows="true" tags="seo_links">
+
+        <joins>
+          <scp
+            name="seo_categories_page_tbl"
+            type="left" pk="slcp_scp_id_fk" fk="scp_id_pk"/>
+        </joins>
+
+        <params>
+          <slcp_sol_id_fk type="get">id</slcp_sol_id_fk>
+        </params>
+
+        <order_by>scp_type</order_by>
+
+        <actions>
+          <delete/>
+        </actions>
+
+        <fields>
+          <slcp_id_pk type="input" noTable="true" noForm="true"
+            visible="false"/>
+
+          <scp_type type="input" noTable="true" noForm="true">
+          </scp_type>
+
+          <slcp_scp_id_fk type="list" visible="false"
+            required="true" focused="true">
+            <list table="seo_categories_page_tbl" pk="scp_id_pk"
+              name="scp_type">
+              <where>scp_enabled = true</where>
+            </list>
+          </slcp_scp_id_fk>
+        </fields>
+      </seo_links_categories_page_tbl>
+    </datasources>
+  </links_categories> <!-- }}} -->
+
+  <categories> <!-- {{{ -->
+    <crumbs>
+      <categories>/seo/categories/</categories>
+    </crumbs>
+
+    <actions>
+      <add />
+    </actions>
+
+    <datasources>
+      <seo_categories_page_tbl pk="scp_id_pk" title_field="scp_type"
+        paginationRows="true">
+
+        <joins>
+          <puv name="(select type, count(url) as count_pages from pages_urls_vw group by type)"
+            type="left" pk="scp_type"
+            fk="type" />
+
+          <slp type="left" pk="scp_type" fk="slp_type_page">
+            <name>
+              (
+              select slp_type_page, count(slp_url) as count_links
+              from seo_links_on_pages_tbl
+              group by slp_type_page
+              )
+            </name>
+          </slp>
+        </joins>
+
+        <order_by>scp_type</order_by>
+
+        <actions>
+          <edit />
+          <delete />
+        </actions>
+
+        <fields>
+          <scp_enabled type="bool" align="center" ordered="true"
+            tabindex="1" default="true">
+            <style scope="field">width:30px</style>
+            <inputStyle>width: 20%;</inputStyle>
+          </scp_enabled>
+
+          <scp_type_original type="text" noTable="true" noForm="true"
+            visible="false" field="scp_type">
+          </scp_type_original>
+
+          <scp_type type="list" list="static" ordered="true"
+            languageValue="true" focused="true">
+          </scp_type>
+
+          <scp_max_count_links align="center" type="int" tabindex="4"
+            ordered="true" required="true">
+            <style scope="field">width:30px;</style>
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+              <parseInt />
+            </validate>
+          </scp_max_count_links>
+
+          <count_pages align="center" type="int" noTable="true" noForm="true"
+            ordered="true">
+            <style scope="field">width:30px;</style>
+            <link page="pages_by_categories">
+              <params>
+                <scp_type_original getFieldNotNull="scp_type_original">type</scp_type_original>
+              </params>
+            </link>
+          </count_pages>
+
+          <count_links align="center" type="int" noTable="true" noForm="true"
+            ordered="true" field="coalesce(count_links, 0)">
+            <style scope="field">width:30px;</style>
+          </count_links>
+        </fields>
+      </seo_categories_page_tbl>
+    </datasources>
+  </categories> <!-- }}} -->
+
+  <pages_by_categories> <!-- {{{ -->
+    <crumbs>
+      <categories>/seo/categories/</categories>
+
+      <pages type="data" url="/"
+        table="seo_categories_page_tbl"
+        pk="scp_id_pk" title_field="scp_type">
+        <params>
+          <scp_id_pk>id</scp_id_pk>
+        </params>
+      </pages>
+    </crumbs>
+
+    <datasources>
+      <pages_urls_vw pk="url" title_field="null" paginationRows="true"
+        listLanguagesField="languages">
+
+        <params>
+          <type type="get">type</type>
+        </params>
+
+        <languageFilter>languages like '%|#lang#|%'</languageFilter>
+        <order_by>url</order_by>
+
+        <fields>
+          <url type="input" ordered="true" >
+            <expression><![CDATA[
+              <a target="_blank" class="direct-link" href="{{value}}">
+                {{namez}}</a>
+            ]]></expression>
+          </url>
+
+          <namez type="input" visible="false" languageField="true">
+          </namez>
+        </fields>
+      </pages_urls_vw>
+    </datasources>
+  </pages_by_categories> <!-- }}} -->
+
+  <pages_by_link> <!-- {{{ -->
+    <reference module="seo" page="pages_by_categories" />
+
+    <crumbs>
+      <links>/seo/</links>
+
+      <categories />
+      <pages />
+
+      <pages2 type="data" url="/"
+        table="seo_links_tbl"
+        pk="sol_id_pk" title_field="sol_anchor">
+        <params>
+          <sol_id_pk>id</sol_id_pk>
+        </params>
+      </pages2>
+    </crumbs>
+
+    <datasources>
+      <pages_urls_vw pk="url" title_field="null" paginationRows="true"
+        listLanguagesField="languages">
+
+        <joins>
+          <slp type="left" pk="url" fk="slp_url">
+            <name>seo_links_on_pages_tbl</name>
+          </slp>
+        </joins>
+
+        <params>
+          <type disabled="true"/>
+          <slp_sol_id_fk type="get">id</slp_sol_id_fk>
+        </params>
+
+        <fields>
+          <slp_sol_id_fk type="input" noTable="true" noForm="true"
+            visible="false"/>
+        </fields>
+      </pages_urls_vw>
+    </datasources>
+  </pages_by_link> <!-- }}} -->
+
+  <forms> <!-- {{{ -->
+    <multiadd>
+      <fields>
+        <text type="textarea" required="true" focused="true"
+          rows="15">
+          <preprocessing>
+            <trim />
+          </preprocessing>
+          <validate>
+            <empty />
+          </validate>
+        </text>
+      </fields>
+    </multiadd>
+  </forms> <!-- }}} -->
+</seo>

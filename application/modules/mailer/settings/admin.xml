@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mailer type="MAIN" icon="" order="-30">
+    <tabs>
+        <mails visible="true" />
+        <language visible="true" />
+    </tabs>
+
+    <index>
+        <crumbs>
+            <mailer>/mailer/</mailer>
+        </crumbs>
+
+        <datasources>
+            <mailers_tbl pk="mlr_id_pk" title_field="mlr_subject" paginationRows="true"
+                    style="width:800px" useLanguages="true" listLanguagesField="mlr_languages">
+                <joins>
+                    <mls name="(select mls_mlr_id_fk, count(mls_id_pk) count_mails from mails_tbl group by mls_mlr_id_fk)" type="left" pk="mlr_id_pk"
+                      fk="mls_mlr_id_fk" />
+
+                    <mlo name="(select mls_mlr_id_fk, count(mls_id_pk) count_open_mails from mails_tbl where mls_opened = true group by mls_mlr_id_fk)" type="left" pk="mlr_id_pk"
+                      fk="mls_mlr_id_fk" />
+
+                    <mlv name="(select mls_mlr_id_fk, count(mls_id_pk) count_visited_mails from mails_tbl where mls_link is not null group by mls_mlr_id_fk)" type="left" pk="mlr_id_pk"
+                      fk="mls_mlr_id_fk" />
+
+                    <mlu name="(select mls_mlr_id_fk, count(mls_id_pk) count_unsubscribed_mails from mails_tbl where mls_unsubscribed = true group by mls_mlr_id_fk)" type="left" pk="mlr_id_pk"
+                      fk="mls_mlr_id_fk" />
+                </joins>
+
+                <languageFilter>mlr_languages like '%|#lang#|%'</languageFilter>
+
+                <order_by>mlr_datetime::TIMESTAMP</order_by>
+
+                <actions>
+                    <delete>
+                        <relatives_tables>
+                            <mails_tbl fk="mls_mlr_id_fk" />
+                        </relatives_tables>
+                    </delete>
+                </actions>
+
+                <fields>
+                    <mlr_datetime type="datetime" align="center" ordered="true"
+                            readonly="true" noTable="true">
+                        <format><![CDATA[null;date;d.m.Y<\b\r>H:i;value]]></format>
+                    </mlr_datetime>
+
+                    <mlr_type type="list" list="static" align="center" ordered="true"
+                            languageValue="true">
+                    </mlr_type>
+
+                    <mlr_subject type="input" languageField="true">
+                    </mlr_subject>
+
+                    <count_mails field="coalesce(count_mails,0)" align="center"
+                             type="int" format="null;number_format;value;0;,; "
+                             noForm="true" noTable="true" ordered="true">
+                        <link page="mailer_mails" />
+                        <style scope="field">width:60px</style>
+                    </count_mails>
+
+                    <count_open_mails field="coalesce(count_open_mails,0)" align="center"
+                             type="int" format="null;number_format;value;0;,; "
+                             noForm="true" noTable="true" ordered="true">
+                        <link page="mailer_open_mails" />
+                        <style scope="field">width:60px</style>
+                    </count_open_mails>
+
+                    <count_visited_mails field="coalesce(count_visited_mails,0)" align="center"
+                             type="int" format="null;number_format;value;0;,; "
+                             noForm="true" noTable="true" ordered="true">
+                        <link page="mailer_visited_mails" />
+                        <style scope="field">width:60px</style>
+                    </count_visited_mails>
+<!--  -->
+<!--                     <count_unsubscribed_mails field="coalesce(count_unsubscribed_mails,0)" align="center" -->
+<!--                              type="int" format="null;number_format;value;0;,; " -->
+<!--                              noForm="true" noTable="true" ordered="true"> -->
+<!--                         <link page="mailer_unsubscribed_mails" /> -->
+<!--                         <style scope="field">width:60px</style> -->
+<!--                     </count_unsubscribed_mails> -->
+                </fields>
+            </mailers_tbl>
+        </datasources>
+    </index>
+
+    <mails>
+        <crumbs>
+            <mailer>/mailer/</mailer>
+        </crumbs>
+
+        <datasources>
+            <mails_tbl pk="mls_id_pk" title_field="mls_subject" paginationRows="true"
+                    style="width:800px">
+
+                <where>mls_datetime >= '06-01-2016' and mls_type is not null</where>
+                <order_by>mls_datetime</order_by>
+
+                <joins>
+                    <mlr name="mailers_tbl" type="left" pk="mls_mlr_id_fk"
+                      fk="mlr_id_pk" />
+
+                    <!--<usr name="users_tbl" type="left" pk="mls_parent_id_fk"-->
+                      <!--fk="usr_id_pk" />-->
+
+                    <!--<bsn name="business_tbl" type="left" pk="mls_parent_id_fk"-->
+                      <!--fk="bsn_id_pk" />-->
+
+                    <!--<prt name="partners_tbl" type="left" pk="mls_parent_id_fk"-->
+                      <!--fk="prt_id_pk" />-->
+                </joins>
+
+                <actions>
+                    <info />
+                    <delete />
+                </actions>
+
+                <quick_filter>
+                    <mls_email />
+                    <mls_subject />
+                    <mls_body />
+                    <mls_status />
+                </quick_filter>
+
+                <fields>
+                    <mls_datetime type="datetime" align="center" ordered="true"
+                            noForm="true">
+                        <format><![CDATA[null;date;d.m.Y<\b\r>H:i;value]]></format>
+                    </mls_datetime>
+
+                    <mlr_type field="null" type="list" list="static" align="center" ordered="true"
+                            languageValue="true" visible="false" expifnull="false"
+                            noForm="true">
+                        <expression>{{value}}</expression>
+                    </mlr_type>
+
+                    <mls_type type="list" list="static" ordered="true"
+                            languageValue="true" noForm="true">
+                        <expression>{{mlr_type}}{{value}}</expression>
+                    </mls_type>
+
+                    <mls_parent type="input" noForm="true">
+                        <field><![CDATA[
+                            case mls_parent_type
+                                when 'user' then '<b>Пользователь:</b> ' || '<a href="mailto:'||mls_email||'">'||mls_email||'</a>'
+                            end
+                        ]]></field>
+                    </mls_parent>
+
+                    <mls_email type="input" expifnull="false" visible="false">
+                        <expression><![CDATA[<a href="mailto:{{value}}">{{value}}</a>]]></expression>
+                    </mls_email>
+
+                    <mls_status type="input" noTable="true" noForm="true" ordered="true">
+                    </mls_status>
+
+                    <mls_subject type="input">
+                    </mls_subject>
+
+                    <mls_body type="textarea" richEdit="true" visible="false" rows="22">
+                        <labelStyle>min-height:30px;</labelStyle>
+                        <inputStyle>clear:both;width: 100%;</inputStyle>
+                    </mls_body>
+                </fields>
+            </mails_tbl>
+        </datasources>
+    </mails>
+
+    <mailer_mails>
+        <reference page="mails" />
+
+        <crumbs>
+            <mailer>/mailer/</mailer>
+
+            <mails type="data" url="/mailer/{{value}}/"
+                 table="mailers_tbl"
+                  pk="mlr_id_pk" title_field="mlr_subject#lang#">
+                <params>
+                    <mlr_id_pk>id</mlr_id_pk>
+                </params>
+            </mails>
+        </crumbs>
+
+        <datasources>
+            <mails_tbl>
+                <where>true</where>
+
+                <params>
+                    <mls_mlr_id_fk type="get">id</mls_mlr_id_fk>
+                </params>
+            </mails_tbl>
+        </datasources>
+    </mailer_mails>
+
+    <mailer_open_mails>
+        <reference page="mails" />
+
+        <crumbs>
+            <mailer>/mailer/</mailer>
+
+            <mails type="data" url="/mailer/{{value}}/"
+                 table="mailers_tbl"
+                  pk="mlr_id_pk" title_field="mlr_subject#lang#">
+                <params>
+                    <mlr_id_pk>id</mlr_id_pk>
+                </params>
+            </mails>
+        </crumbs>
+
+        <datasources>
+            <mails_tbl>
+                <params>
+                    <mls_mlr_id_fk type="get">id</mls_mlr_id_fk>
+                </params>
+
+                <where>mls_opened = true</where>
+            </mails_tbl>
+        </datasources>
+    </mailer_open_mails>
+
+    <mailer_visited_mails>
+        <reference page="mails" />
+
+        <crumbs>
+            <mailer>/mailer/</mailer>
+
+            <mails type="data" url="/mailer/{{value}}/"
+                 table="mailers_tbl"
+                  pk="mlr_id_pk" title_field="mlr_subject#lang#">
+                <params>
+                    <mlr_id_pk>id</mlr_id_pk>
+                </params>
+            </mails>
+        </crumbs>
+
+        <quick_filter>
+            <mls_email />
+            <mls_subject />
+            <mls_body />
+            <mls_link />
+        </quick_filter>
+
+        <datasources>
+            <mails_tbl>
+                <params>
+                    <mls_mlr_id_fk type="get">id</mls_mlr_id_fk>
+                </params>
+
+                <where>mls_link is not null</where>
+
+                <fields>
+                    <mls_subject type="input">
+                        <expression><![CDATA[{{value}}<br>{{mls_link}}]]></expression>
+                    </mls_subject>
+
+                    <mls_link type="input" visible="false" noTable="true" noForm="true">
+                        <expression><![CDATA[<a href="{{value}}">{{value}}</a>]]></expression>
+                    </mls_link>
+                </fields>
+            </mails_tbl>
+        </datasources>
+    </mailer_visited_mails>
+
+    <mailer_unsubscribed_mails>
+        <reference page="mails" />
+
+        <crumbs>
+            <mailer>/mailer/</mailer>
+
+            <mails type="data" url="/mailer/{{value}}/"
+                 table="mailers_tbl"
+                  pk="mlr_id_pk" title_field="mlr_subject#lang#">
+                <params>
+                    <mlr_id_pk>id</mlr_id_pk>
+                </params>
+            </mails>
+        </crumbs>
+
+        <datasources>
+            <mails_tbl>
+                <params>
+                    <mls_mlr_id_fk type="get">id</mls_mlr_id_fk>
+                </params>
+
+                <where>mls_unsubscribed = true</where>
+            </mails_tbl>
+        </datasources>
+    </mailer_unsubscribed_mails>
+
+    <language style="width: 95%;">
+        <language>
+            <file type="xml" path="modules/mailer/languages/" />
+        </language>
+    </language>
+</mailer>

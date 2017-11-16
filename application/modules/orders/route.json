@@ -1,0 +1,91 @@
+{
+  "json/order/quick-buy/:id": {
+    "description": "",
+    "controller": "orders",
+    "action": "quickBuy"
+  },
+
+  "json/basket/change": {
+    "description": "",
+    "controller": "orders",
+    "action": "changeBasket"
+  },
+
+  "json/basket/promocode": {
+    "description": "",
+    "controller": "orders",
+    "action": "promocode"
+  },
+
+  "json/basket/delete-item/:id": {
+    "description": "",
+    "controller": "orders",
+    "action": "deleteBasketItem"
+  },
+
+  "json/basket/get": {
+    "description": "",
+    "controller": "orders",
+    "action": "getBasket"
+  },
+
+  "basket": {
+    "description": "",
+    "controller": "orders",
+    "action": "index"
+  },
+
+  "json/basket/step/:page": {
+    "description": "",
+    "controller": "orders",
+    "action": "basketPage"
+  },
+
+  "json/order/callback/platon": {
+    "description": "",
+    "controller": "orders",
+    "action": "changeStatusPlatonOrder"
+  },
+
+  "json/order/create": {
+    "description": "",
+    "controller": "orders",
+    "action": "createOrder"
+  },
+
+  "json/order/continue/:id": {
+    "description": "",
+    "controller": "orders",
+    "action": "continueOrder"
+  },
+
+  "order-info/:num/:type": {
+    "description": "",
+    "controller": "orders",
+    "action": "orderinfo"
+  },
+
+  "order-info/:num": {
+    "description": "",
+    "controller": "orders",
+    "action": "orderInfo"
+  },
+
+  "order-set-status/:type": {
+    "description": "",
+    "controller": "orders",
+    "action": "orderSetStatus"
+  },
+
+  "order-user-info/save": {
+    "description": "",
+    "controller": "orders",
+    "action": "saveOrderUserInfo"
+  },
+
+  "order-report/:id": {
+    "description": "",
+    "controller": "orders",
+    "action": "orderReport"
+  }
+}

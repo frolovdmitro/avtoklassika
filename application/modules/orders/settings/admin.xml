@@ -1,0 +1,722 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<orders type="MODULE" icon="" order="30">
+  <tabs>
+    <orders_not_complete visible="true" />
+    <orders_pay_adverts visible="false" />
+    <settings visible="true" />
+    <language visible="true" />
+  </tabs>
+
+  <fastActions>
+    <orders_not_complete />
+    <settings />
+  </fastActions>
+
+    <!-- <tabs> -->
+    <!--   <settings visible="true" /> -->
+    <!--   <language visible="true" /> -->
+    <!-- </tabs> -->
+
+  <index useLanguages="false"> <!-- {{{ -->
+      <crumbs>
+          <orders>/orders/</orders>
+      </crumbs>
+
+      <datasources>
+          <orders_tbl pk="ord_id_pk" title_field="ord_num" paginationRows="true">
+
+              <joins>
+                  <lng name="languages_tbl" type="left"
+                    pk="ord_lng_id_fk" fk="lng_id_pk" />
+
+                  <usr name="users_tbl" type="left"
+                    pk="ord_usr_id_fk" fk="usr_id_pk" />
+
+                  <rat name="rates_tbl" type="left"
+                    pk="ord_rat_id_fk" fk="rat_id_pk" />
+
+                  <cnt name="countries_tbl" type="left"
+                    pk="ord_user_cnt_id_fk" fk="cnt_id_pk" />
+
+                  <usr_cnt name="countries_tbl" type="left"
+                    pk="usr_cnt_id_fk" fk="cnt_id_pk" />
+
+                  <mls name="count_mails_vw" type="left" pk="usr_id_pk"
+                    fk="mls_parent_id_fk" where="mls_parent_type='user'"/>
+
+                  <pym name="payment_methods_tbl" type="left" pk="ord_pym_id_fk"
+                    fk="pym_id_pk" />
+
+                  <dvm name="delivery_methods_tbl" type="left" pk="ord_dvm_id_fk"
+                    fk="dvm_id_pk" />
+              </joins>
+
+              <where>ord_status != 'not_complete'</where>
+
+              <order_by>ord_datetime desc</order_by>
+
+              <actions>
+                <edit>
+                  <callback module="orders" model="Orders" function="changeStatus">
+                    <!-- <params> -->
+                    <!--   <caption>ord_status</caption> -->
+                    <!-- </params> -->
+                  </callback>
+                </edit>
+                <delete newline="true" />
+              </actions>
+
+              <footer>
+                <query>sum(ord_sum) as ord_sum, sum(ord_sum_delivery) as sum_delivery,
+                  sum(ord_discount) as ord_discount</query>
+
+                <fields>
+                  <ord_sum format="null;number_format;value;0;,; "
+                    expifnull="false" align="center">
+                        <style scope="field">color: blue</style>
+                        <expression><![CDATA[
+                          {{value}} <span style="color:grey">USD</span>
+                          {{sum_delivery}}
+                        ]]></expression>
+                    </ord_sum>
+
+                    <sum_delivery visible="false" format="null;number_format;value;0;,; " expifnull="false">
+                        <style scope="field">color: brown</style>
+                        <expression><![CDATA[<br>{{value}} <span style="color:grey">USD</span>]]></expression>
+                    </sum_delivery>
+                </fields>
+              </footer>
+
+              <tabs>
+                <main />
+                <address />
+              </tabs>
+
+              <quick_filter>
+                  <ord_num />
+                  <ord_datetime />
+                  <ord_note />
+                  <ord_sum />
+                  <ord_status />
+                  <lng_name />
+                  <ord_currency />
+                  <ord_user_name />
+                  <usr_name />
+                  <ord_user_email />
+                  <usr_email />
+                  <ord_user_phones />
+                  <usr_phones />
+                  <ord_user_city />
+                  <usr_city />
+                  <ord_user_street />
+                  <usr_street />
+                  <ord_cnt_name_ru />
+                  <cnt_name_ru />
+                  <user_registered />
+              </quick_filter>
+
+              <fields>
+                  <ord_id_pk type="input" visible="false" noTable="true"
+                    noForm="true" />
+
+                  <ord_num_md5 type="input" field="md5(md5(ord_num::VARCHAR)||coalesce(ord_user_email, usr_email))"
+                          noForm="true" noTable="true" visible="false">
+                  </ord_num_md5>
+
+                  <ord_num type="input" align="center" ordered="true"
+                          noForm="true" noTable="true">
+                      <style scope="field">width:30px</style>
+                  </ord_num>
+
+                  <ord_datetime noForm="true" noTable="true" type="datetime"
+                    ordered="true" align="center">
+                      <format><![CDATA[null;date;d.m.Y<\b\r>H:i;value]]></format>
+                    <style scope="field">width:30px</style>
+                    <expression>{{value}}{{lng_name}}</expression>
+                  </ord_datetime>
+
+                  <rat_synonym type="input" visible="false"
+                    field="upper(rat_synonym)" noTable="true" noForm="true">
+                  </rat_synonym>
+
+                  <lng_name type="input" visible="false" expifnull="false"
+                    noTable="true" noForm="true">
+                    <expression><![CDATA[<br><i style="color:grey">({{value}})</i>]]></expression>
+                  </lng_name>
+
+                  <ord_status type="list" list="static" languageValue="true"
+                    tabindex="1" required="true" align="center" ordered="true"
+                    focused="true" expifnull="false">
+                      <style scope="field">width:30px</style>
+                      <labelStyle>width: 18%;</labelStyle>
+                      <inputStyle>width: 80%;</inputStyle>
+                      <expression><![CDATA[{{value}}<br>
+                          <a class="direct-link" target="_blank" href="/order-report/{{ord_id_pk}}/">Счет-фактура</a>
+                      ]]></expression>
+                  </ord_status>
+
+                  <ord_user_name type="input" ordered="true" noForm="true" noTable="true">
+                    <expression><![CDATA[
+                      {{value}}{{usr_name}}{{user_registered}}
+                      {{ord_user_email}}{{usr_email}}
+                      {{ord_user_phones}}{{usr_phones}}<br>
+                      {{ord_user_city}}{{usr_city}}
+                      {{ord_user_street}}{{usr_street}}
+                      {{ord_user_build}}{{usr_build}}
+                      {{ord_user_flat}}{{usr_flat}}
+                      {{ord_cnt_name_ru}}{{cnt_name_ru}}
+                      {{ord_user_index}}{{usr_index}}
+                      ]]>
+                    </expression>
+                    <field>case when ord_usr_id_fk is null then ord_user_name else null end </field>
+                  </ord_user_name>
+
+                  <ord_user_cnt_id_fk type="list" visible="false" tab="address"
+                    focused="true">
+                    <list pk="cnt_id_pk" name="cnt_name_ru" with_null="true">
+                      <table>countries_tbl</table>
+                    </list>
+                    <labelStyle>width: 18%;</labelStyle>
+                    <inputStyle>width: 80%;</inputStyle>
+                  </ord_user_cnt_id_fk>
+
+                  <ord_dvm_id_fk type="list" visible="false">
+                    <list pk="dvm_id_pk" name="dvm_name_ru" with_null="true">
+                      <table>delivery_methods_tbl</table>
+                    </list>
+                    <labelStyle>width: 18%;</labelStyle>
+                    <inputStyle>width: 80%;</inputStyle>
+                  </ord_dvm_id_fk>
+
+                  <!-- <ord_method_delivery type="list" list="static" languageValue="true" -->
+                  <!--   align="center" ordered="true"> -->
+                  <!--     <style scope="field">width:30px</style> -->
+                  <!--     <labelStyle>width: 18%;</labelStyle> -->
+                  <!--     <inputStyle>width: 80%;</inputStyle> -->
+                  <!-- </ord_method_delivery> -->
+                  <!--  -->
+
+                  <dvm_name_ru type="input" noTable="true" noForm="true"
+                    align="center" ordered="true">
+                      <style scope="field">width:30px</style>
+                    <field>concat(dvm_name_ru, ord_method_delivery)</field>
+                    <expression><![CDATA[
+                      {{value}}{{ukrposhta_tracking}}{{novaposhta_tracking}}
+                    ]]></expression>
+                  </dvm_name_ru>
+
+                  <ord_pym_id_fk type="list" visible="false" tabindex="1.5">
+                    <list pk="pym_id_pk" name="pym_name_ru" with_null="true">
+                      <table>payment_methods_tbl</table>
+                    </list>
+                    <labelStyle>width: 18%;</labelStyle>
+                    <inputStyle>width: 80%;</inputStyle>
+                  </ord_pym_id_fk>
+
+                  <pym_name_ru type="input" noTable="true" noForm="true"
+                    align="center" ordered="true">
+                    <style scope="field">width:30px</style>
+                    <field>concat(pym_name_ru, ord_method_payment)</field>
+                  </pym_name_ru>
+
+                  <!-- <ord_method_payment type="list" list="static" languageValue="true" -->
+                  <!--   tabindex="1.5" required="true" align="center" ordered="true"> -->
+                  <!--     <style scope="field">width:30px</style> -->
+                  <!--     <labelStyle>width: 18%;</labelStyle> -->
+                  <!--     <inputStyle>width: 80%;</inputStyle> -->
+                  <!-- </ord_method_payment> -->
+
+                  <count_mails type="int" format="null;number_format;value;0;,; "
+                      visible="false" noForm="true" noTable="true" expifnull="false">
+                    <expression><![CDATA[<br>(писем: {{value}})]]></expression>
+                    <link page="mails" />
+                  </count_mails>
+
+                  <user_registered type="input" visible="false" expifnull="false"
+                    noTable="true" noForm="true">
+                    <field>
+                        case when ord_usr_id_fk is null then 'гость' else 'зарегистрирован' end
+                    </field>
+                    <expression><![CDATA[<i style="color:grey"> ({{value}})</i>]]></expression>
+                  </user_registered>
+
+                  <usr_name type="input" visible="false" expifnull="false"
+                    noTable="true" noForm="true">
+                  </usr_name>
+
+                  <usr_phones type="input" visible="false" expifnull="false"
+                    noTable="true" noForm="true">
+                    <expression><![CDATA[<br><b>Тел.</b> {{value}}]]></expression>
+                  </usr_phones>
+
+                  <ord_user_phones type="input" visible="false" expifnull="false"
+                    noTable="true" noForm="true">
+                    <expression><![CDATA[<br><b>Тел.</b> {{value}}]]></expression>
+                    <field>case when ord_usr_id_fk is null then ord_user_phones else null end </field>
+                  </ord_user_phones>
+
+                  <ord_user_email type="input" visible="false" noTable="true"
+                    noForm="true" expifnull="false">
+                    <field>case when ord_usr_id_fk is null then ord_user_email else null end </field>
+                      <expression><![CDATA[<br><a class="direct-link" href="mailto:{{value}}">{{value}}</a>]]></expression>
+                  </ord_user_email>
+
+                  <usr_email type="input" visible="false" noTable="true"
+                    noForm="true" expifnull="false">
+                      <expression><![CDATA[<br><a class="direct-link" href="mailto:{{value}}">{{value}}</a>]]></expression>
+                  </usr_email>
+
+                  <ord_user_city type="input" visible="false" expifnull="false"
+                    tab="address">
+                    <expression>{{value}}, </expression>
+                    <field>case when ord_usr_id_fk is null then ord_user_city else null end </field>
+                    <labelStyle>width: 18%;</labelStyle>
+                    <inputStyle>width: 80%;</inputStyle>
+                  </ord_user_city>
+
+                  <usr_city type="input" visible="false" expifnull="false"
+                    noTable="true" noForm="true">
+                    <expression>{{value}}, </expression>
+                  </usr_city>
+
+                  <ord_user_street type="input" visible="false" expifnull="false"
+                    tab="address">
+                    <expression>{{value}}, </expression>
+                    <field>case when ord_usr_id_fk is null then ord_user_street else null end </field>
+                    <labelStyle>width: 18%;</labelStyle>
+                    <inputStyle>width: 80%;</inputStyle>
+                  </ord_user_street>
+
+                  <usr_street type="input" visible="false" expifnull="false"
+                    noTable="true" noForm="true">
+                    <expression>{{value}}, </expression>
+                  </usr_street>
+
+                  <ord_user_build type="input" visible="false" expifnull="false"
+                    tab="address">
+                    <expression>{{value}}, </expression>
+                    <field>case when ord_usr_id_fk is null then ord_user_build else null end </field>
+                    <labelStyle>width: 18%;</labelStyle>
+                    <inputStyle>width: 80%;</inputStyle>
+                  </ord_user_build>
+
+                  <usr_build type="input" visible="false" expifnull="false"
+                    noTable="true" noForm="true">
+                    <expression>{{value}}, </expression>
+                  </usr_build>
+
+                  <ord_user_flat type="input" visible="false" expifnull="false"
+                    tab="address">
+                    <expression>{{value}}, </expression>
+                    <field>case when ord_usr_id_fk is null then ord_user_flat else null end </field>
+                    <labelStyle>width: 18%;</labelStyle>
+                    <inputStyle>width: 80%;</inputStyle>
+                  </ord_user_flat>
+
+                  <usr_flat type="input" visible="false" expifnull="false"
+                    noTable="true" noForm="true">
+                    <expression>{{value}}, </expression>
+                  </usr_flat>
+
+                  <ord_cnt_name_ru type="input" visible="false" expifnull="false"
+                    noTable="true" noForm="true">
+                    <expression>{{value}}, </expression>
+                    <field>case when ord_usr_id_fk is null then cnt.cnt_name_ru else null end </field>
+                  </ord_cnt_name_ru>
+
+                  <cnt_name_ru field="usr_cnt.cnt_name_ru" type="input" visible="false" expifnull="false"
+                    noTable="true" noForm="true">
+                    <expression>{{value}}, </expression>
+                  </cnt_name_ru>
+
+                  <ord_user_index type="input" visible="false" expifnull="false"
+                    tab="address">
+                    <field>case when ord_usr_id_fk is null then ord_user_index else null end </field>
+                    <labelStyle>width: 18%;</labelStyle>
+                    <inputStyle>width: 80%;</inputStyle>
+                  </ord_user_index>
+
+                  <usr_index type="input" visible="false" expifnull="false"
+                    noTable="true" noForm="true">
+                  </usr_index>
+
+                  <ord_tracking_number type="input" visible="false" expifnull="false"
+                    tabindex="4.4">
+                    <labelStyle>width: 18%;</labelStyle>
+                    <inputStyle>width: 80%;</inputStyle>
+                  </ord_tracking_number>
+
+                  <novaposhta_tracking type="input" visible="false" expifnull="false" noTable="true" noForm="true">
+                    <field>
+                      case when ord_dvm_id_fk = 2 then ord_tracking_number else null end
+                    </field>
+                    <expression><![CDATA[
+                      <br>
+                        <a class="direct-link" target="_blank" href="https://novaposhta.ua/tracking/?cargo_number={{value}}">{{value}}</a>
+                    ]]></expression>
+                  </novaposhta_tracking>
+
+                  <ukrposhta_tracking type="input" visible="false" expifnull="false" noTable="true" noForm="true">
+                    <field>
+                      case when ord_dvm_id_fk = 1 then ord_tracking_number else null end
+                    </field>
+                    <expression><![CDATA[
+                      <br>
+                        <a class="direct-link" target="_blank" href="https://packageradar.com/courier/ukrposhta/tracking/{{value}}">{{value}}</a>
+                    ]]></expression>
+                  </ukrposhta_tracking>
+
+                  <ord_discount field="coalesce(ord_discount, 0)" type="int" align="center"
+                    format="null;number_format;value;0;,; " expifnull="false"
+                    ordered="true" tabindex="4.5">
+                      <style scope="field">width:30px;color: green</style>
+                      <labelStyle>width: 18%;</labelStyle>
+                      <inputStyle>width: 80%;</inputStyle>
+                      <expression><![CDATA[{{value}}<span style="color:grey">%</span>
+                        {{ord_sum_discount}}
+                      ]]></expression>
+                      <preprocessing>
+                        <trim />
+                      </preprocessing>
+                      <validate>
+                        <parseInt />
+                      </validate>
+                  </ord_discount>
+
+                  <ord_sum_discount field="coalesce(ord_sum_discount, 0)" type="int" align="center"
+                          format="null;number_format;value;0;,; " expifnull="false"
+                          noTable="true" noForm="true" visible="false">
+                      <expression><![CDATA[
+                        <br>{{value}}<span style="color:gray"> USD</span>]]>
+                      </expression>
+                      <style scope="field">color:brown;</style>
+                  </ord_sum_discount>
+
+                  <ord_note type="textarea" visible="false" expifnull="false"
+                          tabindex="5" rows="7">
+                      <expression><![CDATA[<br><span style="color:#FC7905;">{{value}}</span>]]></expression>
+                      <labelStyle>width: 18%;</labelStyle>
+                      <inputStyle>width: 80%;</inputStyle>
+                  </ord_note>
+
+                  <ord_currency type="input" expifnull="false" noTable="true"
+                    noForm="true" visible="false">
+                  </ord_currency>
+
+                  <!-- <rat_synonym type="input" expifnull="false" noTable="true" -->
+                  <!--   noForm="true" visible="false"> -->
+                  <!--     <field> -->
+                  <!--       case ord_rat_id_fk when 2 then 'USD' else rat_synonym -->
+                  <!--       end -->
+                  <!--     </field> -->
+                  <!-- </rat_synonym> -->
+
+                  <ord_sum type="int" align="center"
+                          format="null;number_format;value;0;,; " expifnull="false"
+                          noTable="true" noForm="true" ordered="true">
+                      <field>
+                          ((coalesce(ord_sum, 0)-coalesce(ord_sum_discount,0)) * coalesce(ord_rate, 1)) + (coalesce(ord_sum_delivery,0)*coalesce(ord_rate,1))
+                      </field>
+                      <style scope="field">width:80px</style>
+                      <expression><![CDATA[
+                        {{value}}<span style="color:gray"> {{rat_synonym}}</span>
+                        {{ord_sum_delivery}}]]>
+                      </expression>
+                      <link page="details" />
+                  </ord_sum>
+
+                  <!-- <ord_sum_currency type="int" align="center" -->
+                  <!--         format="null;number_format;value;0;,; " expifnull="false" -->
+                  <!--         noTable="true" noForm="true" visible="false"> -->
+                  <!--     <field> -->
+                  <!--       case ord_rat_id_fk when 2 then null else -->
+                  <!--         ((coalesce(ord_sum, 0)&#45;coalesce(ord_sum_discount,0)) * ord_rate) + (ord_sum_delivery*ord_rate) -->
+                  <!--       end -->
+                  <!--     </field> -->
+                  <!--     <expression><![CDATA[ -->
+                  <!--       <br>{{value}}<span style="color:gray"> {{rat_synonym}}</span>]]> -->
+                  <!--     </expression> -->
+                  <!-- </ord_sum_currency> -->
+
+                  <ord_sum_delivery field="coalesce(ord_sum_delivery * ord_rate, 0)" type="int" align="center"
+                          format="null;number_format;value;0;,; " expifnull="false"
+                          noTable="true" noForm="true" visible="false">
+                      <expression><![CDATA[
+                        <br>{{value}}<span style="color:gray"> {{rat_synonym}}</span>]]>
+                      </expression>
+                      <style scope="field">color:brown;</style>
+                  </ord_sum_delivery>
+
+                  <!-- <ord_user_street type="input" focused="true" visible="false" -->
+                  <!--   tab="address"> -->
+                  <!--   <labelStyle>width: 18%;</labelStyle> -->
+                  <!--   <inputStyle>width: 80%;</inputStyle> -->
+                  <!-- </ord_user_street> -->
+<!--  -->
+<!--                     <ord_user_build type="input" visible="false" tab="address"> -->
+<!--                       <labelStyle>width: 18%;</labelStyle> -->
+<!--                       <inputStyle>width: 80%;</inputStyle> -->
+<!--                     </ord_user_build> -->
+<!--  -->
+<!--                     <ord_user_flat type="input" visible="false" tab="address"> -->
+<!--                       <labelStyle>width: 18%;</labelStyle> -->
+<!--                       <inputStyle>width: 80%;</inputStyle> -->
+<!--                     </ord_user_flat> -->
+<!--  -->
+<!--                     <ord_user_city type="input" visible="false" tab="address"> -->
+<!--                       <labelStyle>width: 18%;</labelStyle> -->
+<!--                       <inputStyle>width: 80%;</inputStyle> -->
+<!--                     </ord_user_city> -->
+<!--  -->
+<!--                     <ord_user_index type="input" visible="false" tab="address"> -->
+<!--                       <labelStyle>width: 18%;</labelStyle> -->
+<!--                       <inputStyle>width: 80%;</inputStyle> -->
+<!--                     </ord_user_index> -->
+              </fields>
+          </orders_tbl>
+      </datasources>
+    </index> <!-- }}} -->
+
+  <details useLanguages="false"> <!-- {{{ -->
+    <crumbs>
+      <orders>/orders/</orders>
+      <details type="data" table="orders_tbl"
+            pk="ord_id_pk" title_field="ord_num">
+            <url>/</url>
+        <params>
+            <ord_id_pk>id</ord_id_pk>
+        </params>
+      </details>
+    </crumbs>
+
+    <datasources>
+      <orders_details_tbl pk="odd_id_pk" title_field="dpt_name"
+          paginationRows="true">
+
+        <joins>
+          <ord name="orders_tbl" type="left"
+            pk="odd_ord_id_fk" fk="ord_id_pk" />
+
+          <rat name="rates_tbl" type="left"
+            pk="ord_rat_id_fk" fk="rat_id_pk" />
+
+          <dpt name="details_autoparts_tbl" type="left"
+            pk="odd_dpt_id_fk" fk="dpt_id_pk" />
+
+          <apt name="autoparts_tbl" type="left"
+            pk="dpt_apt_id_fk" fk="apt_id_pk" />
+
+          <car name="cars_tbl" type="left"
+            pk="apt_car_id_fk" fk="car_id_pk" />
+
+          <dac name="details_autoparts_colors_tbl" type="left"
+            pk="odd_dac_id_fk" fk="dac_id_pk" />
+
+          <das name="details_autoparts_sizes_tbl" type="left"
+            pk="odd_das_id_fk" fk="das_id_pk" />
+        </joins>
+
+        <params>
+          <odd_ord_id_fk type="get">id</odd_ord_id_fk>
+        </params>
+
+        <order_by>odd_id_pk</order_by>
+
+        <quick_filter>
+          <dpt_name />
+        </quick_filter>
+
+        <actions>
+            <delete />
+        </actions>
+
+        <footer>
+          <query>sum(odd_sum) as odd_sum
+          </query>
+
+          <fields>
+            <odd_sum format="null;number_format;value;2;,; "
+              expifnull="false" align="center">
+                <expression><![CDATA[
+                  {{value}}
+                ]]></expression>
+            </odd_sum>
+          </fields>
+        </footer>
+
+        <fields>
+          <car_id_pk type="int" visible="false" noTable="true" noForm="true" />
+
+          <car_synonym type="input" visible="false" noTable="true" noForm="true" />
+
+          <dpt_apt_id_fk type="int" visible="false" noTable="true" noForm="true" />
+
+          <dpt_image type="file" align="center">
+              <style scope="field">width:30px</style>
+          </dpt_image>
+
+          <car_name type="input" languageField="true" noTable="true" noForm="true"
+            ordered="true">
+          </car_name>
+
+          <apt_name type="input" languageField="true" noTable="true" noForm="true"
+            ordered="true">
+            <style scope="field">max-width:100px;</style>
+          </apt_name>
+
+          <dpt_num_detail type="input" visible="false">
+          </dpt_num_detail>
+
+          <dpt_name type="input" languageField="true">
+              <expression><![CDATA[
+                <b>{{dpt_num_detail}}</b> &mdash; {{value}}
+              ]]></expression>
+          </dpt_name>
+
+          <dpt_status type="list" list="static" languageValue="true"
+            ordered="true" align="center">
+            <style scope="field">width:30px;</style>
+          </dpt_status>
+
+          <das_name_ru type="input" align="center">
+            <style scope="field">width:30px;</style>
+          </das_name_ru>
+
+          <dac_name_ru type="input" align="center">
+            <style scope="field">width:30px;</style>
+          </dac_name_ru>
+
+          <odd_cost type="float" align="center" ordered="true"
+            format="null;number_format;value;2;,; " expifnull="false">
+            <style scope="field">width:30px;</style>
+            <field>odd_cost * ord_rate</field>
+              <expression><![CDATA[
+                {{value}}<span style="color:gray"> {{rat_synonym}}</span>
+              ]]></expression>
+          </odd_cost>
+
+          <odd_count type="int" align="center"
+            format="null;number_format;value;0;,; " ordered="true">
+              <style scope="field">width:30px;</style>
+          </odd_count>
+
+          <rat_synonym type="input" visible="false"
+            field="upper(rat_synonym)" noTable="true" noForm="true">
+          </rat_synonym>
+
+          <odd_sum type="float" align="center" ordered="true"
+            format="null;number_format;value;2;,; " expifnull="false">
+              <style scope="field">width:30px;</style>
+              <field>odd_count*odd_cost * ord_rate</field>
+              <expression><![CDATA[
+                {{value}}<span style="color:gray"> {{rat_synonym}}</span>
+              ]]></expression>
+          </odd_sum>
+
+        </fields>
+      </orders_details_tbl>
+    </datasources>
+  </details> <!-- }}} -->
+
+  <orders_not_complete useLanguages="false"> <!-- {{{ -->
+    <reference page="index" />
+
+    <datasources>
+      <orders_tbl>
+        <where>ord_status = 'not_complete' and coalesce(ord_sum, 0) > 0 and (ord_usr_id_fk is not null or ord_user_email is not null)</where>
+      </orders_tbl>
+    </datasources>
+  </orders_not_complete> <!-- }}} -->
+
+  <orders_pay_adverts useLanguages="false"> <!-- {{{ -->
+        <reference page="index" />
+
+        <datasources>
+            <orders_tbl>
+                <where>ord_advert_in_order = 't' and coalesce(ord_sum, 0) > 0 and (ord_usr_id_fk is not null or ord_user_email is not null)</where>
+            </orders_tbl>
+        </datasources>
+    </orders_pay_adverts> <!-- }}} -->
+
+  <settings style="width: 90%"> <!-- {{{ -->
+    <configs>
+      <orders>
+        <general>
+          <administrator_email type="input">
+          </administrator_email>
+        </general>
+
+        <platon>
+          <url type="input" />
+
+          <id type="input" />
+
+          <password type="input" />
+        </platon>
+
+        <!-- <liqpay> -->
+        <!--   <id type="input" /> -->
+        <!--  -->
+        <!--   <password type="input" /> -->
+        <!-- </liqpay> -->
+        <!--  -->
+        <private24>
+          <id type="input" />
+
+          <password type="password" />
+        </private24>
+
+        <!-- <portmone> -->
+          <!--   <payee_id type="input" /> -->
+          <!--  -->
+          <!--   <login type="input" /> -->
+          <!--   <password type="password" /> -->
+          <!-- </portmone> -->
+
+        <paypal>
+          <username type="input" />
+
+          <password type="input" />
+        </paypal>
+
+        <mails>
+          <quick_order_created>
+            <subject type="input" language="true" languageField="true" />
+
+            <body type="textarea" rich="true" rows="30" language="true"
+              richNoStyleFile="true" languageField="true">
+              <labelStyle>min-height:30px;</labelStyle>
+              <inputStyle>clear: none;width:100%;</inputStyle>
+            </body>
+          </quick_order_created>
+
+          <order_created>
+            <subject type="input" language="true" languageField="true" />
+
+            <body type="textarea" rich="true" rows="30" language="true"
+              richNoStyleFile="true" languageField="true">
+              <labelStyle>min-height:30px;</labelStyle>
+              <inputStyle>clear: none;width:100%;</inputStyle>
+            </body>
+          </order_created>
+
+          <order_change_status>
+            <subject type="input" language="true" languageField="true" />
+
+            <body type="textarea" rich="true" rows="30" language="true"
+              richNoStyleFile="true" languageField="true">
+              <labelStyle>min-height:30px;</labelStyle>
+              <inputStyle>clear: none;width:100%;</inputStyle>
+            </body>
+          </order_change_status>
+        </mails>
+      </orders>
+    </configs>
+  </settings> <!-- }}} -->
+
+  <language style="width: 95%;"> <!-- {{{ -->
+    <language>
+      <file type="xml" path="modules/orders/languages/" />
+    </language>
+  </language> <!-- }}} -->
+</orders>

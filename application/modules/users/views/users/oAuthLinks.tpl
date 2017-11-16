@@ -1,0 +1,3 @@
+<li class="auth-popup__social-item"><a class="auth-popup__social-link auth-popup__gmail-icon" href="{{google_auth_url}}">Gmail</a></li><!--
+--><li class="auth-popup__social-item"><a class="auth-popup__social-link auth-popup__facebook-icon" href="{{facebook_auth_url}}">Facebook</a></li><!--
+--><li class="auth-popup__social-item"><a class="auth-popup__social-link auth-popup__twitter-icon" href="{{twitter_auth_url}}">Twitter</a></li>

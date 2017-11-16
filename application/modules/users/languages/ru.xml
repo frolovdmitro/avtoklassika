@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+  <enter>вход</enter>
+  <add_feedback>оставить отзыв</add_feedback>
+  <subscription>Подписка</subscription>
+  <subscribe_success>Вы подписаны на новсти нашего сайта, email:</subscribe_success>
+  <unsubscribe>отписаться</unsubscribe>
+  <remember_me>запомнить меня</remember_me>
+  <lost_password>забыли пароль?</lost_password>
+  <repair_password>восстановить пароль</repair_password>
+  <enter_with>Вход при помощи</enter_with>
+  <register>Регистрация</register>
+  <quick_register>быстрая регистрация</quick_register>
+  <input_your_email>Укажите своий Email</input_your_email>
+  <cabinet>Кабинет</cabinet>
+  <logined>войти?</logined>
+  <repair_text>Укажите Ваш email, и мы вышлим вам инструкцию по восстановлению пароля.</repair_text>
+  <back_cab>Вернуться</back_cab>
+  <goCabinet>Чтобы вернуться в кабинет нажмите кнопку "Вернуться" ниже:</goCabinet>
+
+  <!-- Adverts -->
+  <adverts>ОБЪЯВЛЕНИЯ</adverts>
+  <add_advert>Подать объявление</add_advert>
+  <our_adverts>Обьявления по продаже  ретроавтомобилей и запчастей</our_adverts>
+  <contract_price>договорная</contract_price>
+  <buy>КУПЛЮ</buy>
+  <sell>ПРОДАМ</sell>
+  <cars>Автомобили</cars>
+  <autoparts>Запчасти</autoparts>
+  <other_adverts>Другие объявления</other_adverts>
+  <i_buy>куплю</i_buy>
+  <i_sell>продам</i_sell>
+  <autopart>Запчасть</autopart>
+  <car>Автомобиль</car>
+  <city_country>Город и Страна</city_country>
+  <phone>Телефон</phone>
+  <select_type>Выберите тип</select_type>
+  <select_category>Выберите раздел</select_category>
+  <select_currency>Выберите валюту</select_currency>
+  <input_price>Укажие цену или оставьте поле пустым</input_price>
+  <caption>Заглавие</caption>
+  <advert_text>Текст обьявления</advert_text>
+  <upload_photo>Загрузить фото</upload_photo>
+  <cansel>Отменить</cansel>
+  <save>Сохранить</save>
+  <name>Контактное лицо</name>
+
+  <validate>
+    <auth>
+      <email>
+        <empty>Вы не указали Email</empty>
+        <parseEmail>Вы указали неверный Email</parseEmail>
+        <not_found>Неверный Email или пароль</not_found>
+      </email>
+    </auth>
+
+    <repair>
+      <email>
+        <not_found>Этот пользователь не зарегистрирован</not_found>
+      </email>
+
+      <success><![CDATA[В течении нескольких минут вам прийдет новый пароль.<br>
+          <a href="#enter" class="auth-popup__lost-password-link">
+            Войти с новым паролем</a>
+      ]]></success>
+    </repair>
+
+    <register>
+      <name>
+        <empty>Вы не указали Ваше имя</empty>
+      </name>
+
+      <email>
+        <empty>Вы не указали ваш E-mail</empty>
+        <parseEmail>Вы указали неверный E-mail</parseEmail>
+        <exists>Данный email уже зарегистрирован</exists>
+      </email>
+
+      <password>
+        <empty>Вы не указали пароль</empty>
+      </password>
+
+      <password_retype>
+        <retype>Указанные пароли не совпадают</retype>
+      </password_retype>
+    </register>
+
+    <subscribe>
+      <email>
+        <empty>Вы не указали ваш E-mail</empty>
+        <parseEmail>Вы указали неверный E-mail</parseEmail>
+      </email>
+
+      <name>
+        <empty>Вы не указали Ваше имя</empty>
+      </name>
+    </subscribe>
+
+    <add_review>
+      <name>
+        <empty>Вы не указали Ваше имя</empty>
+      </name>
+
+      <email>
+        <empty>Вы не указали ваш E-mail</empty>
+        <parseEmail>Вы указали неверный E-mail</parseEmail>
+      </email>
+
+      <text>
+        <empty>Вы не указали отзыв</empty>
+      </text>
+    </add_review>
+
+    <info>
+      <name>
+        <empty>Имя не может быть пустым</empty>
+      </name>
+
+      <tel>
+        <empty>Телефон должен быть указан</empty>
+      </tel>
+
+      <email>
+        <empty>Вы не указали ваш E-mail</empty>
+        <parseEmail>Вы указали неверный E-mail</parseEmail>
+      </email>
+    </info>
+
+    <full>
+      <name>
+        <empty>Имя не может быть пустым</empty>
+      </name>
+
+      <email>
+        <empty>Вы не указали ваш E-mail</empty>
+        <parseEmail>Вы указали неверный E-mail</parseEmail>
+      </email>
+
+      <phone>
+        <empty>Телефон должен быть указан</empty>
+      </phone>
+
+      <street>
+        <empty>Улица не указана</empty>
+      </street>
+
+      <build>
+        <empty>Не указано</empty>
+      </build>
+
+      <flat>
+        <empty>Не указана</empty>
+      </flat>
+
+      <city>
+        <empty>Город не указан</empty>
+      </city>
+
+      <index>
+        <empty>Индекс не указан</empty>
+      </index>
+
+      <country>
+        <empty>Страна не указана</empty>
+      </country>
+    </full>
+  </validate>
+
+  <mails>
+    <mail_administration>
+      <subject/>
+      <body/>
+    </mail_administration>
+  </mails>
+  <subscribe>подписаться</subscribe>
+  <review_text>Отзыв</review_text>
+  <send_review>Отправить отзыв</send_review>
+  <quality_service>Качество обслуживания</quality_service>
+  <usability_site>Удобство сайта</usability_site>
+  <quality_goods>Качество товара</quality_goods>
+  <shipping>Доставка</shipping>
+
+  <excellent>Отлично</excellent>
+  <well>Хорошо</well>
+  <normal>Нормально</normal>
+  <bad>Плохо</bad>
+  <awful>Ужасно</awful>
+  <my_cabinet>Личный кабинет</my_cabinet>
+  <my_discount>Ваша скидка</my_discount>
+  <cabinet_info>Личные данные</cabinet_info>
+  <cabinet_history>История покупок</cabinet_history>
+  <cabinet_addresses>Адреса доставки</cabinet_addresses>
+  <cabinet_waited_orders>Ожидаемые к оплате</cabinet_waited_orders>
+  <exit_from_cabinet>Выход с аккаунта</exit_from_cabinet>
+  <edit>редактировать</edit>
+  <not_specified>не указано</not_specified>
+  <save_changes>Сохранить изменения</save_changes>
+  <save_changes2>Подтвердить адрес</save_changes2>
+
+  <country>Страна</country>
+  <city>Город</city>
+  <index>Индекс</index>
+  <build>Дом</build>
+  <street>Улица</street>
+
+  <statuses>
+    <not_complete>Не завершон</not_complete>
+    <proccess>В работе</proccess>
+    <wait_payment>Ожидание оплаты</wait_payment>
+    <paid>Оплачено</paid>
+    <verify_payment>Проверка оплаты</verify_payment>
+    <cancel>Отменен</cancel>
+    <success>Выполнен</success>
+  </statuses>
+
+  <date>Дата</date>
+  <method_delivery>Метод доставки</method_delivery>
+  <method_payment>Метод оплаты</method_payment>
+  <sum>Сумма</sum>
+  <status>Статус</status>
+  <continue>Оплатить заказ</continue>
+  <ended_order>Завершить заказ</ended_order>
+  <order_info>Детали заказа</order_info>
+  <flat_abb>кв.</flat_abb>
+  <address_delivery>Адрес доставки</address_delivery>
+
+  <editForm>
+    <adverts>ОБЪЯВЛЕНИЯ</adverts>
+    <add_advert>Подать объявление</add_advert>
+    <our_adverts>Обьявления по продаже  ретроавтомобилей и запчастей</our_adverts>
+    <contract_price>договорная</contract_price>
+    <buy>КУПЛЮ</buy>
+    <sell>ПРОДАМ</sell>
+    <cars>автомобили</cars>
+    <autoparts>запчасти</autoparts>
+    <other_adverts>Другие объявления</other_adverts>
+    <i_buy>куплю</i_buy>
+    <i_sell>продам</i_sell>
+    <autopart>запчасть</autopart>
+    <car>Автомобиль</car>
+    <city_country>Город и Страна</city_country>
+    <select_type>Выберите тип</select_type>
+    <select_category>Выберите раздел</select_category>
+    <select_currency>Выберите валюту</select_currency>
+    <input_price>Укажие цену или оставьте поле пустым</input_price>
+    <caption>Заглавие</caption>
+    <url_link>Ссылка на видео</url_link>
+    <advert_text>Текст обьявления</advert_text>
+    <upload_photo>Загрузить фото</upload_photo>
+    <validate>
+      <add>
+        <name>
+          <empty>Вы не указали Ваше имя</empty>
+        </name>
+
+        <city>
+          <empty>Вы не указали город и страну</empty>
+        </city>
+
+        <email>
+          <empty>Вы не указали ваш E-mail</empty>
+          <parseEmail>Вы указали неверный E-mail</parseEmail>
+        </email>
+
+        <phone>
+          <empty>Вы не указали ваш телефон</empty>
+        </phone>
+
+        <type>
+          <empty>Уажите тип объявления</empty>
+        </type>
+
+        <category>
+          <empty>Уажите раздел объявления</empty>
+        </category>
+
+        <caption>
+          <empty>Вы не указали заглавие объявления</empty>
+        </caption>
+
+        <text>
+          <empty>Вы не указали тект объявления</empty>
+        </text>
+
+        <files>
+          <maxfilesize>Максимальный размер загружаемых файлов 2Мб</maxfilesize>
+          <maxfiles>Максимально можно загрузить 10 файлов</maxfiles>
+        </files>
+      </add>
+    </validate>
+  </editForm>
+</users>

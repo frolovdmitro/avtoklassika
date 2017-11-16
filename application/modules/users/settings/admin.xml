@@ -1,0 +1,910 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users type="MODULE" icon="" order="85">
+  <fastActions>
+    <not_registered />
+    <blocked />
+    <subscribed />
+    <users_reviews />
+    <settings />
+  </fastActions>
+
+  <tabs>
+    <not_registered visible="true" />
+    <blocked visible="true" />
+    <subscribed visible="true" />
+    <settings visible="true" />
+    <language visible="true" />
+  </tabs>
+
+  <index useLanguages="false">
+    <crumbs>
+      <users>/users/</users>
+    </crumbs>
+
+    <actions>
+      <add />
+
+      <mailer module="users" model="Users"
+           function="mailer" form="mailer" />
+
+     <!-- <new_users_excel module="users" model="Users"
+       function="newUsersExcel" form="new_users_excel" />
+ -->
+    </actions>
+
+    <datasources>
+      <users_tbl pk="usr_id_pk" title_field="usr_email" paginationRows="true"
+        style="max-width: 780px;">
+          <joins>
+              <lng name="languages_tbl" type="left" pk="usr_lng_id_fk"
+                fk="lng_id_pk" />
+
+              <cnt name="countries_tbl" type="left" pk="usr_cnt_id_fk"
+                fk="cnt_id_pk" />
+
+              <mls name="count_mails_vw" type="left" pk="usr_id_pk"
+                fk="mls_parent_id_fk" where="mls_parent_type='user'"/>
+
+              <uot name="user_orders_total_vw" type="left" pk="usr_id_pk"
+                fk="ord_usr_id_fk" />
+
+              <ldu name="last_date_order_by_user_vw" type="left" pk="usr_id_pk"
+                fk="ord_usr_id_fk" />
+          </joins>
+
+          <!-- <where>
+            last_date_order is not null
+          </where> -->
+
+          <order_by>usr_date_registration desc</order_by>
+
+          <actions>
+            <edit>
+              <callback module="users" model="Users"
+                function="sendDiscountEmail">
+                <params>
+                  <caption>usr_discount</caption>
+                </params>
+              </callback>
+            </edit>
+            <delete newline="true" />
+          </actions>
+
+          <footer>
+            <query>sum(sum_orders) as sum_orders,
+              sum(count_success_orders) as count_success_orders,
+              sum(count_not_success_orders) as count_not_success_orders</query>
+
+            <fields>
+              <sum_orders format="null;number_format;value;0;,; "
+                expifnull="false" align="center">
+                    <style scope="field">color: blue</style>
+                    <expression><![CDATA[
+                      {{value}} USD{{count_success_orders}}
+                      {{count_not_success_orders}}
+                    ]]></expression>
+                </sum_orders>
+
+                <count_success_orders visible="false" format="null;number_format;value;0;,; " expifnull="false">
+                    <style scope="field">color: green</style>
+                    <expression><![CDATA[<br>{{value}} зак.]]></expression>
+                </count_success_orders>
+
+                <count_not_success_orders visible="false" format="null;number_format;value;0;,; " expifnull="false">
+                    <style scope="field">color: brown</style>
+                    <expression><![CDATA[<br>{{value}} нез.]]></expression>
+                </count_not_success_orders>
+            </fields>
+          </footer>
+
+          <quick_filter>
+            <usr_name />
+            <usr_email />
+            <usr_skype />
+            <usr_icq />
+            <cnt_name_ru />
+            <usr_street />
+            <usr_build />
+            <usr_city />
+            <usr_index />
+            <usr_phones />
+            <lng_short_name />
+            <usr_auth_type />
+          </quick_filter>
+
+        <fields>
+          <usr_enabled type="bool" tabindex="0"
+              default="true" visible="false">
+            <style scope="field">width:30px</style>
+            <inputStyle>width: 25.3%;</inputStyle>
+          </usr_enabled>
+
+          <usr_auth_type type="input" ordered="true" noTable="true"
+              noForm="true" visible="false" expifnull="false">
+            <style scope="field">width:40px;font-weight:bold;color:green;</style>
+            <expression><![CDATA[{{value}}<br>]]></expression>
+          </usr_auth_type>
+
+          <lng_short_name type="input" ordered="true" noTable="true"
+              noForm="true">
+            <style scope="field">width:40px</style>
+          </lng_short_name>
+
+          <usr_name type="input" required="true" ordered="true">
+            <labelStyle>width: 20%;margin:0 0 0 2%;</labelStyle>
+            <inputStyle>width: 53%;</inputStyle>
+            <preprocessing>
+                <trim />
+            </preprocessing>
+            <validate>
+                <empty />
+            </validate>
+            <expression>{{usr_auth_type}}
+              {{value}}{{usr_email}}{{usr_phones}}{{usr_skype}}{{usr_icq}}
+            </expression>
+          </usr_name>
+
+          <usr_sex type="list" ordered="true" list="static" visible="false"
+            align="center" visinle="false" languageValue="true">
+            <labelStyle>width: 6%;margin:0 0 0 4%;clear:none;</labelStyle>
+            <inputStyle>width: 15%;</inputStyle>
+          </usr_sex>
+
+          <usr_phones type="input" visible="false" expifnull="false">
+            <labelStyle>width: 20%;margin:0 0 0 2%;</labelStyle>
+            <inputStyle>width: 78%;</inputStyle>
+            <expression><![CDATA[<br><b>Тел.</b> {{value}}]]></expression>
+          </usr_phones>
+
+          <usr_skype type="input" visible="false" expifnull="false">
+            <labelStyle>width: 20%;margin:0 0 0 2%;</labelStyle>
+            <inputStyle>width: 35%;</inputStyle>
+            <expression><![CDATA[<br><b>Skype:</b> {{value}}]]></expression>
+          </usr_skype>
+
+          <usr_icq type="input" visible="false" expifnull="false">
+            <labelStyle>width: 11%;margin:0 0 0 3%;clear:none;</labelStyle>
+            <inputStyle>width: 29%;</inputStyle>
+            <expression><![CDATA[<br><b>ICQ:</b> {{value}}]]></expression>
+          </usr_icq>
+
+          <usr_email type="input" ordered="true" required="true" focused="true"
+              visible="false">
+              <expression><![CDATA[<br><a class="direct-link" href="mailto:{{value}}">{{value}}</a>{{count_mails}}]]></expression>
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+              <email />
+            </validate>
+            <labelStyle>width: 20%;margin:0 0 0 2%;</labelStyle>
+            <inputStyle>width: 35%;</inputStyle>
+          </usr_email>
+
+          <usr_password type="password" visible="false"
+              required="true">
+            <labelStyle>width: 11%;margin:0 0 0 3%;clear:none;</labelStyle>
+            <inputStyle>width: 29%;</inputStyle>
+            <preprocessing>
+                <trim />
+            </preprocessing>
+            <validate>
+                <empty />
+            </validate>
+          </usr_password>
+
+          <usr_cnt_id_fk type="list" visible="false" required="true">
+            <list table="countries_tbl" pk="cnt_id_pk"
+                  name="cnt_name_ru" order="cnt_name_ru">
+              <where>cnt_enabled = true</where>
+            </list>
+            <labelStyle>width: 20%;margin:0 0 0 2%;</labelStyle>
+            <inputStyle>width: 21%;</inputStyle>
+          </usr_cnt_id_fk>
+
+          <cnt_name_ru type="input" ordered="true" noTable="true"
+              noForm="true">
+              <expression><![CDATA[
+                {{usr_street}} {{usr_build}} {{usr_flat}} {{usr_city}}
+                {{usr_index}} <b>{{value}}</b>]]>
+              </expression>
+          </cnt_name_ru>
+
+          <usr_city type="input" visible="false">
+            <labelStyle>width: 8%;margin:0 0 0 3%;clear:none;</labelStyle>
+            <inputStyle>width: 23%;</inputStyle>
+            <expression><![CDATA[г. {{value}}, ]]></expression>
+          </usr_city>
+
+          <usr_index type="input" visible="false">
+            <labelStyle>width: 8%;margin:0 0 0 3%;clear:none;</labelStyle>
+            <inputStyle>width: 12%;</inputStyle>
+            <expression><![CDATA[{{value}}, ]]></expression>
+          </usr_index>
+
+          <usr_street type="input" visible="false" expifnull="false">
+            <labelStyle>width: 20%;margin:0 0 0 2%;</labelStyle>
+            <inputStyle>width: 47%;</inputStyle>
+            <expression><![CDATA[{{value}}, ]]></expression>
+          </usr_street>
+
+          <usr_build type="input" visible="false">
+            <labelStyle>width: 5%;margin:0 0 0 3%;clear:none;</labelStyle>
+            <inputStyle>width: 8%;</inputStyle>
+            <expression><![CDATA[д.{{value}}, ]]></expression>
+          </usr_build>
+
+          <usr_flat type="input" visible="false">
+            <labelStyle>width: 4%;margin:0 0 0 3%;clear:none;</labelStyle>
+            <inputStyle>width: 8%;</inputStyle>
+            <expression><![CDATA[кв.{{value}}, ]]></expression>
+          </usr_flat>
+
+          <usr_discount type="int" ordered="true" align="center">
+            <preprocessing>
+              <trim/>
+            </preprocessing>
+            <validate>
+              <parseInt/>
+            </validate>
+            <style scope="field">width:40px</style>
+            <labelStyle>width: 20%;margin:0 0 0 2%;</labelStyle>
+            <inputStyle>width: 78%;</inputStyle>
+            <expression><![CDATA[{{value}}<span style="color:gray;">%</span>]]></expression>
+          </usr_discount>
+
+          <count_mails type="int" format="null;number_format;value;0;,; "
+              visible="false" noForm="true" noTable="true" expifnull="false">
+            <expression><![CDATA[<br>(писем: {{value}})]]></expression>
+            <link page="mails" />
+          </count_mails>
+
+          <usr_birthday type="date" visible="false">
+            <format><![CDATA[null;date;d.m.Y;value]]></format>
+            <default_format>d.m.Y</default_format>
+            <labelStyle>width: 20%;margin:0 0 0 2%;</labelStyle>
+            <inputStyle>width: 78%;</inputStyle>
+            <preprocessing>
+              <trim/>
+            </preprocessing>
+            <validate>
+              <parseDate/>
+            </validate>
+          </usr_birthday>
+
+          <usr_lng_id_fk type="list" visible="false" required="true">
+            <list table="languages_tbl" pk="lng_id_pk"
+                  name="lng_name" order="lng_order">
+              <where>lng_enabled = true</where>
+            </list>
+            <labelStyle>width: 20%;margin:0 0 0 2%;</labelStyle>
+            <inputStyle>width: 78%;</inputStyle>
+          </usr_lng_id_fk>
+
+          <usr_date_registration type="datetime" align="center" ordered="true"
+              readonly="true">
+              <format><![CDATA[null;date;d.m.Y H:i;value]]></format>
+            <default>now</default>
+            <default_format>d.m.Y H:i</default_format>
+            <style scope="field">color:green;width: 50px;</style>
+            <labelStyle>width: 20%;margin:0 0 0 2%;</labelStyle>
+            <inputStyle>width: 78%;</inputStyle>
+          </usr_date_registration>
+
+          <usr_date_last_visit visible="false"
+              type="datetime" align="center" ordered="true"
+              readonly="true" noTable="true" noForm="true">
+            <format><![CDATA[null;date;d.m.Y H:i;value]]></format>
+            <default>now</default>
+            <default_format>d.m.Y H:i</default_format>
+            <style scope="field">color:green;width: 50px;</style>
+            <labelStyle>width: 20%;margin:0 0 0 2%;</labelStyle>
+            <inputStyle>width: 78%;</inputStyle>
+          </usr_date_last_visit>
+
+          <last_order field="last_date_order" type="datetime" align="center" ordered="true"
+              noTable="true" noForm="true">
+            <format><![CDATA[null;date;d.m.Y H:i;value]]></format>
+            <style scope="field">color:brown;width: 50px;</style>
+          </last_order>
+
+          <sum_orders field="coalesce(null, sum_orders)" type="int" align="center"
+                  format="null;number_format;value;0;,; " expifnull="false"
+                  noTable="true" noForm="true" ordered="true">
+              <style scope="field">color: green</style>
+              <expression><![CDATA[
+                {{value}}<span style="color:gray"> USD</span>{{count_success_orders}}
+                {{count_not_success_orders}}]]>
+              </expression>
+              <link page="orders" />
+          </sum_orders>
+
+          <count_success_orders field="coalesce(count_success_orders, 0)"
+                  type="int" visible="false"
+                  format="null;number_format;value;0;,; " expifnull="false"
+                  noTable="true" noForm="true">
+              <style scope="field">color: green</style>
+              <expression><![CDATA[
+                <br>{{value}}<span style="color:gray"> зак.</span>]]>
+              </expression>
+          </count_success_orders>
+
+          <count_not_success_orders field="coalesce(count_not_success_orders, 0)"
+                  type="int" visible="false"
+                  format="null;number_format;value;0;,; " expifnull="false"
+                  noTable="true" noForm="true">
+              <style scope="field">color: brown</style>
+              <expression><![CDATA[
+                <br>{{value}}<span style="color:gray"> нез.</span>]]>
+              </expression>
+          </count_not_success_orders>
+        </fields>
+      </users_tbl>
+    </datasources>
+  </index>
+
+  <not_registered useLanguages="false">
+    <crumbs>
+      <users>/users/</users>
+    </crumbs>
+
+    <actions>
+      <mailer module="users" model="Users"
+           function="mailer" form="mailer" />
+    </actions>
+
+    <datasources>
+      <not_registered_users_vw pk="ord_user_email" title_field="ord_user_email"
+        paginationRows="true">
+          <order_by>last_date_order desc</order_by>
+
+          <footer>
+            <query>sum(sum_orders) as sum_orders,
+              sum(count_success_orders) as count_success_orders,
+              sum(count_not_success_orders) as count_not_success_orders</query>
+
+            <fields>
+              <sum_orders format="null;number_format;value;0;,; "
+                expifnull="false" align="center">
+                    <style scope="field">color: blue</style>
+                    <expression><![CDATA[
+                      {{value}} USD{{count_success_orders}}
+                      {{count_not_success_orders}}
+                    ]]></expression>
+                </sum_orders>
+
+                <count_success_orders visible="false" format="null;number_format;value;0;,; " expifnull="false">
+                    <style scope="field">color: green</style>
+                    <expression><![CDATA[<br>{{value}} зак.]]></expression>
+                </count_success_orders>
+
+                <count_not_success_orders visible="false" format="null;number_format;value;0;,; " expifnull="false">
+                    <style scope="field">color: brown</style>
+                    <expression><![CDATA[<br>{{value}} нез.]]></expression>
+                </count_not_success_orders>
+            </fields>
+          </footer>
+
+          <quick_filter>
+            <ord_user_name />
+            <ord_user_email />
+            <cnt_name_ru />
+            <ord_user_street />
+            <ord_user_build />
+            <ord_user_city />
+            <ord_user_index />
+            <ord_user_phones />
+            <lng_short_name />
+          </quick_filter>
+
+        <fields>
+          <lng_short_name type="input" ordered="true">
+            <style scope="field">width:40px</style>
+          </lng_short_name>
+
+          <ord_user_name type="input" ordered="true">
+            <expression>
+              {{value}}{{ord_user_email}}{{ord_user_phones}}
+            </expression>
+          </ord_user_name>
+
+          <ord_user_phones type="input" visible="false" expifnull="false">
+            <expression><![CDATA[<br><b>Тел.</b> {{value}}]]></expression>
+          </ord_user_phones>
+
+          <ord_user_email type="input" ordered="true" visible="false">
+              <expression><![CDATA[<br><a class="direct-link" href="mailto:{{value}}">{{value}}</a>]]></expression>
+          </ord_user_email>
+
+          <cnt_name_ru type="input" ordered="true">
+              <expression><![CDATA[
+                {{ord_user_street}} {{ord_user_build}} {{ord_user_flat}}
+                {{ord_user_city}} {{ord_user_index}} <b>{{value}}</b>]]>
+              </expression>
+          </cnt_name_ru>
+
+          <ord_user_city type="input" visible="false">
+            <expression><![CDATA[г. {{value}}, ]]></expression>
+          </ord_user_city>
+
+          <ord_user_index type="input" visible="false">
+            <expression><![CDATA[{{value}}, ]]></expression>
+          </ord_user_index>
+
+          <ord_user_street type="input" visible="false" expifnull="false">
+            <expression><![CDATA[{{value}}, ]]></expression>
+          </ord_user_street>
+
+          <ord_user_build type="input" visible="false">
+            <expression><![CDATA[д.{{value}}, ]]></expression>
+          </ord_user_build>
+
+          <ord_user_flat type="input" visible="false">
+            <expression><![CDATA[кв.{{value}}, ]]></expression>
+          </ord_user_flat>
+
+          <last_date_order type="datetime" align="center" ordered="true">
+            <format><![CDATA[null;date;d.m.Y H:i;value]]></format>
+            <style scope="field">color:brown;width: 50px;</style>
+          </last_date_order>
+
+          <sum_orders field="coalesce(null, sum_orders)" type="int" align="center"
+                  format="null;number_format;value;0;,; " expifnull="false"
+                  noTable="true" noForm="true" ordered="true">
+              <style scope="field">color: green</style>
+              <expression><![CDATA[
+                {{value}}<span style="color:gray"> USD</span>{{count_success_orders}}
+                {{count_not_success_orders}}]]>
+              </expression>
+              <link page="orders_not_registers" />
+          </sum_orders>
+
+          <count_success_orders field="coalesce(count_success_orders, 0)"
+                  type="int" visible="false"
+                  format="null;number_format;value;0;,; " expifnull="false"
+                  noTable="true" noForm="true">
+              <style scope="field">color: green</style>
+              <expression><![CDATA[
+                <br>{{value}}<span style="color:gray"> зак.</span>]]>
+              </expression>
+          </count_success_orders>
+
+          <count_not_success_orders field="coalesce(count_not_success_orders, 0)"
+                  type="int" visible="false"
+                  format="null;number_format;value;0;,; " expifnull="false"
+                  noTable="true" noForm="true">
+              <style scope="field">color: brown</style>
+              <expression><![CDATA[
+                <br>{{value}}<span style="color:gray"> нез.</span>]]>
+              </expression>
+          </count_not_success_orders>
+        </fields>
+      </not_registered_users_vw>
+    </datasources>
+  </not_registered>
+
+  <orders_not_registers useLanguages="false">
+    <reference module="orders" page="index" />
+    <crumbs>
+      <orders />
+      <users>/users/not_registered/</users>
+
+      <user_orders type="data" table="users_tbl"
+            pk="usr_id_pk" title_field="usr_name">
+        <url>/</url>
+        <params>
+            <usr_email>id</usr_email>
+        </params>
+      </user_orders>
+    </crumbs>
+
+    <datasources>
+      <orders_tbl>
+        <params>
+          <ord_user_email type="get">id</ord_user_email>
+        </params>
+
+        <where>ord_usr_id_fk is null</where>
+      </orders_tbl>
+    </datasources>
+  </orders_not_registers>
+
+  <orders useLanguages="false">
+    <reference module="orders" page="index" />
+    <crumbs>
+      <orders />
+      <users>/users/</users>
+
+      <user_orders type="data" table="users_tbl"
+            pk="usr_id_pk" title_field="usr_name">
+        <url>/</url>
+        <params>
+            <usr_id_pk>id</usr_id_pk>
+        </params>
+      </user_orders>
+    </crumbs>
+
+    <datasources>
+      <orders_tbl>
+        <params>
+          <ord_usr_id_fk type="get">id</ord_usr_id_fk>
+        </params>
+      </orders_tbl>
+    </datasources>
+  </orders>
+
+  <blocked useLanguages="false">
+    <reference page="index" />
+
+    <crumbs>
+        <users />
+        <blocked>/unsubscribed/</blocked>
+    </crumbs>
+
+    <datasources>
+      <users_tbl>
+        <where>usr_enabled=false</where>
+
+        <fields>
+          <usr_enabled type="bool" tabindex="0"
+              default="false" visible="false">
+            <style scope="field">width:30px</style>
+            <inputStyle>width: 25.3%;</inputStyle>
+          </usr_enabled>
+        </fields>
+      </users_tbl>
+    </datasources>
+  </blocked>
+
+  <subscribed useLanguages="false">
+    <crumbs>
+      <users>/users/</users>
+    </crumbs>
+
+    <actions>
+      <add />
+    </actions>
+
+    <datasources>
+      <users_simple_subscribes_tbl pk="uss_id_pk" title_field="uss_name"
+        paginationRows="true" style="max-width: 780px;">
+          <joins>
+              <lng name="languages_tbl" type="left" pk="uss_lng_id_fk"
+                fk="lng_id_pk" />
+          </joins>
+
+          <order_by>uss_date desc</order_by>
+
+          <actions>
+            <edit />
+            <delete newline="true" />
+          </actions>
+
+          <quick_filter>
+            <uss_name />
+            <uss_email />
+            <lng_short_name />
+          </quick_filter>
+
+        <fields>
+          <uss_enabled type="bool" tabindex="0"
+              default="true" visible="false">
+            <style scope="field">width:30px</style>
+            <inputStyle>width: 25.3%;</inputStyle>
+          </uss_enabled>
+
+          <uss_unsubscribe type="bool" tabindex="1"
+              default="false" visible="false">
+            <style scope="field">width:30px</style>
+            <inputStyle>clear: none; width: 25%;</inputStyle>
+          </uss_unsubscribe>
+
+          <lng_short_name type="input" ordered="true" noTable="true"
+              noForm="true">
+            <style scope="field">width:40px</style>
+          </lng_short_name>
+
+          <uss_name type="input" required="true" ordered="true" focused="true">
+            <preprocessing>
+                <trim />
+            </preprocessing>
+            <validate>
+                <empty />
+            </validate>
+          </uss_name>
+
+          <uss_email type="input" ordered="true" required="true">
+            <expression><![CDATA[<a class="direct-link" href="mailto:{{value}}">{{value}}</a>]]></expression>
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+              <email />
+            </validate>
+          </uss_email>
+
+          <uss_lng_id_fk type="list" visible="false" required="true">
+            <list table="languages_tbl" pk="lng_id_pk"
+                  name="lng_name" order="lng_order">
+              <where>lng_enabled = true</where>
+            </list>
+          </uss_lng_id_fk>
+
+          <uss_date type="datetime" align="center" ordered="true"
+              readonly="true">
+              <format><![CDATA[null;date;d.m.Y H:i;value]]></format>
+            <default>now</default>
+            <default_format>d.m.Y H:i</default_format>
+            <style scope="field">color:green;width: 50px;</style>
+          </uss_date>
+        </fields>
+      </users_simple_subscribes_tbl>
+    </datasources>
+  </subscribed>
+
+  <users_reviews useLanguages="false">
+    <crumbs>
+      <users>/users/</users>
+    </crumbs>
+
+    <datasources>
+      <users_reviews_tbl pk="urv_id_pk" title_field="urv_name"
+        paginationRows="true">
+          <order_by>urv_datetime desc</order_by>
+
+          <actions>
+            <edit />
+          </actions>
+
+          <quick_filter>
+            <urv_name />
+            <urv_email />
+          </quick_filter>
+
+        <fields>
+          <urv_datetime type="datetime" align="center" ordered="true"
+              readonly="true" noTable="true" noForm="true">
+              <format><![CDATA[null;date;d.m.Y H:i;value]]></format>
+            <default>now</default>
+            <default_format>d.m.Y H:i</default_format>
+            <style scope="field">color:green;width: 50px;</style>
+          </urv_datetime>
+
+          <urv_name type="input" required="true" ordered="true" focused="true">
+            <preprocessing>
+                <trim />
+            </preprocessing>
+            <validate>
+                <empty />
+            </validate>
+            <expression><![CDATA[
+              {{value}}<br>{{urv_email}}<br>{{urv_text}}
+            ]]></expression>
+          </urv_name>
+
+          <urv_email type="input" ordered="true" required="true" visible="">
+            <expression><![CDATA[<a class="direct-link" href="mailto:{{value}}">{{value}}</a>]]></expression>
+            <preprocessing>
+              <trim />
+            </preprocessing>
+            <validate>
+              <empty />
+              <email />
+            </validate>
+          </urv_email>
+
+          <urv_quality_service type="list" ordered="true" list="static"
+            align="center" languageValue="true">
+            <style scope="field">width: 50px;</style>
+          </urv_quality_service>
+
+          <urv_usability_site type="list" ordered="true" list="static"
+            align="center" languageValue="true">
+            <style scope="field">width: 50px;</style>
+          </urv_usability_site>
+
+          <urv_quality_goods type="list" ordered="true" list="static"
+            align="center" languageValue="true">
+            <style scope="field">width: 50px;</style>
+          </urv_quality_goods>
+
+          <urv_shipping type="list" ordered="true" list="static"
+            align="center" languageValue="true">
+            <style scope="field">width: 50px;</style>
+          </urv_shipping>
+
+          <urv_text type="textarea" visible="false" rows="5">
+          </urv_text>
+        </fields>
+      </users_reviews_tbl>
+    </datasources>
+  </users_reviews>
+
+  <mails>
+    <reference module="mailer" page="mails" />
+
+    <crumbs>
+      <mailer />
+
+      <users>/users/</users>
+
+      <mails_user type="data" url="/users/{{value}}/"
+        table="(select usr_id_pk, coalesce(usr_name, usr_email) as usr_name from users_tbl) cmt"
+        pk="usr_id_pk" title_field="usr_name">
+        <params>
+          <usr_id_pk>id</usr_id_pk>
+        </params>
+      </mails_user>
+    </crumbs>
+
+    <datasources>
+      <mails_tbl >
+        <where>
+          mls_parent_type = 'user'
+        </where>
+
+        <params>
+          <mls_parent_id_fk type="get">id</mls_parent_id_fk>
+        </params>
+      </mails_tbl>
+    </datasources>
+  </mails>
+
+  <settings style="width: 90%">
+    <configs>
+      <users>
+        <auth_api>
+          <google>
+            <client_id type="input" />
+            <email type="input" />
+            <secret type="input" />
+          </google>
+
+          <facebook>
+            <app_id type="input" />
+            <secret type="input" />
+          </facebook>
+
+          <twitter>
+            <key type="input" />
+            <secret type="input" />
+            <token type="input" />
+            <tokensecret type="input" />
+          </twitter>
+
+          <vk>
+            <app_id type="input" />
+            <secret type="input" />
+            <token type="input" />
+          </vk>
+
+          <odnoklassniki>
+            <app_id type="input" />
+            <secret type="input" />
+            <token type="input" />
+          </odnoklassniki>
+        </auth_api>
+
+        <mails>
+<!--           <mail_administration> -->
+<!--             <subject type="input" language="true" languageField="true" /> -->
+<!--  -->
+<!--             <body type="textarea" rich="true" rows="30" language="true" -->
+<!--               richNoStyleFile="true" languageField="true"> -->
+<!--               <labelStyle>min&#45;height:30px;</labelStyle> -->
+<!--               <inputStyle>clear: none;width:100%;</inputStyle> -->
+<!--             </body> -->
+<!--           </mail_administration> -->
+<!--  -->
+          <public_offer>
+            <text type="textarea" rich="true" rows="30" language="true"
+              richNoStyleFile="true" languageField="true">
+              <labelStyle>min-height:30px;</labelStyle>
+              <inputStyle>clear: none;width:100%;</inputStyle>
+            </text>
+          </public_offer>
+
+          <registration>
+            <subject type="input" language="true" languageField="true" />
+
+            <body type="textarea" rich="true" rows="30" language="true"
+              richNoStyleFile="true" languageField="true">
+              <labelStyle>min-height:30px;</labelStyle>
+              <inputStyle>clear: none;width:100%;</inputStyle>
+            </body>
+          </registration>
+
+          <lost_password>
+            <subject type="input" language="true" languageField="true" />
+
+            <body type="textarea" rich="true" rows="30" language="true"
+              richNoStyleFile="true" languageField="true">
+              <labelStyle>min-height:30px;</labelStyle>
+              <inputStyle>clear: none;width:100%;</inputStyle>
+            </body>
+          </lost_password>
+
+          <change_discount>
+            <subject type="input" language="true" languageField="true" />
+
+            <body type="textarea" rich="true" rows="30" language="true"
+              richNoStyleFile="true" languageField="true">
+              <labelStyle>min-height:30px;</labelStyle>
+              <inputStyle>clear: none;width:100%;</inputStyle>
+            </body>
+          </change_discount>
+        </mails>
+      </users>
+    </configs>
+  </settings>
+
+  <forms>
+      <mailer style="width:800px" useLanguages="true">
+          <fields>
+              <subject type="input" required="true" focused="true" defaultIsVariable="true"
+                       languageField="true">
+                  <default type="language"
+                           path="/users/mails/mail_administration">subject</default>
+                  <preprocessing>
+                      <trim />
+                  </preprocessing>
+                  <validate>
+                      <empty />
+                  </validate>
+                  <labelStyle>width: 12%;</labelStyle>
+                  <inputStyle>width: 86%;</inputStyle>
+              </subject>
+
+              <text type="textarea" rows="18" required="true" defaultIsVariable="true"
+                      rich="true" richNoStyleFile="true" languageField="true">
+                  <default type="language"
+                           path="/users/mails/mail_administration">body</default>
+                  <labelStyle>width: 18%;min-height:30px;</labelStyle>
+                  <inputStyle>clear:both;width:100%;</inputStyle>
+                  <preprocessing>
+                      <trim />
+                  </preprocessing>
+                  <validate>
+                      <empty />
+                  </validate>
+              </text>
+          </fields>
+      </mailer>
+
+      <new_users_excel>
+          <fields>
+            <from type="date" visible="false" required="true">
+              <format><![CDATA[null;date;d.m.Y;value]]></format>
+              <default>now</default>
+              <default_format>d.m.Y</default_format>
+              <preprocessing>
+                <trim/>
+              </preprocessing>
+              <validate>
+                <empty />
+                <parseDate/>
+              </validate>
+            </from>
+
+            <to type="date" visible="false">
+              <format><![CDATA[null;date;d.m.Y;value]]></format>
+              <default_format>d.m.Y</default_format>
+              <preprocessing>
+                <trim/>
+              </preprocessing>
+              <validate>
+                <parseDate/>
+              </validate>
+            </to>
+          </fields>
+      </new_users_excel>
+  </forms>
+
+  <language style="width: 95%;">
+      <language>
+          <file type="xml" path="modules/users/languages/" />
+      </language>
+  </language>
+</users>
