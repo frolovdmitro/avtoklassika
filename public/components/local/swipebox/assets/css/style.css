@@ -548,6 +548,9 @@ h1.title:before,h1.title_3:before{
     height: 40px;
     right: -14px;
 }
+.slider h1.title:before{
+    background: url(../images/_icons-7508c84f.png)no-repeat -10px -4316px;
+}
 .slider h1.title{
     top: -33px;
 }
@@ -2029,7 +2032,7 @@ section#advantage .news h1.title{
     -webkit-font-smoothing: antialiased;
     position: absolute;
     min-width: 100px;
-    top: -42px;
+    top: -33px;
     left: 0;
 }
 section#advantage .news h1 a{
